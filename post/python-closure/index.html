@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Python 클로저(Closure)&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Python 클로저(Closure)" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Python 클로저(Closure)</h1><p class="article date">2022-01-04</p></section><article class="article markdown-body"><h1 id="클로저에-대해">클로저에 대해.</h1>
+<ul>
+<li>함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용</li>
+<li>처음에 보면 이해하기가 어려움</li>
+</ul>
+<!-- more -->
+<p>제곱(power)로 예시</br>
+중간에 있는 <code>closure_power1</code> , <code>closure_power2</code> , <code>closure_power3</code> 가 closure 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">calc_power</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
+	<span class="k">return</span> <span class="n">power</span>
+
+
+<span class="n">closure_power1</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">closure_power2</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">closure_power3</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">closure_power1</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">closure_power2</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">closure_power3</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div><p>결과</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="mi">2</span>
+<span class="mi">9</span>
+<span class="mi">64</span>
+</code></pre></div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">outer_func</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner_func</span><span class="p">():</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner_func</span>
+
+
+<span class="n">closure_func</span> <span class="o">=</span> <span class="n">outer_func</span><span class="p">(</span><span class="mi">58</span><span class="p">)</span>
+
+<span class="n">closure_func</span><span class="p">()</span>
+</code></pre></div><p>결과는? <code>58</code> 입니다.</p>
+<ul>
+<li>closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료</li>
+<li>closure_func() 은 결국 inner_func 함수를 호출</li>
+<li>outer_func(58) 호출 종료시 num 값은 없어졌으나, closure_func()에서 inner_func이 호출되면서 이전의 num값(58)을 사용함</li>
+</ul>
+<p>그럼 closure 는 언제 사용하나요?</p>
+<ul>
+<li>제공해야할 기능이 적은경우 , closure 를 사용</li>
+<li>반대로 제공해야할 기능이 많은 경우 , class 를 사용하여 구현</li>
+</ul>
+</article><section class="article labels"><a class="category" href=/categories/python/>Python</a><a class="tag" href=/tags/python/>Python</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/python-list-set-dict/"><span class="iconfont icon-article"></span>Python 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</a></p><p><a class="link" href="/post/git-basic/"><span class="iconfont icon-article"></span>Git 기초적인 사용방법</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Django JsonResponse를 쓰는데 왜 request 가 필요할까&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Django JsonResponse를 쓰는데 왜 request 가 필요할까" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Django JsonResponse를 쓰는데 왜 request 가 필요할까</h1><p class="article date">2022-02-03</p></section><article class="article markdown-body"><p>view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니
+<code>from django.http  import JsonResponse</code>
+JsonResponse 객체를 끌어다와서 쓰기도합니다.</p>
+<p>근데 반환을 해주는 함수의 인자에는 필요하지도 않은 <code>request</code> 인자를 다들 포함시키길래 저도 지금껏 계속 쓰긴했습니다.</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/152293479-1ce8b1d6-7b37-4ce4-a225-d2c3ac1ca417.png"
+        alt="request 인자"/></p>
+<p>그래서 지우고 테스트해보니</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/152294244-64f1378d-5cc6-47e2-a119-9561edd57728.png"
+        alt="image"/></p>
+<p><code>TypeError : get() takes 1 positional argument but 2 were given</code>
+과 함께 500 에러를 주네요.</p>
+<p>그럼 <code>request</code> 가 필요하다는거겠죠.</p>
+<p>알아보기위해 django 최상위 제네릭 뷰 클래스에서 알아보겠습니다.</p>
+<ul>
+<li>Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">View</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Intentionally simple parent class for all views. Only implements
+</span><span class="s2">    dispatch-by-method and simple sanity checking.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+
+    <span class="n">http_method_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;trace&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Constructor. Called in the URLconf; can contain helpful extra
+</span><span class="s2">        keyword arguments, and other things.
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="c1"># Go through keyword arguments, and either save their values to our</span>
+        <span class="c1"># instance, or raise an error.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@classonlymethod</span>
+    <span class="k">def</span> <span class="nf">as_view</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">initkwargs</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">initkwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">http_method_names</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s1">&#39;The method name </span><span class="si">%s</span><span class="s1"> is not accepted as a keyword argument &#39;</span>
+                    <span class="s1">&#39;to </span><span class="si">%s</span><span class="s1">().&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">() received an invalid keyword </span><span class="si">%r</span><span class="s2">. as_view &#34;</span>
+                                <span class="s2">&#34;only accepts arguments that are already &#34;</span>
+                                <span class="s2">&#34;attributes of the class.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
+        <span class="c1"># defer to the error handler. Also defer to the error handler if the</span>
+        <span class="c1"># request method isn&#39;t on the approved list.</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_names</span><span class="p">:</span>
+            <span class="n">handler</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_not_allowed</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_not_allowed</span>
+        <span class="k">return</span> <span class="n">handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div><blockquote>
+<p><code>as_view</code> 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.</p>
+</blockquote>
+<blockquote>
+<p>문제의 <code>dispatch</code> 는 <code>as_view</code> 메소드 내부에서 호출됩니다.
+request 메소드가 정의된 http_method_names 에 해당되면 request 에서 가져오게됩니다.</p>
+</blockquote>
+<p><a href="%28https://docs.djangoproject.com/en/4.0/ref/request-response/%29">공식문서</a>
+ 를 참고해봐도 JsonResponse 는 HttpRequest 의 하위 클래스네요</p>
+<p>이래서 인자에 <code>request</code> 가 포함되어있나봅니다.</p>
+<p>Generic View 를 보다보니 공부가 많이되네요.</p>
+<p>앞으로 Generic View 에 대해 더 깊이 다뤄보고 블로그 글 작성하겠습니다.</p>
+</article><section class="article labels"><a class="category" href=/categories/django/>Django</a><a class="tag" href=/tags/django/>Django</a><a class="tag" href=/tags/jsonresponse/>JsonResponse</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-query-string/"><span class="iconfont icon-article"></span>Django Query String 쿼리스트링</a></p><p><a class="link" href="/post/python-list-comprehension/"><span class="iconfont icon-article"></span>Python 리스트 컴프리헨션(List Comprehension)</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

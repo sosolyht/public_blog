@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Django&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><link rel="alternate" type="application/rss+xml" href="/categories/django/index.xml" title="코딩 잘 몰라요" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Django" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><section class="article header"><h1>Django</h1></section><ul class="note list"><li class="item"><a class="note" href="/post/django-query-string/">
+            <p class="note title">Django Query String 쿼리스트링</p><p class="note date">2022-02-06</p><p class="note content">Query String 기존에 저는 뷰를 작성하고 특정 URL로 접속해 body에 데이터를 담아 JSON 타입으로 인코딩을 해서 통신을 했습니다. 그러나 클라이언트의 기능이 점점 추가될수<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a></p></li><li class="item"><a class="note" href="/post/django-why-need-request/">
+            <p class="note title">Django JsonResponse를 쓰는데 왜 request 가 필요할까</p><p class="note date">2022-02-03</p><p class="note content">view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다. 근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/jsonresponse/">JsonResponse</a></p></li><li class="item"><a class="note" href="/post/django-queryset-filter/">
+            <p class="note title">Django QuerySet filter 제대로 알아보자</p><p class="note date">2022-01-31</p><p class="note content">filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다. 전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다. 계속 filter 에 대해 쓰는 이유는 중<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li><li class="item"><a class="note" href="/post/django-raise/">
+            <p class="note title">Django raise error 메시지를 json데이터로 출력하는 방법</p><p class="note date">2022-01-30</p><p class="note content">정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a></p></li><li class="item"><a class="note" href="/post/django-related-name/">
+            <p class="note title">Django 참조(Foreign Key) 역참조(related_name)</p><p class="note date">2022-01-22</p><p class="note content">참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다. 위와 같은 모델이 있다고 가정할때 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey(&#39;Actor&#39;, on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li><li class="item"><a class="note" href="/post/django-orm-get-filter/">
+            <p class="note title">Django ORM get(), filter() 비교</p><p class="note date">2022-01-20</p><p class="note content">시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서 임포트 해주겠습<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li></ul></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

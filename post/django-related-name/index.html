@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Django 참조(Foreign Key) 역참조(related_name)&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Django 참조(Foreign Key) 역참조(related_name)" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Django 참조(Foreign Key) 역참조(related_name)</h1><p class="article date">2022-01-22</p></section><article class="article markdown-body"><h1 id="참조-foreign-key">참조 (Foreign Key)</h1>
+<blockquote>
+<p>정참조라하기도 하고 <code>Foreign Key</code> 를 가지고있는 테이블을 가져올 수 있습니다.</p>
+</blockquote>
+<p><img  src="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png"
+        alt/></p>
+<p>위와 같은 모델이 있다고 가정할때</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
+    <span class="n">actor</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+
+<span class="k">class</span> <span class="nc">Actor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화배우</span>
+    <span class="n">name</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+</code></pre></div><p>영화(Movie) 라는 모델에서 영화배우(Actor)를 불러들이는 것을 &lsquo;참조&rsquo; 라 합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Movie</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">name</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;이정재&#39;</span>
+</code></pre></div><p>반대로 Actor 객체는 Movie 를 역참조 하고 있으므로 바로 접근이 불가능합니다.</p>
+<p>역참조 관계에 있을때는 아래의 역참조 세션에서 확인해봅시다.</p>
+<h1 id="역참조-related_name">역참조 (related_name)</h1>
+<blockquote>
+<p>정참조하고있는 클래스에서 어떤 명칭으로 거꾸로 호출당할지를 정해주는 이름입니다,</p>
+</blockquote>
+<p>정참조했을때와 같은 모델인데 Movie 클래스의 actor 에 <code>related_name = 'my_related'</code> 가 생겼습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
+    <span class="n">actor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;my_related&#39;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+
+<span class="k">class</span> <span class="nc">Actor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화배우</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+</code></pre></div><p>Actor 객체의 인스턴스와 연결되어있는 Movie 객체를 불러올때 <code>my_related</code> 라는 이름을 부르기 위해서입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">b</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">my_related</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">&lt;</span><span class="n">QuerySet</span><span class="p">[</span><span class="o">&lt;</span><span class="n">Object</span> <span class="n">Movie</span> <span class="n">Object</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Object</span> <span class="n">Movie</span> <span class="n">Object</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div><p>이런식으로 진행됩니다.</p>
+<h2 id="역참조가-꼭-필요할때">역참조가 꼭 필요할때</h2>
+<p>눈치채셨을분들도 계시겠지만</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
+    <span class="n">actor</span>  <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">actor2</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+</code></pre></div><p>한 클래스에서 서로 다른 두 컬럼이 같은 테이블을 참조하는 경우</p>
+<p><code>related_name</code> 으로 구분해서 호출할 수 있게끔 작성해줍니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
+    <span class="n">actor</span>  <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;my_related&#39;</span><span class="p">)</span>
+    <span class="n">actor2</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;your_related&#39;</span><span class="p">)</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+</code></pre></div><p>머리가 나빠서 이해하는데 꽤 오래걸렸습니다 .</p>
+</article><section class="article labels"><a class="category" href=/categories/django/>Django</a><a class="tag" href=/tags/django/>Django</a><a class="tag" href=/tags/orm/>ORM</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/restful-api/"><span class="iconfont icon-article"></span>RESTful API</a></p><p><a class="link" href="/post/django-orm-get-filter/"><span class="iconfont icon-article"></span>Django ORM get(), filter() 비교</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

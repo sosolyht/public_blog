@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Python 기초 문법&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Python 기초 문법" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Python 기초 문법</h1><p class="article date">2021-12-29</p></section><article class="article markdown-body"><h1 id="python-기초-문법">python 기초 문법</h1>
+<h2 id="print">print</h2>
+<p><code>print</code> 는 무언가를 출력할때 사용됩니다.
+예를 들어,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;코알못 블로그&#34;</span><span class="p">)</span>
+</code></pre></div><p>라고 쓰면 <code>코알못 블로그</code> 라고 출력이 됩니다.</p>
+<p>이와 같이 뭔가를 출력할때 사용되고, 결과값을 확인하기 위한 용도로도 사용됩니다.
+ 
+ </p>
+<h2 id="변수-variable">변수 (variable)</h2>
+<p>변수(variable)란 데이터를 저장하기 위해 할당받은 하나의 공간이라 생각하시면됩니다.</p>
+<p>변수는 자신이 원하는 역할을 부여할수있습니다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;앙모띠&#34;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;32&#34;</span>
+<span class="n">my_car</span> <span class="o">=</span> <span class="s2">&#34;Tico&#34;</span>
+<span class="n">live</span> <span class="o">=</span> <span class="s2">&#34;Seoul&#34;</span>
+</code></pre></div><p><code>name</code> 은 이름인 &lsquo;앙모띠&rsquo;, <code>age</code>는 나이인 &lsquo;32&rsquo;, <code>my_car</code> 는 자동차인 &lsquo;Tico&rsquo;, <code>live</code>는 사는 곳인 &lsquo;Seoul&rsquo; </br> 이런식으로 원하는 변수명으로 지정할수있습니다.</p>
+<p>다만, 변수명을 지정할때는 조심하셔야할게있습니다.</br>
+올바른 변수 이름 : <code>name</code>, <code>_name</code>, <code>my_name</code>, <code>myName</code></br>
+잘못된 변수 이름: <code>7name</code>, <code>my name</code></br>
+참고하시면 됩니다.
+ 
+ </p>
+<h2 id="데이터-타입">데이터 타입</h2>
+<h3 id="string-문자열">string (문자열)</h3>
+<p>큰따움표(&quot;&quot;) 혹은 작은따움표('') 안에 있는 글자들은 <code>string</code> 입니다.
+예) &ldquo;안녕하세요&rdquo; , &ldquo;1995&rdquo; , &lsquo;반갑습니다&rsquo; , &lsquo;1128&rsquo;</p>
+<h3 id="integer-정수">integer (정수)</h3>
+<p>정수형(Integer)이란 말 그대로 정수를 뜻하는 자료형을 말합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div><h3 id="float-실수">float (실수)</h3>
+<p>실수형(Floating-point)은 소수점이 포함된 숫자를 말합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.56</span>
+</code></pre></div><h3 id="boolean">boolean</h3>
+<p>boolean은 참(True)과 거짓(False)을 나타내는 자료형입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="kc">True</span>
+
+<span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="kc">False</span>
+
+<span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="kc">True</span>
+
+<span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>
+<span class="kc">False</span>
+</code></pre></div><p>위의 예시와 같이 참(True)과 거짓(False) 를 판별합니다.</p>
+</article><section class="article labels"><a class="category" href=/categories/python/>Python</a><a class="tag" href=/tags/python/>Python</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/css_layout/"><span class="iconfont icon-article"></span>CSS position 속성과 display 속성에 대해</a></p><p><a class="link" href="/post/semantic-web/"><span class="iconfont icon-article"></span>HTML Semantic Web, Semantic Tag 이 뭔가요?</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

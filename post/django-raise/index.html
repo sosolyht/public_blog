@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Django raise error 메시지를 json데이터로 출력하는 방법&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Django raise error 메시지를 json데이터로 출력하는 방법" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Django raise error 메시지를 json데이터로 출력하는 방법</h1><p class="article date">2022-01-30</p></section><article class="article markdown-body"><p>정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 <code>ValidationError</code> 를 출력하게끔 해놓았습니다.
+<img  src="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png"
+        alt="image"/></p>
+<p>근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고 해서 직접 포스트맨으로 테스트를 해보았는데 역시나 <code>ValidationError</code> 를 처리를 못 해주고있었습니다.</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/151670258-c8e7a23f-2724-4ace-9b0b-a115fce62b5d.png"
+        alt="image"/></p>
+<p>터미널에서도 <code>ValidationError</code> 와 내부서버오류인 500코드만 띄워주네요.</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/151670307-75646248-46d2-43fe-9964-6ea98be42527.png"
+        alt="image"/></p>
+<p>처음에는 raise 로 에러를 주면 그게 콘솔에 찍히는 줄 알았습니다.</p>
+<p>바로 구글링을 하여 찾아보고,
+참고 : <a href="https://stackoverflow.com/questions/10307996/python-how-to-print-the-message-inside-validationerror"target="_blank" rel="noopener noreferrer">https://stackoverflow.com/questions/10307996/python-how-to-print-the-message-inside-validationerror</a>
+</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/151670381-022dd7da-0b8b-40d9-86d9-a7d36ee4455c.png"
+        alt="image"/></p>
+<p><code>ValidationError</code> 의 메시지를 출력해주게끔 똑같이 코드를 넣어보니 정상적으로 프론트에서도 콘솔에 찍히는걸 확인할수있었습니다.
+ 
+ 
+포스트맨에서도 정상적으로 json 데이터를 받아오는걸 확인할수있습니다.
+ 
+<img  src="https://user-images.githubusercontent.com/2377807/151670455-36a55b06-2a33-43b4-b218-a38bcc8f1b5f.png"
+        alt="image"/></p>
+<p>이제 터미널에서도 이쁘게 에러코드가 확인됩니다.</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/151670448-93297e41-2966-43e3-8fb3-91020da1e474.png"
+        alt="image"/></p>
+<p>저만 몰랐던 에러처리방법..이렇게 배우고 알아갑니다.</p>
+</article><section class="article labels"><a class="category" href=/categories/django/>Django</a><a class="tag" href=/tags/django/>Django</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-queryset-filter/"><span class="iconfont icon-article"></span>Django QuerySet filter 제대로 알아보자</a></p><p><a class="link" href="/post/restful-api/"><span class="iconfont icon-article"></span>RESTful API</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

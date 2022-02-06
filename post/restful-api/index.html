@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>RESTful API&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="RESTful API" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">RESTful API</h1><p class="article date">2022-01-29</p></section><article class="article markdown-body"><h1 id="rest-하다">REST 하다?</h1>
+<p>우선 REST 에 대해서 알아야 합니다.
+REST 란 웹에 존재하는 자원에 대해 고유한 URI 부여하는 방법입니다.
+현재 가장 널리 알려져 사용되고있는 기술이기도 합니다.</p>
+<p>RESTfulAPI 는 앞서말한 REST의 규칙을 지키며 API 를 개발하는걸 뜻합니다.</p>
+<p>간단한 예시를 들어드리자면,</p>
+<p><img  src="https://user-images.githubusercontent.com/2377807/151666397-8a8421b6-3542-4109-b299-2b259d53b898.png"
+        alt="image"/></p>
+<p>구글이나 네이버를 잠깐 검색해봐도 주소창에는 뭔가의 규칙에 의해 나와있습니다.
+규칙성은 없지만 구글검색엔진의 백엔드 API 네이밍 룰을 따르겠죠?</p>
+<blockquote>
+<ul>
+<li>장점 : RESTful API는 그 자체만으로도 API의 목적이 쉽게 이해가 됩니다.
+</br></li>
+<li>단점 : 위의 구글 예시와같이 표준규약이 없어서 안티패턴으로 작성되는 경우가 흔합니다.</li>
+</ul>
+</blockquote>
+<p> 
+ </p>
+<h1 id="restfulapi">RESTfulAPI</h1>
+<p>위에서 REST 에 대해 배워보았으니 RESTfulAPI 가 뭔지 알아야겠죠
+REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합니다.
+모든 CRUD 기능을 POST로 처리 하는 API 혹은 URI 규칙을 올바르게 지키지 않은 API는 REST API를 사용하였지만 RESTful 하지 못한 시스템이라고 할 수 있습니다.</p>
+<h1 id="rest-api-설계-가이드">REST API 설계 가이드</h1>
+<p>이제 REST 와 RESTfulAPI 가 뭔지 알았으니, REST API 작성 규칙을 알아보고 RESTful 한 API 설계 방법을 알아봅시다.</p>
+<p> </p>
+<h2 id="rest-api-설계-가이드---1">REST API 설계 가이드 - 1</h2>
+<p>REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있습니다.</p>
+<ol>
+<li>URI는 정보의 자원을 표현해야 한다.</li>
+<li>자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>HTTP Method</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>POST를 통해 해당 URI를 요청하면 리소스를 생성합니다.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>GET를 통해 해당 리소스를 조회합니다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>PUT를 통해 해당 리소스를 수정합니다.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>DELETE를 통해 리소스를 삭제합니다.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h2 id="rest-api-설계-가이드---2">REST API 설계 가이드 - 2</h2>
+<ol>
+<li>URI는 동사보다는 명사를, 대문자보다는 소문자를 사용하여야 합니다.</li>
+</ol>
+<pre tabindex="0"><code>Bad Example : https://cidk.xyz/Learning
+Good Example : https://cidk.xyz/learn
+</code></pre><p> 
+2. 마지막에 슬래시 ( / )를 포함하지 않습니다.</p>
+<pre tabindex="0"><code>Bad Example : https://cidk.xyz/post/
+Good Example : https://cidk.xyz/post
+</code></pre><p> 
+3. 언더바( _ ) 대신 하이폰( - )을 사용합니다.</p>
+<pre tabindex="0"><code>Bad Example : https://cidk.xyz/handsome_heetaek
+Good Example : https://cidk.xyz/handsome-heetaek
+</code></pre><p> 
+4. 파일확장자는 URI에 포함하지 않습니다.</p>
+<pre tabindex="0"><code>Bad Example : https://cidk.xyz/heetaek.png
+Good Example : https://cidk.xyz/photo
+</code></pre><p> 
+5. 행위를 포함하지 않습니다.</p>
+<pre tabindex="0"><code>Bad Example : https://cidk.xyz/delete-post/3
+Good Example : https://cidk.xyz/post/3
+</code></pre><p> </p>
+<p>공부많이해야겠다 !</p>
+<blockquote>
+<p>참고: <a href="https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html"target="_blank" rel="noopener noreferrer">https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html</a>
+</p>
+</blockquote>
+</article><section class="article labels"><a class="category" href=/categories/restapi/>RESTApi</a><a class="tag" href=/tags/rest/>REST</a><a class="tag" href=/tags/rest-api/>REST API</a><a class="tag" href=/tags/restful-api/>RESTful API</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-raise/"><span class="iconfont icon-article"></span>Django raise error 메시지를 json데이터로 출력하는 방법</a></p><p><a class="link" href="/post/django-related-name/"><span class="iconfont icon-article"></span>Django 참조(Foreign Key) 역참조(related_name)</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

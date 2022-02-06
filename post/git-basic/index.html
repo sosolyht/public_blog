@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Git 기초적인 사용방법&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Git 기초적인 사용방법" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Git 기초적인 사용방법</h1><p class="article date">2022-01-02</p></section><article class="article markdown-body"><h1 id="git-이-왜-필요한가요">Git 이 왜 필요한가요?</h1>
+<ul>
+<li>예를 들어 자동차를 만든다할때 &lsquo;바퀴&rsquo;, &lsquo;엔진&rsquo; , &lsquo;문짝&rsquo; , &lsquo;시트&rsquo; 등등 세분화하여 어떻게 제작이 되었는지 세세하게 기록을 할 수 있는 프로그램입니다. 치명적인 실수를 했을시에 과거로 되돌아가서 수정을 할 수도 있습니다.
+ </li>
+<li>역할을 나눠 협업을 할 수 있습니다.
+ </li>
+<li>처음에는 난해하지만 이해하려하지말고 개인 레파지토리를 생성후 아무 파일이나 올려보시면서 연습하시는걸 추천드립니다.
+ </li>
+<li>이제는 git 못한다하면 바보소리를 듣습니다.</li>
+</ul>
+<h2 id="git-시작하기">Git 시작하기</h2>
+<p><code>git init</code></p>
+<p>작업중인 폴더에 <code>git init</code> 명령어를 입력하면 <code>.git</code> 이라는 숨겨진폴더가 생성되고, CCTV 가 하나 설치되서 그 폴더에서 무엇을 하는지 지켜본다고 보시면 편합니다.</p>
+<h2 id="git-branch-생성">Git branch 생성</h2>
+<p>branch는 나뭇가지입니다.
+그럼 기둥은 뭔가요?
+처음 생성될때 <code>master</code> 브랜치가 기둥이라 생각하시면됩니다.
+요즘은 <code>master</code> 대신 <code>main</code> 이라고 많이 생성합니다.
+그 이유는 <code>master</code> 가 노예제도의 주인님을 연상케 한다해서 <code>main</code> 을 사용한다하니
+그렇게 사용해주도록 합시다.
+<img  src="https://wac-cdn.atlassian.com/dam/jcr:389059a7-214c-46a3-bc52-7781b4730301/hero.svg?cdnVersion=167"
+        alt="git branch"/></p>
+<h4 id="git-branch-생성방법">Git branch 생성방법</h4>
+<p><code>git branch -M main</code></p>
+<p><code>-M</code> 옵션은 브랜치를 rename 하는 옵션입니다.
+위에도 설명드렸다시피 <code>master</code> 를 안쓴다했으니 저희는 <code>main</code> 으로 변경하겠습니다.</p>
+<p>생성이 완료되면 <code>git branch</code> 라는 명령어로 확인할수있습니다.</p>
+<p><code>master</code> 에서 <code>main</code> 으로 변경된걸 확인할수있습니다.</p>
+<h4 id="feature-branch-생성방법">Feature branch 생성방법</h4>
+<p>Feature branch 란 게임에서 많이 보셨을것같은데
+베타 , 얼리액세스 , ver1 , ver2 등등의 네이밍으로 버전을 관리합니다.
+<code>main</code> branch는 실제 서비스 되고있는 branch 이고 지금 만들 feature branch 는 기능을 업데이트하는
+버전관리 branch 라 생각하시면 편합니다.
+방금 저희는 <code>main</code> 이란 기둥을 만들었습니다.
+feature branch 만드는법도 간단합니다.</p>
+<p>예를들어 로그인 기능을 개발하고싶으면
+<code>git branch feature/login</code></p>
+<p>회원가입 기능을 개발하고싶으면
+<code>git branch feature/signup</code></p>
+<p>이런식으로 branch 를 생성하시면 됩니다.</p>
+<h3 id="branch-이동-및-삭제">branch 이동 및 삭제</h3>
+<p>branch 를 이동하고싶을땐
+<code>git checkout {이동하고싶은 branch 명}</code></p>
+<p>ex) <code>main</code> &ndash;&gt; <code>feature/login</code>
+<code>git check feature/login</code></p>
+<p>branch 를 삭제하고싶을땐</p>
+<p><code>git branch -d {삭제하고싶은 branch 명}</code></p>
+<p>ex) login branch 를 삭제하고싶을때</p>
+<p><code>git branch -d feature/login</code></p>
+<p>삭제가 잘되었는지 확인</p>
+<p><code>git branch</code></p>
+<h2 id="git-commit">Git commit</h2>
+<p>commit 이란?
+자신이 한 작업의 기록을 남기고 그 기록물에 메시지를 남기는 작업입니다.
+다만 주의하실점은 commit 메시지를 작성할때는 일관성있게 작성해야합니다.</p>
+<h4 id="1-commit-type">1. Commit Type</h4>
+<ul>
+<li>feat : 새로운 기능 추가</li>
+<li>fix : 버그 수정, 기능 수정</li>
+<li>docs : 문서 수정</li>
+<li>refactor : 코드 리팩토링 (변수명 수정 등)</li>
+<li>test : 테스트 코드, 리팩토링 테스트 코드 추가</li>
+<li>style : 코드 스타일 변경, 코드 자체 변경이 없는 경우</li>
+<li>remove : 파일 또는 코드, 리소스 제거</li>
+<li>resource : 이미지 리소스, prefab 등의 코드와 상관없는 리소스 추가</li>
+</ul>
+<h4 id="2commit-주제">2.Commit 주제</h4>
+<ul>
+<li>제목은 50자를 넘기지 않고, 대문자로 작성하고 마침표를 붙이지 않습니다.</li>
+</ul>
+<p>ex) 이런식으로 커밋 메시지를 작성하시면됩니다.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">feat : Add bcrypt feature
+feat : Add user models
+fix : Fix type in models
+remove : Remove white space
+</code></pre><p>나쁜 예시</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">test
+수정1
+수정2
+fix error
+다시
+다시 push
+</code></pre><p>메시지를 보고 무엇을 했는지 알 수 없게 메시지를 작성하면 적절하지않습니다.</p>
+<h4 id="3-commit-내용변경">3. Commit 내용변경</h4>
+<p>예를들어 commit 을 했는데
+<code>feat : Add my featuressss</code>
+오타가 나있다면? 당황스럽겠죠</p>
+<p>그럴때 commit 내용을 수정할수있는 명령어인
+<code>git commit --amend</code> 를 입력하면 수정할수있습니다.
+참고로 터미널로 git 을 사용하신다면 vim 에디터로 수정해야합니다. (제 맥북은 그렇게 합니다.)</p>
+<h2 id="github원격저장소-에-push">Github(원격저장소) 에 push</h2>
+<p>로컬(Local) 에서 작업을 끝내셨으면 원격(Remote) 저장소에 올려야겠죠
+<img  src="https://user-images.githubusercontent.com/2377807/149868998-cbab5f7a-0749-46de-863b-795587fdf17a.png"
+        alt="github repository"/></p>
+<p>github 에 접속하셔서 레파지토리를 생성하시면 위의 이미지처럼 나옵니다.
+하나하나 따라하셔도 상관없지만
+저희는 README.md 파일만 추가하는게 아니라
+작업한 모든 파일을 추가할거기에
+<code>git add -A</code> 나 <code>git add .</code> 명령어로 프로젝트 폴더에 수정한 파일이나 추가한 파일들을 추가해줍니다.</p>
+<p>이후 , 배웠던 commit 메시지를 남겨주시고</p>
+<p>브랜치를 생성해줍니다.</p>
+<p><code>git remote add origin https://github.com/sosolyht/test.git</code></p>
+<p>origin 은 origin 이라는 이름으로 원격저장소가 등록되었다는 의미입니다.</p>
+<p>이후 <code>git push -u origin main</code> 명령어를 입력하시면</p>
+<p>github 에 push 가 된걸 확인하실수있습니다.</p>
+</article><section class="article labels"><a class="category" href=/categories/git/>Git</a><a class="tag" href=/tags/git/>Git</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/python-closure/"><span class="iconfont icon-article"></span>Python 클로저(Closure)</a></p><p><a class="link" href="/post/python-function-parameter/"><span class="iconfont icon-article"></span>Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

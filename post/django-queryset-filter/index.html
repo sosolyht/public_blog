@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Django QuerySet filter 제대로 알아보자&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Django QuerySet filter 제대로 알아보자" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Django QuerySet filter 제대로 알아보자</h1><p class="article date">2022-01-31</p></section><article class="article markdown-body"><p><img  src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png"
+        alt="image"/></p>
+<h1 id="filter">filter</h1>
+<p>뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다.</p>
+<p>전에 썻던 get() 과 filter() <a href="https://cidk.xyz/2022/01/20/django_orm_get_filter/"target="_blank" rel="noopener noreferrer">비교글</a>
+ 을 보셨으면 조금 더 이해가 잘 되실겁니다.</p>
+<p>계속 filter 에 대해 쓰는 이유는 중요하기도 하고 저도 배워야하기 때문에..</p>
+<h2 id="exact">exact</h2>
+<p><code>exact</code> 는 정확히 일치하는 데이터를 찾습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">id__exact</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+</code></pre></div><p>Product 라는 객체에 id 가 14번인 친구를 찾으라는 거겠죠?</p>
+<h3 id="iexact">iexact</h3>
+<p><code>iexact</code> 는 대소문자를 구분하지않고 정확히 일치하는 데이터를 찾습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__iexact</span> <span class="o">=</span> <span class="s1">&#39;k9 tank&#39;</span><span class="p">)</span>
+</code></pre></div><p>마찬가지로 Product 라는 객체에 name 이 <code>k9 tank</code> 라는 친구를 찾아오라는 겁니다.</p>
+<h2 id="contains">contains</h2>
+<p><code>contains</code> 는 포함하고있는 문자열을 찾습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Users</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__contains</span> <span class="o">=</span> <span class="s1">&#39;희택&#39;</span><span class="p">)</span>
+</code></pre></div><p>위의 코드는 <code>희택</code> 이라는 친구를 가져오라는 겁니다.</p>
+<h3 id="icontains">icontains</h3>
+<p><code>icontains</code> 는 대소문자를 구분하지않고 포함하고있는 문자열을 찾습니다.
+사실 왠만하면 저는 <code>icontains</code> 를 쓸텐데..나중에 써보고 어떤게 더 좋은지 블로그에 또 써보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">job__icontains</span> <span class="o">=</span> <span class="s1">&#39;bus Driver&#39;</span><span class="p">)</span>
+</code></pre></div><p>이렇게 하면 버스 기사님의 정보를 다 가져올수있겠죠.</p>
+<h2 id="in">in</h2>
+<p><code>in</code> 은 여러 조건을 포함할 경우 사용합니다.
+list , tuple 등 iterable 한 객체를 가져올수있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Users</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__in</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Users</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__in</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;최희택&#39;</span><span class="p">,</span><span class="s1">&#39;이정재&#39;</span><span class="p">,</span><span class="s1">&#39;공유&#39;</span><span class="p">])</span>
+</code></pre></div><h2 id="gt--lt--gte--lte">gt , lt , gte , lte</h2>
+<ul>
+<li>gt : &gt;</li>
+<li>lt : &lt;</li>
+<li>gte : &gt;=</li>
+<li>lte : &lt;=</li>
+</ul>
+<p>부등호를 사용할수있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Users</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__gt</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div><h2 id="startswith--istartswith">startswith , istartswith</h2>
+<ul>
+<li>startswith : 조건으로 시작하는 문자열 검색</li>
+<li>istartswith: startswith 을 대소문자 구분없이 검색</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Products</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s2">&#34;gun&#34;</span><span class="p">)</span>
+</code></pre></div><h2 id="endswith--iendswith">endswith , iendswith</h2>
+<ul>
+<li>endswith : 조건으로 끝나는 문자열 검색</li>
+<li>iendswith : endswith 를 대소문자 구분없이 검색</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Products</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s2">&#34;tank&#34;</span><span class="p">)</span>
+</code></pre></div><h2 id="range">range</h2>
+<p><code>range</code> 는 범위에 해당하는 object를 찾습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="n">Products</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">created_date__range</span><span class="o">=</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">))</span>
+</code></pre></div></article><section class="article labels"><a class="category" href=/categories/django/>Django</a><a class="tag" href=/tags/django/>Django</a><a class="tag" href=/tags/orm/>ORM</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/python-list-comprehension/"><span class="iconfont icon-article"></span>Python 리스트 컴프리헨션(List Comprehension)</a></p><p><a class="link" href="/post/django-raise/"><span class="iconfont icon-article"></span>Django raise error 메시지를 json데이터로 출력하는 방법</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

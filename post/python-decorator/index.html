@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Python 데코레이터(Decorator)와 클로저(Clousure) 활용&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.aee8a7af681a6aa6ed5ae4bb1556899d2868b51602b09b277eb31953041eb0b1ef5b733f8f4929e3905124a0267c25d5.css" integrity="sha384-ruinr2gaaqbtWuS7FVaJnShotRYCsJsnfrMZUwQesLHvW3M/j0kp45BRJKAmfCXV"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Python 데코레이터(Decorator)와 클로저(Clousure) 활용" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/"></a><a class="nav item" href="/tags/"></a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">100% JavaScript-free</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Python 데코레이터(Decorator)와 클로저(Clousure) 활용</h1><p class="article date">2022-01-05</p></section><article class="article markdown-body"><h2 id="데코레이터decorator란">데코레이터(decorator)란?</h2>
+<ul>
+<li>함수 앞뒤에 기능을 추가해서 손쉽게 함수를 활용할 수 있는 기법</li>
+<li>클로저 (clousure)를 활용</li>
+</ul>
+<p>함수 위에 @ 붙어있는 모습이 데코레이터입니다.
+특이하죠? 그래도 알아두어야 나중에 이러한 코드를 볼때 이해할수있습니다.</p>
+<h3 id="데코레이터-활용">데코레이터 활용</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nd">@decorator_func</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;@붙은게 데코레이터&#39;</span><span class="p">)</span>
+</code></pre></div><p>ex) 일반적인 함수</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;희택님이 로그인하셨습니다.&#34;</span><span class="p">)</span>
+
+<span class="n">login</span><span class="p">()</span>
+</code></pre></div><pre tabindex="0"><code>희택님이 로그인하셨습니다.
+</code></pre><p>이게 일반적인 함수입니다.</p>
+<p>ex) 데코레이터를 붙인 함수</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 데코레이터 함수</span>
+<span class="k">def</span> <span class="nf">decorator_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나는 데코레이터&#39;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="c1"># 일반함수에 데코레이터를 붙힌 함수</span>
+<span class="nd">@decorator_func</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;희택님이 로그인하셨습니다.&#39;</span><span class="p">)</span>
+
+<span class="n">login</span><span class="p">()</span>
+</code></pre></div><pre tabindex="0"><code>나는 데코레이터
+희택님이 로그인하셨습니다.
+</code></pre><h3 id="클로저를-이용한-데코레이터">클로저를 이용한 데코레이터</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="c1"># 데코레이터 함수 정의</span>
+<span class="k">def</span> <span class="nf">decorator_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나는 데코레이터&#39;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="c1"># 데코레이터를 줄 함수</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;희택님이 로그인하셨습니다.&#39;</span><span class="p">)</span>
+
+<span class="n">login</span><span class="p">()</span>
+</code></pre></div><pre tabindex="0"><code>희택님이 로그인하셨습니다.
+</code></pre><p>클로저 활용</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="n">deco_func</span> <span class="o">=</span> <span class="n">decorator_func</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+<span class="n">deco_func</span><span class="p">()</span>
+</code></pre></div><pre tabindex="0"><code>나는 데코레이터
+희택님이 로그인하셨습니다.
+</code></pre><p>간단하죠?</p>
+</article><section class="article labels"><a class="category" href=/categories/python/>Python</a><a class="tag" href=/tags/python/>Python</a></section><section class="article author"><img class="avatar" src="https://d33wubrfki0l68.cloudfront.net/ddf49425628d8aec7523db143916b34ae1641e11/b97e8/images/gopher-side_color.svg" alt><p class="name">gohugo</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/gohugoio" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;gohugoio</a><a class="item" href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@GoHugoIO</a></div>
+</section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-orm-get-filter/"><span class="iconfont icon-article"></span>Django ORM get(), filter() 비교</a></p><p><a class="link" href="/post/python-list-set-dict/"><span class="iconfont icon-article"></span>Python 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2022 cidk.</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a>
+<a href='https://ipv6-test.com/validate.php?url=referer'
+  ><img src='https://ipv6-test.com/button-ipv6-80x15.png' 
+        alt='ipv6 ready' title='ipv6 ready' border='0' 
+/></a>
+</p></div>
+</section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-216039735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>
