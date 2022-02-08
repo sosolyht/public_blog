@@ -4,7 +4,7 @@
 <meta name="supported-color-schemes" content="light dark"><title>Django JsonResponse를 쓰는데 왜 request 가 필요할까&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.088e37ad6963b8bda64ff6e03e4b501a7f22234f6054b19984f25f3b485f89df13f1b53313a61ebc0cdc3355b4462d18.css" integrity="sha384-CI43rWljuL2mT/bgPktQGn8iI09gVLGZhPJfO0hfid8T8bUzE6YevAzcM1W0Ri0Y"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Django JsonResponse를 쓰는데 왜 request 가 필요할까" /><body><section id="header">
     <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
-        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div><div class="site slogan"><span class="title">test</span></div></section><section id="content"><div class="article-container"><section class="article header">
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://gohugo%2eio/"target="_blank" rel="noopener noreferrer">Hugo</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
     <h1 class="article title">Django JsonResponse를 쓰는데 왜 request 가 필요할까</h1><p class="article date">2022-02-03</p></section><article class="article markdown-body"><p>view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니
 <code>from django.http  import JsonResponse</code>
 JsonResponse 객체를 끌어다와서 쓰기도합니다.</p>
@@ -78,7 +78,14 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
 </article><section class="article labels"><a class="category" href=/categories/django/>Django</a><a class="tag" href=/tags/django/>Django</a><a class="tag" href=/tags/jsonresponse/>JsonResponse</a></section><section class="article author"><img class="avatar" src="https://user-images.githubusercontent.com/2377807/152726918-f6f9b27c-e019-4f9a-a470-995848bff768.png" alt><p class="name">최희택</p><div class="bio">Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</div><div class="details"><a class="item" href="https://github.com/sosolyht" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;sosolyht</a></div>
 </section>
 </div>
-<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-query-string/"><span class="iconfont icon-article"></span>Django Query String 쿼리스트링</a></p><p><a class="link" href="/post/python-list-comprehension/"><span class="iconfont icon-article"></span>Python 리스트 컴프리헨션(List Comprehension)</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/django-query-string/"><span class="iconfont icon-article"></span>Django Query String 쿼리스트링</a></p><p><a class="link" href="/post/python-list-comprehension/"><span class="iconfont icon-article"></span>Python 리스트 컴프리헨션(List Comprehension)</a></p></section><section class="article discussion"><script 
+            src="https://utteranc.es/client.js" 
+            repo="sosolyht/utterances"
+            issue-term="pathname"
+            label=""
+            theme="github-light"
+            crossorigin="anonymous" async>
+        </script></section></div></section><section id="footer"><div class="footer-wrap">
     <p class="copyright">©2022 cidk.</p>
     <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io"
         target="_blank" rel="noopener noreferrer">Hugo</a></p></div>
