@@ -6,10 +6,164 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <copyright>©2022 cidk.</copyright>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://cidk.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PostgreSQL 은 mysql 과 무슨차이가 있을까</title>
+      <link>https://cidk.xyz/post/postgresql/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cidk.xyz/post/postgresql/</guid>
+      <description>&lt;p&gt;Postgres라고도 불리는 PostgreSql은 &amp;ldquo;세계에서 가장 진보된 오픈소스 관계형 데이터베이스&amp;quot;라고 자부합니다. 확장성이 뛰어나고 표준을 준수한다는 목표로 만들어졌습니다. PostgreSql은 객체 관계형(object-relational) 데이터베이스입니다. 즉 기본적으로는 관계형 데이터베이스지만 객체 데이터베이스와 연관되는 기능(예를 들면 테이블 상속 및 함수 오버로딩)도 포함하고 있습니다.&lt;/p&gt;
+&lt;p&gt;Postgres는 동시성(Concurrency)을 특징으로 갖고 있습니다. 동시성은 동시에 여러 작업을 효율적으로 처리할 수 있도록 합니다. ACID 준수라고도 하는 트랜잭션의 원자성(Atomicity), 일관성(Consistencty), 격리성(Isolation), 내구성(Durability)을 보장하는 MVCC(Multiversion Concurrency Control) 덕분에 읽기에 대한 잠금 없이 이를 달성할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;PostgreSql은 MySQL만큼 널리 사용되지는 않지만 pgAdmin 및 Postbird를 포함하여 PostgreSql 작업을 단순화하도록 설계된 타사 도구 및 라이브러리가 많습니다.&lt;/p&gt;
+&lt;h3 id=&#34;1-postgresql의-데이터-타입&#34;&gt;1. PostgreSql의 데이터 타입&lt;/h3&gt;
+&lt;p&gt;PostgreSql은 MySQL과 같이 숫자, 문자열, 날짜와 시간 타입을 지원합니다. 또한 기하학적인 도형, 네트워크 주소, 비트 문자열, 텍스트 검색, JSON 항목과 몇 가지 특이한 데이터 타입을 지원하기도 합니다.&lt;/p&gt;
+&lt;p&gt;3.1. Numeric 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bigint: 부호 있는 8바이트 정수.&lt;/li&gt;
+&lt;li&gt;bigserial: 자동으로 증가하는 8바이트 정수.&lt;/li&gt;
+&lt;li&gt;double precision: 8바이트 double precision 부동 소수점 숫자.&lt;/li&gt;
+&lt;li&gt;integer: 부호 있는 4바이트 정수.&lt;/li&gt;
+&lt;li&gt;serial: 자동으로 증가하는 4바이트 정수.&lt;/li&gt;
+&lt;li&gt;number, decimal: 선택 가능한 precision. 돈의 금액과 같이 정확성이 중요한 경우 사용하도록 권장합니다.&lt;/li&gt;
+&lt;li&gt;real: 4바이트 single precision 부동 소수점 숫자.&lt;/li&gt;
+&lt;li&gt;smallint: 부호 있는 2바이트 정수.&lt;/li&gt;
+&lt;li&gt;smallserial: 자동으로 증가하는 2바이트 정수.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.2. Character 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;character: 지정된 고정 길이를 가지는 문자열.&lt;/li&gt;
+&lt;li&gt;character varying, varchar: 가변이지만 제한된 길이를 갖는 문자열.&lt;/li&gt;
+&lt;li&gt;text: 길이에 제한이 없는 문자열.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.3. Date와 Time 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;date: 일, 월, 년도로 구성된 날짜.&lt;/li&gt;
+&lt;li&gt;interval: 시간 간격 범위.&lt;/li&gt;
+&lt;li&gt;time, time without time zone: 시간대를 제외한 시간.&lt;/li&gt;
+&lt;li&gt;time with time zone: 시간대를 포함한 시간.&lt;/li&gt;
+&lt;li&gt;timestamp, timestamp without time zone: 시간대를 제외한 타임스탬프.&lt;/li&gt;
+&lt;li&gt;timestamp with time zone: 시간대를 포함한 타임스탬프.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.4. Geometric 타입&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;box: 평면산의 직사각형 상자.&lt;/li&gt;
+&lt;li&gt;circle: 평면상의 원.&lt;/li&gt;
+&lt;li&gt;line: 평면상의 무한한 선.&lt;/li&gt;
+&lt;li&gt;lseg: 평면상의 선분.&lt;/li&gt;
+&lt;li&gt;path: 평면상의 기하학적 경로.&lt;/li&gt;
+&lt;li&gt;point: 평면상의 기하학적 점.&lt;/li&gt;
+&lt;li&gt;polygon: 평면상의 닫힌 기하학적 경로.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.5. Network address 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cdir: IPv4 또는 IPv6 네트워크 주소.&lt;/li&gt;
+&lt;li&gt;inet: IPv4 또는 IPv6 호스트 주소.&lt;/li&gt;
+&lt;li&gt;macaddr: MAC(Media Access Control) 주소.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.6. Bit string 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bit: 고정된 길이의 비트 문자열.&lt;/li&gt;
+&lt;li&gt;bit varying: 가변 길이의 비트 문자열.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.7. Text search 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tsquery: 텍스트 검색 쿼리.&lt;/li&gt;
+&lt;li&gt;tsvector: 텍스트 검색 문서(document)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.8. JSON 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;json: 텍스트 JSON 데이터.&lt;/li&gt;
+&lt;li&gt;jsonb: 분해된 이진 JSON 데이터.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.9. 그 외의 데이터 타입.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;boolean: true 또는 false를 나타내는 논리 값.&lt;/li&gt;
+&lt;li&gt;bytea: &amp;ldquo;byte array&amp;quot;의 약자. 이 타입은 이진 데이터에 사용됩니다.&lt;/li&gt;
+&lt;li&gt;money: 통화 금액.&lt;/li&gt;
+&lt;li&gt;ph_lsn: 로그 시퀀스 번호.&lt;/li&gt;
+&lt;li&gt;txid_snapshot: 사용자 수준의 트랜잭션 ID 스냅샷.&lt;/li&gt;
+&lt;li&gt;uuid: 보편적인 고유한 식별자.&lt;/li&gt;
+&lt;li&gt;xml: xml 데이터.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-postgresql의-장점&#34;&gt;2. PostgreSql의 장점.&lt;/h3&gt;
+&lt;p&gt;표준 SQL을 준수합니다. SQLite 또는 MySQL보다 PostgreSql은 표준에 좀 더 가깝게 구현하는 것을 목표로 하고 있습니다. 공식 PostgreSql 문서에 따르면 PostgreSql은 전체 핵심 SQL:2011 규정에 필요한 179개의 기능 중 160개를 지원하며 긴 목록의 선택적 기능도 지원합니다.&lt;/p&gt;
+&lt;p&gt;오픈소스 및 커뮤니티가 이끄는 데이터베이스입니다. 완전한 오픈소스 프로젝트인 PostgreSql의 소스코드는 대규모 헌신적인 커뮤니티에서 개발되었습니다. Postgres 커뮤니티는 DBMS로 작업하는 방법을 설명하는 공식문서, 위치, 온라인 포럼을 포함한 수많은 리소스를 유지 관리하고 기여합니다.&lt;/p&gt;
+&lt;p&gt;확장성이 뛰어납니다. 사용자는 카탈로그 기반 작업과 동적 로드 사용을 통해 PostgreSQL을 프로그래밍 방식으로 즉시 확장할 수 있습니다. 공유 라이브러리와 같은 객체 코드 파일을 지정할 수 있고 PostgreSQL은 필요에 따라 이를 로드합니다.&lt;/p&gt;
+&lt;h3 id=&#34;3-postgresql의-단점&#34;&gt;3. PostgreSql의 단점.&lt;/h3&gt;
+&lt;p&gt;메모리 성능이 떨어집니다. 모든 새로운 클라이언트 연결에 대해 PostgresSQL은 새로운 프로세스를 포크(fork)합니다. 각각의 새로운 프로세스에는 약 10MB의 메모리가 할당되므로 많은 연결이 있는 경우 메모리가 빠르게 증가합니다. 따라서 읽기가 많은 간단한 작업의 경우 PostgreSQL은 일반적으로 MySQL과 같은 다른 RDBMS보다 성능이 떨어집니다.&lt;/p&gt;
+&lt;p&gt;인기도가 떨어집니다. 최근 몇 년 동안 더 널리 사용되고 있지만 PostgreSQL은 역사적으로 보았을 때 인기 측면에서 MySQL에 뒤쳐집니다. 그 결과 PostgreSQL 데이터베이스를 관리하는데 도움이 되는 타사 도구가 여전히 적습니다. 마찬가지로 MySQL은 경험이 있는 사람이 많은 것에 비해 Postgre 데이터베이스 관리 경험이 있는 사람들은 많지 않습니다.&lt;/p&gt;
+&lt;h3 id=&#34;4-postgresql를-사용하면-좋은-경우&#34;&gt;4. PostgreSql를 사용하면 좋은 경우.&lt;/h3&gt;
+&lt;p&gt;데이터 무결성이 중요한 경우 적합합니다. PostgreSQL은 2001년부터 ACID를 완벽히 준수하고 데이터 일관성이 유지되도록 MVCC를 구현하였습니다. 데이터 무결성이 중요한 경우 RDBMS 중 PostgreSQL을 강력하게 추천합니다.&lt;/p&gt;
+&lt;p&gt;다른 도구들과 통합되어야 하는 경우에 적합합니다. PostgreSQL은 다양한 프로그래밍 언어 및 플랫폼과 호환됩니다. 즉 데이터베이스를 다른 운영체제로 마이그레이션 하거나 특정 도구와 통합이 필요한 경우 다른 DBMS보다 PostgreSQL 데이터 베이스를 사용하는 것이 더 쉽게 작업할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;복잡한 작업 연산을 수행하는 경우 적합합니다. Postgres는 더 빠른 속도로 쿼리에 응답하기 위해 여러 CPU를 활용할 수 있는 쿼리 계획을 지원합니다. 이는 동시에 여러 사용자에 대한 강력한 지원과 결합되며 데이터웨어 하우스 및 온라인 트랜잭션 처리와 같은 복잡한 작업에 적합한 선택이 될 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&#34;5-postgresql를-사용하면-안-되는-경우&#34;&gt;5. PostgreSql를 사용하면 안 되는 경우.&lt;/h3&gt;
+&lt;p&gt;속도에 민감한 경우 적합하지 않습니다. PostgreSQL은 속도를 희생하며 확장성과 호환성을 염두하고 설계되었습니다. 프로젝트에 가능한 가장 빠른 읽기 작업이 필요한 경우 PostgreSQL은 최선의 선택이 아닐 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;간단한 설정이 필요한 경우 적합하지 않습니다. 광범위한 기능들과 표준 SQL에 대한 강력한 준수로 인해 Postgresql은 간단한 데이터베이스 설정에 대해서도 많은 작업이 필요합니다. 속도가 중요하고 읽기 작업이 많은 경우 일반적으로 MySQL이 더 실용적인 선택이 될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;간단한 복제(Replication) 작업을 원하는 경우 적합하지 않습니다. PostgreSQL은 복제에 대해 강력한 지원을 제공하지만 여전히 비교적 새로운 기능이며 Primary-Primary 구조와 같은 일부 구성만 가능합니다. 복제는 MySQL에서 더 성숙한 기능이며 많은 사용자들이 특히 필요한 데이터 베이스 및 시스템 관리 경험이 부족한 사용자들은 MySQL의 복제 기능을 구현하는 게 더 쉽다고 생각합니다.&lt;/p&gt;
+&lt;h3 id=&#34;6-마침&#34;&gt;6. 마침.&lt;/h3&gt;
+&lt;p&gt;최근 SQLite, MySQL, PostgreSQL은 세계에서 가장 인기 있는 세 가지 오픈소스 관계형 데이터베이스 관리 시스템입니다. 각각 고유한 기능과 한계가 있으며 특정 시나리오에서 최상의 성능을 보입니다. RDBMS를 설정할 때 사용되는 변수는 상당히 많으며 선택은 가장 빠른 것을 선택하거나 가장 많은 기능을 가진 것을 선택하는 것만큼 간단하지는 않습니다. 다음에 관계형 데이터베이스 솔루션이 필요할 때 이 글이 도움이 되었으면 좋겠습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>도커에 대해 알아보자</title>
+      <link>https://cidk.xyz/post/docker/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cidk.xyz/post/docker/</guid>
+      <description>&lt;p&gt;Docker란 Go언어로 작성된 리눅스 &lt;strong&gt;컨테이너 기반&lt;/strong&gt;으로하는 &lt;strong&gt;오픈소스 가상화 플랫폼&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;현재 Docker 0.9버전 부터는 직접 개발한 libcontainer 컨테이너를 사용하고 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;가상화를 사용하는 이유는?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이제는 향상된 컴퓨터의 성능을 더욱 효율적으로 사용하기 위해 가상화 기술이 많이 등장하였습니다..&lt;/p&gt;
+&lt;p&gt;서버 관리자 입장에서 CPU사용률이 10%대 밖에 되지 않는 활용도가 낮은 서버들의 리소스 낭비일 수밖에 없습니다.  그렇다고 모든 서비스를 한 서버안에 올린다면 안정성에 문제가 생길수도 있습니다. 그래서 안정성을 높이며 리소스도 최대한 활용할 수 있는 방법으로 나타난게 서버 가상화입니다. 모두가 아는 대표적인 가상화 플랫폼으로는 VM이 있습니다. VM은 누구나 아는 OS가상화지요. 그렇다면 컨테이너란 무엇일까요?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;컨테이너란?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://t1.daumcdn.net/cfile/tistory/9939BC355B8D39F616&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;컨테이너는 가상화 기술 중 하나로 대표적으로 LXC(Linux Container)가 있습니다. 기존 OS를 가상화 시키던 것과 달리 컨테이너는 &lt;strong&gt;OS레벨의 가상화로 프로세스를 격리시켜 동작하는 방식&lt;/strong&gt;으로 이루어집니다.&lt;/p&gt;
+&lt;p&gt;한 서버의 여러 OS를 가상화 하여 사용하는 것과 컨테이너 방식으로 프로세스를 격리시켜 동작하는 방법은 어떠한 차이점이 있을까요?&lt;/p&gt;
+&lt;p&gt;**VM 가상화 플랫폼 vs Docker 가상화 플랫폼 **&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://t1.daumcdn.net/cfile/tistory/9934023E5B8D2CCF15&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;기존에 우리에게 익숙한 VM같은 경우엔 Host OS 위에 가상화를 시키기 위한 Hypervisor 엔진 그리고 그 위에 Guest OS를 올려 사용합니다. 이는 가상화된 하드웨어 위에 OS가 올라가는 형태로 거의 완벽하게 Host와 분리된다고 봐도 무방합니다. 반면에 컨테이너 기반 가상화는 Docker 엔진 위에 Application 실행에 필요한 바이너리만 올라가게 됩니다. OS 가상화를 보면 Host OS와 완전히 분리되는 장점은 있지만 OS위에 OS를 올리기 때문에 무겁고 느릴수 밖에 없습니다. 하지만 컨테이너 기반 가상화는 Host OS 그리고 Docker 엔진위에서 바로 동작하며 Host의 커널을 공유합니다. 커널을 공유하게 되면 io처리가 쉽게 되어 성능의 효율을 높일 수 있습니다.&lt;/p&gt;
+&lt;p&gt;컨테이너를 사용하는 것은 가상 머신을 생성하는 것이 아니라 Host OS가 사용하는 자원을 분리하여 여러 환경을 만들 수 있도록 하는 것입니다. &lt;/p&gt;
+&lt;p&gt;이렇게 쓰고보니 컨테이너기반이 OS가상화보다 뛰어나다라고 말하는 것 같지만 그렇지는 않습니다.&lt;/p&gt;
+&lt;p&gt;Docker를 소개하는 포스트인만큼 OS가상화에 비해 컨테이너기반의 가상화가 좋은점을 강조하며 Docker를 왜 쓰는지에 대해 설명을 한 것입니다.&lt;/p&gt;
+&lt;p&gt;OS가상화는 컨테이너기반 가상화보다 더 높은 격리 레벨을 지원합니다. 이는 보안적인 측면에서 더욱 유리합니다.&lt;/p&gt;
+&lt;p&gt;또한 OS가상화의 커널을 공유하지 않는 장점 또한 있습니다. 커널을 공유하지 않는 만큼 멀티 OS가 가능하다는 것입니다. 커널을 공유하지 않아 멀티 OS가 불가능 하다는 것은 Linux위에 Window를 올릴 수 없다는 단점이 있는 것이죠. 그럼에도 왜 Docker를 쓰는 이유는** 성능향상, 뛰어난 이식성, 쉽게 Scale Out을 할 수 있는 유연성**이라고 생각합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker Image&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://t1.daumcdn.net/cfile/tistory/992AF74C5B8D3D780E&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Docker Image란 컨테이너를 실행할 수 있는 실행파일, 설정 값 들을 가지고 있는 것이라고 생각 하면 됩니다.&lt;/p&gt;
+&lt;p&gt;그림과 같이 Image를 컨테이너에 담고 실행을 시킨다면 해당 프로세스가 동작하게 되는 것이죠.&lt;/p&gt;
+&lt;p&gt;그럼 어떻게 이미지가 만드는지 알기 위해선 어떻게 이미지가 만들어지는지 먼저 알아보도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://t1.daumcdn.net/cfile/tistory/991ACC3C5B8D445C0C&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;다음 그림을 보면 ubuntu 이미지를 만들기 위해 Layer A,B,C가 들어갑니다. 그럼 nginx 이미지를 만든다고 생각했을땐 어떻게 될까요? 이미 Layer A,B,C로 만들어진 ubuntu 이미지를 베이스 이미지로 사용하여 베이스 이미지에 nginx만 더하게 됩니다. 그렇다면 실질적으로 Layer A, B, C, nginx 가 더해진 것이지만 과정은 unbuntu + nginx가 더해진 것이죠. 그렇다면 web app 이미지를 만들려고 할 땐 어떻게 될까요? ubuntu 이미지에 nginx를 올리고 web app을 올리는 것이 아닌 이미 만들어진 nginx 베이스 이미지에 web app을 올려 이미지를 만들게 됩니다.&lt;/p&gt;
+&lt;p&gt;이제 이미지가 어떻게 만들어지는지 알았다면 실제로 Image를 만들어보는 Docker File에 대해 알아봅시다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker File&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;뒤에서도 설명을 하겠지만 Docker Image들을 저장하고 배포하는 Docker Hub는 정말 잘 활성화 되어 있습니다. 이미 여러 회사들은 소프트웨어를  Docker Hub를 통해 배포하기 시작했고 우린 Docker hub에서 image를 pull하여 간단하게 컨테이너에 넣어 사용할 수 있습니다. 하지만 이는 무엇인가 부족해 보이죠. 만약 배포판이 없다면? 배포판 보다 더욱 보완하고 싶다면? 그럴때 사용 할 수 있는 것이 Docker Fille입니다.&lt;/p&gt;
+&lt;p&gt;Docker File은 이미지 생성 출발점으로 이미지를 구성하기 위한 명령어들을 작성하여 이미지를 구성할 수 있습니다. 그 뜻은 Docker File을 읽을 수만 있다면 해당 이미지가 어떻게 구성되어 있는지도 알 수 있다는 의미가 됩니다.&lt;/p&gt;
+&lt;p&gt;FROM jdk8:latest&lt;/p&gt;
+&lt;p&gt;WORKDIR /app&lt;/p&gt;
+&lt;p&gt;RUN mkdir /app/nexus-2.14.9-01&lt;/p&gt;
+&lt;p&gt;RUN mkdir /app/sonatype-work&lt;/p&gt;
+&lt;p&gt;RUN yum -y install httpd&lt;/p&gt;
+&lt;p&gt;ENV JAVA_HOME /usr/local/jdk1.8.0_181&lt;/p&gt;
+&lt;p&gt;ENV PATH=$JAVA_HOME/bin:$PATH&lt;/p&gt;
+&lt;p&gt;ENV CLASSPATH=.&lt;/p&gt;
+&lt;p&gt;EXPOSE 3411 &lt;/p&gt;
+&lt;p&gt;ADD run.sh /app/&lt;/p&gt;
+&lt;p&gt;CMD [&amp;quot;/app/run.sh&amp;quot;]&lt;/p&gt;
+&lt;p&gt;Docker File은 다음과 같이 작성됩니다.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Django Query String 쿼리스트링</title>
@@ -540,162 +694,6 @@ DB에서는 row 에 해당합니다.&lt;/p&gt;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;제 테이블에는 59, 61번에 asdasd 라는 동명이인이 있기에 두개의 객체가 반환이 됐던겁니다.&lt;/p&gt;
 &lt;p&gt;이런식으로 shell 을 직접 두드려보면서 확인하시면 훨씬 쉽게 접근할수있습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Python 데코레이터(Decorator)와 클로저(Clousure) 활용</title>
-      <link>https://cidk.xyz/post/python-decorator/</link>
-      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://cidk.xyz/post/python-decorator/</guid>
-      <description>&lt;h2 id=&#34;데코레이터decorator란&#34;&gt;데코레이터(decorator)란?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;함수 앞뒤에 기능을 추가해서 손쉽게 함수를 활용할 수 있는 기법&lt;/li&gt;
-&lt;li&gt;클로저 (clousure)를 활용&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;함수 위에 @ 붙어있는 모습이 데코레이터입니다.
-특이하죠? 그래도 알아두어야 나중에 이러한 코드를 볼때 이해할수있습니다.&lt;/p&gt;
-&lt;h3 id=&#34;데코레이터-활용&#34;&gt;데코레이터 활용&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@decorator_func&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;@붙은게 데코레이터&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ex) 일반적인 함수&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;희택님이 로그인하셨습니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;희택님이 로그인하셨습니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이게 일반적인 함수입니다.&lt;/p&gt;
-&lt;p&gt;ex) 데코레이터를 붙인 함수&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 데코레이터 함수&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;decorator_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrapper&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;나는 데코레이터&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapper&lt;/span&gt;
-
-&lt;span class=&#34;c1&#34;&gt;# 일반함수에 데코레이터를 붙힌 함수&lt;/span&gt;
-&lt;span class=&#34;nd&#34;&gt;@decorator_func&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;희택님이 로그인하셨습니다.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;나는 데코레이터
-희택님이 로그인하셨습니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;클로저를-이용한-데코레이터&#34;&gt;클로저를 이용한 데코레이터&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 데코레이터 함수 정의&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;decorator_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrapper&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;나는 데코레이터&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapper&lt;/span&gt;
-
-&lt;span class=&#34;c1&#34;&gt;# 데코레이터를 줄 함수&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;희택님이 로그인하셨습니다.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;희택님이 로그인하셨습니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;클로저 활용&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;n&#34;&gt;deco_func&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;decorator_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;deco_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;나는 데코레이터
-희택님이 로그인하셨습니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;간단하죠?&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>CDN 이란 무엇인가요?</title>
-      <link>https://cidk.xyz/post/cdn/</link>
-      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://cidk.xyz/post/cdn/</guid>
-      <description>&lt;h2 id=&#34;cdn이란-무엇인가요&#34;&gt;CDN이란 무엇인가요?&lt;/h2&gt;
-&lt;p&gt;&lt;img  src=&#34;https://www.akamai.com/content/dam/site/ko/images/article/what-is-a-cdn.png&#34;
-        alt=&#34;what-is-a-cdn.png&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;CDN(콘텐츠 전송 네트워크)은 지리적으로 분산된 여러 개의 서버입니다. 웹 콘텐츠를 사용자와 가까운 곳에서 전송함으로써 전송 속도를 높입니다. 전 세계 데이터센터는 파일 복사본을 임시로 저장하는 프로세스인 캐싱을 사용합니다. 따라서 사용자는 가까운 서버를 통해 웹 활성화 디바이스 또는 브라우저에서 인터넷 콘텐츠에 빠르게 접속할 수 있습니다. CDN은 웹 페이지, 이미지, 비디오 등의 콘텐츠를 사용자의 물리적 위치와 가까운 프록시 서버에 캐싱합니다. 이렇게 하면 콘텐츠가 로딩될 때까지 기다릴 필요 없이 영화 감상, 소프트웨어 다운로드, 은행 잔고 확인, 소셜 미디어 포스팅, 구매 등의 작업을 할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;CDN을 마치 ATM처럼 생각해도 좋습니다. 여러 곳에 ATM을 설치해 놓으면 사용자가 빠르고 효율적으로 현금을 찾을 수 있습니다. 은행에서 긴 줄을 서서 기다릴 필요 없이 가까운 곳에 있는 ATM을 바로 사용하면 됩니다.&lt;/p&gt;
-&lt;p&gt;인터넷으로 그래픽과 비디오 등 용량이 큰 웹 콘텐츠를 전송하면 트래픽이 폭주할 때처럼 네트워크 혼잡 문제가 발생할 수 있습니다. CDN 서비스는 이러한 문제를 해결하기 위해 개발되었습니다. 중앙 서버에서 개별 사용자에게 콘텐츠를 전송하려면 시간이 너무 오래 걸렸습니다. 이제 CDN은 텍스트, 그래픽, 스크립트, 미디어 파일부터 소프트웨어 다운로드, 문서, 포털, 이커머스, 라이브 스트리밍 미디어, 온디맨드 비디오 스트리밍 미디어, 소셜 미디어 사이트에 이르기까지 모든 것을 처리합니다.&lt;/p&gt;
-&lt;p&gt;또한 CDN은 보안을 강화해 DDoS(Distributed Denial-of-Service) 공격과 같은 보안 문제와 악의적 공격자를 차단하는 기능을 웹사이트에 제공할 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;cdn-사례는-어떤-것이-있을까요&#34;&gt;CDN 사례는 어떤 것이 있을까요?&lt;/h2&gt;
-&lt;p&gt;인터넷 콘텐츠의 상당 부분이 CDN을 통해 전송됩니다. 간단한 사례를 통해 설명드리겠습니다.&lt;/p&gt;
-&lt;p&gt;뉴욕에 있는 사용자가 런던에 있는 업체의 웹사이트를 보고 싶어 합니다. 이 웹사이트는 영국의 서버에 호스팅되어 있습니다. 해당 사용자가 뉴욕에서 영국까지 대서양을 가로질러 요청을 보낸다면 웹사이트의 콘텐츠 로딩 시간은 길어질 것입니다. CDN은 이런 문제를 해결하기 위해 런던 웹사이트 콘텐츠를 캐싱해 전 세계 여러 곳의 &amp;lsquo;PoP(Points of Presence)&amp;lsquo;에 저장합니다. 이러한 PoP는 자체 캐싱 서버를 갖고 있으며 뉴욕에 있는 사용자에게 해당 콘텐츠를 전송합니다.&lt;/p&gt;
-&lt;p&gt;사용자의 물리적 위치와 가장 가까운 서버에서 전송되는 콘텐츠는 더 빠른 고성능 웹 경험을 제공합니다.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://www.akamai.com/content/dam/site/ko/images/article/how-does-a-cdn-work.png&#34;
-        alt=&#34;how-does-a-cdn-work.png&#34;/&gt;&lt;/p&gt;
-&lt;h2 id=&#34;cdn은-어떻게-작동할까요&#34;&gt;CDN은 어떻게 작동할까요?&lt;/h2&gt;
-&lt;p&gt;CDN의 미션은 &lt;em&gt;지연 시간을&lt;/em&gt;줄이는 것입니다. 지연 시간은 웹 페이지 또는 비디오 스트리밍 콘텐츠가 디바이스에 완전히 로딩되기 전에 발생하는 불편한 지연을 의미합니다. 지연 시간은 밀리초 단위로 측정됩니다. 하지만 사용자가 체감하는 시간은 매우 길며, 시간 초과 또는 로딩 오류가 발생할 수 있습니다. 콘텐츠가 사용자에게 도달하기 위해 이동해야 하는 물리적 거리를 줄여 지연 시간을 줄이는 콘텐츠 전송 네트워크도 있습니다. 따라서 CDN이 보다 광범위하고 넓게 분산되어 있으면 사용자와 최대한 가까운 곳에 콘텐츠를 배치함으로써 웹 콘텐츠를 보다 빠르고 안정적으로 전송할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;주말에 최근 개봉한 할리우드 영화를 보고 싶다면 CDN을 통해 해당 비디오를 제공할 최적의 서버를 네트워크에서 찾을 수 있습니다. 이 서버는 일반적으로 사용자의 물리적 위치와 가장 가까운 서버가 됩니다. 미디어 파일은 캐싱되며 동일한 지역의 다른 사용자가 해당 미디어 파일을 요청할 경우에 대비해 콘텐츠 전송 네트워크 서버에 남게 됩니다. 요청한 콘텐츠가 오래되었거나 사용할 수 없는 경우, CDN 서비스는 새로 가져온 콘텐츠를 저장하고 향후 요청에 있을 때 전송합니다.&lt;/p&gt;
-&lt;p&gt;웹사이트 콘텐츠 전송은 CDN에서 흔히 사용되는 기능이지만, 유일한 기능은 아닙니다. CDN은 4K 및 HD 품질의 비디오, 오디오 스트림, 앱-게임-OS 업데이트와 같은 소프트웨어 다운로드 등 광범위한 콘텐츠를 전송합니다. 즉, 디지털화할 수 있는 모든 데이터를 콘텐츠 전송 네트워크를 통해 전송할 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;cdn-호스트는-무엇인가요&#34;&gt;CDN 호스트는 무엇인가요?&lt;/h2&gt;
-&lt;p&gt;CDN은 웹 호스트가 아니며, 라스트마일 구간에서 콘텐츠를 소비자에게 전송하지 않습니다. 하지만 콘텐츠 전송 네트워크 서버는 콘텐츠를 전 세계 사용자 및 사용자 ISP와 가까운 곳에 캐싱하기 위해 지리적으로 분산되어 있습니다. 네트워크 엣지에 있는 이 임시 콘텐츠 스토리지는 지연 시간을 줄이고 동일한 콘텐츠를 여러 사용자에게 전송함으로써 효율성을 높일 수 있습니다.&lt;/p&gt;
-&lt;p&gt;막대한 온라인 비디오 수요를 충족하기 위해 노력하는 네트워크 사업자(무선 서비스 사업자, 모바일 네트워크 사업자)에게 CDN 호스팅 플랫폼은 경쟁력을 유지할 수 있는 매우 효과적이고 비용 효율적인 솔루션이 될 수 있습니다. 콘텐츠 전송 네트워크는 사업자들이 모든 웹 활성화 디바이스에서 빠르고, 안전하고, 안정적인 온라인 경험을 일관된 품질로 제공하고 고객의 기대치에 부합할 수 있도록 지원합니다.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://www.akamai.com/content/dam/site/ko/images/article/why-is-a-cdn-needed.jpg&#34;
-        alt=&#34;why-is-a-cdn-needed.jpg&#34;/&gt;&lt;/p&gt;
-&lt;h2 id=&#34;cdn이-필요한-이유는-무엇인가요&#34;&gt;CDN이 필요한 이유는 무엇인가요?&lt;/h2&gt;
-&lt;p&gt;CDN은 20여 년 동안 리테일, 은행, 헬스케어를 비롯한 여러 산업 분야의 전 세계 사용자들에게 빠르고 확장성 있게 온라인 콘텐츠를 전송하도록 지원해 오면서 인터넷의 보이지 않는 백본 역할을 담당해 왔습니다.&lt;/p&gt;
-&lt;p&gt;CDN을 사용하지 않을 경우 오리진 서버가 정보를 복제 및 저장한 다음 사용자가 웹에 접속하는 곳까지 디지털 콘텐츠를 가져가야 하기 때문에 인터넷 속도가 느려질 수 있습니다.&lt;/p&gt;
-&lt;p&gt;사용자는 체감하지 못할 수도 있지만, CDN은 온라인의 거의 모든 곳에서 빠르고 안정적이며 일관된 경험을 제공합니다. CDN이 보이지 않는 곳에서 트래픽을 관리하는 방법을 보여주는 간단한 예는 다음과 같습니다.&lt;/p&gt;
-&lt;p&gt;CDN은 전체 트래픽의 균형을 맞춰 인터넷 콘텐츠에 접속하는 모든 사용자에게 최고의 웹 경험을 제공합니다. 오프라인 환경에서 트래픽을 라우팅하는 것을 생각해 보세요. 다른 차량이 없다고 가정하면 일반적으로 지점 A에서 지점 B로 이동하는 가장 빠른 경로는 하나입니다. 하지만 이 경로가 정체되기 시작하면 다른 경로로 교통이 분산되는 것이 모두에게 좋습니다. 이렇게 되면 몇 분(인터넷 속도로 조정될 경우 밀리초) 더 걸리는 경로를 이용해야 할 수 있지만, 일반적으로 최단 경로에서 발생하는 교통 체증을 겪지 않아도 됩니다. 또는 나는 최단 경로를 이용하지만 다른 차들이 더 긴 경로로 우회하고 있기 때문에 교통 체증이 심하지 않을 수 있습니다. 따라서 속도를 늦추는 것이 아니라 사용 가능한 모든 리소스를 완전히 사용하고 부하를 분산하는 것입니다.&lt;/p&gt;
-&lt;p&gt;CDN을 사용하지 않으면 웹 서핑 시 트래픽이 폭증하는 일이 더 자주 발생합니다. &lt;/p&gt;
-&lt;h2 id=&#34;누가-cdn을-사용하나요&#34;&gt;누가 CDN을 사용하나요?&lt;/h2&gt;
-&lt;p&gt;웹에 접속하는 거의 모든 사람은 CDN을 사용합니다. CDN은 인터넷에 접속하는 사람들에게 더 빠르고 안정적인 경험을 제공하기 위해 만들어졌습니다. 콘텐츠 및 애플리케이션 소유자, 네트워크 서비스 사업자는 CDN을 사용해 고객에게 이러한 장점을 제공합니다.&lt;/p&gt;
-&lt;h3 id=&#34;사용자를-위한-cdn&#34;&gt;사용자를 위한 CDN&lt;/h3&gt;
-&lt;p&gt;CDN을 통해 전송되는 웹사이트와 웹 애플리케이션은 빠른 페이지 로딩과 트랜잭션, 일관된 온라인 경험을 제공합니다. 하지만 사용자는 자신이 CDN을 통해 접속하고 있다는 것을 전혀 모를 수 있습니다. CDN 기술은 백그라운드에서 작동하기 때문입니다. 사용자는 ISP 또는 모바일 서비스 사업자로부터 요청한 것을 받을 뿐입니다.&lt;/p&gt;
-&lt;h3 id=&#34;콘텐츠-기업을-위한-cdn&#34;&gt;콘텐츠 기업을 위한 CDN&lt;/h3&gt;
-&lt;p&gt;이커머스 사이트, 미디어 프로퍼티, 클라우드 컴퓨팅 사업자 같은 콘텐츠-애플리케이션 소유자는 CDN을 사용해 최종 사용자의 경험을 개선하고 이탈률 감소, 광고 노출 수 증가, 전환율 증가, 고객 충성도 강화와 같은 장점을 누릴 수 있습니다. 또한 CDN을 사용하면 DDoS(Distributed Denial of Service) 공격을 흡수하고 방어하는 등 웹 보안을 강화할 수 있습니다.&lt;/p&gt;
-&lt;h3 id=&#34;네트워크-서비스-사업자를-위한-cdn&#34;&gt;네트워크 서비스 사업자를 위한 CDN&lt;/h3&gt;
-&lt;p&gt;온라인 스트리밍을 &lt;a href=&#34;https://www.akamai.com/us/en/resources/online-streaming.jsp&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;비롯한&lt;/a&gt;
- 고품질 미디어 서비스가 &lt;a href=&#34;https://www.akamai.com/us/en/products/performance/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;폭발적으로 증가하고 있습니다.&lt;/a&gt;
-사용자들은 다양한 종류의 디바이스를 사용하고 있으며 웹 성능에 대한 기대치가 높기 때문에, 오늘날 네트워크 서비스 사업자들은 자체 CDN 구축의 필요성을 절감하고 있습니다. 네트워크 서비스 사업자의 경우 CDN을 구축하면 가입자 이탈이 감소하고, 부가가치 서비스 개발을 촉진하고, 핵심 네트워크의 트래픽을 줄이고, 기업 및 기타 콘텐츠 기업에 CDN 서비스를 판매하는 등 다양한 혜택을 누릴 수 있습니다.&lt;/p&gt;
-&lt;p&gt;CDN이 제공하는 가장 큰 장점 중 하나는 &lt;em&gt;부하 분산입니다&lt;/em&gt;. CDN은 원본 콘텐츠가 저장된 서버 대신 사용자와 물리적으로 가까운 네트워크 위치에서 캐싱된 버전으로 웹 콘텐츠 요청에 응답함으로써 콘텐츠 서버의 트래픽을 분산하고 웹 경험을 향상합니다. 즉, 콘텐츠가 네트워크 운영자의 네트워크 안에 존재하고, 다른 네트워크와의 피어링 또는 더 광범위한 인터넷을 통해 정보를 전달할 필요가 없습니다.&lt;/p&gt;
-&lt;h2 id=&#34;cdn을-이용하면-어떤-이점이-있을까요&#34;&gt;CDN을 이용하면 어떤 이점이 있을까요?&lt;/h2&gt;
-&lt;p&gt;CDN은 전 세계 인터넷 트래픽의 상당 부분을 처리하며 인터넷으로 콘텐츠를 전송할 때 발생하는 가장 어려운 문제들을 해결하도록 지원합니다. 중소 규모의 콘텐츠 기업부터 세계적인 대기업까지 다양한 기업이 CDN을 사용해 고객에게 원활한 웹 경험을 제공합니다.&lt;/p&gt;
-&lt;p&gt;기본적으로 인터넷은 대량의 데이터, 라이브 HD 비디오, 반짝 세일, 대규모 다운로드의 수요를 처리할 수 있도록 설계되지 않았는데 CDN은 이런 인터넷 성능을 개선하도록 설계되었습니다. CDN은 대용량 미디어를 안전하게 전송하고 오늘날 대부분의 사람들이 일상 생활에서 겪는 모든 연결 경험을 가능하게 합니다. &lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;cdn은-성능-가용성-보안-인텔리전스-솔루션을-제공함으로써-세계-최고의-기업과-조직이-온라인에서-성공적으로-비즈니스를-이끌어-가도록-지원합니다&#34;&gt;CDN은 성능, 가용성, 보안, 인텔리전스 솔루션을 제공함으로써 세계 최고의 기업과 조직이 온라인에서 성공적으로 비즈니스를 이끌어 가도록 지원합니다.&lt;/h2&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;성능&#34;&gt;성능&lt;/h4&gt;
-&lt;p&gt;사용자가 새로운 콘텐츠를 클릭했을 때 즉시 접속할 수 있는 경우와 페이지 로딩 또는 비디오 버퍼링이 완료될 때까지 7초 동안 기다려야 하는 경우의 차이가 바로 성능의 차이입니다. &lt;em&gt;버퍼링은&lt;/em&gt; 화면에서 돌아가는 둥근 아이콘으로 대표되는 대기 시간입니다. ISP가 제공하는 인터넷 연결이 충분히 빠르지 않을 때 발생합니다.&lt;/p&gt;
-&lt;p&gt;작동 방식은 어떨까요? 요청된 콘텐츠가 CDN 서버에 캐싱(사전 저장)되어 있는 경우, 사용자의 ISP 또는 모바일 서비스 사업자는 요청이 오리진에 직접 도달할 때까지 기다리는 대신 CDN 네트워크에 있는 서버에 접속해 해당 콘텐츠를 받게 됩니다. 사용자가 접속하려는 콘텐츠가 저장된 오리진 서버가 사용자와 물리적으로 먼 거리에 있을 수 있습니다. 이런 경우 CDN은 해당 콘텐츠를 사용자와 더 가까운 곳에서 제공함으로써 속도와 성능을 개선합니다. 예를 들어, 이탈리아 밀라노의 Fashion House X(FHX)가 온라인 주문을 위한 새로운 라인업을 출시했다고 가정해 보겠습니다. 뉴욕, 파리, 리우데자네이루, 도쿄의 패션 리더들은 앞다투어 온라인으로 접속하여 주문하려 할 것입니다. 만약 FHX가 클라우드 콘텐츠 관리 시스템을 사용하지 않고 있다면, 각 엔드유저의 요청은 밀라노까지 갔다가 엔드유저에게 되돌아가야 합니다. 하지만 FHX가 CDN을 사용 중이고 CDN 전반에 걸쳐 콘텐츠를 사전에 준비해 놓았다면 모든 사용자는 해당 도시에서 신규 콘텐츠에 직접 접속할 수 있게 되고, 수백 또는 수천 마일을 왕복하는 시간을 절약할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;콘텐츠가 사전 저장되어 있지 않은 경우, CDN은 필요한 접속에 대한 프로그래밍된 지식을 사용해 문제를 해결합니다. 고급 CDN은 동적 콘텐츠 또는 캐싱 불가능한 콘텐츠 전송 문제를 해결하고 디바이스에 맞는 적절한 콘텐츠를 결정하기 위해 추가적인 기술을 사용합니다. &lt;/p&gt;
-&lt;p&gt;따라서 콘텐츠 제공업체는 CDN을 사용해 위치, 브라우저, 디바이스, 네트워크에 관계없이 모든 사용자에게 고품질의 웹 경험을 빠른 속도로 제공할 수 있게 됩니다. 웹 페이지는 더 빠르게 렌더링되고, 비디오 버퍼링 시간은 줄어들고, 사용자는 몰입도를 유지할 수 있습니다.&lt;/p&gt;
-&lt;h4 id=&#34;가용성&#34;&gt;가용성&lt;/h4&gt;
-&lt;p&gt;가용성은 많은 사람들이 동시에 콘텐츠에 접속하거나 인터넷에서 서버 장애가 발생해 과도한 사용자 트래픽이 발생하는 동안에도 사용자가 콘텐츠에 계속 접속할 수 있는 것을 의미합니다. &lt;/p&gt;
-&lt;p&gt;트래픽 부하가 초당 수백만 건의 요청으로 급증하면 아무리 강력한 서버라도 막대한 부담이 가게 됩니다. CDN이 없다면 콘텐츠 제공업체의 인프라가 이 트래픽을 흡수해야 합니다. 이로 인해 장애가 발생하고 사용자 경험이 저하될 수 있습니다. CDN이 제공하는 광범위하게 분산된 서버 인프라는 이러한 문제를 해결하기 위해 설계되었습니다. 광범위하게 분산된 아키텍처와 막대한 규모의 서버 플랫폼을 갖춘 고급 CDN은 수십 Tbps의 트래픽을 처리할 수 있습니다. 덕분에 콘텐츠 제공업체는 대규모 사용자 기반에 걸쳐 가용성을 제공할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;밀라노의 FHX 사례를 다시 들어 보겠습니다. FHX는 수많은 패션 애호가들이 사랑하는 브랜드이며 패션 애호가들은 FHX의 신규 라인업에 큰 관심을 보입니다. 전 세계 패션 애호가들은 출시 시점에 FHX 웹사이트에 동시 접속합니다. FHX가 CDN을 사용하고 있지 않다면, 이러한 사용자들이 동시에 오리진 서버에 요청을 전송하고 오리진 서버에서 트래픽 급증으로 인한 장애가 발생할 가능성이 매우 높습니다. 그러나 FHX가 CDN을 사용한다면 이 모든 트래픽이 수십만 대의 서버로 구성된 CDN 전역으로 분산되어 FHX의 오리진이 장애 없이 작동하고 전 세계 패션 애호가들에게 고품질 경험을 제공할 수 있게 됩니다. &lt;/p&gt;
-&lt;h4 id=&#34;보안&#34;&gt;보안&lt;/h4&gt;
-&lt;p&gt;인터넷에서 중요한 데이터와 트랜잭션의 양이 계속 증가함에 따라 공격자의 위협도 늘어나고 있습니다. 기업은 공격으로 인해 상당한 비용을 지불해야 할 수 있습니다. 악의적인 내부자에 의한 범죄와 함께 DDoS 및 웹 기반 공격이 가장 많은 비용을 발생시키는 것으로 밝혀졌습니다. &lt;/p&gt;
-&lt;p&gt;DoS 공격과 웹 기반 공격(&lt;a href=&#34;https://blogs.akamai.com/2020/09/web-application-and-api-protection-from-sql-injection-to-magecart.html&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;SQL 인젝션,&lt;/a&gt;
-크로스 사이트 스크립팅, 로컬 파일 또는 원격 파일 인클루전)이 점점 빈번하게 발생하고 있습니다. DDoS 공격에 관심이 쏠리도록 만든 다음에 더욱 심각한 손실을 유발하는 다른 악성 공격을 일으키는 사례도 증가하고 있습니다. 두 가지 유형의 공격 모두 정상 트래픽과 악성 트래픽을 구별하기가 쉽지 않은 경우가 대부분이며, 시간이 지나면서 공격 전략이 급속도로 진화하기 때문에 방어 전략을 최신 상태로 유지하기 위해서는 상당히 많은 보안 전담 리소스가 필요합니다. &lt;/p&gt;
-&lt;p&gt;인터넷 위협 환경이 급격하게 변화함에 따라 안전한 웹사이트를 지원하는 것이 CDN의 중요한 요구사항이 되었습니다. 오늘날의 고급 CDN은 인터넷 보안을 핵심 역량으로 삼아 독자적인 클라우드 기반 솔루션을 제공하고 있습니다. CDN은 악성 행위자들이 어떠한 경우에도 전송 및 가용성에 영향을 미치지 않도록 하는 동시에 다양한 공격을 막아냄으로써 콘텐츠 제공업체와 사용자들을 보호할 수 있어야 합니다.&lt;/p&gt;
-&lt;h4 id=&#34;인텔리전스&#34;&gt;인텔리전스&lt;/h4&gt;
-&lt;p&gt;CDN 제공업체들은 전 세계 인터넷 트래픽의 거의 절반을 처리하면서 전 세계의 사용자 접속, 디바이스 종류, 브라우징 경험과 대한 막대한 데이터를 생성합니다. CDN 제공업체들은 고객 지원에 이런 데이터를 사용함으로써 고객의 사용자 기반에 대한 유용하고 중요한 인사이트와 인텔리전스를 제공합니다. 이러한 서비스에는 웹 콘텐츠에 대한 사용자의 몰입도를 측정하는 데 필요한 RUM(Real-User Monitoring) 및 Media Analytics와 온라인 위협을 추적하기 위한 클라우드 보안 인텔리전스가 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;클라우드-vs-cdn&#34;&gt;클라우드 vs CDN&lt;/h2&gt;
-&lt;p&gt;최신 디지털 경험은 기업이 콘텐츠를 배치하는 방식으로 확장되었습니다. CDN과 클라우드 컴퓨팅은 웹 콘텐츠 및 애플리케이션 요구사항이 초래하는 성능 및 확장성 문제를 해결하기 위해 개발되었습니다. 이 둘은 어떻게 다를까요?&lt;/p&gt;
-&lt;h3 id=&#34;클라우드&#34;&gt;클라우드&lt;/h3&gt;
-&lt;p&gt;클라우드 컴퓨팅 환경은 컴퓨터의 하드 드라이브 대신 인터넷 서버에 정보를 저장합니다. 웹 기반 이메일, 파일 저장, 파일 공유, 데이터 백업 등의 작업에 사용할 수 있는 편리하고 믿을 수 있는 방법입니다. 또한 클라우드는 사용자가 소셜 미디어 플랫폼과 같은 웹 애플리케이션에 쉽게 접속할 수 있도록 지원합니다. 클라우드 환경은 수백 개의 PoP로 구성되며, 각 PoP는 지역별로 중앙 집중화되어 있습니다.&lt;/p&gt;
-&lt;p&gt;기업은 클라우드를 활용해 필요에 따라 애플리케이션 인프라를 확장하고, 많은 비용을 들여 새로운 인프라에 투자하지 않고 신규 지역으로 확장하며, 최신 디지털 경험 또는 엔터프라이즈 애플리케이션을 개발할 수 있습니다. &lt;/p&gt;
-&lt;p&gt;클라우드는 여러 장점을 제공하지만 클라우드에서 애플리케이션을 구축하거나 애플리케이션을 클라우드로 전환할 때는 주로 예상치 못한 비용이 발생합니다. 또한 클라우드 전환 프로젝트는 근본적으로 디지털 경험의 성능과 가용성을 유지하기 어렵게 만듭니다. &lt;/p&gt;
-&lt;h3 id=&#34;cdn&#34;&gt;CDN&lt;/h3&gt;
-&lt;p&gt;CDN은 각 사용자가 웹 활성화 디바이스를 통해 인터넷에 접속하는 곳과 가까운 곳에서 콘텐츠를 캐싱해 전 세계 &amp;lsquo;오리진&amp;rsquo; 서버에서 콘텐츠를 배포하는 서버 네트워크입니다. 사용자가 요청한 콘텐츠는 먼저 오리진 서버에 저장된 다음 필요에 따라 다른 곳에 복제되고 저장됩니다. 사용자가 있는 곳과 물리적으로 가까운 곳에 콘텐츠를 캐싱하고 이동 거리를 줄임으로써 지연 시간이 줄어듭니다. 또한 이 프로세스는 여러 서버에 걸쳐 지역적으로 부하를 분산시켜 오리진 서버에 대한 스트레스를 줄여줍니다.&lt;/p&gt;
-&lt;p&gt;어떤 사람들은 CDN을 &amp;lsquo;엣지&amp;rsquo;라고 부릅니다. 엣지는 물리적 환경과 디지털 세계가 네트워크 경계에서 만나 상호 작용하는 곳입니다. 전 세계에 광범위하게 분산된 수천 개의 PoP와 탁월한 용량 및 확장성을 갖춘 CDN은 사용자와 가까운 곳에서 서비스를 제공합니다. &lt;/p&gt;
-&lt;p&gt;즉, 전 세계 어느 곳에서나 휴대폰, 태블릿, 컴퓨터 또는 기타 인터넷 지원 디바이스를 사용해 콘텐츠를 더 빠르게 로딩할 수 있습니다. 집에서 비디오를 보거나 다른 대륙에서 항공편에 체크인할 때도 CDN 덕분에 동일한 디지털 경험을 즐길 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;akamai의-최신-엣지-전송-cdn-솔루션&#34;&gt;Akamai의 최신 엣지 전송 CDN 솔루션&lt;/h2&gt;
-&lt;p&gt;Akamai 의 CDN 서비스는 인터넷의 창시자인 팀 버너스 리(Tim Berners-Lee)가 제시한 &amp;lsquo;World Wide Wait&amp;rsquo;이라는 문제를 해결하기 위해 개발되었습니다. Akamai는 20년 전에 웹 트래픽을 라우팅하고 중앙에 위치한 서버에서 초기 인터넷 사용자에게 콘텐츠를 빠르게 전송하는 새로운 기술을 개발함으로써 엣지 컴퓨팅을 개척했습니다. 오늘날 글로벌 기업들은 Akamai의 솔루션과 전문 기술을 활용해 디지털 경험을 보호하고 전송합니다.&lt;/p&gt;
-&lt;p&gt;Akamai의 종합적인 콘텐츠 전송 솔루션은 웹사이트, 앱, API, 비디오, 소프트웨어 등 콘텐츠의 종류나 위치, 디바이스, 네트워크에 상관없이 모든 사용자에게 놀라운 디지털 경험을 제공하도록 설계되었습니다. &lt;/p&gt;
-&lt;p&gt;Akamai는 300Tbps 이상의 글로벌 네트워크 용량을 보유하고 있으며, 4200여 곳의 위치, 135개 국가, 1400여 개의 네트워크를 기반으로 뛰어난 확장성을 제공합니다. 세계 최대 규모의 엣지 전송 플랫폼으로 인터넷 현황을 더 폭넓게 파악할 수 있으며, 병목 현상을 차단하고 엣지에서 공격을 방어할 수 있습니다. &lt;/p&gt;
-&lt;h3 id=&#34;뛰어난-웹사이트-및-모바일-앱-경험을-제공하는-자동-가속&#34;&gt;뛰어난 웹사이트 및 모바일 앱 경험을 제공하는 자동 가속&lt;/h3&gt;
-&lt;p&gt;오늘날의 사용자들은 언제든지 시각적으로 우수한 맞춤형 경험을 모든 디바이스에서 제공받고 싶어 합니다. 고객의 기대치에 부합하기 위해 고화질 이미지, 비디오, 개인맞춤형 콘텐츠, 써드파티 콘텐츠 등이 포함된 복잡한 애플리케이션을 출시하는 온라인 기업들이 점차 증가하고 있습니다. 이에 따라 최적화, 운영, 유지 관리 비용이 크게 증가할 수 있습니다. Akamai Ion은 스마트한 성능 자동화 및 제어를 통해 웹 및 모바일 앱 경험을 지속적으로 분석, 최적화, 가속합니다.&lt;/p&gt;
-&lt;h3 id=&#34;모든-환경에서-고품질-비디오-재생-경험&#34;&gt;모든 환경에서 고품질 비디오 재생 경험&lt;/h3&gt;
-&lt;p&gt;온라인 시청자는 온라인 비디오 전송 시 직면하는 문제에 대해서는 알지 못하거나 관심이 없을 수도 있습니다. 서비스 제공업체가 해결해야 하는 온라인 콘텐츠 전송 과제는 상당히 많음에도 불구하고 온라인 시청자는 항상 환상적인 비디오 재생을 기대합니다. Adaptive Media Delivery는 증가하는 온라인 시청자에게 모든 스크린에서 일관된 고품질 비디오 재생 경험을 제공하도록 최적화되어 있습니다.&lt;/p&gt;
-&lt;h3 id=&#34;쾌적한-다운로드-전송&#34;&gt;쾌적한 다운로드 전송&lt;/h3&gt;
-&lt;p&gt;사용자는 빠른 다운로드와 실시간에 가까운 업데이트가 결합된 원활한 다운로드 경험을 기대합니다. 효과적이고 안정적인 콘텐츠 배포와 다운로드 전략은 다운로드 완료율, 고객 만족, 매출을 극대화하는 핵심 요소입니다. 사용자 디바이스에 상관없이 소프트웨어, 애플리케이션, 게임, 보안 패치 등을 다운로드할 때 반드시 필요한 전략입니다. Download Delivery는 인터넷으로 대용량 파일 기반 콘텐츠를 전송하는 데 최적화된 안정적인 고성능 콘텐츠 전송 솔루션입니다. &lt;/p&gt;
-&lt;h3 id=&#34;api-가속&#34;&gt;API 가속&lt;/h3&gt;
-&lt;p&gt;접속 속도가 밀리초 단위로 측정되고 빠르게 변화하는 오늘날의 디지털 환경에서 API는 중요한 역할을 합니다. API 요청 수가 지속적으로 증가하고 갑작스러운 수요 급증이 자주 발생함에 따라 사용자의 기대치에 부합하는 일이 점차 어려운 도전과제로 부각되고 있습니다. 퍼블릭 API를 빠르게 제공하지 않으면 열악한 사용자 경험, 매출 손실, 다운타임 등의 문제로 이어질 수 있습니다. 따라서 안정성∙확장성∙성능에 대해 우려할 필요가 없는 파트너사와 반드시 협력해야 합니다.&lt;/p&gt;
-&lt;p&gt;API Acceleration은 API 전송 및 기타 페이로드가 작은 트래픽에 최적화되어 앱 및 사이트 간 빠르고 몰입도 높은 사용자 경험을 제공합니다. 오리진 인프라의 요청을 부하 분산하고 애플리케이션의 성공에 중요한 대규모 XML, JSON과 기타 소규모 트랜잭션 및 프로그래밍 방식의 트래픽에 예측 가능한 고성능을 제공합니다.&lt;/p&gt;
 </description>
     </item>
     

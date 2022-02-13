@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
+    <loc>https://cidk.xyz/post/postgresql/</loc><lastmod>2022-02-13T00:00:00+00:00</lastmod></url><url>
+    <loc>https://cidk.xyz/post/</loc><lastmod>2022-02-13T00:00:00+00:00</lastmod></url><url>
+    <loc>https://cidk.xyz/post/docker/</loc><lastmod>2022-02-13T00:00:00+00:00</lastmod></url><url>
+    <loc>https://cidk.xyz/</loc><lastmod>2022-02-13T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/categories/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/tags/django/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/categories/django/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/post/django-query-string/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
-    <loc>https://cidk.xyz/post/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/tags/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
-    <loc>https://cidk.xyz/</loc><lastmod>2022-02-06T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/post/django-why-need-request/</loc><lastmod>2022-02-03T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/tags/jsonresponse/</loc><lastmod>2022-02-03T00:00:00+00:00</lastmod></url><url>
     <loc>https://cidk.xyz/tags/python/</loc><lastmod>2022-02-02T00:00:00+00:00</lastmod></url><url>
