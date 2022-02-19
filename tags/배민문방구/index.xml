@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>배민문방구 on 최희택의 개발 공부 로그</title>
+    <link>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</link>
+    <description>Recent content in 배민문방구 on 최희택의 개발 공부 로그</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[배민서바이벌] 프로젝트 완성 및 회고</title>
+      <link>https://heetaek.com/post/baemin-survival/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/baemin-survival/</guid>
+      <description>배민문방구 클론 프로젝트 회고록</description>
+    </item>
+    
+  </channel>
+</rss>
