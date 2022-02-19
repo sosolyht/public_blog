@@ -5,8 +5,8 @@
     <link>https://heetaek.com/tags/orm/</link>
     <description>Recent content in ORM on 최희택의 개발 공부 로그</description>
     <image>
-      <url>https://heetaek.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://heetaek.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/orm/index.xml" rel="self" type="application/rss+xml" />
