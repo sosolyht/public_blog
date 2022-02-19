@@ -1,27 +1,115 @@
-<!DOCTYPE html>
-<html lang="ko"><meta charset="utf-8"><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark"><title>ORM&nbsp;&ndash;&nbsp;코딩 잘 몰라요</title><link rel="stylesheet" href="/css/core.min.088e37ad6963b8bda64ff6e03e4b501a7f22234f6054b19984f25f3b485f89df13f1b53313a61ebc0cdc3355b4462d18.css" integrity="sha384-CI43rWljuL2mT/bgPktQGn8iI09gVLGZhPJfO0hfid8T8bUzE6YevAzcM1W0Ri0Y"><link rel="alternate" type="application/rss+xml" href="/tags/orm/index.xml" title="코딩 잘 몰라요" /><meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="ORM" /><body><section id="header">
-    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">코딩 잘 몰라요</span></a></span>
-        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/about/">About</a></nav></div></span></div></section><section id="content"><section class="article header"><h1>ORM</h1></section><ul class="note list"><li class="item"><a class="note" href="/post/django-queryset-filter/">
-            <p class="note title">Django QuerySet filter 제대로 알아보자</p><p class="note date">2022-01-31</p><p class="note content">filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다. 전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다. 계속 filter 에 대해 쓰는 이유는 중<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li><li class="item"><a class="note" href="/post/django-related-name/">
-            <p class="note title">Django 참조(Foreign Key) 역참조(related_name)</p><p class="note date">2022-01-22</p><p class="note content">참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다. 위와 같은 모델이 있다고 가정할때 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey(&#39;Actor&#39;, on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li><li class="item"><a class="note" href="/post/django-orm-get-filter/">
-            <p class="note title">Django ORM get(), filter() 비교</p><p class="note date">2022-01-20</p><p class="note content">시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서 임포트 해주겠습<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/django/">Django</a><a class="tag" href="/tags/django/">Django</a><a class="tag" href="/tags/orm/">ORM</a></p></li></ul></section><section id="footer"><div class="footer-wrap">
-    <p class="copyright">©2022 cidk.</p>
-    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io"
-        target="_blank" rel="noopener noreferrer">Hugo</a></p></div>
+<!doctype html><html lang=ko dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>ORM | 최희택의 개발 공부 로그</title>
+<meta name=keywords content>
+<meta name=description content="기술 정보를 찾고 공부하여 공유합니다.">
+<meta name=author content="최희택">
+<link rel=canonical href=https://heetaek.com/tags/orm/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=apple-touch-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=mask-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<link rel=alternate type=application/rss+xml href=https://heetaek.com/tags/orm/index.xml>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-QPR5XGZ8DK',{anonymize_ip:!1})}</script>
+<meta property="og:title" content="ORM">
+<meta property="og:description" content="기술 정보를 찾고 공부하여 공유합니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heetaek.com/tags/orm/"><meta property="og:image" content="https://heetaek.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="최희택의 개발 공부 로그">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://heetaek.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="ORM">
+<meta name=twitter:description content="기술 정보를 찾고 공부하여 공유합니다.">
+</head>
+<body class=list id=top>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://heetaek.com accesskey=h title="heetaek.com (Alt + H)">heetaek.com</a>
+<span class=logo-switches>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://heetaek.com/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header><div class=breadcrumbs><a href=https://heetaek.com>Home</a>&nbsp;»&nbsp;<a href=https://heetaek.com/tags/>Tags</a></div>
+<h1>ORM</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Django QuerySet filter 제대로 알아보자
+</h2>
+</header>
+<section class=entry-content>
+<p>filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다.
+전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다.
+계속 filter 에 대해 쓰는 이유는 중요하기도 하고 저도 배워야하기 때문에..
+exact exact 는 정확히 일치하는 데이터를 찾습니다.
+1 Product.objects.get(id__exact = 14) Product 라는 객체에 id 가 14번인 친구를 찾으라는 거겠죠?
+iexact iexact 는 대소문자를 구분하지않고 정확히 일치하는 데이터를 찾습니다.
+1 Product.objects.get(name__iexact = 'k9 tank') 마찬가지로 Product 라는 객체에 name 이 k9 tank 라는 친구를 찾아오라는 겁니다....</p>
 </section>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-216039735-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<footer class=entry-footer><span title="2022-01-31 00:00:00 +0000 UTC">2022-01-31</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
+<a class=entry-link aria-label="post link to Django QuerySet filter 제대로 알아보자" href=https://heetaek.com/post/django-queryset-filter/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Django 참조(Foreign Key) 역참조(related_name)
+</h2>
+</header>
+<section class=entry-content>
+<p>참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다.
+위와 같은 모델이 있다고 가정할때
+1 2 3 4 5 6 7 8 9 10 11 12 13 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey('Actor', on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영화배우 name [3] = models.CharField(max_length=100) age = models.CharField(max_length=30) . . . 영화(Movie) 라는 모델에서 영화배우(Actor)를 불러들이는 것을 ‘참조’ 라 합니다....</p>
+</section>
+<footer class=entry-footer><span title="2022-01-22 00:00:00 +0000 UTC">2022-01-22</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
+<a class=entry-link aria-label="post link to Django 참조(Foreign Key) 역참조(related_name)" href=https://heetaek.com/post/django-related-name/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Django ORM get(), filter() 비교
+</h2>
+</header>
+<section class=entry-content>
+<p>시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서
+임포트 해주겠습니다.
+get() get() 은 객체 하나만 반환을 해줍니다. 그래서 get() 의 경우는 unique 한 값을 가지고 검색을 하는것이 좋습니다.
+예를들어 id 가 1번값을 가지고있는 데이터를 가지고오고싶을때는 아래의 사진처럼 User.objects.get(id=1) 이런식으로 가져오시면 됩니다. 쿼리에 맞는 결과가 없을시에는
+DoesNotExist 라는 오류가 발생하게됩니다.
+왜냐하면 제 데이터베이스에는 id가 1번인 데이터가 없기때문입니다....</p>
+</section>
+<footer class=entry-footer><span title="2022-01-20 00:00:00 +0000 UTC">2022-01-20</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer>
+<a class=entry-link aria-label="post link to Django ORM get(), filter() 비교" href=https://heetaek.com/post/django-orm-get-filter/></a>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
-
 </html>
