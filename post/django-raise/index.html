@@ -10,11 +10,11 @@
 <link rel=canonical href=https://heetaek.com/post/django-raise/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=apple-touch-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=mask-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=icon href=https://heetaek.com/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://heetaek.com/apple-touch-icon.png>
+<link rel=mask-icon href=https://heetaek.com/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <noscript>
@@ -33,7 +33,7 @@
 <meta name=twitter:title content="Django raise error 메시지를 json데이터로 출력하는 방법">
 <meta name=twitter:description content="Validation 에러 메시지를 json 으로 못가져와서 삽질한 결과">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Django raise error 메시지를 json데이터로 출력하는 방법","item":"https://heetaek.com/post/django-raise/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django raise error 메시지를 json데이터로 출력하는 방법","name":"Django raise error 메시지를 json데이터로 출력하는 방법","description":"Validation 에러 메시지를 json 으로 못가져와서 삽질한 결과","keywords":["django","django raise","django validationerror"],"articleBody":"정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고 해서 직접 포스트맨으로 테스트를 해보았는데 역시나 ValidationError 를 처리를 못 해주고있었습니다.\n터미널에서도 ValidationError 와 내부서버오류인 500코드만 띄워주네요.\n처음에는 raise 로 에러를 주면 그게 콘솔에 찍히는 줄 알았습니다.\n바로 구글링을 하여 찾아보고, 참고 : https://stackoverflow.com/questions/10307996/python-how-to-print-the-message-inside-validationerror\nValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어보니 정상적으로 프론트에서도 콘솔에 찍히는걸 확인할수있었습니다. 포스트맨에서도 정상적으로 json 데이터를 받아오는걸 확인할수있습니다. 이제 터미널에서도 이쁘게 에러코드가 확인됩니다.\n저만 몰랐던 에러처리방법..이렇게 배우고 알아갑니다.\n","wordCount":"82","inLanguage":"ko","datePublished":"2022-01-30T00:00:00Z","dateModified":"2022-01-30T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-raise/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django raise error 메시지를 json데이터로 출력하는 방법","name":"Django raise error 메시지를 json데이터로 출력하는 방법","description":"Validation 에러 메시지를 json 으로 못가져와서 삽질한 결과","keywords":["django","django raise","django validationerror"],"articleBody":"정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고 해서 직접 포스트맨으로 테스트를 해보았는데 역시나 ValidationError 를 처리를 못 해주고있었습니다.\n터미널에서도 ValidationError 와 내부서버오류인 500코드만 띄워주네요.\n처음에는 raise 로 에러를 주면 그게 콘솔에 찍히는 줄 알았습니다.\n바로 구글링을 하여 찾아보고, 참고 : https://stackoverflow.com/questions/10307996/python-how-to-print-the-message-inside-validationerror\nValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어보니 정상적으로 프론트에서도 콘솔에 찍히는걸 확인할수있었습니다. 포스트맨에서도 정상적으로 json 데이터를 받아오는걸 확인할수있습니다. 이제 터미널에서도 이쁘게 에러코드가 확인됩니다.\n저만 몰랐던 에러처리방법..이렇게 배우고 알아갑니다.\n","wordCount":"82","inLanguage":"ko","datePublished":"2022-01-30T00:00:00Z","dateModified":"2022-01-30T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-raise/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>

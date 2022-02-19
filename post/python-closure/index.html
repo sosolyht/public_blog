@@ -10,11 +10,11 @@
 <link rel=canonical href=https://heetaek.com/post/python-closure/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=apple-touch-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=mask-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=icon href=https://heetaek.com/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://heetaek.com/apple-touch-icon.png>
+<link rel=mask-icon href=https://heetaek.com/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <noscript>
@@ -33,7 +33,7 @@
 <meta name=twitter:title content="Python 클로저(Closure)">
 <meta name=twitter:description content="처음에는 어려운 파이썬 클로저">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Python 클로저(Closure)","item":"https://heetaek.com/post/python-closure/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 클로저(Closure)","name":"Python 클로저(Closure)","description":"처음에는 어려운 파이썬 클로저","keywords":["python 클로저","클로저"],"articleBody":"클로저에 대해.  함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용 처음에 보면 이해하기가 어려움  제곱(power)로 예시중간에 있는 closure_power1 , closure_power2 , closure_power3 가 closure 입니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  def calc_power(x): def power(y): return x ** y return power closure_power1 = calc_power(2) closure_power2 = calc_power(3) closure_power3 = calc_power(4) print(closure_power1(1)) print(closure_power2(2)) print(closure_power3(3))   결과\n1 2 3  2 9 64   사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.\n1 2 3 4 5 6 7 8 9 10  def outer_func(num): def inner_func(): print(num) return inner_func closure_func = outer_func(58) closure_func()   결과는? 58 입니다.\n closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료 closure_func() 은 결국 inner_func 함수를 호출 outer_func(58) 호출 종료시 num 값은 없어졌으나, closure_func()에서 inner_func이 호출되면서 이전의 num값(58)을 사용함  그럼 closure 는 언제 사용하나요?\n 제공해야할 기능이 적은경우 , closure 를 사용 반대로 제공해야할 기능이 많은 경우 , class 를 사용하여 구현  ","wordCount":"150","inLanguage":"ko","datePublished":"2022-01-04T00:00:00Z","dateModified":"2022-01-04T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-closure/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 클로저(Closure)","name":"Python 클로저(Closure)","description":"처음에는 어려운 파이썬 클로저","keywords":["python 클로저","클로저"],"articleBody":"클로저에 대해.  함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용 처음에 보면 이해하기가 어려움  제곱(power)로 예시중간에 있는 closure_power1 , closure_power2 , closure_power3 가 closure 입니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  def calc_power(x): def power(y): return x ** y return power closure_power1 = calc_power(2) closure_power2 = calc_power(3) closure_power3 = calc_power(4) print(closure_power1(1)) print(closure_power2(2)) print(closure_power3(3))   결과\n1 2 3  2 9 64   사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.\n1 2 3 4 5 6 7 8 9 10  def outer_func(num): def inner_func(): print(num) return inner_func closure_func = outer_func(58) closure_func()   결과는? 58 입니다.\n closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료 closure_func() 은 결국 inner_func 함수를 호출 outer_func(58) 호출 종료시 num 값은 없어졌으나, closure_func()에서 inner_func이 호출되면서 이전의 num값(58)을 사용함  그럼 closure 는 언제 사용하나요?\n 제공해야할 기능이 적은경우 , closure 를 사용 반대로 제공해야할 기능이 많은 경우 , class 를 사용하여 구현  ","wordCount":"150","inLanguage":"ko","datePublished":"2022-01-04T00:00:00Z","dateModified":"2022-01-04T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-closure/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>

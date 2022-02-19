@@ -9,11 +9,11 @@
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/tags/django/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=apple-touch-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
-<link rel=mask-icon href=https://heetaek.com/%3Clink%20/%20abs%20url%3E>
+<link rel=icon href=https://heetaek.com/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://heetaek.com/apple-touch-icon.png>
+<link rel=mask-icon href=https://heetaek.com/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <link rel=alternate type=application/rss+xml href=https://heetaek.com/tags/django/index.xml>
@@ -130,11 +130,22 @@ ValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어�
 <footer class=entry-footer><span title="2022-01-22 00:00:00 +0000 UTC">2022-01-22</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django 참조(Foreign Key) 역참조(related_name)" href=https://heetaek.com/post/django-related-name/></a>
 </article>
-<footer class=page-footer>
-<nav class=pagination>
-<a class=next href=https://heetaek.com/tags/django/page/2/>다음 페이지 »</a>
-</nav>
-</footer>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Django ORM get(), filter() 비교
+</h2>
+</header>
+<section class=entry-content>
+<p>시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서
+임포트 해주겠습니다.
+get() get() 은 객체 하나만 반환을 해줍니다. 그래서 get() 의 경우는 unique 한 값을 가지고 검색을 하는것이 좋습니다.
+예를들어 id 가 1번값을 가지고있는 데이터를 가지고오고싶을때는 아래의 사진처럼 User.objects.get(id=1) 이런식으로 가져오시면 됩니다. 쿼리에 맞는 결과가 없을시에는
+DoesNotExist 라는 오류가 발생하게됩니다.
+왜냐하면 제 데이터베이스에는 id가 1번인 데이터가 없기때문입니다....</p>
+</section>
+<footer class=entry-footer><span title="2022-01-20 00:00:00 +0000 UTC">2022-01-20</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer>
+<a class=entry-link aria-label="post link to Django ORM get(), filter() 비교" href=https://heetaek.com/post/django-orm-get-filter/></a>
+</article>
 </main>
 <footer class=footer>
 <span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
