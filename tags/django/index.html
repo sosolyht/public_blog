@@ -8,7 +8,7 @@
 <meta name=description content="기술 정보를 찾고 공부하여 공유합니다.">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/tags/django/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -58,14 +58,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>Query String 기존에 저는 뷰를 작성하고 특정 URL로 접속해 body에 데이터를 담아 JSON 타입으로 인코딩을 해서 통신을 했습니다. 그러나 클라이언트의 기능이 점점 추가될수록 서버 측에서는 조건에 따라 모든 API를 작성하는 것이 반복적이고 불필요한 작업이 될 수 있습니다.
-이러한 문제점을 해결해주는게 RESTful한 API 작성을 도와주는 Query String 입니다.
-RESTfulAPI 란??
-Query String 은 ?로 시작해서 &를 통해 여러 데이터를 동시에 전달 가능합니다.
-views.py
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 class ProductDetailView(View): def get(self, request, product_id): try: product = Product....</p>
+<p>Query String 기존에 저는 뷰를 작성하고 특정 URL로 접속해 body에 데이터를 담아 JSON 타입으로 인코딩을 해서 통신을 했습니다. 그러나 클라이언트의 기능이 점점 추가될수...</p>
 </section>
-<footer class=entry-footer><span title="2022-02-06 00:00:00 +0000 UTC">2022-02-06</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
+<footer class=entry-footer><span title="2022-02-06 00:00:00 +0000 UTC">2022-02-06</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django Query String 쿼리스트링" href=https://heetaek.com/post/django-query-string/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -74,13 +69,7 @@ views.py
 </h2>
 </header>
 <section class=entry-content>
-<p>view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다.
-근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자를 다들 포함시키길래 저도 지금껏 계속 쓰긴했습니다.
-그래서 지우고 테스트해보니
-TypeError : get() takes 1 positional argument but 2 were given 과 함께 500 에러를 주네요.
-그럼 request 가 필요하다는거겠죠.
-알아보기위해 django 최상위 제네릭 뷰 클래스에서 알아보겠습니다.
-Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다....</p>
+<p>view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다. 근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자...</p>
 </section>
 <footer class=entry-footer><span title="2022-02-03 00:00:00 +0000 UTC">2022-02-03</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django JsonResponse를 쓰는데 왜 request 가 필요할까" href=https://heetaek.com/post/django-why-need-request/></a>
@@ -91,13 +80,7 @@ Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 �
 </h2>
 </header>
 <section class=entry-content>
-<p>filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다.
-전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다.
-계속 filter 에 대해 쓰는 이유는 중요하기도 하고 저도 배워야하기 때문에..
-exact exact 는 정확히 일치하는 데이터를 찾습니다.
-1 Product.objects.get(id__exact = 14) Product 라는 객체에 id 가 14번인 친구를 찾으라는 거겠죠?
-iexact iexact 는 대소문자를 구분하지않고 정확히 일치하는 데이터를 찾습니다.
-1 Product.objects.get(name__iexact = 'k9 tank') 마찬가지로 Product 라는 객체에 name 이 k9 tank 라는 친구를 찾아오라는 겁니다....</p>
+<p>filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다. 전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다. 계속 filter 에 대해 쓰는 이유는 중...</p>
 </section>
 <footer class=entry-footer><span title="2022-01-31 00:00:00 +0000 UTC">2022-01-31</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django QuerySet filter 제대로 알아보자" href=https://heetaek.com/post/django-queryset-filter/></a>
@@ -108,11 +91,7 @@ iexact iexact 는 대소문자를 구분하지않고 정확히 일치하는 데�
 </h2>
 </header>
 <section class=entry-content>
-<p>정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고 해서 직접 포스트맨으로 테스트를 해보았는데 역시나 ValidationError 를 처리를 못 해주고있었습니다.
-터미널에서도 ValidationError 와 내부서버오류인 500코드만 띄워주네요.
-처음에는 raise 로 에러를 주면 그게 콘솔에 찍히는 줄 알았습니다.
-바로 구글링을 하여 찾아보고, 참고 : https://stackoverflow.com/questions/10307996/python-how-to-print-the-message-inside-validationerror
-ValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어보니 정상적으로 프론트에서도 콘솔에 찍히는걸 확인할수있었습니다. 포스트맨에서도 정상적으로 json 데이터를 받아오는걸 확인할수있습니다....</p>
+<p>정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고...</p>
 </section>
 <footer class=entry-footer><span title="2022-01-30 00:00:00 +0000 UTC">2022-01-30</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django raise error 메시지를 json데이터로 출력하는 방법" href=https://heetaek.com/post/django-raise/></a>
@@ -123,9 +102,7 @@ ValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어�
 </h2>
 </header>
 <section class=entry-content>
-<p>참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다.
-위와 같은 모델이 있다고 가정할때
-1 2 3 4 5 6 7 8 9 10 11 12 13 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey('Actor', on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영화배우 name [3] = models.CharField(max_length=100) age = models.CharField(max_length=30) . . . 영화(Movie) 라는 모델에서 영화배우(Actor)를 불러들이는 것을 ‘참조’ 라 합니다....</p>
+<p>참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다. 위와 같은 모델이 있다고 가정할때 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey('Actor', on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영...</p>
 </section>
 <footer class=entry-footer><span title="2022-01-22 00:00:00 +0000 UTC">2022-01-22</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django 참조(Foreign Key) 역참조(related_name)" href=https://heetaek.com/post/django-related-name/></a>
@@ -136,23 +113,17 @@ ValidationError 의 메시지를 출력해주게끔 똑같이 코드를 넣어�
 </h2>
 </header>
 <section class=entry-content>
-<p>시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서
-임포트 해주겠습니다.
-get() get() 은 객체 하나만 반환을 해줍니다. 그래서 get() 의 경우는 unique 한 값을 가지고 검색을 하는것이 좋습니다.
-예를들어 id 가 1번값을 가지고있는 데이터를 가지고오고싶을때는 아래의 사진처럼 User.objects.get(id=1) 이런식으로 가져오시면 됩니다. 쿼리에 맞는 결과가 없을시에는
-DoesNotExist 라는 오류가 발생하게됩니다.
-왜냐하면 제 데이터베이스에는 id가 1번인 데이터가 없기때문입니다....</p>
+<p>시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서 임포트 해주겠습...</p>
 </section>
 <footer class=entry-footer><span title="2022-01-20 00:00:00 +0000 UTC">2022-01-20</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Django ORM get(), filter() 비교" href=https://heetaek.com/post/django-orm-get-filter/></a>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

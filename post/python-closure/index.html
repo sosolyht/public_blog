@@ -8,8 +8,7 @@
 <meta name=description content="처음에는 어려운 파이썬 클로저">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/python-closure/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Python 클로저(Closure)">
 <meta name=twitter:description content="처음에는 어려운 파이썬 클로저">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Python 클로저(Closure)","item":"https://heetaek.com/post/python-closure/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 클로저(Closure)","name":"Python 클로저(Closure)","description":"처음에는 어려운 파이썬 클로저","keywords":["python 클로저","클로저"],"articleBody":"클로저에 대해.  함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용 처음에 보면 이해하기가 어려움  제곱(power)로 예시중간에 있는 closure_power1 , closure_power2 , closure_power3 가 closure 입니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  def calc_power(x): def power(y): return x ** y return power closure_power1 = calc_power(2) closure_power2 = calc_power(3) closure_power3 = calc_power(4) print(closure_power1(1)) print(closure_power2(2)) print(closure_power3(3))   결과\n1 2 3  2 9 64   사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.\n1 2 3 4 5 6 7 8 9 10  def outer_func(num): def inner_func(): print(num) return inner_func closure_func = outer_func(58) closure_func()   결과는? 58 입니다.\n closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료 closure_func() 은 결국 inner_func 함수를 호출 outer_func(58) 호출 종료시 num 값은 없어졌으나, closure_func()에서 inner_func이 호출되면서 이전의 num값(58)을 사용함  그럼 closure 는 언제 사용하나요?\n 제공해야할 기능이 적은경우 , closure 를 사용 반대로 제공해야할 기능이 많은 경우 , class 를 사용하여 구현  ","wordCount":"150","inLanguage":"ko","datePublished":"2022-01-04T00:00:00Z","dateModified":"2022-01-04T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-closure/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 클로저(Closure)","name":"Python 클로저(Closure)","description":"처음에는 어려운 파이썬 클로저","keywords":["python 클로저","클로저"],"articleBody":"클로저에 대해.  함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용 처음에 보면 이해하기가 어려움  제곱(power)로 예시중간에 있는 closure_power1 , closure_power2 , closure_power3 가 closure 입니다.\ndef calc_power(x): def power(y): return x ** y return power closure_power1 = calc_power(2) closure_power2 = calc_power(3) closure_power3 = calc_power(4) print(closure_power1(1)) print(closure_power2(2)) print(closure_power3(3)) 결과\n2 9 64 사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.\ndef outer_func(num): def inner_func(): print(num) return inner_func closure_func = outer_func(58) closure_func() 결과는? 58 입니다.\n closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료 closure_func() 은 결국 inner_func 함수를 호출 outer_func(58) 호출 종료시 num 값은 없어졌으나, closure_func()에서 inner_func이 호출되면서 이전의 num값(58)을 사용함  그럼 closure 는 언제 사용하나요?\n 제공해야할 기능이 적은경우 , closure 를 사용 반대로 제공해야할 기능이 많은 경우 , class 를 사용하여 구현  ","wordCount":"288","inLanguage":"ko","datePublished":"2022-01-04T00:00:00Z","dateModified":"2022-01-04T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-closure/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -84,81 +83,36 @@ Python 클로저(Closure)
 </ul>
 <p>제곱(power)로 예시
 중간에 있는 <code>closure_power1</code> , <code>closure_power2</code> , <code>closure_power3</code> 가 closure 입니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>calc_power</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
-	<span class=k>def</span> <span class=nf>power</span><span class=p>(</span><span class=n>y</span><span class=p>):</span>
-		<span class=k>return</span> <span class=n>x</span> <span class=o>**</span> <span class=n>y</span>
-	<span class=k>return</span> <span class=n>power</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>calc_power</span>(x):
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>power</span>(y):
+		<span style=color:#ff79c6>return</span> x <span style=color:#ff79c6>**</span> y
+	<span style=color:#ff79c6>return</span> power
 
 
-<span class=n>closure_power1</span> <span class=o>=</span> <span class=n>calc_power</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
-<span class=n>closure_power2</span> <span class=o>=</span> <span class=n>calc_power</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
-<span class=n>closure_power3</span> <span class=o>=</span> <span class=n>calc_power</span><span class=p>(</span><span class=mi>4</span><span class=p>)</span>
+closure_power1 <span style=color:#ff79c6>=</span> calc_power(<span style=color:#bd93f9>2</span>)
+closure_power2 <span style=color:#ff79c6>=</span> calc_power(<span style=color:#bd93f9>3</span>)
+closure_power3 <span style=color:#ff79c6>=</span> calc_power(<span style=color:#bd93f9>4</span>)
 
 
-<span class=nb>print</span><span class=p>(</span><span class=n>closure_power1</span><span class=p>(</span><span class=mi>1</span><span class=p>))</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>closure_power2</span><span class=p>(</span><span class=mi>2</span><span class=p>))</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>closure_power3</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>결과</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=mi>2</span>
-<span class=mi>9</span>
-<span class=mi>64</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>outer_func</span><span class=p>(</span><span class=n>num</span><span class=p>):</span>
-	<span class=k>def</span> <span class=nf>inner_func</span><span class=p>():</span>
-		<span class=nb>print</span><span class=p>(</span><span class=n>num</span><span class=p>)</span>
+<span style=color:#8be9fd;font-style:italic>print</span>(closure_power1(<span style=color:#bd93f9>1</span>))
+<span style=color:#8be9fd;font-style:italic>print</span>(closure_power2(<span style=color:#bd93f9>2</span>))
+<span style=color:#8be9fd;font-style:italic>print</span>(closure_power3(<span style=color:#bd93f9>3</span>))
+</code></pre></div><p>결과</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#bd93f9>2</span>
+<span style=color:#bd93f9>9</span>
+<span style=color:#bd93f9>64</span>
+</code></pre></div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>outer_func</span>(num):
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>inner_func</span>():
+		<span style=color:#8be9fd;font-style:italic>print</span>(num)
 
-	<span class=k>return</span> <span class=n>inner_func</span>
+	<span style=color:#ff79c6>return</span> inner_func
 
 
-<span class=n>closure_func</span> <span class=o>=</span> <span class=n>outer_func</span><span class=p>(</span><span class=mi>58</span><span class=p>)</span>
+closure_func <span style=color:#ff79c6>=</span> outer_func(<span style=color:#bd93f9>58</span>)
 
-<span class=n>closure_func</span><span class=p>()</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>결과는? <code>58</code> 입니다.</p>
+closure_func()
+</code></pre></div><p>결과는? <code>58</code> 입니다.</p>
 <ul>
 <li>closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료</li>
 <li>closure_func() 은 결국 inner_func 함수를 호출</li>
@@ -186,15 +140,14 @@ Python 클로저(Closure)
 <span>Git 기초적인 사용방법</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

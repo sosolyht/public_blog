@@ -8,8 +8,7 @@
 <meta name=description content="파이썬 가변인수(*args) 와 가변 키워드 인수 (**kwargs)">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/python-function-parameter/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해">
 <meta name=twitter:description content="파이썬 가변인수(*args) 와 가변 키워드 인수 (**kwargs)">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해","item":"https://heetaek.com/post/python-function-parameter/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해","name":"Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해","description":"파이썬 가변인수(*args) 와 가변 키워드 인수 (**kwargs)","keywords":["python","파이썬","가변인수","가변키워드인수"],"articleBody":"default value parameter를 non-default value parameter 앞에 정의 하면 안 되는 이유 non-default value parameter 는 정해져있지않은 인자 타입입니다. 가장 흔하게 쓰는 타입입니다. 함수를 호출할때 인자를 순서대로 넣어주어야합니다.\n아래의 예시로 name , age 를 호출하기 위해선 heetaek 이란 함수에 순차적으로 name = \"최희택\" , age = 28 이 될 수 있도록 집어넣어주니\n1 2 3 4 5 6  def heetaek(name,age): print(name,age) return name, age heetaek(\"최희택\", 28)   결과는\n최희택 28 이라고 출력 됩니다.\n그에 반해 deault value parameter 는 미리 정해진 인자값을 넣어줍니다,\n예시\n1 2 3 4 5 6  def heetaek(name, age=28): print(name, age) return name, age heetaek(\"최희택\")   미리 age 라는 인자에 제 나이인 28 을 넣어주고 함수호출할때 name 만 넣어주니 정상적으로 최희택 28 을 반환해주는것을 볼 수 있습니다.\n앞에 제목을 보셨다시피 defaut value 를 왜 앞에 정의하면 안되는지 느낌이 오시지않나요?\n만약 age 에 있는 28 을 빼고 name = \"최희택\" 이라고 써져있었으면\nSyntaxError: non-default argument follows default argument 라고 오류가 발생하게 됩니다.\n앞에 기본값을 정해버리면 뒤에있는 인자는 아무런 값을 할당받지 못해서 오류가 발생하는겁니다.\n1 2 3 4  File \"/Users/ht/Desktop/Python/test.py\", line 1 def heetaek(name=\"최희택\", age): ^^^ SyntaxError: non-default argument follows default argument    가변인수(*args) 와 위치인수 *args 란 언제 변할지 모르는 가변 인자입니다 아래의 예시는 틀린 예시입니다. 아래의 예시 그대로 실행하게되면 TypeError: func_param_with_var_args() missing 1 required keyword-only argument: 'age' 라는 에러가 발생하게됩니다. age 라는 인자를 찾지 못했다는겁니다.\n1 2 3 4 5 6  def func_param_with_var_args(name, *args, age): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) func_param_with_var_args(\"정우성\", \"01012341234\", \"seoul\", 20)   그러면 *args 를 age 뒤로 넣고 실행해보겠습니다.\n1 2 3 4 5 6  def func_param_with_var_args(name, age, *args): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) func_param_with_var_args(\"정우성\", 20, \"01012341234\", \"seoul\")   인자의 순서에 맞게 name = \"정우성\" , age = 20 , 나머지 args 에는 args = \"01012341234\", \"seoul\" 가 제대로 호출할수있도록 수정해주었습니다.\n결과는\nname=정우성 args=('01012341234', 'seoul') age=20\n정상적으로 원하던 값이 출력되었네요.\n이와 같이 가변인수는 기존의 인자가 먼저 출력될수있게끔 하고 이후 가변인자가 출력할수있게 순서를 정확히 배치하는것이 중요합니다.\n가변 키워드 인수(**kwargs) 아래의 예시를 그대로 실행하면 def func_param_with_kwargs(name, age, **kwargs, address=0): ^ SyntaxError: invalid syntax 이와 같은 오류가 발생하게됩니다.\n가변인수(*args) 와 위치인수를 보셨으면 아시겠지만 의도와 위치 선정이 중요합니다.\n아래의 코드의 의도는 mobile 에다가 01012341234 를 넣고 address 에는 seoul 을 넣고싶은 의도가 보입니다.\n하지만 name,age 이후에는 가변 키워드 인수가 address 앞에 있어 호출 시 mobile 이 들어가야 하는지 address=\"seoul 이 들어가야하는지 모르기때문에 오류가 발생합니다.\n1 2 3 4 5 6 7  def func_param_with_kwargs(name, age, **kwargs, address=0): print(\"name=\",end=\"\"), print(name) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) func_param_with_kwargs(\"정우성\", \"20\", mobile=\"01012341234\", address=\"seoul\")   원하는 의도로 수정해보면\n1 2 3 4 5 6 7  def func_param_with_kwargs(name, age, address=0, **kwargs): print(\"name=\",end=\"\"), print(name) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) func_param_with_kwargs(\"정우성\", \"20\", mobile=\"01012341234\", address=\"seoul\")   name=정우성 age=20 kwargs={'mobile': '01012341234'} address=seoul\n이렇게 정상적으로 호출이 되어 출력되는것을 확인하실수있습니다.\n위치 인수와 키워드 가변 키워드 인수 (**kwargs) 아래의 코드를 실행해봅시다. def mixed_params(name=\"아이유\", *args, age, **kwargs, address): ^ SyntaxError: invalid syntax\naddress 부분에서 SyntaxError: invalid syntax 라는 오류가 발생합니다. 문법상 오류가 난겁니다.\n위의 예시들과같이 위치인수를 정확히 이해하셨다면 해결하실수있습니다.\n1 2 3 4 5 6 7 8  def mixed_params(name=\"아이유\", *args, age, **kwargs, address): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) mixed_params(20, \"정우성\", \"01012341234\", \"male\" ,mobile=\"01012341234\", address=\"seoul\")   저의 해결방법은 address 를 가변 키워드 인수에 집어넣고 출력하는 부분을 삭제하였습니다. 그리고, age 를 정상적으로 호출받을수있게 인자를 맨 앞으로 당겨놓고 마지막 부분에 *args , **kwargs 를 넣었더니\n1 2 3 4 5 6 7  def mixed_params(age , name=\"아이유\", *args, **kwargs): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) mixed_params(20, \"정우성\", \"01012341234\", \"male\" ,mobile=\"01012341234\", address=\"seoul\")   name=정우성 args=('01012341234', 'male') age=20 kwargs={'mobile': '01012341234', 'address': 'seoul'}\n정상적으로 출력이 되었습니다.\n","wordCount":"568","inLanguage":"ko","datePublished":"2022-01-02T00:00:00Z","dateModified":"2022-01-02T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-function-parameter/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해","name":"Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해","description":"파이썬 가변인수(*args) 와 가변 키워드 인수 (**kwargs)","keywords":["python","파이썬","가변인수","가변키워드인수"],"articleBody":"default value parameter를 non-default value parameter 앞에 정의 하면 안 되는 이유 non-default value parameter 는 정해져있지않은 인자 타입입니다. 가장 흔하게 쓰는 타입입니다. 함수를 호출할때 인자를 순서대로 넣어주어야합니다.\n아래의 예시로 name , age 를 호출하기 위해선 heetaek 이란 함수에 순차적으로 name = \"최희택\" , age = 28 이 될 수 있도록 집어넣어주니\ndef heetaek(name,age): print(name,age) return name, age heetaek(\"최희택\", 28) 결과는\n최희택 28 이라고 출력 됩니다.\n그에 반해 deault value parameter 는 미리 정해진 인자값을 넣어줍니다,\n예시\ndef heetaek(name, age=28): print(name, age) return name, age heetaek(\"최희택\") 미리 age 라는 인자에 제 나이인 28 을 넣어주고 함수호출할때 name 만 넣어주니 정상적으로 최희택 28 을 반환해주는것을 볼 수 있습니다.\n앞에 제목을 보셨다시피 defaut value 를 왜 앞에 정의하면 안되는지 느낌이 오시지않나요?\n만약 age 에 있는 28 을 빼고 name = \"최희택\" 이라고 써져있었으면\nSyntaxError: non-default argument follows default argument 라고 오류가 발생하게 됩니다.\n앞에 기본값을 정해버리면 뒤에있는 인자는 아무런 값을 할당받지 못해서 오류가 발생하는겁니다.\n File \"/Users/ht/Desktop/Python/test.py\", line 1 def heetaek(name=\"최희택\", age): ^^^ SyntaxError: non-default argument follows default argument  가변인수(*args) 와 위치인수 *args 란 언제 변할지 모르는 가변 인자입니다 아래의 예시는 틀린 예시입니다. 아래의 예시 그대로 실행하게되면 TypeError: func_param_with_var_args() missing 1 required keyword-only argument: 'age' 라는 에러가 발생하게됩니다. age 라는 인자를 찾지 못했다는겁니다.\ndef func_param_with_var_args(name, *args, age): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) func_param_with_var_args(\"정우성\", \"01012341234\", \"seoul\", 20) 그러면 *args 를 age 뒤로 넣고 실행해보겠습니다.\ndef func_param_with_var_args(name, age, *args): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) func_param_with_var_args(\"정우성\", 20, \"01012341234\", \"seoul\") 인자의 순서에 맞게 name = \"정우성\" , age = 20 , 나머지 args 에는 args = \"01012341234\", \"seoul\" 가 제대로 호출할수있도록 수정해주었습니다.\n결과는\nname=정우성 args=('01012341234', 'seoul') age=20\n정상적으로 원하던 값이 출력되었네요.\n이와 같이 가변인수는 기존의 인자가 먼저 출력될수있게끔 하고 이후 가변인자가 출력할수있게 순서를 정확히 배치하는것이 중요합니다.\n가변 키워드 인수(**kwargs) 아래의 예시를 그대로 실행하면 def func_param_with_kwargs(name, age, **kwargs, address=0): ^ SyntaxError: invalid syntax 이와 같은 오류가 발생하게됩니다.\n가변인수(*args) 와 위치인수를 보셨으면 아시겠지만 의도와 위치 선정이 중요합니다.\n아래의 코드의 의도는 mobile 에다가 01012341234 를 넣고 address 에는 seoul 을 넣고싶은 의도가 보입니다.\n하지만 name,age 이후에는 가변 키워드 인수가 address 앞에 있어 호출 시 mobile 이 들어가야 하는지 address=\"seoul 이 들어가야하는지 모르기때문에 오류가 발생합니다.\ndef func_param_with_kwargs(name, age, **kwargs, address=0): print(\"name=\",end=\"\"), print(name) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) func_param_with_kwargs(\"정우성\", \"20\", mobile=\"01012341234\", address=\"seoul\") 원하는 의도로 수정해보면\ndef func_param_with_kwargs(name, age, address=0, **kwargs): print(\"name=\",end=\"\"), print(name) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) func_param_with_kwargs(\"정우성\", \"20\", mobile=\"01012341234\", address=\"seoul\") name=정우성 age=20 kwargs={'mobile': '01012341234'} address=seoul\n이렇게 정상적으로 호출이 되어 출력되는것을 확인하실수있습니다.\n위치 인수와 키워드 가변 키워드 인수 (**kwargs) 아래의 코드를 실행해봅시다. def mixed_params(name=\"아이유\", *args, age, **kwargs, address): ^ SyntaxError: invalid syntax\naddress 부분에서 SyntaxError: invalid syntax 라는 오류가 발생합니다. 문법상 오류가 난겁니다.\n위의 예시들과같이 위치인수를 정확히 이해하셨다면 해결하실수있습니다.\ndef mixed_params(name=\"아이유\", *args, age, **kwargs, address): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) print(\"address=\",end=\"\"), print(address) mixed_params(20, \"정우성\", \"01012341234\", \"male\" ,mobile=\"01012341234\", address=\"seoul\") 저의 해결방법은 address 를 가변 키워드 인수에 집어넣고 출력하는 부분을 삭제하였습니다. 그리고, age 를 정상적으로 호출받을수있게 인자를 맨 앞으로 당겨놓고 마지막 부분에 *args , **kwargs 를 넣었더니\ndef mixed_params(age , name=\"아이유\", *args, **kwargs): print(\"name=\",end=\"\"), print(name) print(\"args=\",end=\"\"), print(args) print(\"age=\",end=\"\"), print(age) print(\"kwargs=\",end=\"\"), print(kwargs) mixed_params(20, \"정우성\", \"01012341234\", \"male\" ,mobile=\"01012341234\", address=\"seoul\") name=정우성 args=('01012341234', 'male') age=20 kwargs={'mobile': '01012341234', 'address': 'seoul'}\n정상적으로 출력이 되었습니다.\n","wordCount":"1539","inLanguage":"ko","datePublished":"2022-01-02T00:00:00Z","dateModified":"2022-01-02T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-function-parameter/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -62,7 +61,7 @@ Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) �
 <div class=post-description>
 파이썬 가변인수(*args) 와 가변 키워드 인수 (**kwargs)
 </div>
-<div class=post-meta><span title="2022-01-02 00:00:00 +0000 UTC">2022-01-02</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;최희택&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/post/python_args_kwargs.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2022-01-02 00:00:00 +0000 UTC">2022-01-02</span>&nbsp;·&nbsp;4 분&nbsp;·&nbsp;최희택&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/post/python_args_kwargs.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header> <div class=toc>
 <details open>
@@ -88,111 +87,53 @@ Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) �
 가장 흔하게 쓰는 타입입니다.
 함수를 호출할때 인자를 순서대로 넣어주어야합니다.</p>
 <p>아래의 예시로 <code>name</code> , <code>age</code> 를 호출하기 위해선 heetaek 이란 함수에 순차적으로 <code>name = "최희택"</code> , <code>age = 28</code> 이 될 수 있도록 집어넣어주니</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>heetaek</span><span class=p>(</span><span class=n>name</span><span class=p>,</span><span class=n>age</span><span class=p>):</span>
-	<span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>,</span><span class=n>age</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>heetaek</span>(name,age):
+	<span style=color:#8be9fd;font-style:italic>print</span>(name,age)
 
-	<span class=k>return</span> <span class=n>name</span><span class=p>,</span> <span class=n>age</span>
+	<span style=color:#ff79c6>return</span> name, age
 
-<span class=n>heetaek</span><span class=p>(</span><span class=s2>&#34;최희택&#34;</span><span class=p>,</span> <span class=mi>28</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>결과는</p>
+heetaek(<span style=color:#f1fa8c>&#34;최희택&#34;</span>, <span style=color:#bd93f9>28</span>)
+</code></pre></div><p>결과는</p>
 <p><code>최희택 28</code> 이라고 출력 됩니다.</p>
 <p>그에 반해 deault value parameter 는 미리 정해진 인자값을 넣어줍니다,</p>
 <p>예시</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>heetaek</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=o>=</span><span class=mi>28</span><span class=p>):</span>
-	<span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>heetaek</span>(name, age<span style=color:#ff79c6>=</span><span style=color:#bd93f9>28</span>):
+	<span style=color:#8be9fd;font-style:italic>print</span>(name, age)
 
-	<span class=k>return</span> <span class=n>name</span><span class=p>,</span> <span class=n>age</span>
+	<span style=color:#ff79c6>return</span> name, age
 
-<span class=n>heetaek</span><span class=p>(</span><span class=s2>&#34;최희택&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>미리 <code>age</code> 라는 인자에 제 나이인 <code>28</code> 을 넣어주고
+heetaek(<span style=color:#f1fa8c>&#34;최희택&#34;</span>)
+</code></pre></div><p>미리 <code>age</code> 라는 인자에 제 나이인 <code>28</code> 을 넣어주고
 함수호출할때 <code>name</code> 만 넣어주니
 정상적으로 <code>최희택 28</code> 을 반환해주는것을 볼 수 있습니다.</p>
 <p>앞에 제목을 보셨다시피 defaut value 를 왜 앞에 정의하면 안되는지 느낌이 오시지않나요?</p>
 <p>만약 <code>age</code> 에 있는 <code>28</code> 을 빼고 <code>name = "최희택"</code> 이라고 써져있었으면</p>
 <p><code>SyntaxError: non-default argument follows default argument</code> 라고 오류가 발생하게 됩니다.</p>
 <p>앞에 기본값을 정해버리면 뒤에있는 인자는 아무런 값을 할당받지 못해서 오류가 발생하는겁니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  File &#34;/Users/ht/Desktop/Python/test.py&#34;, line 1
-    def heetaek(name=&#34;최희택&#34;, age):
+<pre tabindex=0><code>  File &quot;/Users/ht/Desktop/Python/test.py&quot;, line 1
+    def heetaek(name=&quot;최희택&quot;, age):
                                   ^^^
 SyntaxError: non-default argument follows default argument
-</code></pre></td></tr></table>
-</div>
-</div><p> </p>
+</code></pre><p> </p>
 <h2 id=가변인수args-와-위치인수>가변인수(*args) 와 위치인수<a hidden class=anchor aria-hidden=true href=#가변인수args-와-위치인수>#</a></h2>
 <p><code>*args</code> 란 언제 변할지 모르는 가변 인자입니다
 아래의 예시는 틀린 예시입니다.
 아래의 예시 그대로 실행하게되면 <code>TypeError: func_param_with_var_args() missing 1 required keyword-only argument: 'age'</code> 라는 에러가 발생하게됩니다.
 <code>age</code> 라는 인자를 찾지 못했다는겁니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>func_param_with_var_args</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=n>age</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;args=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>func_param_with_var_args</span>(name, <span style=color:#ff79c6>*</span>args, age):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;args=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(args)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
 
-<span class=n>func_param_with_var_args</span><span class=p>(</span><span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=s2>&#34;seoul&#34;</span><span class=p>,</span> <span class=mi>20</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>그러면 <code>*args</code> 를 <code>age</code> 뒤로 넣고 실행해보겠습니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>func_param_with_var_args</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;args=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
+func_param_with_var_args(<span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#f1fa8c>&#34;01012341234&#34;</span>, <span style=color:#f1fa8c>&#34;seoul&#34;</span>, <span style=color:#bd93f9>20</span>)
+</code></pre></div><p>그러면 <code>*args</code> 를 <code>age</code> 뒤로 넣고 실행해보겠습니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>func_param_with_var_args</span>(name, age, <span style=color:#ff79c6>*</span>args):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;args=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(args)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
 
-<span class=n>func_param_with_var_args</span><span class=p>(</span><span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=s2>&#34;seoul&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>인자의 순서에 맞게 <code>name = "정우성"</code> , <code>age = 20</code> , 나머지 args 에는 <code>args = "01012341234", "seoul"</code> 가 제대로 호출할수있도록 수정해주었습니다.</p>
+func_param_with_var_args(<span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#bd93f9>20</span>, <span style=color:#f1fa8c>&#34;01012341234&#34;</span>, <span style=color:#f1fa8c>&#34;seoul&#34;</span>)
+</code></pre></div><p>인자의 순서에 맞게 <code>name = "정우성"</code> , <code>age = 20</code> , 나머지 args 에는 <code>args = "01012341234", "seoul"</code> 가 제대로 호출할수있도록 수정해주었습니다.</p>
 <p>결과는</p>
 <p><code>name=정우성 args=('01012341234', 'seoul') age=20</code></p>
 <p>정상적으로 원하던 값이 출력되었네요.</p>
@@ -203,48 +144,22 @@ SyntaxError: non-default argument follows default argument
 <p>아래의 코드의 의도는 <code>mobile</code> 에다가 <code>01012341234</code> 를 넣고 <code>address</code> 에는 <code>seoul</code> 을 넣고싶은 의도가 보입니다.</p>
 <p>하지만 <code>name</code>,<code>age</code> 이후에는 가변 키워드 인수가 <code>address</code> 앞에 있어
 호출 시 <code>mobile</code> 이 들어가야 하는지 <code>address="seoul</code> 이 들어가야하는지 모르기때문에 오류가 발생합니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>func_param_with_kwargs</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=mi>0</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;kwargs=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>kwargs</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;address=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>address</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>func_param_with_kwargs</span>(name, age, <span style=color:#ff79c6>**</span>kwargs, address<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;kwargs=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(kwargs)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;address=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(address)
 
-<span class=n>func_param_with_kwargs</span><span class=p>(</span><span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=s2>&#34;20&#34;</span><span class=p>,</span> <span class=n>mobile</span><span class=o>=</span><span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=s2>&#34;seoul&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>원하는 의도로 수정해보면</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>func_param_with_kwargs</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;kwargs=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>kwargs</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;address=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>address</span><span class=p>)</span>
+func_param_with_kwargs(<span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#f1fa8c>&#34;20&#34;</span>, mobile<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;01012341234&#34;</span>, address<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;seoul&#34;</span>)
+</code></pre></div><p>원하는 의도로 수정해보면</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>func_param_with_kwargs</span>(name, age, address<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>, <span style=color:#ff79c6>**</span>kwargs):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;kwargs=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(kwargs)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;address=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(address)
 
-<span class=n>func_param_with_kwargs</span><span class=p>(</span><span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=s2>&#34;20&#34;</span><span class=p>,</span> <span class=n>mobile</span><span class=o>=</span><span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=s2>&#34;seoul&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>name=정우성 age=20 kwargs={'mobile': '01012341234'} address=seoul</code></p>
+func_param_with_kwargs(<span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#f1fa8c>&#34;20&#34;</span>, mobile<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;01012341234&#34;</span>, address<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;seoul&#34;</span>)
+</code></pre></div><p><code>name=정우성 age=20 kwargs={'mobile': '01012341234'} address=seoul</code></p>
 <p>이렇게 정상적으로 호출이 되어 출력되는것을 확인하실수있습니다.</p>
 <h2 id=위치-인수와-키워드-가변-키워드-인수-kwargs>위치 인수와 키워드 가변 키워드 인수 (**kwargs)<a hidden class=anchor aria-hidden=true href=#위치-인수와-키워드-가변-키워드-인수-kwargs>#</a></h2>
 <p>아래의 코드를 실행해봅시다.
@@ -252,51 +167,24 @@ SyntaxError: non-default argument follows default argument
 <p><code>address</code> 부분에서 <code>SyntaxError: invalid syntax</code> 라는 오류가 발생합니다.
 문법상 오류가 난겁니다.</p>
 <p>위의 예시들과같이 위치인수를 정확히 이해하셨다면 해결하실수있습니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>mixed_params</span><span class=p>(</span><span class=n>name</span><span class=o>=</span><span class=s2>&#34;아이유&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=n>age</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>,</span> <span class=n>address</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;args=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;kwargs=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>kwargs</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;address=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>address</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>mixed_params</span>(name<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;아이유&#34;</span>, <span style=color:#ff79c6>*</span>args, age, <span style=color:#ff79c6>**</span>kwargs, address):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;args=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(args)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;kwargs=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(kwargs)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;address=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(address)
 
-<span class=n>mixed_params</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=s2>&#34;male&#34;</span> <span class=p>,</span><span class=n>mobile</span><span class=o>=</span><span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=s2>&#34;seoul&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>저의 해결방법은 <code>address</code> 를 가변 키워드 인수에 집어넣고 출력하는 부분을 삭제하였습니다.
+mixed_params(<span style=color:#bd93f9>20</span>, <span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#f1fa8c>&#34;01012341234&#34;</span>, <span style=color:#f1fa8c>&#34;male&#34;</span> ,mobile<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;01012341234&#34;</span>, address<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;seoul&#34;</span>)
+</code></pre></div><p>저의 해결방법은 <code>address</code> 를 가변 키워드 인수에 집어넣고 출력하는 부분을 삭제하였습니다.
 그리고, <code>age</code> 를 정상적으로 호출받을수있게 인자를 맨 앞으로 당겨놓고 마지막 부분에 <code>*args</code> , <code>**kwargs</code> 를 넣었더니</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>mixed_params</span><span class=p>(</span><span class=n>age</span> <span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=s2>&#34;아이유&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;name=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;args=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;age=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;kwargs=&#34;</span><span class=p>,</span><span class=n>end</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>),</span> <span class=nb>print</span><span class=p>(</span><span class=n>kwargs</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>mixed_params</span>(age , name<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;아이유&#34;</span>, <span style=color:#ff79c6>*</span>args, <span style=color:#ff79c6>**</span>kwargs):
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;name=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(name)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;args=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(args)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;age=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(age)
+    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;kwargs=&#34;</span>,end<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>), <span style=color:#8be9fd;font-style:italic>print</span>(kwargs)
 
-<span class=n>mixed_params</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=s2>&#34;정우성&#34;</span><span class=p>,</span> <span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=s2>&#34;male&#34;</span> <span class=p>,</span><span class=n>mobile</span><span class=o>=</span><span class=s2>&#34;01012341234&#34;</span><span class=p>,</span> <span class=n>address</span><span class=o>=</span><span class=s2>&#34;seoul&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>name=정우성 args=('01012341234', 'male') age=20 kwargs={'mobile': '01012341234', 'address': 'seoul'}</code></p>
+mixed_params(<span style=color:#bd93f9>20</span>, <span style=color:#f1fa8c>&#34;정우성&#34;</span>, <span style=color:#f1fa8c>&#34;01012341234&#34;</span>, <span style=color:#f1fa8c>&#34;male&#34;</span> ,mobile<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;01012341234&#34;</span>, address<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;seoul&#34;</span>)
+</code></pre></div><p><code>name=정우성 args=('01012341234', 'male') age=20 kwargs={'mobile': '01012341234', 'address': 'seoul'}</code></p>
 <p>정상적으로 출력이 되었습니다.</p>
 </div>
 <footer class=post-footer>
@@ -315,15 +203,14 @@ SyntaxError: non-default argument follows default argument
 <span>CSS position 속성과 display 속성에 대해</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

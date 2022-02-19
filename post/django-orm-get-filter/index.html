@@ -8,8 +8,7 @@
 <meta name=description content="헷갈리는 get() 과 filter()">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/django-orm-get-filter/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Django ORM get(), filter() 비교">
 <meta name=twitter:description content="헷갈리는 get() 과 filter()">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Django ORM get(), filter() 비교","item":"https://heetaek.com/post/django-orm-get-filter/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django ORM get(), filter() 비교","name":"Django ORM get(), filter() 비교","description":"헷갈리는 get() 과 filter()","keywords":["django","장고","django get","django filter"],"articleBody":"시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서\n임포트 해주겠습니다.\nget() get() 은 객체 하나만 반환을 해줍니다. 그래서 get() 의 경우는 unique 한 값을 가지고 검색을 하는것이 좋습니다.\n예를들어 id 가 1번값을 가지고있는 데이터를 가지고오고싶을때는 아래의 사진처럼 User.objects.get(id=1) 이런식으로 가져오시면 됩니다. 쿼리에 맞는 결과가 없을시에는\nDoesNotExist 라는 오류가 발생하게됩니다.\n왜냐하면 제 데이터베이스에는 id가 1번인 데이터가 없기때문입니다.\n정상적으로 데이터를 가져오면\noutput 으로 어떠한 객체를 가져왔는지  이라고 표시됩니다.\nfilter() filter() 를 이용해 검색을 하면 여러개의 객체를 포함하는 QuerySet 을 반환해줍니다. filter()의 특징은 특정 조건을 만족하는 객체를 검색할때 사용합니다. QuerySet 이란 DB 에서 전달받은 객체들의 모음(List) 입니다. DB에서는 row 에 해당합니다.\n예를 들어, asdasd 라는 이름을 가진 사람을 찾고싶어서\nUser.objects.filter(name=\"asdasd\")\nfilter 를 사용해 찾아보았습니다.\nQuerySet 으로 59번과 61번 객체를 가져왔습니다.\n제 테이블에는 59, 61번에 asdasd 라는 동명이인이 있기에 두개의 객체가 반환이 됐던겁니다.\n이런식으로 shell 을 직접 두드려보면서 확인하시면 훨씬 쉽게 접근할수있습니다.\n","wordCount":"159","inLanguage":"ko","datePublished":"2022-01-20T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-orm-get-filter/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django ORM get(), filter() 비교","name":"Django ORM get(), filter() 비교","description":"헷갈리는 get() 과 filter()","keywords":["django","장고","django get","django filter"],"articleBody":"시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서\n임포트 해주겠습니다.\nget() get() 은 객체 하나만 반환을 해줍니다. 그래서 get() 의 경우는 unique 한 값을 가지고 검색을 하는것이 좋습니다.\n예를들어 id 가 1번값을 가지고있는 데이터를 가지고오고싶을때는 아래의 사진처럼 User.objects.get(id=1) 이런식으로 가져오시면 됩니다. 쿼리에 맞는 결과가 없을시에는\nDoesNotExist 라는 오류가 발생하게됩니다.\n왜냐하면 제 데이터베이스에는 id가 1번인 데이터가 없기때문입니다.\n정상적으로 데이터를 가져오면\noutput 으로 어떠한 객체를 가져왔는지  이라고 표시됩니다.\nfilter() filter() 를 이용해 검색을 하면 여러개의 객체를 포함하는 QuerySet 을 반환해줍니다. filter()의 특징은 특정 조건을 만족하는 객체를 검색할때 사용합니다. QuerySet 이란 DB 에서 전달받은 객체들의 모음(List) 입니다. DB에서는 row 에 해당합니다.\n예를 들어, asdasd 라는 이름을 가진 사람을 찾고싶어서\nUser.objects.filter(name=\"asdasd\")\nfilter 를 사용해 찾아보았습니다.\nQuerySet 으로 59번과 61번 객체를 가져왔습니다.\n제 테이블에는 59, 61번에 asdasd 라는 동명이인이 있기에 두개의 객체가 반환이 됐던겁니다.\n이런식으로 shell 을 직접 두드려보면서 확인하시면 훨씬 쉽게 접근할수있습니다.\n","wordCount":"493","inLanguage":"ko","datePublished":"2022-01-20T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-orm-get-filter/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -143,15 +142,14 @@ DB에서는 row 에 해당합니다.</p>
 <span>Python 데코레이터(Decorator)와 클로저(Clousure) 활용</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

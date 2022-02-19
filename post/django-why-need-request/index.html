@@ -8,8 +8,7 @@
 <meta name=description content="HttpRequest 의 하위클래스에있는 JsonResponse">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/django-why-need-request/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Django JsonResponse를 쓰는데 왜 request 가 필요할까">
 <meta name=twitter:description content="HttpRequest 의 하위클래스에있는 JsonResponse">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Django JsonResponse를 쓰는데 왜 request 가 필요할까","item":"https://heetaek.com/post/django-why-need-request/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django JsonResponse를 쓰는데 왜 request 가 필요할까","name":"Django JsonResponse를 쓰는데 왜 request 가 필요할까","description":"HttpRequest 의 하위클래스에있는 JsonResponse","keywords":["django","장고","django HttpRequest","django Generic"],"articleBody":"view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다.\n근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자를 다들 포함시키길래 저도 지금껏 계속 쓰긴했습니다.\n그래서 지우고 테스트해보니\nTypeError : get() takes 1 positional argument but 2 were given 과 함께 500 에러를 주네요.\n그럼 request 가 필요하다는거겠죠.\n알아보기위해 django 최상위 제네릭 뷰 클래스에서 알아보겠습니다.\n Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42  class View: \"\"\" Intentionally simple parent class for all views. Only implements dispatch-by-method and simple sanity checking. \"\"\" http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace'] def __init__(self, **kwargs): \"\"\" Constructor. Called in the URLconf; can contain helpful extra keyword arguments, and other things. \"\"\" # Go through keyword arguments, and either save their values to our # instance, or raise an error. for key, value in kwargs.items(): setattr(self, key, value) @classonlymethod def as_view(cls, **initkwargs): \"\"\"Main entry point for a request-response process.\"\"\" for key in initkwargs: if key in cls.http_method_names: raise TypeError( 'The method name %sis not accepted as a keyword argument ' 'to %s().' % (key, cls.__name__) ) if not hasattr(cls, key): raise TypeError(\"%s() received an invalid keyword %r. as_view \" \"only accepts arguments that are already \" \"attributes of the class.\" % (cls.__name__, key)) def dispatch(self, request, *args, **kwargs): # Try to dispatch to the right method; if a method doesn't exist, # defer to the error handler. Also defer to the error handler if the # request method isn't on the approved list. if request.method.lower() in self.http_method_names: handler = getattr(self, request.method.lower(), self.http_method_not_allowed) else: handler = self.http_method_not_allowed return handler(request, *args, **kwargs)    as_view 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.\n  문제의 dispatch 는 as_view 메소드 내부에서 호출됩니다. request 메소드가 정의된 http_method_names 에 해당되면 request 에서 가져오게됩니다.\n 공식문서 를 참고해봐도 JsonResponse 는 HttpRequest 의 하위 클래스네요\n이래서 인자에 request 가 포함되어있나봅니다.\nGeneric View 를 보다보니 공부가 많이되네요.\n앞으로 Generic View 에 대해 더 깊이 다뤄보고 블로그 글 작성하겠습니다.\n","wordCount":"366","inLanguage":"ko","datePublished":"2022-02-03T00:00:00Z","dateModified":"2022-02-03T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-why-need-request/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django JsonResponse를 쓰는데 왜 request 가 필요할까","name":"Django JsonResponse를 쓰는데 왜 request 가 필요할까","description":"HttpRequest 의 하위클래스에있는 JsonResponse","keywords":["django","장고","django HttpRequest","django Generic"],"articleBody":"view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다.\n근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자를 다들 포함시키길래 저도 지금껏 계속 쓰긴했습니다.\n그래서 지우고 테스트해보니\nTypeError : get() takes 1 positional argument but 2 were given 과 함께 500 에러를 주네요.\n그럼 request 가 필요하다는거겠죠.\n알아보기위해 django 최상위 제네릭 뷰 클래스에서 알아보겠습니다.\n Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.  class View: \"\"\" Intentionally simple parent class for all views. Only implements dispatch-by-method and simple sanity checking. \"\"\" http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace'] def __init__(self, **kwargs): \"\"\" Constructor. Called in the URLconf; can contain helpful extra keyword arguments, and other things. \"\"\" # Go through keyword arguments, and either save their values to our # instance, or raise an error. for key, value in kwargs.items(): setattr(self, key, value) @classonlymethod def as_view(cls, **initkwargs): \"\"\"Main entry point for a request-response process.\"\"\" for key in initkwargs: if key in cls.http_method_names: raise TypeError( 'The method name %sis not accepted as a keyword argument ' 'to %s().' % (key, cls.__name__) ) if not hasattr(cls, key): raise TypeError(\"%s() received an invalid keyword %r. as_view \" \"only accepts arguments that are already \" \"attributes of the class.\" % (cls.__name__, key)) def dispatch(self, request, *args, **kwargs): # Try to dispatch to the right method; if a method doesn't exist, # defer to the error handler. Also defer to the error handler if the # request method isn't on the approved list. if request.method.lower() in self.http_method_names: handler = getattr(self, request.method.lower(), self.http_method_not_allowed) else: handler = self.http_method_not_allowed return handler(request, *args, **kwargs)  as_view 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.\n  문제의 dispatch 는 as_view 메소드 내부에서 호출됩니다. request 메소드가 정의된 http_method_names 에 해당되면 request 에서 가져오게됩니다.\n 공식문서 를 참고해봐도 JsonResponse 는 HttpRequest 의 하위 클래스네요\n이래서 인자에 request 가 포함되어있나봅니다.\nGeneric View 를 보다보니 공부가 많이되네요.\n앞으로 Generic View 에 대해 더 깊이 다뤄보고 블로그 글 작성하겠습니다.\n","wordCount":"545","inLanguage":"ko","datePublished":"2022-02-03T00:00:00Z","dateModified":"2022-02-03T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-why-need-request/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -81,97 +80,49 @@ JsonResponse 객체를 끌어다와서 쓰기도합니다.</p>
 <ul>
 <li>Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.</li>
 </ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>View</span><span class=p>:</span>
-    <span class=s2>&#34;&#34;&#34;
-</span><span class=s2>    Intentionally simple parent class for all views. Only implements
-</span><span class=s2>    dispatch-by-method and simple sanity checking.
-</span><span class=s2>    &#34;&#34;&#34;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>class</span> <span style=color:#50fa7b>View</span>:
+    <span style=color:#f1fa8c>&#34;&#34;&#34;
+</span><span style=color:#f1fa8c>    Intentionally simple parent class for all views. Only implements
+</span><span style=color:#f1fa8c>    dispatch-by-method and simple sanity checking.
+</span><span style=color:#f1fa8c>    &#34;&#34;&#34;</span>
 
-    <span class=n>http_method_names</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;get&#39;</span><span class=p>,</span> <span class=s1>&#39;post&#39;</span><span class=p>,</span> <span class=s1>&#39;put&#39;</span><span class=p>,</span> <span class=s1>&#39;patch&#39;</span><span class=p>,</span> <span class=s1>&#39;delete&#39;</span><span class=p>,</span> <span class=s1>&#39;head&#39;</span><span class=p>,</span> <span class=s1>&#39;options&#39;</span><span class=p>,</span> <span class=s1>&#39;trace&#39;</span><span class=p>]</span>
+    http_method_names <span style=color:#ff79c6>=</span> [<span style=color:#f1fa8c>&#39;get&#39;</span>, <span style=color:#f1fa8c>&#39;post&#39;</span>, <span style=color:#f1fa8c>&#39;put&#39;</span>, <span style=color:#f1fa8c>&#39;patch&#39;</span>, <span style=color:#f1fa8c>&#39;delete&#39;</span>, <span style=color:#f1fa8c>&#39;head&#39;</span>, <span style=color:#f1fa8c>&#39;options&#39;</span>, <span style=color:#f1fa8c>&#39;trace&#39;</span>]
 
-    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-        <span class=s2>&#34;&#34;&#34;
-</span><span class=s2>        Constructor. Called in the URLconf; can contain helpful extra
-</span><span class=s2>        keyword arguments, and other things.
-</span><span class=s2>        &#34;&#34;&#34;</span>
-        <span class=c1># Go through keyword arguments, and either save their values to our</span>
-        <span class=c1># instance, or raise an error.</span>
-        <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>kwargs</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
-            <span class=nb>setattr</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+    <span style=color:#ff79c6>def</span> __init__(self, <span style=color:#ff79c6>**</span>kwargs):
+        <span style=color:#f1fa8c>&#34;&#34;&#34;
+</span><span style=color:#f1fa8c>        Constructor. Called in the URLconf; can contain helpful extra
+</span><span style=color:#f1fa8c>        keyword arguments, and other things.
+</span><span style=color:#f1fa8c>        &#34;&#34;&#34;</span>
+        <span style=color:#6272a4># Go through keyword arguments, and either save their values to our</span>
+        <span style=color:#6272a4># instance, or raise an error.</span>
+        <span style=color:#ff79c6>for</span> key, value <span style=color:#ff79c6>in</span> kwargs<span style=color:#ff79c6>.</span>items():
+            <span style=color:#8be9fd;font-style:italic>setattr</span>(self, key, value)
 
-    <span class=nd>@classonlymethod</span>
-    <span class=k>def</span> <span class=nf>as_view</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=o>**</span><span class=n>initkwargs</span><span class=p>):</span>
-        <span class=s2>&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
-        <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>initkwargs</span><span class=p>:</span>
-            <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=bp>cls</span><span class=o>.</span><span class=n>http_method_names</span><span class=p>:</span>
-                <span class=k>raise</span> <span class=ne>TypeError</span><span class=p>(</span>
-                    <span class=s1>&#39;The method name </span><span class=si>%s</span><span class=s1> is not accepted as a keyword argument &#39;</span>
-                    <span class=s1>&#39;to </span><span class=si>%s</span><span class=s1>().&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=bp>cls</span><span class=o>.</span><span class=vm>__name__</span><span class=p>)</span>
-                <span class=p>)</span>
-            <span class=k>if</span> <span class=ow>not</span> <span class=nb>hasattr</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>key</span><span class=p>):</span>
-                <span class=k>raise</span> <span class=ne>TypeError</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>%s</span><span class=s2>() received an invalid keyword </span><span class=si>%r</span><span class=s2>. as_view &#34;</span>
-                                <span class=s2>&#34;only accepts arguments that are already &#34;</span>
-                                <span class=s2>&#34;attributes of the class.&#34;</span> <span class=o>%</span> <span class=p>(</span><span class=bp>cls</span><span class=o>.</span><span class=vm>__name__</span><span class=p>,</span> <span class=n>key</span><span class=p>))</span>
+    @classonlymethod
+    <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>as_view</span>(cls, <span style=color:#ff79c6>**</span>initkwargs):
+        <span style=color:#f1fa8c>&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
+        <span style=color:#ff79c6>for</span> key <span style=color:#ff79c6>in</span> initkwargs:
+            <span style=color:#ff79c6>if</span> key <span style=color:#ff79c6>in</span> cls<span style=color:#ff79c6>.</span>http_method_names:
+                <span style=color:#ff79c6>raise</span> TypeError(
+                    <span style=color:#f1fa8c>&#39;The method name </span><span style=color:#f1fa8c>%s</span><span style=color:#f1fa8c> is not accepted as a keyword argument &#39;</span>
+                    <span style=color:#f1fa8c>&#39;to </span><span style=color:#f1fa8c>%s</span><span style=color:#f1fa8c>().&#39;</span> <span style=color:#ff79c6>%</span> (key, cls<span style=color:#ff79c6>.</span>__name__)
+                )
+            <span style=color:#ff79c6>if</span> <span style=color:#ff79c6>not</span> <span style=color:#8be9fd;font-style:italic>hasattr</span>(cls, key):
+                <span style=color:#ff79c6>raise</span> TypeError(<span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>%s</span><span style=color:#f1fa8c>() received an invalid keyword </span><span style=color:#f1fa8c>%r</span><span style=color:#f1fa8c>. as_view &#34;</span>
+                                <span style=color:#f1fa8c>&#34;only accepts arguments that are already &#34;</span>
+                                <span style=color:#f1fa8c>&#34;attributes of the class.&#34;</span> <span style=color:#ff79c6>%</span> (cls<span style=color:#ff79c6>.</span>__name__, key))
 
 
-    <span class=k>def</span> <span class=nf>dispatch</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-        <span class=c1># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
-        <span class=c1># defer to the error handler. Also defer to the error handler if the</span>
-        <span class=c1># request method isn&#39;t on the approved list.</span>
-        <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span><span class=o>.</span><span class=n>lower</span><span class=p>()</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>http_method_names</span><span class=p>:</span>
-            <span class=n>handler</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span><span class=o>.</span><span class=n>lower</span><span class=p>(),</span> <span class=bp>self</span><span class=o>.</span><span class=n>http_method_not_allowed</span><span class=p>)</span>
-        <span class=k>else</span><span class=p>:</span>
-            <span class=n>handler</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>http_method_not_allowed</span>
-        <span class=k>return</span> <span class=n>handler</span><span class=p>(</span><span class=n>request</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+    <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>dispatch</span>(self, request, <span style=color:#ff79c6>*</span>args, <span style=color:#ff79c6>**</span>kwargs):
+        <span style=color:#6272a4># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
+        <span style=color:#6272a4># defer to the error handler. Also defer to the error handler if the</span>
+        <span style=color:#6272a4># request method isn&#39;t on the approved list.</span>
+        <span style=color:#ff79c6>if</span> request<span style=color:#ff79c6>.</span>method<span style=color:#ff79c6>.</span>lower() <span style=color:#ff79c6>in</span> self<span style=color:#ff79c6>.</span>http_method_names:
+            handler <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>getattr</span>(self, request<span style=color:#ff79c6>.</span>method<span style=color:#ff79c6>.</span>lower(), self<span style=color:#ff79c6>.</span>http_method_not_allowed)
+        <span style=color:#ff79c6>else</span>:
+            handler <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>http_method_not_allowed
+        <span style=color:#ff79c6>return</span> handler(request, <span style=color:#ff79c6>*</span>args, <span style=color:#ff79c6>**</span>kwargs)
+</code></pre></div><blockquote>
 <p><code>as_view</code> 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.</p>
 </blockquote>
 <blockquote>
@@ -200,15 +151,14 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
 <span>Python 리스트 컴프리헨션(List Comprehension)</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

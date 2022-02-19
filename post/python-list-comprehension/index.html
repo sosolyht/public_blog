@@ -8,8 +8,7 @@
 <meta name=description content="리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/python-list-comprehension/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Python 리스트 컴프리헨션(List Comprehension)">
 <meta name=twitter:description content="리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Python 리스트 컴프리헨션(List Comprehension)","item":"https://heetaek.com/post/python-list-comprehension/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 리스트 컴프리헨션(List Comprehension)","name":"Python 리스트 컴프리헨션(List Comprehension)","description":"리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법","keywords":["python","파이썬","컴프리헨션","comprehension","리스트 컴프리헨션"],"articleBody":"컴프리헨션 (Comprehension) 이란? 컴프리헨션이란 뭔가를 내포 , 압축의 뜻을 담고있습니다. 직관적으로 리스트를 생성하는 방법입니다. 컴프리헨션은 파이썬의 자료형 (list,dict,set) 에 대해 사용 할 수 있기 때문에 기본적인 자료형에 대해서는 공부를 하셔야합니다. 이번 블로그는 대표적인 리스트 컴프리헨션에 대해 써볼겁니다.\n리스트 컴프리헨션 (List Comprehension) 반복문  일반적인 반복문으로 리스트 생성  1 2 3  a = [] for i in range(10): a.append(i)    리스트 컴프리헨션  1  [i for i in range(10)]   같은 결과가 출력됩니다.\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n좀 더 응용해볼까요? 재밌네요\n1  [i * 5 for i in range(10)]   기존의 i 에 5가 곱해져서\n[0, 5, 10, 15, 20, 25, 30, 35, 40, 45]\n라는 결과가 출력됐습니다.\n조금만 생각하면 정말 쉽다는겁니다.\n일반적인 리스트 생성할때와 리스트 컴프리헨션을 참고 해보시면\na 의 빈 리스트가 컴프리헨션 양 옆에 달라 붙었습니다.\n반복문은 위의 이미지와 같이 리스트 내부에 작성합니다.\n쉽죠? 직접 에디터 키고 해보시는걸 추천드립니다.\nif 조건문 위에서 살펴본것은 반복문을 사용한 컴프리헨션입니다. 반복문 이외에도 조건문을 활용해볼수있습니다. 컴프리헨션을 쓰다 보면 이 조건문을 쓰는 게 매우 편리합니다. if문만 쓸 때는 오른쪽에, if else문을 쓸때는 왼쪽에 씁니다.\n1  [i for i in range(10) if i % 2 == 0]   결과 [0, 2, 4, 6, 8]\nif else 조건문 1  [i if i % 2 == 0 else 'odd' for i in range(10)]   결과 [0, 'odd', 2, 'odd', 4, 'odd', 6, 'odd', 8, 'odd']\n위의 반복문에 조건문만 들어간거라 생각하시면 간단합니다.\n","wordCount":"222","inLanguage":"ko","datePublished":"2022-02-02T00:00:00Z","dateModified":"2022-02-02T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-list-comprehension/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python 리스트 컴프리헨션(List Comprehension)","name":"Python 리스트 컴프리헨션(List Comprehension)","description":"리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법","keywords":["python","파이썬","컴프리헨션","comprehension","리스트 컴프리헨션"],"articleBody":"컴프리헨션 (Comprehension) 이란? 컴프리헨션이란 뭔가를 내포 , 압축의 뜻을 담고있습니다. 직관적으로 리스트를 생성하는 방법입니다. 컴프리헨션은 파이썬의 자료형 (list,dict,set) 에 대해 사용 할 수 있기 때문에 기본적인 자료형에 대해서는 공부를 하셔야합니다. 이번 블로그는 대표적인 리스트 컴프리헨션에 대해 써볼겁니다.\n리스트 컴프리헨션 (List Comprehension) 반복문  일반적인 반복문으로 리스트 생성  a = [] for i in range(10): a.append(i)  리스트 컴프리헨션  [i for i in range(10)] 같은 결과가 출력됩니다.\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n좀 더 응용해볼까요? 재밌네요\n[i * 5 for i in range(10)] 기존의 i 에 5가 곱해져서\n[0, 5, 10, 15, 20, 25, 30, 35, 40, 45]\n라는 결과가 출력됐습니다.\n조금만 생각하면 정말 쉽다는겁니다.\n일반적인 리스트 생성할때와 리스트 컴프리헨션을 참고 해보시면\na 의 빈 리스트가 컴프리헨션 양 옆에 달라 붙었습니다.\n반복문은 위의 이미지와 같이 리스트 내부에 작성합니다.\n쉽죠? 직접 에디터 키고 해보시는걸 추천드립니다.\nif 조건문 위에서 살펴본것은 반복문을 사용한 컴프리헨션입니다. 반복문 이외에도 조건문을 활용해볼수있습니다. 컴프리헨션을 쓰다 보면 이 조건문을 쓰는 게 매우 편리합니다. if문만 쓸 때는 오른쪽에, if else문을 쓸때는 왼쪽에 씁니다.\n[i for i in range(10) if i % 2 == 0] 결과 [0, 2, 4, 6, 8]\nif else 조건문 [i if i % 2 == 0 else 'odd' for i in range(10)] 결과 [0, 'odd', 2, 'odd', 4, 'odd', 6, 'odd', 8, 'odd']\n위의 반복문에 조건문만 들어간거라 생각하시면 간단합니다.\n","wordCount":"540","inLanguage":"ko","datePublished":"2022-02-02T00:00:00Z","dateModified":"2022-02-02T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/python-list-comprehension/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -97,41 +96,18 @@ Python 리스트 컴프리헨션(List Comprehension)
 <ul>
 <li>일반적인 반복문으로 리스트 생성</li>
 </ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>a</span> <span class=o>=</span> <span class=p>[]</span>
-<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>):</span>
-    <span class=n>a</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>i</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>a <span style=color:#ff79c6>=</span> []
+<span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>10</span>):
+    a<span style=color:#ff79c6>.</span>append(i)
+</code></pre></div><ul>
 <li>리스트 컴프리헨션</li>
 </ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=p>[</span><span class=n>i</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>)]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>같은 결과가 출력됩니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>[i <span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>10</span>)]
+</code></pre></div><p>같은 결과가 출력됩니다.</p>
 <p><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></p>
 <p>좀 더 응용해볼까요? 재밌네요</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=p>[</span><span class=n>i</span> <span class=o>*</span> <span class=mi>5</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>)]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>기존의 <code>i</code> 에 5가 곱해져서</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>[i <span style=color:#ff79c6>*</span> <span style=color:#bd93f9>5</span> <span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>10</span>)]
+</code></pre></div><p>기존의 <code>i</code> 에 5가 곱해져서</p>
 <p><code>[0, 5, 10, 15, 20, 25, 30, 35, 40, 45]</code></p>
 <p>라는 결과가 출력됐습니다.</p>
 <p>조금만 생각하면 정말 쉽다는겁니다.</p>
@@ -148,26 +124,12 @@ Python 리스트 컴프리헨션(List Comprehension)
 반복문 이외에도 조건문을 활용해볼수있습니다.
 컴프리헨션을 쓰다 보면 이 조건문을 쓰는 게 매우 편리합니다.
 if문만 쓸 때는 오른쪽에, if else문을 쓸때는 왼쪽에 씁니다.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=p>[</span><span class=n>i</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span> <span class=k>if</span> <span class=n>i</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>0</span><span class=p>]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>결과
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>[i <span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>10</span>) <span style=color:#ff79c6>if</span> i <span style=color:#ff79c6>%</span> <span style=color:#bd93f9>2</span> <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>0</span>]
+</code></pre></div><p>결과
 <code>[0, 2, 4, 6, 8]</code></p>
 <h3 id=if-else-조건문>if else 조건문<a hidden class=anchor aria-hidden=true href=#if-else-조건문>#</a></h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=p>[</span><span class=n>i</span> <span class=k>if</span> <span class=n>i</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=s1>&#39;odd&#39;</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>)]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>결과
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>[i <span style=color:#ff79c6>if</span> i <span style=color:#ff79c6>%</span> <span style=color:#bd93f9>2</span> <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>0</span> <span style=color:#ff79c6>else</span> <span style=color:#f1fa8c>&#39;odd&#39;</span> <span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>10</span>)]
+</code></pre></div><p>결과
 <code>[0, 'odd', 2, 'odd', 4, 'odd', 6, 'odd', 8, 'odd']</code></p>
 <p>위의 반복문에 조건문만 들어간거라 생각하시면 간단합니다.</p>
 </div>
@@ -187,15 +149,14 @@ if문만 쓸 때는 오른쪽에, if else문을 쓸때는 왼쪽에 씁니다.</
 <span>Django QuerySet filter 제대로 알아보자</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

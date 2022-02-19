@@ -8,8 +8,7 @@
 <meta name=description content="Query string에 대해 알아봅시다.">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/django-query-string/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="Django Query String 쿼리스트링">
 <meta name=twitter:description content="Query string에 대해 알아봅시다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Django Query String 쿼리스트링","item":"https://heetaek.com/post/django-query-string/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django Query String 쿼리스트링","name":"Django Query String 쿼리스트링","description":"Query string에 대해 알아봅시다.","keywords":["django","장고","django query string","쿼리 스트링"],"articleBody":"Query String 기존에 저는 뷰를 작성하고 특정 URL로 접속해 body에 데이터를 담아 JSON 타입으로 인코딩을 해서 통신을 했습니다. 그러나 클라이언트의 기능이 점점 추가될수록 서버 측에서는 조건에 따라 모든 API를 작성하는 것이 반복적이고 불필요한 작업이 될 수 있습니다.\n이러한 문제점을 해결해주는게 RESTful한 API 작성을 도와주는 Query String 입니다.\nRESTfulAPI 란??\nQuery String 은 ?로 시작해서 \u0026를 통해 여러 데이터를 동시에 전달 가능합니다.\n views.py\n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  class ProductDetailView(View): def get(self, request, product_id): try: product = Product.objects.get(id = product_id) result = { 'id' : product.id, 'name' : product.name, 'shipping' : product.shipping, 'price' : product.price, 'is_green' : product.is_green, 'is_sale' : product.is_sale, 'category_id' : product.category_id, 'stock' : product.stock, 'discount_price' : product.discount_price, 'image' : product.image_set.all()[0].img_url } return JsonResponse({'result': result}, status = 200)    urls.py\n 1 2 3  urlpatterns = [ path(\"/\",ProductDetailView.as_view()) ]   위의 코드는 기존의 상품을 가져오는 뷰\nhttp://127.0.0.1/products/7\n라고 입력을 하면 product_id 의 7번 상품을 조회해서 정보를 JSON 타입으로 주었습니다.\n이번에는 쿼리스트링을 적용해 볼까요?\n views.py\n 1 2 3 4 5 6 7 8 9  class ProductDetailView(View): def get(self, request): try: product_id = request.GET.get('id') products = Product.objects.filter(id = product_id).values() products = list(products) return JsonResponse({'result': products}, status = 200)    urls.py\n 1 2 3  urlpatterns = [ path(\"\",ProductDetailView.as_view()) ]   request.GET.get 으로 id 7번 아이템을 가져와서 모든 정보를 가져오라는 뜻입니다.\n그래서 입력을 http://127.0.0.1:8000/products?id=7 이렇게 했더니\n똑같이 정상적으로 출력이 되는 것을 확인하실 수 있습니다.\n아직까지도 난해한 부분이라 계속 응용을 해봐야할것같습니다.\n","wordCount":"235","inLanguage":"ko","datePublished":"2022-02-06T00:00:00Z","dateModified":"2022-02-06T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-query-string/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django Query String 쿼리스트링","name":"Django Query String 쿼리스트링","description":"Query string에 대해 알아봅시다.","keywords":["django","장고","django query string","쿼리 스트링"],"articleBody":"Query String 기존에 저는 뷰를 작성하고 특정 URL로 접속해 body에 데이터를 담아 JSON 타입으로 인코딩을 해서 통신을 했습니다. 그러나 클라이언트의 기능이 점점 추가될수록 서버 측에서는 조건에 따라 모든 API를 작성하는 것이 반복적이고 불필요한 작업이 될 수 있습니다.\n이러한 문제점을 해결해주는게 RESTful한 API 작성을 도와주는 Query String 입니다.\nRESTfulAPI 란??\nQuery String 은 ?로 시작해서 \u0026를 통해 여러 데이터를 동시에 전달 가능합니다.\n views.py\n class ProductDetailView(View): def get(self, request, product_id): try: product = Product.objects.get(id = product_id) result = { 'id' : product.id, 'name' : product.name, 'shipping' : product.shipping, 'price' : product.price, 'is_green' : product.is_green, 'is_sale' : product.is_sale, 'category_id' : product.category_id, 'stock' : product.stock, 'discount_price' : product.discount_price, 'image' : product.image_set.all()[0].img_url } return JsonResponse({'result': result}, status = 200)  urls.py\n urlpatterns = [ path(\"/\",ProductDetailView.as_view()) ] 위의 코드는 기존의 상품을 가져오는 뷰\nhttp://127.0.0.1/products/7\n라고 입력을 하면 product_id 의 7번 상품을 조회해서 정보를 JSON 타입으로 주었습니다.\n이번에는 쿼리스트링을 적용해 볼까요?\n views.py\n class ProductDetailView(View): def get(self, request): try: product_id = request.GET.get('id') products = Product.objects.filter(id = product_id).values() products = list(products) return JsonResponse({'result': products}, status = 200)  urls.py\n urlpatterns = [ path(\"\",ProductDetailView.as_view()) ] request.GET.get 으로 id 7번 아이템을 가져와서 모든 정보를 가져오라는 뜻입니다.\n그래서 입력을 http://127.0.0.1:8000/products?id=7 이렇게 했더니\n똑같이 정상적으로 출력이 되는 것을 확인하실 수 있습니다.\n아직까지도 난해한 부분이라 계속 응용을 해봐야할것같습니다.\n","wordCount":"435","inLanguage":"ko","datePublished":"2022-02-06T00:00:00Z","dateModified":"2022-02-06T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-query-string/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -62,7 +61,7 @@ Django Query String 쿼리스트링
 <div class=post-description>
 Query string에 대해 알아봅시다.
 </div>
-<div class=post-meta><span title="2022-02-06 00:00:00 +0000 UTC">2022-02-06</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/post/django-query-string.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2022-02-06 00:00:00 +0000 UTC">2022-02-06</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/post/django-query-string.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header> <div class=toc>
 <details open>
@@ -88,110 +87,53 @@ Query string에 대해 알아봅시다.
 <blockquote>
 <p>views.py</p>
 </blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>ProductDetailView</span><span class=p>(</span><span class=n>View</span><span class=p>):</span>
-    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>product_id</span><span class=p>):</span>
-        <span class=k>try</span><span class=p>:</span>
-            <span class=n>product</span> <span class=o>=</span> <span class=n>Product</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=nb>id</span> <span class=o>=</span> <span class=n>product_id</span><span class=p>)</span>
-            <span class=n>result</span> <span class=o>=</span> <span class=p>{</span>
-                <span class=s1>&#39;id&#39;</span>             <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>id</span><span class=p>,</span>
-                <span class=s1>&#39;name&#39;</span>           <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>name</span><span class=p>,</span>
-                <span class=s1>&#39;shipping&#39;</span>       <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>shipping</span><span class=p>,</span>
-                <span class=s1>&#39;price&#39;</span>          <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>price</span><span class=p>,</span>
-                <span class=s1>&#39;is_green&#39;</span>       <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>is_green</span><span class=p>,</span>
-                <span class=s1>&#39;is_sale&#39;</span>        <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>is_sale</span><span class=p>,</span>
-                <span class=s1>&#39;category_id&#39;</span>    <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>category_id</span><span class=p>,</span>
-                <span class=s1>&#39;stock&#39;</span>          <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>stock</span><span class=p>,</span>
-                <span class=s1>&#39;discount_price&#39;</span> <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>discount_price</span><span class=p>,</span>
-                <span class=s1>&#39;image&#39;</span>          <span class=p>:</span> <span class=n>product</span><span class=o>.</span><span class=n>image_set</span><span class=o>.</span><span class=n>all</span><span class=p>()[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>img_url</span>
-            <span class=p>}</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>class</span> <span style=color:#50fa7b>ProductDetailView</span>(View):
+    <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>get</span>(self, request, product_id):
+        <span style=color:#ff79c6>try</span>:
+            product <span style=color:#ff79c6>=</span> Product<span style=color:#ff79c6>.</span>objects<span style=color:#ff79c6>.</span>get(<span style=color:#8be9fd;font-style:italic>id</span> <span style=color:#ff79c6>=</span> product_id)
+            result <span style=color:#ff79c6>=</span> {
+                <span style=color:#f1fa8c>&#39;id&#39;</span>             : product<span style=color:#ff79c6>.</span>id,
+                <span style=color:#f1fa8c>&#39;name&#39;</span>           : product<span style=color:#ff79c6>.</span>name,
+                <span style=color:#f1fa8c>&#39;shipping&#39;</span>       : product<span style=color:#ff79c6>.</span>shipping,
+                <span style=color:#f1fa8c>&#39;price&#39;</span>          : product<span style=color:#ff79c6>.</span>price,
+                <span style=color:#f1fa8c>&#39;is_green&#39;</span>       : product<span style=color:#ff79c6>.</span>is_green,
+                <span style=color:#f1fa8c>&#39;is_sale&#39;</span>        : product<span style=color:#ff79c6>.</span>is_sale,
+                <span style=color:#f1fa8c>&#39;category_id&#39;</span>    : product<span style=color:#ff79c6>.</span>category_id,
+                <span style=color:#f1fa8c>&#39;stock&#39;</span>          : product<span style=color:#ff79c6>.</span>stock,
+                <span style=color:#f1fa8c>&#39;discount_price&#39;</span> : product<span style=color:#ff79c6>.</span>discount_price,
+                <span style=color:#f1fa8c>&#39;image&#39;</span>          : product<span style=color:#ff79c6>.</span>image_set<span style=color:#ff79c6>.</span>all()[<span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>img_url
+            }
 
-            <span class=k>return</span> <span class=n>JsonResponse</span><span class=p>({</span><span class=s1>&#39;result&#39;</span><span class=p>:</span> <span class=n>result</span><span class=p>},</span> <span class=n>status</span> <span class=o>=</span> <span class=mi>200</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+            <span style=color:#ff79c6>return</span> JsonResponse({<span style=color:#f1fa8c>&#39;result&#39;</span>: result}, status <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>200</span>)
+</code></pre></div><blockquote>
 <p>urls.py</p>
 </blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=n>path</span><span class=p>(</span><span class=s2>&#34;/&lt;int:product_id&gt;&#34;</span><span class=p>,</span><span class=n>ProductDetailView</span><span class=o>.</span><span class=n>as_view</span><span class=p>())</span>
-<span class=p>]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>위의 코드는 기존의 상품을 가져오는 뷰</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>urlpatterns <span style=color:#ff79c6>=</span> [
+    path(<span style=color:#f1fa8c>&#34;/&lt;int:product_id&gt;&#34;</span>,ProductDetailView<span style=color:#ff79c6>.</span>as_view())
+]
+</code></pre></div><p>위의 코드는 기존의 상품을 가져오는 뷰</p>
 <p><code>http://127.0.0.1/products/7</code></p>
 <p>라고 입력을 하면 <code>product_id</code> 의 7번 상품을 조회해서 정보를 JSON 타입으로 주었습니다.</p>
 <p>이번에는 쿼리스트링을 적용해 볼까요?</p>
 <blockquote>
 <p>views.py</p>
 </blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>ProductDetailView</span><span class=p>(</span><span class=n>View</span><span class=p>):</span>
-    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=p>):</span>
-        <span class=k>try</span><span class=p>:</span>
-            <span class=n>product_id</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>GET</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>)</span>
-            <span class=n>products</span> <span class=o>=</span> <span class=n>Product</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>filter</span><span class=p>(</span><span class=nb>id</span> <span class=o>=</span> <span class=n>product_id</span><span class=p>)</span><span class=o>.</span><span class=n>values</span><span class=p>()</span>
-            <span class=n>products</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>products</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>class</span> <span style=color:#50fa7b>ProductDetailView</span>(View):
+    <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>get</span>(self, request):
+        <span style=color:#ff79c6>try</span>:
+            product_id <span style=color:#ff79c6>=</span> request<span style=color:#ff79c6>.</span>GET<span style=color:#ff79c6>.</span>get(<span style=color:#f1fa8c>&#39;id&#39;</span>)
+            products <span style=color:#ff79c6>=</span> Product<span style=color:#ff79c6>.</span>objects<span style=color:#ff79c6>.</span>filter(<span style=color:#8be9fd;font-style:italic>id</span> <span style=color:#ff79c6>=</span> product_id)<span style=color:#ff79c6>.</span>values()
+            products <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>list</span>(products)
 
 
-            <span class=k>return</span> <span class=n>JsonResponse</span><span class=p>({</span><span class=s1>&#39;result&#39;</span><span class=p>:</span> <span class=n>products</span><span class=p>},</span> <span class=n>status</span> <span class=o>=</span> <span class=mi>200</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+            <span style=color:#ff79c6>return</span> JsonResponse({<span style=color:#f1fa8c>&#39;result&#39;</span>: products}, status <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>200</span>)
+</code></pre></div><blockquote>
 <p>urls.py</p>
 </blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=n>path</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>,</span><span class=n>ProductDetailView</span><span class=o>.</span><span class=n>as_view</span><span class=p>())</span>
-<span class=p>]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>request.GET.get</code> 으로 <code>id</code> 7번 아이템을 가져와서 모든 정보를 가져오라는 뜻입니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>urlpatterns <span style=color:#ff79c6>=</span> [
+    path(<span style=color:#f1fa8c>&#34;&#34;</span>,ProductDetailView<span style=color:#ff79c6>.</span>as_view())
+]
+</code></pre></div><p><code>request.GET.get</code> 으로 <code>id</code> 7번 아이템을 가져와서 모든 정보를 가져오라는 뜻입니다.</p>
 <p>그래서 입력을 <code>http://127.0.0.1:8000/products?id=7</code> 이렇게 했더니</p>
 <p><img loading=lazy src=https://user-images.githubusercontent.com/2377807/152666763-2c6ed01b-1f6b-4f6e-a683-ae34edd266ab.png alt=image>
 </p>
@@ -209,15 +151,14 @@ Query string에 대해 알아봅시다.
 <span>Django JsonResponse를 쓰는데 왜 request 가 필요할까</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

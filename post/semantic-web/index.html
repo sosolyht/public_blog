@@ -8,8 +8,7 @@
 <meta name=description content="Semantic Web은 의미를 정확히 부여하는 기술입니다.">
 <meta name=author content="최희택">
 <link rel=canonical href=https://heetaek.com/post/semantic-web/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.3f1eac3b256bab8658cf8cbbc589df633827e762c195a9471dd6395d847bd316.css integrity="sha256-Px6sOyVrq4ZYz4y7xYnfYzgn52LBlalHHdY5XYR70xY=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style>
 <link rel=icon href=https://heetaek.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png>
@@ -33,7 +32,7 @@
 <meta name=twitter:title content="HTML Semantic Web, Semantic Tag 이 뭔가요?">
 <meta name=twitter:description content="Semantic Web은 의미를 정확히 부여하는 기술입니다.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"HTML Semantic Web, Semantic Tag 이 뭔가요?","item":"https://heetaek.com/post/semantic-web/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"HTML Semantic Web, Semantic Tag 이 뭔가요?","name":"HTML Semantic Web, Semantic Tag 이 뭔가요?","description":"Semantic Web은 의미를 정확히 부여하는 기술입니다.","keywords":["HTML","Semantic","시멘틱 웹","시멘틱 태그"],"articleBody":"Semantic Web 이란? Semantic Web은 HTML4 에서 HTML5 올라가면서 생기게 되었습니다.\n의미를 정확히 부여하는 기술입니다.\n기존에는 컴퓨터가 메타데이터를 해석하기만 했다면\nSemantic Web은 사람의 눈으로 보기에 용이한 메타데이터와 자연어로 구성되어있습니다.\n예를 들면,\n1  div id=\"header\"div   이렇게 이 div 는 header 라고 나타내었던것을\n1  headerheader   태그에 header 라고 의미를 부여해 더 효율적으로 작성할수있습니다.\n Semantic Tag 란? Semantic Tag 도 Semantic Web 과 마찬가지로 ‘의미가 있는’ 태그를 뜻합니다.\n이걸 언제써야하는지는\nimg 태그와 css의 background-image 를 예시로 들면\n1  img id=\"my-img\" alt=\"내 얼굴\" src=\"/img/profile.png\"   만약 /img/profile.png 의 사진의 경로가 잘못되어 브라우저가 불러오지 못하는 상황이 있을때 alt 태그로 이 사진은 얼굴 사진이라는것을 알 수 있습니다.\n허나 css 에 background-image 를 사용하게되면\n1  div id=\"my-img\"div   1 2 3  #my-img { background-image: /img/profile.png }   단지 div 에 이미지를 추가 한 것일뿐 어떠한 정보나 메타데이터가 없습니다.\n웹의 SEO 측면에서 봤을때도 메타데이터가 없는 후자의 CSS 방식은 불리할수밖에없습니다.\n참고로 img 와 같은 Semantic Tag를 조금 소개해드리자면\n1 2 3 4 5  header nav footer section article   등이 있습니다.\n더 많은 정보는 W3C 를 참고 바랍니다.\n","wordCount":"165","inLanguage":"ko","datePublished":"2021-12-27T00:00:00Z","dateModified":"2021-12-27T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/semantic-web/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"HTML Semantic Web, Semantic Tag 이 뭔가요?","name":"HTML Semantic Web, Semantic Tag 이 뭔가요?","description":"Semantic Web은 의미를 정확히 부여하는 기술입니다.","keywords":["HTML","Semantic","시멘틱 웹","시멘틱 태그"],"articleBody":"Semantic Web 이란? Semantic Web은 HTML4 에서 HTML5 올라가면서 생기게 되었습니다.\n의미를 정확히 부여하는 기술입니다.\n기존에는 컴퓨터가 메타데이터를 해석하기만 했다면\nSemantic Web은 사람의 눈으로 보기에 용이한 메타데이터와 자연어로 구성되어있습니다.\n예를 들면,\ndiv id=\"header\"div 이렇게 이 div 는 header 라고 나타내었던것을\nheaderheader 태그에 header 라고 의미를 부여해 더 효율적으로 작성할수있습니다.\n Semantic Tag 란? Semantic Tag 도 Semantic Web 과 마찬가지로 ‘의미가 있는’ 태그를 뜻합니다.\n이걸 언제써야하는지는\nimg 태그와 css의 background-image 를 예시로 들면\nimg id=\"my-img\" alt=\"내 얼굴\" src=\"/img/profile.png\" 만약 /img/profile.png 의 사진의 경로가 잘못되어 브라우저가 불러오지 못하는 상황이 있을때 alt 태그로 이 사진은 얼굴 사진이라는것을 알 수 있습니다.\n허나 css 에 background-image 를 사용하게되면\ndiv id=\"my-img\"div #my-img { background-image: /img/profile.png } 단지 div 에 이미지를 추가 한 것일뿐 어떠한 정보나 메타데이터가 없습니다.\n웹의 SEO 측면에서 봤을때도 메타데이터가 없는 후자의 CSS 방식은 불리할수밖에없습니다.\n참고로 img 와 같은 Semantic Tag를 조금 소개해드리자면\nheader nav footer section article 등이 있습니다.\n더 많은 정보는 W3C 를 참고 바랍니다.\n","wordCount":"431","inLanguage":"ko","datePublished":"2021-12-27T00:00:00Z","dateModified":"2021-12-27T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/semantic-web/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -86,24 +85,10 @@ Semantic Web은 의미를 정확히 부여하는 기술입니다.
 <p>기존에는 컴퓨터가 메타데이터를 해석하기만 했다면</p>
 <p>Semantic Web은 사람의 눈으로 보기에 용이한 메타데이터와 자연어로 구성되어있습니다.</p>
 <p>예를 들면,</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;header&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>이렇게 이 <code>div</code> 는 <code>header</code> 라고 나타내었던것을</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>header</span><span class=p>&gt;&lt;/</span><span class=nt>header</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>태그에 <code>header</code> 라고 의미를 부여해 더 효율적으로 작성할수있습니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>id</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;header&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</code></pre></div><p>이렇게 이 <code>div</code> 는 <code>header</code> 라고 나타내었던것을</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>header</span>&gt;&lt;/<span style=color:#ff79c6>header</span>&gt;
+</code></pre></div><p>태그에 <code>header</code> 라고 의미를 부여해 더 효율적으로 작성할수있습니다.</p>
 <p> 
  
  </p>
@@ -111,56 +96,22 @@ Semantic Web은 의미를 정확히 부여하는 기술입니다.
 <p>Semantic Tag 도 Semantic Web 과 마찬가지로 &lsquo;의미가 있는&rsquo; 태그를 뜻합니다.</p>
 <p>이걸 언제써야하는지는</p>
 <p><code>img</code> 태그와 css의 <code>background-image</code> 를 예시로 들면</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>img</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;my-img&#34;</span> <span class=na>alt</span><span class=o>=</span><span class=s>&#34;내 얼굴&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/img/profile.png&#34;</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>만약 /img/profile.png 의 사진의 경로가 잘못되어 브라우저가 불러오지 못하는 상황이 있을때 <code>alt</code> 태그로 이 사진은 얼굴 사진이라는것을 알 수 있습니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>img</span> <span style=color:#50fa7b>id</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;my-img&#34;</span> <span style=color:#50fa7b>alt</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;내 얼굴&#34;</span> <span style=color:#50fa7b>src</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;/img/profile.png&#34;</span>&gt;
+</code></pre></div><p>만약 /img/profile.png 의 사진의 경로가 잘못되어 브라우저가 불러오지 못하는 상황이 있을때 <code>alt</code> 태그로 이 사진은 얼굴 사진이라는것을 알 수 있습니다.</p>
 <p>허나 css 에 <code>background-image</code> 를 사용하게되면</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;my-img&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=p>#</span><span class=nn>my-img</span> <span class=p>{</span>
-    <span class=k>background-image</span><span class=p>:</span> <span class=o>/</span><span class=n>img</span><span class=o>/</span><span class=n>profile</span><span class=o>.</span><span class=n>png</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>단지 <code>div</code> 에 이미지를 추가 한 것일뿐 어떠한 정보나 메타데이터가 없습니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>id</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;my-img&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css>#my-img {
+    <span style=color:#ff79c6>background-image</span>: <span style=color:#ff79c6>/</span>img<span style=color:#ff79c6>/</span>profile<span style=color:#ff79c6>.</span>png
+}
+</code></pre></div><p>단지 <code>div</code> 에 이미지를 추가 한 것일뿐 어떠한 정보나 메타데이터가 없습니다.</p>
 <p>웹의 SEO 측면에서 봤을때도 메타데이터가 없는 후자의 CSS 방식은 불리할수밖에없습니다.</p>
 <p>참고로 <code>img</code> 와 같은 Semantic Tag를 조금 소개해드리자면</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>header</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>nav</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>footer</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>section</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>article</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>등이 있습니다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>header</span>&gt;
+&lt;<span style=color:#ff79c6>nav</span>&gt;
+&lt;<span style=color:#ff79c6>footer</span>&gt;
+&lt;<span style=color:#ff79c6>section</span>&gt;
+&lt;<span style=color:#ff79c6>article</span>&gt;
+</code></pre></div><p>등이 있습니다.</p>
 <p>더 많은 정보는 <a href=https://www.w3schools.com/html/html5_semantic_elements.asp>W3C</a> 를 참고 바랍니다.</p>
 </div>
 <footer class=post-footer>
@@ -179,15 +130,14 @@ Semantic Web은 의미를 정확히 부여하는 기술입니다.
 <span>Python 회문 판별 시퀀스 뒤집기(Palindrome)</span>
 </a>
 </nav>
-</footer>
+</footer><script src=https://utteranc.es/client.js repo=sosolyht/utterances issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://heetaek.com>최희택의 개발 공부 로그</a></span>
+<span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
 <span>
 Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a>
 </span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
