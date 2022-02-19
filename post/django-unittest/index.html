@@ -32,7 +32,7 @@
 <meta name=twitter:title content="Django Unit Test(단위 테스트)">
 <meta name=twitter:description content="테스트가 개발을 주도한다">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://heetaek.com/post/"},{"@type":"ListItem","position":3,"name":"Django Unit Test(단위 테스트)","item":"https://heetaek.com/post/django-unittest/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django Unit Test(단위 테스트)","name":"Django Unit Test(단위 테스트)","description":"테스트가 개발을 주도한다","keywords":["django","장고","django unit test"],"articleBody":"1. TDD(테스트 주도 개발) 이란?   Reference\n https://ko.wikipedia.org/wiki/TDD\n","wordCount":"18","inLanguage":"ko","datePublished":"2022-02-19T00:00:00Z","dateModified":"2022-02-19T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-unittest/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Django Unit Test(단위 테스트)","name":"Django Unit Test(단위 테스트)","description":"테스트가 개발을 주도한다","keywords":["django","장고","django unit test"],"articleBody":"1. TDD(테스트 주도 개발) 이란? 실패하는 테스트를 만들고, 그 테스트가 통과하는 제품을 만들면 결국은 원하는 기능이 동작하게 된다는 개발방법론이다.\n쉽게 설명하면 지금 당장은 귀찮지만 나중에는 유지보수면에서도 쉬워지고 프로그래밍 시간이 단축된다.\n특히, Python 같은 동적타입언어는 TDD 가 필수다.\nTDD 에 대해서는 저한테는 굉장히 deep한 주제라고 생각이 들어 간단히 정리해놓았으니 더 알아보고싶으신분은 구글링을 해보시는걸 추천드립니다.\n2. Unit Test (단위 테스트)  기능 테스트를 작성해서 사용자 관점의 새로운 기능성을 정의하는 것부터 시작한다. 기능 테스트가 실패하고 나면 어떻게 코드를 작성해야 테스트를 통과할지를 생각해보도록 한다. 이 시점에서 하나 또는 그 이상의 단위 테스트를 이용해서 어떻게 코드가 동작해야 하는지 정의한다. 단위 테스트가 실패하고 나면 단위 테스트를 통과할 수 있을 정도의 최소한의 코드만 작성한다. 기능 테스트가 완전해질 때까지 과정 2와 3을 반복해야 할 수도 있다. 기능 테스트를 재실행해서 통과하는지 또는 제대로 동작하는지 확인한다. 이 과정에서 새로운 단위 테스트를 작성해야 할 수도 있다.    Reference\n  https://wooaoe.tistory.com/33  ","wordCount":"444","inLanguage":"ko","datePublished":"2022-02-19T00:00:00Z","dateModified":"2022-02-19T00:00:00Z","author":{"@type":"Person","name":"최희택"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://heetaek.com/post/django-unittest/"},"publisher":{"@type":"Organization","name":"최희택의 개발 공부 로그","logo":{"@type":"ImageObject","url":"https://heetaek.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <header class=header>
@@ -70,18 +70,33 @@ Django Unit Test(단위 테스트)
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#1-tdd%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%a3%bc%eb%8f%84-%ea%b0%9c%eb%b0%9c-%ec%9d%b4%eb%9e%80 aria-label="1. TDD(테스트 주도 개발) 이란?">1. TDD(테스트 주도 개발) 이란?</a>
+<a href=#1-tdd%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%a3%bc%eb%8f%84-%ea%b0%9c%eb%b0%9c-%ec%9d%b4%eb%9e%80 aria-label="1. TDD(테스트 주도 개발) 이란?">1. TDD(테스트 주도 개발) 이란?</a></li>
+<li>
+<a href=#2-unit-test-%eb%8b%a8%ec%9c%84-%ed%85%8c%ec%8a%a4%ed%8a%b8 aria-label="2. Unit Test (단위 테스트)">2. Unit Test (단위 테스트)</a>
 </li>
 </ul>
 </div>
 </details>
 </div>
 <div class=post-content><h1 id=1-tdd테스트-주도-개발-이란>1. TDD(테스트 주도 개발) 이란?<a hidden class=anchor aria-hidden=true href=#1-tdd테스트-주도-개발-이란>#</a></h1>
+<p>실패하는 테스트를 만들고, 그 테스트가 통과하는 제품을 만들면 결국은 원하는 기능이 동작하게 된다는 개발방법론이다.<br>
+쉽게 설명하면 지금 당장은 귀찮지만 나중에는 유지보수면에서도 쉬워지고 프로그래밍 시간이 단축된다.<br>
+특히, Python 같은 동적타입언어는 TDD 가 필수다.<br>
+TDD 에 대해서는 저한테는 굉장히 deep한 주제라고 생각이 들어 간단히 정리해놓았으니 더 알아보고싶으신분은 구글링을 해보시는걸 추천드립니다.</p>
+<h1 id=2-unit-test-단위-테스트>2. Unit Test (단위 테스트)<a hidden class=anchor aria-hidden=true href=#2-unit-test-단위-테스트>#</a></h1>
+<ol>
+<li>기능 테스트를 작성해서 사용자 관점의 새로운 기능성을 정의하는 것부터 시작한다.</li>
+<li>기능 테스트가 실패하고 나면 어떻게 코드를 작성해야 테스트를 통과할지를 생각해보도록 한다. 이 시점에서 하나 또는 그 이상의 단위 테스트를 이용해서 어떻게 코드가 동작해야 하는지 정의한다.</li>
+<li>단위 테스트가 실패하고 나면 단위 테스트를 통과할 수 있을 정도의 최소한의 코드만 작성한다. 기능 테스트가 완전해질 때까지 과정 2와 3을 반복해야 할 수도 있다.</li>
+<li>기능 테스트를 재실행해서 통과하는지 또는 제대로 동작하는지 확인한다. 이 과정에서 새로운 단위 테스트를 작성해야 할 수도 있다.</li>
+</ol>
 <hr>
 <blockquote>
 <p>Reference</p>
 </blockquote>
-<p><a href=https://ko.wikipedia.org/wiki/TDD>https://ko.wikipedia.org/wiki/TDD</a></p>
+<ul>
+<li><a href=https://wooaoe.tistory.com/33>https://wooaoe.tistory.com/33</a></li>
+</ul>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
