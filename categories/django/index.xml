@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/django/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/django/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django Unit Test(단위 테스트)</title>
+      <link>https://heetaek.com/post/django-unittest/</link>
+      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/django-unittest/</guid>
+      <description>테스트가 개발을 주도한다</description>
+    </item>
+    
     <item>
       <title>Django Query String 쿼리스트링</title>
       <link>https://heetaek.com/post/django-query-string/</link>

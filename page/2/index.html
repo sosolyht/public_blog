@@ -53,6 +53,17 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Django 참조(Foreign Key) 역참조(related_name)
+</h2>
+</header>
+<section class=entry-content>
+<p>참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다. 위와 같은 모델이 있다고 가정할때 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey('Actor', on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영...</p>
+</section>
+<footer class=entry-footer><span title="2022-01-22 00:00:00 +0000 UTC">2022-01-22</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
+<a class=entry-link aria-label="post link to Django 참조(Foreign Key) 역참조(related_name)" href=https://heetaek.com/post/django-related-name/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Django ORM get(), filter() 비교
 </h2>
 </header>
@@ -127,17 +138,6 @@
 </section>
 <footer class=entry-footer><span title="2022-01-02 00:00:00 +0000 UTC">2022-01-02</span>&nbsp;·&nbsp;4 분&nbsp;·&nbsp;최희택</footer>
 <a class=entry-link aria-label="post link to Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해" href=https://heetaek.com/post/python-function-parameter/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>CSS position 속성과 display 속성에 대해
-</h2>
-</header>
-<section class=entry-content>
-<p>CSS position 요약 position 속성을 통해 문서 상에 요소를 배치하는 방법 top,right,bottom,left 속성을 통해 요소의 최종 위치를 결정* top : 요소의 position 기준에 맞는 위쪽에서의 거리(위치)를 설정* bottom : 요소...</p>
-</section>
-<footer class=entry-footer><span title="2021-12-29 00:00:00 +0000 UTC">2021-12-29</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer>
-<a class=entry-link aria-label="post link to CSS position 속성과 display 속성에 대해" href=https://heetaek.com/post/css_layout/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
