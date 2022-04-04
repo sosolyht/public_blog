@@ -2,13 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://heetaek.com/about-me/about/</loc>
-    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/about-me/</loc>
-    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/</loc>
+    <loc>https://heetaek.com/about/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/</loc>
@@ -33,6 +27,9 @@
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/unit-test/</loc>
+    <lastmod>2022-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/</loc>
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/post/baemin-survival/</loc>
