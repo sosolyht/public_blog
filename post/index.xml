@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS50 컴퓨팅 사고 - 정보의 표현</title>
+      <link>https://heetaek.com/post/cs50-computational-thinking/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/cs50-computational-thinking/</guid>
+      <description>부스트코스 CS50 컴퓨팅사고</description>
+    </item>
+    
     <item>
       <title>Django Unit Test(단위 테스트)</title>
       <link>https://heetaek.com/post/django-unittest/</link>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Computer Science on 최희택의 개발 공부 로그</title>
+    <link>https://heetaek.com/categories/computer-science/</link>
+    <description>Recent content in Computer Science on 최희택의 개발 공부 로그</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS50 컴퓨팅 사고 - 정보의 표현</title>
+      <link>https://heetaek.com/post/cs50-computational-thinking/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/cs50-computational-thinking/</guid>
+      <description>부스트코스 CS50 컴퓨팅사고</description>
+    </item>
+    
+  </channel>
+</rss>
