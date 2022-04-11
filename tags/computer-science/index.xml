@@ -11,15 +11,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CS50 컴퓨팅 사고 - 알고리즘</title>
-      <link>https://heetaek.com/post/cs50-computational-thinking-algorithm/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/cs50-computational-thinking-algorithm/</guid>
-      <description>부스트코스 CS50 컴퓨팅사고</description>
-    </item>
-    
-    <item>
       <title>CS50 컴퓨팅 사고 - 정보의 표현</title>
       <link>https://heetaek.com/post/cs50-computational-thinking/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
