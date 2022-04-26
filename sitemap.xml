@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://heetaek.com/categories/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/post/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/python/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/categories/python/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/post/python-is/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/</loc>
+    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://heetaek.com/about/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/categories/</loc>
-    <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/django/</loc>
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
@@ -17,19 +38,10 @@
     <loc>https://heetaek.com/post/django-unittest/</loc>
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/</loc>
-    <lastmod>2022-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/tags/</loc>
-    <lastmod>2022-02-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://heetaek.com/tags/tdd/</loc>
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/unit-test/</loc>
-    <lastmod>2022-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/</loc>
     <lastmod>2022-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/post/baemin-survival/</loc>
@@ -58,12 +70,6 @@
   </url><url>
     <loc>https://heetaek.com/tags/jsonresponse/</loc>
     <lastmod>2022-02-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/tags/python/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/categories/python/</loc>
-    <lastmod>2022-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/post/python-list-comprehension/</loc>
     <lastmod>2022-02-02T00:00:00+00:00</lastmod>

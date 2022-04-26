@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
+      <link>https://heetaek.com/post/python-is/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/python-is/</guid>
+      <description>헷갈릴수있는 비교연산자</description>
+    </item>
+    
     <item>
       <title>Python 리스트 컴프리헨션(List Comprehension)</title>
       <link>https://heetaek.com/post/python-list-comprehension/</link>

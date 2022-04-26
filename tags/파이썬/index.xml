@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>파이썬 on 희택의 노력</title>
+    <link>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</link>
+    <description>Recent content in 파이썬 on 희택의 노력</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
+      <link>https://heetaek.com/post/python-is/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/python-is/</guid>
+      <description>헷갈릴수있는 비교연산자</description>
+    </item>
+    
+  </channel>
+</rss>
