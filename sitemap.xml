@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://heetaek.com/tags/big-o/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://heetaek.com/categories/</loc>
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/computer-science/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/post/algorithm-complexity/</loc>
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/post/data-structure-algoithm/</loc>
@@ -15,6 +21,15 @@
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</loc>
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</loc>
@@ -109,9 +124,6 @@
   </url><url>
     <loc>https://heetaek.com/post/python-decorator/</loc>
     <lastmod>2022-01-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/post/kakao-login/</loc>
-    <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/post/python-list-set-dict/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>

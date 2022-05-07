@@ -11,6 +11,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CS 시간 복잡도</title>
+      <link>https://heetaek.com/post/algorithm-complexity/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/algorithm-complexity/</guid>
+      <description>알고리즘 복잡도 알고리즘 복잡도에는 시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다. 이 중에서 가장 중요한</description>
+    </item>
+    
+    <item>
       <title>CS 자료구조(Data Structure)</title>
       <link>https://heetaek.com/post/data-structure-algoithm/</link>
       <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
@@ -134,15 +143,6 @@
       
       <guid>https://heetaek.com/post/python-decorator/</guid>
       <description>함수 앞뒤에 기능을 추가해서 손쉽게 함수를 활용할 수 있는 기법 데코레이터</description>
-    </item>
-    
-    <item>
-      <title>Django 카카오 소셜 로그인</title>
-      <link>https://heetaek.com/post/kakao-login/</link>
-      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/kakao-login/</guid>
-      <description>처음에는 어려운 파이썬 클로저</description>
     </item>
     
     <item>

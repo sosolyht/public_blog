@@ -11,11 +11,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Big O</title>
+      <link>https://heetaek.com/tags/big-o/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/big-o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Computer Science</title>
       <link>https://heetaek.com/tags/computer-science/</link>
       <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>빅오표기법</title>
+      <link>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>시간복잡도</title>
+      <link>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>자료구조</title>
+      <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
       <description></description>
     </item>
     
