@@ -9,7 +9,25 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS 자료구조(Data Structure)</title>
+      <link>https://heetaek.com/post/data-structure-algoithm/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/data-structure-algoithm/</guid>
+      <description>자료구조 (Data Structure) 자료구조란? 대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조 특정한 상황에 놓인 문제를 해결하는 데에 특화되어있다. 많은 자료구조를 알아두면</description>
+    </item>
+    
+    <item>
+      <title>CS 컴퓨팅 사고</title>
+      <link>https://heetaek.com/post/cs50-computational-thinking/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/cs50-computational-thinking/</guid>
+      <description>컴퓨터 사이언스가 왜 필요했는지? 네이버 부스트코스에서 진행하는 &amp;lsquo;CS50&amp;rsquo; 이라는 강의를 수강했다. 비전공자인 나에게는 컴퓨터 사이언스에 관한 지식이 필요했다. 2진</description>
+    </item>
+    
     <item>
       <title>Python &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
       <link>https://heetaek.com/post/python-is/</link>
@@ -35,15 +53,6 @@
       
       <guid>https://heetaek.com/post/baemin-survival/</guid>
       <description>배민문방구 클론 프로젝트 회고록</description>
-    </item>
-    
-    <item>
-      <title>CS50 컴퓨팅 사고</title>
-      <link>https://heetaek.com/post/cs50-computational-thinking/</link>
-      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/cs50-computational-thinking/</guid>
-      <description>부스트코스 CS50 컴퓨팅사고</description>
     </item>
     
     <item>
