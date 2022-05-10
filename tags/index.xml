@@ -9,11 +9,11 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TDD</title>
       <link>https://heetaek.com/tags/tdd/</link>
-      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/tdd/</guid>
       <description></description>
@@ -22,7 +22,7 @@
     <item>
       <title>Unit Test</title>
       <link>https://heetaek.com/tags/unit-test/</link>
-      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/unit-test/</guid>
       <description></description>
@@ -31,7 +31,7 @@
     <item>
       <title>Big O</title>
       <link>https://heetaek.com/tags/big-o/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/big-o/</guid>
       <description></description>
@@ -40,7 +40,7 @@
     <item>
       <title>Computer Science</title>
       <link>https://heetaek.com/tags/computer-science/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/computer-science/</guid>
       <description></description>
@@ -49,7 +49,7 @@
     <item>
       <title>Time Complexity</title>
       <link>https://heetaek.com/tags/time-complexity/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/time-complexity/</guid>
       <description></description>
@@ -58,7 +58,7 @@
     <item>
       <title>빅오표기법</title>
       <link>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</guid>
       <description></description>
@@ -67,9 +67,18 @@
     <item>
       <title>시간복잡도</title>
       <link>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>컴퓨터 사이언스</title>
+      <link>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</guid>
       <description></description>
     </item>
     
@@ -79,15 +88,6 @@
       <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>컴퓨터 사이언스</title>
-      <link>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</guid>
       <description></description>
     </item>
     
