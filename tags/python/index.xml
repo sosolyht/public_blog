@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Python &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
+      <title>[Python] &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
       <link>https://heetaek.com/post/python-is/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>Python 리스트 컴프리헨션(List Comprehension)</title>
+      <title>[Python] 리스트 컴프리헨션(List Comprehension)</title>
       <link>https://heetaek.com/post/python-list-comprehension/</link>
       <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>Python 데코레이터(Decorator)와 클로저(Clousure) 활용</title>
+      <title>[Python] 데코레이터(Decorator)와 클로저(Clousure) 활용</title>
       <link>https://heetaek.com/post/python-decorator/</link>
       <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -38,7 +38,7 @@
     </item>
     
     <item>
-      <title>Python 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</title>
+      <title>[Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</title>
       <link>https://heetaek.com/post/python-list-set-dict/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -47,7 +47,7 @@
     </item>
     
     <item>
-      <title>Python 클로저(Closure)</title>
+      <title>[Python] 클로저(Closure)</title>
       <link>https://heetaek.com/post/python-closure/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -56,7 +56,7 @@
     </item>
     
     <item>
-      <title>Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</title>
+      <title>[Python] 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</title>
       <link>https://heetaek.com/post/python-function-parameter/</link>
       <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -65,7 +65,7 @@
     </item>
     
     <item>
-      <title>Python 기초 문법</title>
+      <title>[Python] 기초 문법</title>
       <link>https://heetaek.com/post/python-syntax/</link>
       <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
       

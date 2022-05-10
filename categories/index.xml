@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agile</title>
+      <link>https://heetaek.com/categories/agile/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/categories/agile/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>컴퓨터 공학</title>
       <link>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</link>
@@ -31,18 +40,18 @@
     <item>
       <title>Django</title>
       <link>https://heetaek.com/categories/django/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/categories/django/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>RESTApi</title>
-      <link>https://heetaek.com/categories/restapi/</link>
+      <title>Network</title>
+      <link>https://heetaek.com/categories/network/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/categories/restapi/</guid>
+      <guid>https://heetaek.com/categories/network/</guid>
       <description></description>
     </item>
     

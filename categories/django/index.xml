@@ -9,18 +9,9 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/django/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/django/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Django Unit Test(단위 테스트)</title>
-      <link>https://heetaek.com/post/django-unittest/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/django-unittest/</guid>
-      <description>테스트가 개발을 주도한다</description>
-    </item>
-    
-    <item>
-      <title>Django Query String 쿼리스트링</title>
+      <title>[Django] Query String 쿼리스트링</title>
       <link>https://heetaek.com/post/django-query-string/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +20,7 @@
     </item>
     
     <item>
-      <title>Django JsonResponse를 쓰는데 왜 request 가 필요할까</title>
+      <title>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</title>
       <link>https://heetaek.com/post/django-why-need-request/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -38,7 +29,7 @@
     </item>
     
     <item>
-      <title>Django QuerySet filter 제대로 알아보자</title>
+      <title>[Django] QuerySet filter 제대로 알아보자</title>
       <link>https://heetaek.com/post/django-queryset-filter/</link>
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -47,7 +38,7 @@
     </item>
     
     <item>
-      <title>Django raise error 메시지를 json데이터로 출력하는 방법</title>
+      <title>[Django] raise error 메시지를 json데이터로 출력하는 방법</title>
       <link>https://heetaek.com/post/django-raise/</link>
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -56,7 +47,7 @@
     </item>
     
     <item>
-      <title>Django 참조(Foreign Key) 역참조(related_name)</title>
+      <title>[Django] 참조(Foreign Key) 역참조(related_name)</title>
       <link>https://heetaek.com/post/django-related-name/</link>
       <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -65,7 +56,7 @@
     </item>
     
     <item>
-      <title>Django ORM get(), filter() 비교</title>
+      <title>[Django] ORM get(), filter() 비교</title>
       <link>https://heetaek.com/post/django-orm-get-filter/</link>
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       

@@ -9,7 +9,25 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TDD</title>
+      <link>https://heetaek.com/tags/tdd/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unit Test</title>
+      <link>https://heetaek.com/tags/unit-test/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/unit-test/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Big O</title>
       <link>https://heetaek.com/tags/big-o/</link>
@@ -94,27 +112,9 @@
     <item>
       <title>Django</title>
       <link>https://heetaek.com/tags/django/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/django/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TDD</title>
-      <link>https://heetaek.com/tags/tdd/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/tdd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unit Test</title>
-      <link>https://heetaek.com/tags/unit-test/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/unit-test/</guid>
       <description></description>
     </item>
     

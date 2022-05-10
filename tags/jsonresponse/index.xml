@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/jsonresponse/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Django JsonResponse를 쓰는데 왜 request 가 필요할까</title>
+      <title>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</title>
       <link>https://heetaek.com/post/django-why-need-request/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       

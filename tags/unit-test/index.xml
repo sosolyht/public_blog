@@ -9,13 +9,13 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/unit-test/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/unit-test/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Django Unit Test(단위 테스트)</title>
-      <link>https://heetaek.com/post/django-unittest/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      <title>[Agile] TDD</title>
+      <link>https://heetaek.com/post/tdd/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/django-unittest/</guid>
+      <guid>https://heetaek.com/post/tdd/</guid>
       <description>테스트가 개발을 주도한다</description>
     </item>
     

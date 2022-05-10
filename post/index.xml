@@ -9,18 +9,18 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CS 시간 복잡도</title>
-      <link>https://heetaek.com/post/algorithm-complexity/</link>
-      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <title>[Agile] TDD</title>
+      <link>https://heetaek.com/post/tdd/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/algorithm-complexity/</guid>
-      <description>알고리즘 복잡도 알고리즘 복잡도에는 시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다. 이 중에서 가장 중요한</description>
+      <guid>https://heetaek.com/post/tdd/</guid>
+      <description>테스트가 개발을 주도한다</description>
     </item>
     
     <item>
-      <title>CS 자료구조(Data Structure)</title>
+      <title>[CS] 자료구조(Data Structure)</title>
       <link>https://heetaek.com/post/data-structure-algoithm/</link>
       <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,16 @@
     </item>
     
     <item>
-      <title>CS 컴퓨팅 사고</title>
+      <title>[알고리즘] 시간 복잡도</title>
+      <link>https://heetaek.com/post/algorithm-complexity/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/algorithm-complexity/</guid>
+      <description>알고리즘 복잡도 알고리즘 복잡도에는 시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다. 이 중에서 가장 중요한</description>
+    </item>
+    
+    <item>
+      <title>[CS] 컴퓨팅 사고</title>
       <link>https://heetaek.com/post/cs50-computational-thinking/</link>
       <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
@@ -38,21 +47,12 @@
     </item>
     
     <item>
-      <title>Python &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
+      <title>[Python] &#39;is&#39; 와 &#39;==&#39; 의 차이점</title>
       <link>https://heetaek.com/post/python-is/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/post/python-is/</guid>
       <description>헷갈릴수있는 비교연산자</description>
-    </item>
-    
-    <item>
-      <title>Django Unit Test(단위 테스트)</title>
-      <link>https://heetaek.com/post/django-unittest/</link>
-      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/django-unittest/</guid>
-      <description>테스트가 개발을 주도한다</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@
     </item>
     
     <item>
-      <title>Django Query String 쿼리스트링</title>
+      <title>[Django] Query String 쿼리스트링</title>
       <link>https://heetaek.com/post/django-query-string/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -74,7 +74,7 @@
     </item>
     
     <item>
-      <title>Django JsonResponse를 쓰는데 왜 request 가 필요할까</title>
+      <title>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</title>
       <link>https://heetaek.com/post/django-why-need-request/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -83,7 +83,7 @@
     </item>
     
     <item>
-      <title>Python 리스트 컴프리헨션(List Comprehension)</title>
+      <title>[Python] 리스트 컴프리헨션(List Comprehension)</title>
       <link>https://heetaek.com/post/python-list-comprehension/</link>
       <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
       
@@ -92,7 +92,7 @@
     </item>
     
     <item>
-      <title>Django QuerySet filter 제대로 알아보자</title>
+      <title>[Django] QuerySet filter 제대로 알아보자</title>
       <link>https://heetaek.com/post/django-queryset-filter/</link>
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -101,7 +101,7 @@
     </item>
     
     <item>
-      <title>Django raise error 메시지를 json데이터로 출력하는 방법</title>
+      <title>[Django] raise error 메시지를 json데이터로 출력하는 방법</title>
       <link>https://heetaek.com/post/django-raise/</link>
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -110,7 +110,7 @@
     </item>
     
     <item>
-      <title>REST API란?</title>
+      <title>[Network] REST API란?</title>
       <link>https://heetaek.com/post/rest-api/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -119,7 +119,7 @@
     </item>
     
     <item>
-      <title>Django 참조(Foreign Key) 역참조(related_name)</title>
+      <title>[Django] 참조(Foreign Key) 역참조(related_name)</title>
       <link>https://heetaek.com/post/django-related-name/</link>
       <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -128,7 +128,7 @@
     </item>
     
     <item>
-      <title>Django ORM get(), filter() 비교</title>
+      <title>[Django] ORM get(), filter() 비교</title>
       <link>https://heetaek.com/post/django-orm-get-filter/</link>
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -137,7 +137,7 @@
     </item>
     
     <item>
-      <title>Python 데코레이터(Decorator)와 클로저(Clousure) 활용</title>
+      <title>[Python] 데코레이터(Decorator)와 클로저(Clousure) 활용</title>
       <link>https://heetaek.com/post/python-decorator/</link>
       <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -146,7 +146,7 @@
     </item>
     
     <item>
-      <title>Python 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</title>
+      <title>[Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</title>
       <link>https://heetaek.com/post/python-list-set-dict/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -155,7 +155,7 @@
     </item>
     
     <item>
-      <title>Python 클로저(Closure)</title>
+      <title>[Python] 클로저(Closure)</title>
       <link>https://heetaek.com/post/python-closure/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -164,7 +164,7 @@
     </item>
     
     <item>
-      <title>Git 기초적인 사용방법</title>
+      <title>[Git] 기초적인 사용방법</title>
       <link>https://heetaek.com/post/git-basic/</link>
       <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -173,7 +173,7 @@
     </item>
     
     <item>
-      <title>Python 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</title>
+      <title>[Python] 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</title>
       <link>https://heetaek.com/post/python-function-parameter/</link>
       <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -182,7 +182,7 @@
     </item>
     
     <item>
-      <title>CSS position 속성과 display 속성에 대해</title>
+      <title>[CSS] position 속성과 display 속성에 대해</title>
       <link>https://heetaek.com/post/css_layout/</link>
       <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
       
@@ -191,7 +191,7 @@
     </item>
     
     <item>
-      <title>Python 기초 문법</title>
+      <title>[Python] 기초 문법</title>
       <link>https://heetaek.com/post/python-syntax/</link>
       <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
       
@@ -200,7 +200,7 @@
     </item>
     
     <item>
-      <title>HTML Semantic Web, Semantic Tag 이 뭔가요?</title>
+      <title>[HTML] Semantic Web, Semantic Tag 이 뭔가요?</title>
       <link>https://heetaek.com/post/semantic-web/</link>
       <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
       
@@ -209,7 +209,7 @@
     </item>
     
     <item>
-      <title>Python 회문 판별 시퀀스 뒤집기(Palindrome)</title>
+      <title>[알고리즘] 회문 판별 시퀀스 뒤집기(Palindrome)</title>
       <link>https://heetaek.com/post/palindrome/</link>
       <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
       

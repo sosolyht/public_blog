@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/orm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Django QuerySet filter 제대로 알아보자</title>
+      <title>[Django] QuerySet filter 제대로 알아보자</title>
       <link>https://heetaek.com/post/django-queryset-filter/</link>
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>Django 참조(Foreign Key) 역참조(related_name)</title>
+      <title>[Django] 참조(Foreign Key) 역참조(related_name)</title>
       <link>https://heetaek.com/post/django-related-name/</link>
       <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>Django ORM get(), filter() 비교</title>
+      <title>[Django] ORM get(), filter() 비교</title>
       <link>https://heetaek.com/post/django-orm-get-filter/</link>
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
