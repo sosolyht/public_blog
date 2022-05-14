@@ -9,7 +9,34 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Queue</title>
+      <link>https://heetaek.com/tags/queue/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stack</title>
+      <link>https://heetaek.com/tags/stack/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/stack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>자료구조</title>
+      <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Array</title>
       <link>https://heetaek.com/tags/array/</link>
@@ -25,15 +52,6 @@
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/list/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>자료구조</title>
-      <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
       <description></description>
     </item>
     

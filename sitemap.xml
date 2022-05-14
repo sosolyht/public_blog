@@ -2,31 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://heetaek.com/post/stack-queue/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/categories/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/post/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/queue/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/stack/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://heetaek.com/post/array-list/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/array/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/categories/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://heetaek.com/tags/list/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/post/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/tags/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://heetaek.com/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/agile/</loc>

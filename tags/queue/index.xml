@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Queue on 희택의 노력</title>
+    <link>https://heetaek.com/tags/queue/</link>
+    <description>Recent content in Queue on 희택의 노력</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[자료구조] 스택(Stack) 과 큐(Queue)</title>
+      <link>https://heetaek.com/post/stack-queue/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/stack-queue/</guid>
+      <description>스택 (Stack) 스택(Stack)은 &amp;lsquo;쌓다&amp;rsquo; 라는 의미로, 데이터를 쌓아 올린 형태의 자료구조이다. 접근 방법은 LIFO(Last In First Out) 라고 부르며, 마지</description>
+    </item>
+    
+  </channel>
+</rss>
