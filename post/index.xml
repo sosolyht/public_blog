@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Node.js] 개념 이해하기</title>
+      <link>https://heetaek.com/post/about-nodejs/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/about-nodejs/</guid>
+      <description>Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8</description>
+    </item>
+    
     <item>
       <title>[자료구조] 스택(Stack) 과 큐(Queue)</title>
       <link>https://heetaek.com/post/stack-queue/</link>

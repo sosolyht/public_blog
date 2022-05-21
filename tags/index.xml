@@ -9,7 +9,25 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript</title>
+      <link>https://heetaek.com/tags/javascript/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://heetaek.com/tags/node.js/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Queue</title>
       <link>https://heetaek.com/tags/queue/</link>

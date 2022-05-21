@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Node.js on 희택의 노력</title>
+    <link>https://heetaek.com/categories/node.js/</link>
+    <description>Recent content in Node.js on 희택의 노력</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Node.js] 개념 이해하기</title>
+      <link>https://heetaek.com/post/about-nodejs/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/about-nodejs/</guid>
+      <description>Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8</description>
+    </item>
+    
+  </channel>
+</rss>
