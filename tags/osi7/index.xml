@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Network on 희택의 노력</title>
-    <link>https://heetaek.com/categories/network/</link>
-    <description>Recent content in Network on 희택의 노력</description>
+    <title>OSI7 on 희택의 노력</title>
+    <link>https://heetaek.com/tags/osi7/</link>
+    <description>Recent content in OSI7 on 희택의 노력</description>
     <image>
       <url>https://heetaek.com/profile.png</url>
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/network/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/osi7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Network] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</title>
       <link>https://heetaek.com/post/network-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B7%9C%EC%B9%99/</link>
@@ -17,15 +17,6 @@
       
       <guid>https://heetaek.com/post/network-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B7%9C%EC%B9%99/</guid>
       <description>프로토콜이란? 일상생활에서 지켜야 하는 규칙이 있듯이, 네트워크에서도 문제없이 통신하려면 규칙을 지켜야한다. 예를 들어 프랑스어를 못하는 한국인과 한국어를</description>
-    </item>
-    
-    <item>
-      <title>[Network] REST API란?</title>
-      <link>https://heetaek.com/post/rest-api/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/rest-api/</guid>
-      <description>REST 와 RESTful API 의 의미와 설계 가이드</description>
     </item>
     
   </channel>

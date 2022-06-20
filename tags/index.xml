@@ -9,22 +9,22 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>JavaScript</title>
-      <link>https://heetaek.com/tags/javascript/</link>
-      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      <title>Network</title>
+      <link>https://heetaek.com/tags/network/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/tags/javascript/</guid>
+      <guid>https://heetaek.com/tags/network/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Node.js</title>
-      <link>https://heetaek.com/tags/node.js/</link>
-      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      <title>OSI7</title>
+      <link>https://heetaek.com/tags/osi7/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/tags/node.js/</guid>
+      <guid>https://heetaek.com/tags/osi7/</guid>
       <description></description>
     </item>
     
@@ -263,11 +263,38 @@
     </item>
     
     <item>
+      <title>JavaScript</title>
+      <link>https://heetaek.com/tags/javascript/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://heetaek.com/tags/node.js/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>index</title>
       <link>https://heetaek.com/tags/index/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/tags/index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TCP/IP</title>
+      <link>https://heetaek.com/tags/tcp/ip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/tags/tcp/ip/</guid>
       <description></description>
     </item>
     
