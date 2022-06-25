@@ -11,21 +11,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[OS] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
-      <link>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
-      <description>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한</description>
-    </item>
-    
-    <item>
       <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
       <link>https://heetaek.com/post/db%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/post/db%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</guid>
       <description>트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를</description>
+    </item>
+    
+    <item>
+      <title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
+      <link>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
+      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
+      <description>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@
     </item>
     
     <item>
-      <title>[Network] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</title>
+      <title>[네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</title>
       <link>https://heetaek.com/post/network-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B7%9C%EC%B9%99/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
