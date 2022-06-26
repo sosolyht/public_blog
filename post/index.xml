@@ -11,6 +11,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[데이터베이스] N &#43; 1 문제</title>
+      <link>https://heetaek.com/post/dbn&#43;1/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/dbn&#43;1/</guid>
+      <description>N + 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하</description>
+    </item>
+    
+    <item>
       <title>[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</title>
       <link>https://heetaek.com/post/dbisolation/</link>
       <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
