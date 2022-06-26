@@ -9,7 +9,16 @@
       <link>https://heetaek.com/profile.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</title>
+      <link>https://heetaek.com/post/dbisolation/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/dbisolation/</guid>
+      <description>격리 수준(Isolation Level) 격리 수준이란 트랜잭션들끼리 일관된 데이터들을 얼마나 허용할것인지를 정하는 수준이다. 쉽게 말해 동시에 데이터베이스에 접근</description>
+    </item>
+    
     <item>
       <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
       <link>https://heetaek.com/post/db%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</link>
