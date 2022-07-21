@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>위코드 on 희택의 노력</title>
+    <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</link>
+    <description>Recent content in 위코드 on 희택의 노력</description>
+    <image>
+      <url>https://heetaek.com/profile.png</url>
+      <link>https://heetaek.com/profile.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>위코드 취업 후기</title>
+      <link>https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</guid>
+      <description>위코드 취업 후기 나는 고등학교때부터 개발을 정말 좋아했다. 2012년도부터 2014년도까지 안드로이드 오픈소스 프로젝트에 참여했었다. 그러다 군대를 가게</description>
+    </item>
+    
+  </channel>
+</rss>
