@@ -307,5 +307,14 @@
       <description>Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://heetaek.com/post/consoleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://heetaek.com/post/consoleme/</guid>
+      <description>사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output format [None]: json 기</description>
+    </item>
+    
   </channel>
 </rss>
