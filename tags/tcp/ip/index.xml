@@ -11,10 +11,10 @@
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://heetaek.com/tags/tcp/ip/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</title>
-      <link>https://heetaek.com/post/network-%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4-%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</link>
+      <link>https://heetaek.com/post/network%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4_%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/network-%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4-%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</guid>
+      <guid>https://heetaek.com/post/network%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4_%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</guid>
       <description>프로토콜이란? 일상생활에서 지켜야 하는 규칙이 있듯이, 네트워크에서도 문제없이 통신하려면 규칙을 지켜야한다. 예를 들어 프랑스어를 못하는 한국인과 한국어를</description>
     </item>
     
