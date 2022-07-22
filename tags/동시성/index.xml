@@ -12,10 +12,10 @@
     <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
-      <link>https://heetaek.com/post/os%E1%84%83%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A7%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%E1%84%89%E1%85%A5%E1%86%BC/</link>
+      <link>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/os%E1%84%83%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A7%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%E1%84%89%E1%85%A5%E1%86%BC/</guid>
+      <guid>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
       <description>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한</description>
     </item>
     

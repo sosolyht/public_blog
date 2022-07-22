@@ -16,7 +16,7 @@
       <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/post/dbn&#43;1/</guid>
-      <description>N + 1 문제란?! ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정</description>
+      <description>N + 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하</description>
     </item>
     
     <item>
@@ -30,10 +30,10 @@
     
     <item>
       <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
-      <link>https://heetaek.com/post/db%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8C%E1%85%A2%E1%86%A8%E1%84%89%E1%85%A7%E1%86%AB/</link>
+      <link>https://heetaek.com/post/dbtransaction/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/db%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8C%E1%85%A2%E1%86%A8%E1%84%89%E1%85%A7%E1%86%AB/</guid>
+      <guid>https://heetaek.com/post/dbtransaction/</guid>
       <description>트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를</description>
     </item>
     

@@ -25,7 +25,7 @@
       <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://heetaek.com/post/dbn&#43;1/</guid>
-      <description>N + 1 문제란?! ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정</description>
+      <description>N + 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하</description>
     </item>
     
     <item>
@@ -39,37 +39,37 @@
     
     <item>
       <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
-      <link>https://heetaek.com/post/db%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8C%E1%85%A2%E1%86%A8%E1%84%89%E1%85%A7%E1%86%AB/</link>
+      <link>https://heetaek.com/post/dbtransaction/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/db%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8C%E1%85%A2%E1%86%A8%E1%84%89%E1%85%A7%E1%86%AB/</guid>
+      <guid>https://heetaek.com/post/dbtransaction/</guid>
       <description>트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를</description>
     </item>
     
     <item>
       <title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
-      <link>https://heetaek.com/post/os%E1%84%83%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A7%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%E1%84%89%E1%85%A5%E1%86%BC/</link>
+      <link>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/os%E1%84%83%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%84%89%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A7%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%E1%84%89%E1%85%A5%E1%86%BC/</guid>
+      <guid>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
       <description>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한</description>
     </item>
     
     <item>
       <title>[운영체제] 프로세스(Process)와 스레드(Thread)</title>
-      <link>https://heetaek.com/post/os%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%89%E1%85%A6%E1%84%89%E1%85%B3%E1%84%8B%E1%85%AA%E1%84%89%E1%85%B3%E1%84%85%E1%85%A6%E1%84%83%E1%85%B3/</link>
+      <link>https://heetaek.com/post/osprocess_thread/</link>
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/os%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%89%E1%85%A6%E1%84%89%E1%85%B3%E1%84%8B%E1%85%AA%E1%84%89%E1%85%B3%E1%84%85%E1%85%A6%E1%84%83%E1%85%B3/</guid>
+      <guid>https://heetaek.com/post/osprocess_thread/</guid>
       <description>프로세스(Process) 우리 컴퓨터에서 실행 할 수 있는것을 프로그램 이라 한다. 그리고 프로그램 이 실행이 되어 돌아가고 있는 상태를 프로세스 라 한다. 글을 쓰</description>
     </item>
     
     <item>
       <title>[네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</title>
-      <link>https://heetaek.com/post/network%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4_%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</link>
+      <link>https://heetaek.com/post/networknetwork_rules/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://heetaek.com/post/network%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%B4_%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8/</guid>
+      <guid>https://heetaek.com/post/networknetwork_rules/</guid>
       <description>프로토콜이란? 일상생활에서 지켜야 하는 규칙이 있듯이, 네트워크에서도 문제없이 통신하려면 규칙을 지켜야한다. 예를 들어 프랑스어를 못하는 한국인과 한국어를</description>
     </item>
     
