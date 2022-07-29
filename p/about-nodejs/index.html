@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8'><title>[Node.js] 개념 이해하기</title>
+
+<link rel='canonical' href='https://heetaek.com/p/about-nodejs/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Node.js] 개념 이해하기'>
+<meta property='og:description' content='Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8'>
+<meta property='og:url' content='https://heetaek.com/p/about-nodejs/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Node.js' /><meta property='article:tag' content='JavaScript' /><meta property='article:published_time' content='2021-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181749612-780dfc50-1e97-4e26-b1ef-f27591c55ec1.png' />
+<meta name="twitter:title" content="[Node.js] 개념 이해하기">
+<meta name="twitter:description" content="Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181749612-780dfc50-1e97-4e26-b1ef-f27591c55ec1.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/about-nodejs/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749612-780dfc50-1e97-4e26-b1ef-f27591c55ec1.png" loading="lazy" alt="Featured image of post [Node.js] 개념 이해하기" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/node.js/" >
+                Node.js
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/about-nodejs/">[Node.js] 개념 이해하기</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-01-01</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="https://user-images.githubusercontent.com/2377807/169650902-a4db4fbc-128a-459c-b734-8bf1981ececb.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<h1 id="nodejs-란">Node.js 란?</h1>
+<p>먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다.</p>
+<p>(그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21)</p>
+<blockquote>
+<p>Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다.</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://v8.dev/"  target="_blank" rel="noopener"
+    >V8</a>이 어떠한건지 대충 둘러보셔도 좋습니다.</li>
+</ul>
+<p>Node.js 를 통해 다양한 자바스크립트 애플리케이션을 실행할 수 있지만 보통 서버 사이드에서 많이 사용된다. 그렇다고 서버사이드 스크립트 언어가 아닌 자바스크립트로 동작하는 프로그램이다.</p>
+<p>Non-blocking I/O와 단일 스레드 이벤트 루프를 통한 높은 처리 성능을 가지고 있는 것이 특징이다.</p>
+<p>내장 HTTP 서버 라이브러리를 포함하고 있어 웹 서버에서 아파치 등의 별도 소프트웨어 없이 동작하는 것이 가능하며, 이를 통한 웹 서버의 동작에 있어 더 많은 통제에서 벗어나 여러 가지 기능을 가능하게 한다.</p>
+<p>즉, Node.js를 통해 웹어플리케이션이 더욱 발전하게 되었으며, 정적인 홈페이지 뿐만 아니라 쇼핑몰, 티켓 예매사이트, 블로그 등 데이터가 변해가는 사이트를 만들 수 있으며, 여러 개발자가 만든 프로그램과 게임을 웹상에서 구동시켜 안드로이드폰, 아이폰, 윈도우PC, 맥 등 플랫폼의 제약에서 벗어나 어디든 상관없이 실행 가능하게 해준다.</p>
+<p>물론 단순히 웹에서 실행 가능한 게임을 만들려면 JavaScript 만으로도 가능하지만 좀 더 진화 된 프로그램으로 실시간 온라인 채팅, 실시간 온라인 게임 등 실시간 기능을 넣거나, 로그인 기능을 넣어 유저를 관리하고 점수를 관리하는 데이터베이스 기능을 Node.js를 통해 만들 수가 있다.</p>
+<h1 id="nodejs-특징">Node.js 특징</h1>
+<blockquote>
+<p>위에 보면, Non-blocking I/O와 단일 스레드 이벤트 루프를 통한 높은 처리 성능을 가지고 있는 것이 특징이라 했는데 정확히 어떤 것인지 알아보자.</p>
+</blockquote>
+<ul>
+<li>
+<p>예를 들어, 휴게소의 푸트코트를 상상해보면 키오스크에서 모두 주문을 받고 음식은 각 입점된 식당에서 조리를 한다.</p>
+</li>
+<li>
+<p>음식이 완성된 순서대로 호출을 하고 손님은 음식을 픽업한다.</p>
+</li>
+<li>
+<p>여기서 계산을 담당하는 키오스크가 <code>단일스레드</code> 이고, 각 요리를 완성해서 호출하는 식당들은 <code>비동기 방식</code> 이다.</p>
+</li>
+<li>
+<p>입력은 하나의 스레드에서 받지만 순서대로 처리하지 않고 먼저 처리된 결과 값을 이벤트로 반환해주는 방식이 Node.js 가 사용하는 단일스레드 비동기 방식이다.</p>
+</li>
+</ul>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/"  target="_blank" rel="noopener"
+    >http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/</a></li>
+<li><a class="link" href="https://medium.com/sjk5766/javascript-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%95%B5%EC%8B%AC-event-loop-%EC%A0%95%EB%A6%AC-422eb29231a8"  target="_blank" rel="noopener"
+    >https://medium.com/sjk5766/javascript-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%95%B5%EC%8B%AC-event-loop-%EC%A0%95%EB%A6%AC-422eb29231a8</a></li>
+<li><a class="link" href="https://jongminfire.dev/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%86%B5%EC%8B%A0"  target="_blank" rel="noopener"
+    >https://jongminfire.dev/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%86%B5%EC%8B%A0</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/node.js/">Node.js</a>
+        
+            <a href="/tags/javascript/">JavaScript</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

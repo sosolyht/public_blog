@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법'><title>[Python] 리스트 컴프리헨션(List Comprehension)</title>
+
+<link rel='canonical' href='https://heetaek.com/p/python-list-comprehension/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Python] 리스트 컴프리헨션(List Comprehension)'>
+<meta property='og:description' content='리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법'>
+<meta property='og:url' content='https://heetaek.com/p/python-list-comprehension/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-02-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-02-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png' />
+<meta name="twitter:title" content="[Python] 리스트 컴프리헨션(List Comprehension)">
+<meta name="twitter:description" content="리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/python-list-comprehension/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 리스트 컴프리헨션(List Comprehension)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" style="background-color: #1e4362; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/python-list-comprehension/">[Python] 리스트 컴프리헨션(List Comprehension)</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-02-02</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="컴프리헨션-comprehension-이란">컴프리헨션 (Comprehension) 이란?</h2>
+<p>컴프리헨션이란 뭔가를 내포 , 압축의 뜻을 담고있습니다.
+직관적으로 리스트를 생성하는 방법입니다.
+컴프리헨션은 파이썬의 자료형 (list,dict,set) 에 대해 사용 할 수 있기 때문에 기본적인 자료형에 대해서는 공부를 하셔야합니다.
+이번 블로그는 대표적인 리스트 컴프리헨션에 대해 써볼겁니다.</p>
+<h2 id="리스트-컴프리헨션-list-comprehension">리스트 컴프리헨션 (List Comprehension)</h2>
+<h3 id="반복문">반복문</h3>
+<ul>
+<li>일반적인 반복문으로 리스트 생성</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>리스트 컴프리헨션</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>같은 결과가 출력됩니다.</p>
+<p><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></p>
+<p>좀 더 응용해볼까요? 재밌네요</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>기존의 <code>i</code> 에 5가 곱해져서</p>
+<p><code>[0, 5, 10, 15, 20, 25, 30, 35, 40, 45]</code></p>
+<p>라는 결과가 출력됐습니다.</p>
+<p>조금만 생각하면 정말 쉽다는겁니다.</p>
+<p>일반적인 리스트 생성할때와 리스트 컴프리헨션을 참고 해보시면</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/152177738-42e11729-60e5-4816-a0b7-6a727ef4baae.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+>
+<code>a</code> 의 빈 리스트가 컴프리헨션 양 옆에 달라 붙었습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/152178298-74a386e4-7a9d-4940-9d66-7b0a00bcef57.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+>
+반복문은 위의 이미지와 같이 리스트 내부에 작성합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/152178840-2ef3d10c-4361-433b-a31b-560d3f09b861.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>쉽죠? 직접 에디터 키고 해보시는걸 추천드립니다.</p>
+<h3 id="if-조건문">if 조건문</h3>
+<p>위에서 살펴본것은 반복문을 사용한 컴프리헨션입니다.
+반복문 이외에도 조건문을 활용해볼수있습니다.
+컴프리헨션을 쓰다 보면 이 조건문을 쓰는 게 매우 편리합니다.
+if문만 쓸 때는 오른쪽에, if else문을 쓸때는 왼쪽에 씁니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>결과
+<code>[0, 2, 4, 6, 8]</code></p>
+<h3 id="if-else-조건문">if else 조건문</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;odd&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>결과
+<code>[0, 'odd', 2, 'odd', 4, 'odd', 6, 'odd', 8, 'odd']</code></p>
+<p>위의 반복문에 조건문만 들어간거라 생각하시면 간단합니다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/python/">Python</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/python-is/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-is" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Python] &#39;is&#39; 와 &#39;==&#39; 의 차이점</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python-decorator/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-decorator" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Python] 데코레이터(Decorator)와 클로저(Clousure) 활용</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python-list-set-dict/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-set-dict" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python-closure/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-closure" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Python] 클로저(Closure)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python-function-parameter/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-function-parameter" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Python] 함수 인자와 가변인수(*args), 가변 키워드 인수(**kwargs) 에 대해</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#컴프리헨션-comprehension-이란">컴프리헨션 (Comprehension) 이란?</a></li>
+    <li><a href="#리스트-컴프리헨션-list-comprehension">리스트 컴프리헨션 (List Comprehension)</a>
+      <ol>
+        <li><a href="#반복문">반복문</a></li>
+        <li><a href="#if-조건문">if 조건문</a></li>
+        <li><a href="#if-else-조건문">if else 조건문</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

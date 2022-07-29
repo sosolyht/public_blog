@@ -1,23 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Node.js on 희택의 노력</title>
-    <link>https://heetaek.com/categories/node.js/</link>
-    <description>Recent content in Node.js on 희택의 노력</description>
-    <image>
-      <url>https://heetaek.com/profile.png</url>
-      <link>https://heetaek.com/profile.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[Node.js] 개념 이해하기</title>
-      <link>https://heetaek.com/post/about-nodejs/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/about-nodejs/</guid>
-      <description>Node.js 란? 먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다. (그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21) Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다. V8</description>
-    </item>
-    
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Node.js on 희택의 노력</title>
+        <link>https://heetaek.com/categories/node.js/</link>
+        <description>Recent content in Node.js on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/node.js/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Node.js] 개념 이해하기</title>
+        <link>https://heetaek.com/p/about-nodejs/</link>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/p/about-nodejs/</guid>
+        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181749612-780dfc50-1e97-4e26-b1ef-f27591c55ec1.png" alt="Featured image of post [Node.js] 개념 이해하기" /&gt;&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/169650902-a4db4fbc-128a-459c-b734-8bf1981ececb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;nodejs-란&#34;&gt;Node.js 란?&lt;/h1&gt;
+&lt;p&gt;먼저 Node.js 를 알고싶으면 JavaScript 에 대해 알아야한다.&lt;/p&gt;
+&lt;p&gt;(그래서 현재 JavaScript 에 대해 공부중이다. 2022.05.21)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Node.js는 Chrome V8 JavaScript 엔진으로 빌드 된 JavaScript 런타임(환경)이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://v8.dev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;V8&lt;/a&gt;이 어떠한건지 대충 둘러보셔도 좋습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Node.js 를 통해 다양한 자바스크립트 애플리케이션을 실행할 수 있지만 보통 서버 사이드에서 많이 사용된다. 그렇다고 서버사이드 스크립트 언어가 아닌 자바스크립트로 동작하는 프로그램이다.&lt;/p&gt;
+&lt;p&gt;Non-blocking I/O와 단일 스레드 이벤트 루프를 통한 높은 처리 성능을 가지고 있는 것이 특징이다.&lt;/p&gt;
+&lt;p&gt;내장 HTTP 서버 라이브러리를 포함하고 있어 웹 서버에서 아파치 등의 별도 소프트웨어 없이 동작하는 것이 가능하며, 이를 통한 웹 서버의 동작에 있어 더 많은 통제에서 벗어나 여러 가지 기능을 가능하게 한다.&lt;/p&gt;
+&lt;p&gt;즉, Node.js를 통해 웹어플리케이션이 더욱 발전하게 되었으며, 정적인 홈페이지 뿐만 아니라 쇼핑몰, 티켓 예매사이트, 블로그 등 데이터가 변해가는 사이트를 만들 수 있으며, 여러 개발자가 만든 프로그램과 게임을 웹상에서 구동시켜 안드로이드폰, 아이폰, 윈도우PC, 맥 등 플랫폼의 제약에서 벗어나 어디든 상관없이 실행 가능하게 해준다.&lt;/p&gt;
+&lt;p&gt;물론 단순히 웹에서 실행 가능한 게임을 만들려면 JavaScript 만으로도 가능하지만 좀 더 진화 된 프로그램으로 실시간 온라인 채팅, 실시간 온라인 게임 등 실시간 기능을 넣거나, 로그인 기능을 넣어 유저를 관리하고 점수를 관리하는 데이터베이스 기능을 Node.js를 통해 만들 수가 있다.&lt;/p&gt;
+&lt;h1 id=&#34;nodejs-특징&#34;&gt;Node.js 특징&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;위에 보면, Non-blocking I/O와 단일 스레드 이벤트 루프를 통한 높은 처리 성능을 가지고 있는 것이 특징이라 했는데 정확히 어떤 것인지 알아보자.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;예를 들어, 휴게소의 푸트코트를 상상해보면 키오스크에서 모두 주문을 받고 음식은 각 입점된 식당에서 조리를 한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;음식이 완성된 순서대로 호출을 하고 손님은 음식을 픽업한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;여기서 계산을 담당하는 키오스크가 &lt;code&gt;단일스레드&lt;/code&gt; 이고, 각 요리를 완성해서 호출하는 식당들은 &lt;code&gt;비동기 방식&lt;/code&gt; 이다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;입력은 하나의 스레드에서 받지만 순서대로 처리하지 않고 먼저 처리된 결과 값을 이벤트로 반환해주는 방식이 Node.js 가 사용하는 단일스레드 비동기 방식이다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Reference&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/sjk5766/javascript-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%95%B5%EC%8B%AC-event-loop-%EC%A0%95%EB%A6%AC-422eb29231a8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://medium.com/sjk5766/javascript-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%95%B5%EC%8B%AC-event-loop-%EC%A0%95%EB%A6%AC-422eb29231a8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://jongminfire.dev/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%86%B5%EC%8B%A0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jongminfire.dev/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%86%B5%EC%8B%A0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

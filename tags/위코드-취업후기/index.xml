@@ -1,23 +1,148 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>위코드 취업후기 on 희택의 노력</title>
-    <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
-    <description>Recent content in 위코드 취업후기 on 희택의 노력</description>
-    <image>
-      <url>https://heetaek.com/profile.png</url>
-      <link>https://heetaek.com/profile.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[잡담] 위코드 취업 후기</title>
-      <link>https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</guid>
-      <description>위코드 취업 후기 나는 고등학교때부터 개발을 정말 좋아했다. 2012년도부터 2014년도까지 안드로이드 오픈소스 프로젝트에 참여했었다. 그러다 군대를 가게</description>
-    </item>
-    
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>위코드 취업후기 on 희택의 노력</title>
+        <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
+        <description>Recent content in 위코드 취업후기 on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[잡담] 위코드 취업 후기</title>
+        <link>https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/</link>
+        <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/</guid>
+        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181749883-a147fa4f-63c0-4900-adea-5003c97e6a7c.png" alt="Featured image of post [잡담] 위코드 취업 후기" /&gt;&lt;h1 id=&#34;위코드-취업-후기&#34;&gt;위코드 취업 후기&lt;/h1&gt;
+&lt;p&gt;나는 고등학교때부터 개발을 정말 좋아했다.&lt;/p&gt;
+&lt;p&gt;2012년도부터 2014년도까지 안드로이드 오픈소스 프로젝트에 참여했었다.&lt;/p&gt;
+&lt;p&gt;그러다 군대를 가게되었고 전역하고 6년간 방황을 했다.&lt;/p&gt;
+&lt;p&gt;남들이 안해본 좀 다른말로 &lt;code&gt;돈이 된다는 일&lt;/code&gt; 은 무조건 다 해보려했다&lt;/p&gt;
+&lt;p&gt;배달 , BJ , 중고차 딜러 등 직업이 귀천이 없다는것은 거짓이다.&lt;/p&gt;
+&lt;p&gt;밑바닥 인생을 살았다 생각한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180478845-8be241d9-5d79-4e1c-b647-6504bf10c8ef.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;인생&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 살다보니 어느순간 내 인생을 뒤돌아보니 정말 비참한 삶을 살고있었다.&lt;/p&gt;
+&lt;p&gt;우울한 나날을 보내던도중 위코드라는 존재를 알게되었고, 다시 개발에 대해 꿈을 꾸게되었다.&lt;/p&gt;
+&lt;p&gt;떨리는 마음으로 위코드 매니저인 아름님과 동희님과 상담을 하게되었고 상담을하며 커리큘럼과 취업을 무조건 할 수있냐? 등등 단도직입적으로 물어보았는데 의지만 있다면 가능하다라는 답변을 받았다.&lt;/p&gt;
+&lt;p&gt;사실 처음에는 누구에게나 말해주는 멘트인줄알았다.&lt;/p&gt;
+&lt;p&gt;그렇게 커리큘럼에 필요한 언어인 Python 을 2개월간 공부하고 위코드에서의 3개월을 보냈다.&lt;/p&gt;
+&lt;p&gt;백엔드 과정을 배우면서 전반적인 API 설계 ,
+AWS 를 이용한 인프라 아키텍쳐 , 컨테이너화 기술 그리고 CS 지식을 습득했다.&lt;/p&gt;
+&lt;p&gt;물론 취업에 필요한 CS 지식은 많이 필요했지만 부족한 CS 지식은 취업준비기간동안 2~3주면 충분했다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/JaeYeopHan/Interview_Question_for_Beginner&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/JaeYeopHan/Interview_Question_for_Beginner&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;근데 문제는 백엔드라는 점이였다.&lt;/p&gt;
+&lt;p&gt;왜 백엔드라했냐면 프론트엔드 개발자는 신입도 잘 뽑고 수요가 많기때문이다.&lt;/p&gt;
+&lt;p&gt;프론트엔드 동기들도 전부 취업을했다.&lt;/p&gt;
+&lt;p&gt;이력서 합격이 정말 하늘의 별따끼라는 점이지만, 결론부터 말하자면 백엔드 취업 정말 의지만 잃지않으면 가능하다는 점이다.&lt;/p&gt;
+&lt;p&gt;나는 원티드 269 개, 로켓펀치 30개, 점핏 40&lt;/p&gt;
+&lt;p&gt;총 339개를 지원했다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180132780-9685362a-2ef3-4102-ba31-c06ee8876a6d.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;원티드&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;아침에 일어나서 최신순으로 정렬,&lt;/p&gt;
+&lt;p&gt;새로 올라온 기업있으면 지원&lt;/p&gt;
+&lt;p&gt;점심 , 저녁 , 자기전까지 새로고침을하며 지원했다.&lt;/p&gt;
+&lt;p&gt;그렇게하다보니 토스도 서류 합격을 하게되어 과제전형을 하고 면접까지 보게되었지만 아쉽게도 불합격 ㅠㅠ
+&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180132930-bf8ae236-d087-4df9-a15b-6508eb1b9c83.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;토스&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;(보안서약서를 작성하여 더 디테일한것은 못 보여드리는점 양해바랍니다)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180480808-4273267c-5d2d-4273-80c8-05230a191dfb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180480949-4fa27444-fe36-4c4a-ab26-b4a12e873d22.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180481111-0c1355ed-e054-4150-9835-34a314c55ed9.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180481529-ec641647-ce4d-472c-bfc6-eacd47aa827a.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;합격사진&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;(이외에도 많은 기업에 합격했다.)&lt;/p&gt;
+&lt;p&gt;하루 쉬고 다시 지원하며 공부하고 이런 생활을 반복하다보니 어느순간 &lt;code&gt;스톡폴리오&lt;/code&gt; 라는 정말 좋은 회사에 취업을 하게되었다.&lt;/p&gt;
+&lt;p&gt;정말 배울 점이 많고 백엔드 개발자로써 성장할 수 있는 최고의 기업이라 생각했고&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Golang&lt;/code&gt; 에 워낙 관심이 많기도했고, 비즈니스 주제도 나와 잘 맞다 생각했다.&lt;/p&gt;
+&lt;p&gt;그 기간동안 커리어코치신 유안님과 정말 많은 대화를 했다.&lt;/p&gt;
+&lt;p&gt;아침에 일어나면 엄마같이 이력서 넣었냐, 이력서를 이렇게 수정해보자&lt;/p&gt;
+&lt;p&gt;여러가지 기술스택을 기반으로 커리어를 어떻게 이어나갈지도 같이 고민해주고 , 힘든시기는 같이 힘들어해주셨다.&lt;/p&gt;
+&lt;p&gt;유안님이 코칭을 해주는 사람이 한 두명이 아닐텐데, 이렇게 성심성의껏 해주시는 모습을 보고 ‘월급을 많이 받으시나?’ 라는 생각도 솔직히 했었다&lt;/p&gt;
+&lt;p&gt;근데 그 모습은 진심이였다.&lt;/p&gt;
+&lt;p&gt;진심이 통해서 나도 정말 열심히했었고 빠르게 취업해서 일거리를 좀 덜어드려야겠다는 생각으로 (물론 나를 위해서도) 최선을 다했다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/180479335-9a450ff0-5ee4-4a32-b888-0c96660063fa.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;위코드커리어&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;(취업하고서도 매일 걱정이 되시는지 예비군 갔을때도 연락을 해주시는 커리어코치 유안님!)&lt;/p&gt;
+&lt;p&gt;취업까지 쉽지않은 길이였지만 혹여나 이 글을 보는 위코드생 분들이 있다면, 포기하지말고 저처럼 열심히 해보시길 바랍니다.&lt;/p&gt;
+&lt;p&gt;그리고 백엔드라면 기술스택에 연연해하지말고&lt;/p&gt;
+&lt;p&gt;언어와 프레임워크는 언어와 프레임워크일 뿐입니다. 그냥 다 지원하세요.&lt;/p&gt;
+&lt;p&gt;3개월동안 Django , Node.js 배운거 , 어떤식으로 동작하는지 플로우만 이해하고 계시면 어떤 다른 언어나 프레임워크를 써도 금방 이해하고 써먹을 수 있습니다.&lt;/p&gt;
+&lt;p&gt;저는 Python django 로 백엔드를 시작해 현재는 Golang으로 현업에서 뛰고있습니다.&lt;/p&gt;
+&lt;p&gt;Go 최고!!&lt;/p&gt;
+&lt;p&gt;Go 언어에 관심있으신분은&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://go.dev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://go.dev/&lt;/a&gt;  &amp;lt;&amp;ndash; 여기로&lt;/p&gt;
+&lt;p&gt;항상 큰 도움주신 커리어코치 유안님 정말 감사합니다.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

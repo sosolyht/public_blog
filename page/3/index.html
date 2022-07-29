@@ -1,6 +1,973 @@
-<!doctype html><html lang=ko dir=auto><head><meta name=generator content="Hugo 0.101.0"><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>희택의 노력</title><meta name=keywords content="백엔드,django,기술블로그"><meta name=description content="기술 정보를 찾고 공부하여 공유합니다."><meta name=author content="최희택"><link rel=canonical href=https://heetaek.com/><link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style><link rel=icon href=https://heetaek.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png><link rel=apple-touch-icon href=https://heetaek.com/apple-touch-icon.png><link rel=mask-icon href=https://heetaek.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://heetaek.com/index.xml><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QPR5XGZ8DK",{anonymize_ip:!1})}</script><meta property="og:title" content="희택의 노력"><meta property="og:description" content="기술 정보를 찾고 공부하여 공유합니다."><meta property="og:type" content="website"><meta property="og:url" content="https://heetaek.com/"><meta property="og:image" content="https://heetaek.com/profile.png"><meta property="og:site_name" content="희택의 노력"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://heetaek.com/profile.png"><meta name=twitter:title content="희택의 노력"><meta name=twitter:description content="기술 정보를 찾고 공부하여 공유합니다."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"희택의 노력","url":"https://heetaek.com","description":"기술 정보를 찾고 공부하여 공유합니다.","thumbnailUrl":"https://heetaek.com/favicon.ico","sameAs":["https://github.com/sosolyht"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo><a href=https://heetaek.com accesskey=h title="heetaek.com (Alt + H)">heetaek.com</a>
-<span class=logo-switches></span></div><ul id=menu><li><a href=https://heetaek.com/categories/ title=카테고리><span>카테고리</span></a></li></ul></nav></header><main class=main><article class=post-entry><header class=entry-header><h2>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</h2></header><section class=entry-content><p>view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니 from django.http import JsonResponse JsonResponse 객체를 끌어다와서 쓰기도합니다. 근데 반환을 해주는 함수의 인자에는 필요하지도 않은 request 인자...</p></section><footer class=entry-footer><span title='2022-02-03 00:00:00 +0000 UTC'>2022-02-03</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Django] JsonResponse를 쓰는데 왜 request 가 필요할까" href=https://heetaek.com/post/django-why-need-request/></a></article><article class=post-entry><header class=entry-header><h2>[Python] 리스트 컴프리헨션(List Comprehension)</h2></header><section class=entry-content><p>컴프리헨션 (Comprehension) 이란? 컴프리헨션이란 뭔가를 내포 , 압축의 뜻을 담고있습니다. 직관적으로 리스트를 생성하는 방법입니다. 컴프리헨션은 파이썬의 자료형 (list,dict,set) 에 대해...</p></section><footer class=entry-footer><span title='2022-02-02 00:00:00 +0000 UTC'>2022-02-02</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Python] 리스트 컴프리헨션(List Comprehension)" href=https://heetaek.com/post/python-list-comprehension/></a></article><article class=post-entry><header class=entry-header><h2>[Django] QuerySet filter 제대로 알아보자</h2></header><section class=entry-content><p>filter 뷰를 작성하다보면 filter 를 사용해 데이터를 조회해야할때가 많습니다. 전에 썻던 get() 과 filter() 비교글 을 보셨으면 조금 더 이해가 잘 되실겁니다. 계속 filter 에 대해 쓰는 이유는 중...</p></section><footer class=entry-footer><span title='2022-01-31 00:00:00 +0000 UTC'>2022-01-31</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Django] QuerySet filter 제대로 알아보자" href=https://heetaek.com/post/django-queryset-filter/></a></article><article class=post-entry><header class=entry-header><h2>[Django] raise error 메시지를 json데이터로 출력하는 방법</h2></header><section class=entry-content><p>정규식으로 이메일과 패스워드 유효성 검증 후 , 매치가 되지않으면 ValidationError 를 출력하게끔 해놓았습니다. 근데 프론트에서 일부러 틀리게 집어넣어봐도 오류내용도 안뜬다고...</p></section><footer class=entry-footer><span title='2022-01-30 00:00:00 +0000 UTC'>2022-01-30</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Django] raise error 메시지를 json데이터로 출력하는 방법" href=https://heetaek.com/post/django-raise/></a></article><article class=post-entry><header class=entry-header><h2>[Network] REST API란?</h2></header><section class=entry-content><p>REST? 우선 REST 에 대해서 알아야 합니다. REST 란 웹에 존재하는 자원에 대해 고유한 URI 부여하는 방법입니다. 현재 가장 널리 알려져 사용되고있는 기술이기도 합니다. RESTfulAPI 는 앞서...</p></section><footer class=entry-footer><span title='2022-01-29 00:00:00 +0000 UTC'>2022-01-29</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Network] REST API란?" href=https://heetaek.com/post/rest-api/></a></article><article class=post-entry><header class=entry-header><h2>[Django] 참조(Foreign Key) 역참조(related_name)</h2></header><section class=entry-content><p>참조 (Foreign Key) 정참조라하기도 하고 Foreign Key 를 가지고있는 테이블을 가져올 수 있습니다. 위와 같은 모델이 있다고 가정할때 class Movie(models.Model): # 영화 actor [2] = models.ForeignKey('Actor', on_delete = CASCADE) title = models.CharField(max_length=100) . . . class Actor(models.Model): # 영...</p></section><footer class=entry-footer><span title='2022-01-22 00:00:00 +0000 UTC'>2022-01-22</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Django] 참조(Foreign Key) 역참조(related_name)" href=https://heetaek.com/post/django-related-name/></a></article><article class=post-entry><header class=entry-header><h2>[Django] ORM get(), filter() 비교</h2></header><section class=entry-content><p>시작 먼저 python console 을 실행해줍니다. 프로젝트 manage.py 가 있는 디렉토리에서 python manage.py shell 을 입력해주면 콘솔이 실행됩니다. 저는 models 에 User 라는 클래스를 만들어주어서 임포트 해주겠습...</p></section><footer class=entry-footer><span title='2022-01-20 00:00:00 +0000 UTC'>2022-01-20</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Django] ORM get(), filter() 비교" href=https://heetaek.com/post/django-orm-get-filter/></a></article><article class=post-entry><header class=entry-header><h2>[Python] 데코레이터(Decorator)와 클로저(Clousure) 활용</h2></header><section class=entry-content><p>데코레이터(decorator)란? 함수 앞뒤에 기능을 추가해서 손쉽게 함수를 활용할 수 있는 기법 클로저 (clousure)를 활용 함수 위에 @ 붙어있는 모...</p></section><footer class=entry-footer><span title='2022-01-05 00:00:00 +0000 UTC'>2022-01-05</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [Python] 데코레이터(Decorator)와 클로저(Clousure) 활용" href=https://heetaek.com/post/python-decorator/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://heetaek.com/page/2/>« 이전 페이지</a>
-<a class=next href=https://heetaek.com/page/4/>다음 페이지 »</a></nav></footer></main><footer class=footer><span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script></body></html>
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head>
+	<meta name="generator" content="Hugo 0.101.0" /><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='기술 정보를 찾고 공부하여 공유합니다.'><title>희택의 노력</title>
+
+<link rel='canonical' href='https://heetaek.com/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='희택의 노력'>
+<meta property='og:description' content='기술 정보를 찾고 공부하여 공유합니다.'>
+<meta property='og:url' content='https://heetaek.com/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2022-07-21T00:00:00&#43;00:00 '/>
+<meta name="twitter:title" content="희택의 노력">
+<meta name="twitter:description" content="기술 정보를 찾고 공부하여 공유합니다."><link rel="alternate" type="application/rss&#43;xml" href="https://heetaek.com/index.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    
+    
+    
+    
+
+    <section class="article-list">
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-why-need-request/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" alt="Featured image of post [Django] JsonResponse를 쓰는데 왜 request 가 필요할까" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/django/" style="background-color: #0a4b34; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/django-why-need-request/">[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            HttpRequest 의 하위클래스에있는 JsonResponse
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-02-03</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/python-list-comprehension/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 리스트 컴프리헨션(List Comprehension)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" style="background-color: #1e4362; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/python-list-comprehension/">[Python] 리스트 컴프리헨션(List Comprehension)</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            리스트를 한 줄의 코딩으로 빠르게, 효율적으로 만들 수 있는 파이썬 문법
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-02-02</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-queryset-filter/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" alt="Featured image of post [Django] QuerySet filter 제대로 알아보자" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/django/" style="background-color: #0a4b34; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/django-queryset-filter/">[Django] QuerySet filter 제대로 알아보자</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            혼란스러운 queryset filter
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-31</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-raise/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png" loading="lazy" alt="Featured image of post [Django] raise error 메시지를 json데이터로 출력하는 방법" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/django/" style="background-color: #0a4b34; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/django-raise/">[Django] raise error 메시지를 json데이터로 출력하는 방법</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Validation 에러 메시지를 json 으로 못가져와서 삽질한 결과
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-30</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/rest-api/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964947-48b18c99-efb0-44fc-b442-ada8801e7a96.png" loading="lazy" alt="Featured image of post [Network] REST API란?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/network/" >
+                Network
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/rest-api/">[Network] REST API란?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            REST 와 RESTful API 의 의미와 설계 가이드
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-29</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-related-name/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png" loading="lazy" alt="Featured image of post [Django] 참조(Foreign Key) 역참조(related_name)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/django/" style="background-color: #0a4b34; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/django-related-name/">[Django] 참조(Foreign Key) 역참조(related_name)</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            장고 모델작성시 참조 역참조에 대해
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-22</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-orm-get-filter/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" alt="Featured image of post [Django] ORM get(), filter() 비교" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/django/" style="background-color: #0a4b34; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/django-orm-get-filter/">[Django] ORM get(), filter() 비교</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            헷갈리는 get() 과 filter()
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/python-decorator/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 데코레이터(Decorator)와 클로저(Clousure) 활용" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" style="background-color: #1e4362; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/python-decorator/">[Python] 데코레이터(Decorator)와 클로저(Clousure) 활용</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            함수 앞뒤에 기능을 추가해서 손쉽게 함수를 활용할 수 있는 기법 데코레이터
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-05</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+    </section>
+    <nav class='pagination'>
+        
+        
+
+        
+            
+                    <a class='page-link' href='/'>1</a>
+                
+            
+            
+                    <a class='page-link' href='/page/2/'>2</a>
+                
+            
+            
+                <span class='page-link current'>3</span>
+                
+            
+            
+                    <a class='page-link' href='/page/4/'>4</a>
+                
+            
+            
+                    <a class='page-link' href='/page/5/'>5</a>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                <form action="/search/" class="search-form widget" >
+        <p>
+            <label>검색</label>
+            <input name="keyword" required placeholder="검색어를 입력하세요..." />
+        
+            <button title="검색">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">카테고리</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/categories/python/" class="font_size_8">
+                Python
+            </a>
+        
+            <a href="/categories/django/" class="font_size_6">
+                Django
+            </a>
+        
+            <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/" class="font_size_5">
+                컴퓨터 공학
+            </a>
+        
+            <a href="/categories/database/" class="font_size_3">
+                Database
+            </a>
+        
+            <a href="/categories/network/" class="font_size_2">
+                Network
+            </a>
+        
+            <a href="/categories/os/" class="font_size_2">
+                OS
+            </a>
+        
+            <a href="/categories/agile/" class="font_size_1">
+                Agile
+            </a>
+        
+            <a href="/categories/algorithm/" class="font_size_1">
+                Algorithm
+            </a>
+        
+            <a href="/categories/css/" class="font_size_1">
+                CSS
+            </a>
+        
+            <a href="/categories/etc/" class="font_size_1">
+                Etc
+            </a>
+        
+    </div>
+</section>
+
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">태그</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/django/" class="font_size_7">
+                Django
+            </a>
+        
+            <a href="/tags/python/" class="font_size_7">
+                Python
+            </a>
+        
+            <a href="/tags/orm/" class="font_size_4">
+                ORM
+            </a>
+        
+            <a href="/tags/computer-science/" class="font_size_3">
+                Computer Science
+            </a>
+        
+            <a href="/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/" class="font_size_3">
+                자료구조
+            </a>
+        
+            <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/" class="font_size_3">
+                컴퓨터 사이언스
+            </a>
+        
+            <a href="/tags/transaction/" class="font_size_2">
+                transaction
+            </a>
+        
+            <a href="/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/" class="font_size_2">
+                스레드
+            </a>
+        
+            <a href="/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="font_size_2">
+                운영체제
+            </a>
+        
+            <a href="/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="font_size_2">
+                트랜잭션
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

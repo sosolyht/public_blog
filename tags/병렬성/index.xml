@@ -1,23 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>병렬성 on 희택의 노력</title>
-    <link>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
-    <description>Recent content in 병렬성 on 희택의 노력</description>
-    <image>
-      <url>https://heetaek.com/profile.png</url>
-      <link>https://heetaek.com/profile.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
-      <link>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
-      <description>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한</description>
-    </item>
-    
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>병렬성 on 희택의 노력</title>
+        <link>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
+        <description>Recent content in 병렬성 on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
+        <link>https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png" alt="Featured image of post [운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이" /&gt;&lt;h1 id=&#34;동시성concurrency&#34;&gt;동시성(Concurrency)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/175758325-a5dd0542-6a35-449b-b578-ec5a8adcd55c.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;동시성은 동시에 실행되는 것처럼 보이는 것이다.&lt;/p&gt;
+&lt;p&gt;&amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한번에 하나의 명령어만 처리 할 수 있다.&lt;/p&gt;
+&lt;p&gt;위의 사진과 같이 Thread A 와 Thread B 가 Context Switching 을 통해 여러 개의 스레드를 번갈아 가면서 실행되는 방식이다.&lt;/p&gt;
+&lt;h1 id=&#34;병렬성parallelism&#34;&gt;병렬성(Parallelism)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/175758351-7a99efe4-ea42-4375-bd04-9588c5f210e1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;병렬성은 2개 이상의 코어에서 알고리즘이 동시에 정확히 실행 되는 것이다.&lt;/p&gt;
+&lt;p&gt;동시성과는 다르게 여러 작업이 여러 스레드에서 각각 처리된다.&lt;/p&gt;
+&lt;p&gt;결론은 한번에 여러일을 처리가 가능한것이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;사실 위의 글을 정리하면서 와닿지 않는 부분이 있었는데&lt;/p&gt;
+&lt;p&gt;그림을 보고 이해가 갔다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/175759973-b3117da2-b3c7-4a8c-818b-e09fb6708911.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;커피 머신 한 대에 2줄로 서서 가져가는 카페와&lt;/p&gt;
+&lt;p&gt;커피 머신 두 대에 1줄씩 서서 가져가는 카페&lt;/p&gt;
+&lt;p&gt;모두 Concurrent 하다 볼 수 있다.&lt;/p&gt;
+&lt;p&gt;병렬성도 동시성에 속하기 때문이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Reference&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://seamless.tistory.com/42&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://seamless.tistory.com/42&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.charlezz.com/?p=44646&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.charlezz.com/?p=44646&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://devsrkim.tistory.com/entry/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1%EC%9D%98-%EC%B0%A8%EC%9D%B4?category=873361&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://devsrkim.tistory.com/entry/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1%EC%9D%98-%EC%B0%A8%EC%9D%B4?category=873361&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

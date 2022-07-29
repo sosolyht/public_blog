@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</loc>
+    <loc>https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/</loc>
     <lastmod>2022-07-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/</loc>
@@ -26,10 +26,10 @@
     <loc>https://heetaek.com/</loc>
     <lastmod>2022-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/dbn&#43;1/</loc>
+    <loc>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/dbisolation/</loc>
+    <loc>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80transaction-isolation-level/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/database/</loc>
@@ -53,10 +53,10 @@
     <loc>https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/dbtransaction/</loc>
+    <loc>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/</loc>
     <lastmod>2022-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/</loc>
+    <loc>https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
     <lastmod>2022-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/acid/</loc>
@@ -80,10 +80,10 @@
     <loc>https://heetaek.com/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</loc>
     <lastmod>2022-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/osprocess_thread/</loc>
+    <loc>https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/</loc>
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/networknetwork_rules/</loc>
+    <loc>https://heetaek.com/p/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B7%9C%EC%B9%99-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-osi-%EB%AA%A8%EB%8D%B8%EA%B3%BC-tcp/ip-%EB%AA%A8%EB%8D%B8/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/network/</loc>
@@ -95,7 +95,7 @@
     <loc>https://heetaek.com/tags/osi7/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/stack-queue/</loc>
+    <loc>https://heetaek.com/p/stack-queue/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/queue/</loc>
@@ -110,7 +110,7 @@
     <loc>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/array-list/</loc>
+    <loc>https://heetaek.com/p/array-list/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/array/</loc>
@@ -125,13 +125,13 @@
     <loc>https://heetaek.com/tags/tdd/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/tdd/</loc>
+    <loc>https://heetaek.com/p/tdd/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/unit-test/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/algorithm-complexity/</loc>
+    <loc>https://heetaek.com/p/algorithm-complexity/</loc>
     <lastmod>2022-05-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/big-o/</loc>
@@ -152,13 +152,13 @@
     <loc>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</loc>
     <lastmod>2022-05-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/data-structure-algoithm/</loc>
+    <loc>https://heetaek.com/p/data-structure-algoithm/</loc>
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/cs50-computational-thinking/</loc>
+    <loc>https://heetaek.com/p/cs50-computational-thinking/</loc>
     <lastmod>2022-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-is/</loc>
+    <loc>https://heetaek.com/p/python-is/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/python/</loc>
@@ -173,7 +173,10 @@
     <loc>https://heetaek.com/about/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/baemin-survival/</loc>
+    <loc>https://heetaek.com/page/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/p/baemin-survival/</loc>
     <lastmod>2022-02-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/django/</loc>
@@ -182,28 +185,28 @@
     <loc>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</loc>
     <lastmod>2022-02-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-query-string/</loc>
+    <loc>https://heetaek.com/p/django-query-string/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/categories/django/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-why-need-request/</loc>
+    <loc>https://heetaek.com/p/django-why-need-request/</loc>
     <lastmod>2022-02-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/jsonresponse/</loc>
     <lastmod>2022-02-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-list-comprehension/</loc>
+    <loc>https://heetaek.com/p/python-list-comprehension/</loc>
     <lastmod>2022-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-queryset-filter/</loc>
+    <loc>https://heetaek.com/p/django-queryset-filter/</loc>
     <lastmod>2022-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-raise/</loc>
+    <loc>https://heetaek.com/p/django-raise/</loc>
     <lastmod>2022-01-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/rest-api/</loc>
+    <loc>https://heetaek.com/p/rest-api/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/rest/</loc>
@@ -215,25 +218,25 @@
     <loc>https://heetaek.com/tags/restful-api/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-related-name/</loc>
+    <loc>https://heetaek.com/p/django-related-name/</loc>
     <lastmod>2022-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/django-orm-get-filter/</loc>
+    <loc>https://heetaek.com/p/django-orm-get-filter/</loc>
     <lastmod>2022-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-decorator/</loc>
+    <loc>https://heetaek.com/p/python-decorator/</loc>
     <lastmod>2022-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-list-set-dict/</loc>
+    <loc>https://heetaek.com/p/python-list-set-dict/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-closure/</loc>
+    <loc>https://heetaek.com/p/python-closure/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/git-basic/</loc>
+    <loc>https://heetaek.com/p/git-basic/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-function-parameter/</loc>
+    <loc>https://heetaek.com/p/python-function-parameter/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/git/</loc>
@@ -242,10 +245,10 @@
     <loc>https://heetaek.com/categories/git/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/css_layout/</loc>
+    <loc>https://heetaek.com/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/</loc>
     <lastmod>2021-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/python-syntax/</loc>
+    <loc>https://heetaek.com/p/python-syntax/</loc>
     <lastmod>2021-12-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/css/</loc>
@@ -254,7 +257,7 @@
     <loc>https://heetaek.com/categories/css/</loc>
     <lastmod>2021-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/semantic-web/</loc>
+    <loc>https://heetaek.com/p/semantic-web/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/html/</loc>
@@ -263,7 +266,7 @@
     <loc>https://heetaek.com/categories/html/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/palindrome/</loc>
+    <loc>https://heetaek.com/p/palindrome/</loc>
     <lastmod>2021-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/algorithm/</loc>
@@ -272,7 +275,7 @@
     <loc>https://heetaek.com/categories/algorithm/</loc>
     <lastmod>2021-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/about-nodejs/</loc>
+    <loc>https://heetaek.com/p/about-nodejs/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://heetaek.com/tags/javascript/</loc>
@@ -284,10 +287,15 @@
     <loc>https://heetaek.com/categories/node.js/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://heetaek.com/post/consoleme/</loc>
+    <loc>https://heetaek.com/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://heetaek.com/p/</loc>
   </url><url>
     <loc>https://heetaek.com/tags/index/</loc>
   </url><url>
     <loc>https://heetaek.com/tags/tcp/ip/</loc>
+  </url><url>
+    <loc>https://heetaek.com/search/</loc>
   </url>
 </urlset>

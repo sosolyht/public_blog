@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한'><title>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</title>
+
+<link rel='canonical' href='https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이'>
+<meta property='og:description' content='동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한'>
+<meta property='og:url' content='https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='운영체제' /><meta property='article:tag' content='동시성' /><meta property='article:tag' content='병렬성' /><meta property='article:tag' content='프로세스' /><meta property='article:tag' content='스레드' /><meta property='article:published_time' content='2022-06-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png' />
+<meta name="twitter:title" content="[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이">
+<meta name="twitter:description" content="동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. &amp;lsquo;동시&amp;rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png" loading="lazy" alt="Featured image of post [운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/os/" >
+                OS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/">[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="동시성concurrency">동시성(Concurrency)</h1>
+<p><img src="https://user-images.githubusercontent.com/2377807/175758325-a5dd0542-6a35-449b-b578-ec5a8adcd55c.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>동시성은 동시에 실행되는 것처럼 보이는 것이다.</p>
+<p>&lsquo;동시&rsquo; 라고 이야기 하지만 컴퓨터(코어)는 한번에 하나의 명령어만 처리 할 수 있다.</p>
+<p>위의 사진과 같이 Thread A 와 Thread B 가 Context Switching 을 통해 여러 개의 스레드를 번갈아 가면서 실행되는 방식이다.</p>
+<h1 id="병렬성parallelism">병렬성(Parallelism)</h1>
+<p><img src="https://user-images.githubusercontent.com/2377807/175758351-7a99efe4-ea42-4375-bd04-9588c5f210e1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>병렬성은 2개 이상의 코어에서 알고리즘이 동시에 정확히 실행 되는 것이다.</p>
+<p>동시성과는 다르게 여러 작업이 여러 스레드에서 각각 처리된다.</p>
+<p>결론은 한번에 여러일을 처리가 가능한것이다.</p>
+<hr>
+<p>사실 위의 글을 정리하면서 와닿지 않는 부분이 있었는데</p>
+<p>그림을 보고 이해가 갔다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/175759973-b3117da2-b3c7-4a8c-818b-e09fb6708911.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>커피 머신 한 대에 2줄로 서서 가져가는 카페와</p>
+<p>커피 머신 두 대에 1줄씩 서서 가져가는 카페</p>
+<p>모두 Concurrent 하다 볼 수 있다.</p>
+<p>병렬성도 동시성에 속하기 때문이다.</p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://seamless.tistory.com/42"  target="_blank" rel="noopener"
+    >https://seamless.tistory.com/42</a></li>
+<li><a class="link" href="https://www.charlezz.com/?p=44646"  target="_blank" rel="noopener"
+    >https://www.charlezz.com/?p=44646</a></li>
+<li><a class="link" href="https://devsrkim.tistory.com/entry/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1%EC%9D%98-%EC%B0%A8%EC%9D%B4?category=873361"  target="_blank" rel="noopener"
+    >https://devsrkim.tistory.com/entry/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1%EC%9D%98-%EC%B0%A8%EC%9D%B4?category=873361</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
+        
+            <a href="/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/">동시성</a>
+        
+            <a href="/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/">병렬성</a>
+        
+            <a href="/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/">프로세스</a>
+        
+            <a href="/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/">스레드</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[운영체제] 프로세스(Process)와 스레드(Thread)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

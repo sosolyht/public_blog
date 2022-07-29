@@ -1,23 +1,281 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Big O on 희택의 노력</title>
-    <link>https://heetaek.com/tags/big-o/</link>
-    <description>Recent content in Big O on 희택의 노력</description>
-    <image>
-      <url>https://heetaek.com/profile.png</url>
-      <link>https://heetaek.com/profile.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/big-o/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[알고리즘] 시간 복잡도</title>
-      <link>https://heetaek.com/post/algorithm-complexity/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/post/algorithm-complexity/</guid>
-      <description>알고리즘 복잡도 알고리즘 복잡도에는 시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다. 이 중에서 가장 중요한</description>
-    </item>
-    
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Big O on 희택의 노력</title>
+        <link>https://heetaek.com/tags/big-o/</link>
+        <description>Recent content in Big O on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/big-o/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[알고리즘] 시간 복잡도</title>
+        <link>https://heetaek.com/p/algorithm-complexity/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/p/algorithm-complexity/</guid>
+        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [알고리즘] 시간 복잡도" /&gt;&lt;h1 id=&#34;알고리즘-복잡도&#34;&gt;알고리즘 복잡도&lt;/h1&gt;
+&lt;p&gt;알고리즘 복잡도에는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;시간 복잡도 (알고리즘 실행 속도)&lt;/li&gt;
+&lt;li&gt;공간 복잡도 (알고리즘이 사용하는 메모리 사이즈)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 두 가지가 있다.&lt;/p&gt;
+&lt;p&gt;이 중에서 가장 중요한 시간 복잡도를 꼭 이해해야한다.&lt;/p&gt;
+&lt;h2 id=&#34;시간복잡도&#34;&gt;시간복잡도&lt;/h2&gt;
+&lt;p&gt;코딩을 하다보면 &amp;lsquo;이것보다 더 좋은방법은 없을까?&amp;rsquo; 아니면 &amp;lsquo;이게 최선인가?&amp;rsquo; 라고 고민을 많이 하게된다.&lt;/p&gt;
+&lt;p&gt;이러한 고민을 하는게 &lt;strong&gt;시간복잡도&lt;/strong&gt;를 고민한다는 것과 같은 말인것같다.&lt;/p&gt;
+&lt;p&gt;시간복잡도에서 가장 영향을 많이 미치는건 반복문이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;자동차로 출근하기까지의 과정을 예시로 들어보면&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;자동차 문 열기&lt;/li&gt;
+&lt;li&gt;시동걸기&lt;/li&gt;
+&lt;li&gt;회사까지 이동&lt;/li&gt;
+&lt;li&gt;주차&lt;/li&gt;
+&lt;li&gt;시동끄기&lt;/li&gt;
+&lt;li&gt;자동차 문 잠그기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;가장 많은 시간을 소요하는건 사람마다 다르겠지만 보통 &lt;code&gt;3. 회사까지 이동&lt;/code&gt; 일것이다.&lt;/p&gt;
+&lt;p&gt;3번과 같이 input 이 커지면 반복문이 알고리즘 수행 시간을 지배하게된다.&lt;/p&gt;
+&lt;p&gt;저런 알고리즘을 프로그램화시켜서 만들게 된다면 하드웨어나 운영체제의 영향을 받아 어떤 사람은 결과가 빠르게 나올것이고 어떤 사람은 느리게 나오는 결과가 나온다.&lt;/p&gt;
+&lt;p&gt;그래서 알고리즘의 실행 시간을 알 수 있는방법이&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;빅오(Big-O)&lt;/strong&gt; 표기법이다.&lt;/p&gt;
+&lt;h2 id=&#34;big-o-표기법&#34;&gt;Big-O 표기법&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Big-O(빅-오) ⇒ 점근적 상한&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;알고리즘 최악의 실행시간을 표시&lt;/li&gt;
+&lt;li&gt;가장 많이, 일반적으로 사용함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Big-Ω(빅-오메가) ⇒ 점근적 하한&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Big-θ(빅-세타) ⇒ 그 둘의 평균&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;시간복잡도는 반복문이 핵심이므로 계산 표기 중 &lt;code&gt;최상&lt;/code&gt;, &lt;code&gt;평균&lt;/code&gt;, &lt;code&gt;최악&lt;/code&gt; 중
+최악의 시간인 Big-O 를 중점적으로 생각하면 될 것같다.&lt;/li&gt;
+&lt;li&gt;Big-O 는 &lt;code&gt;이 정도의 시간이 걸린다&lt;/code&gt; 보단 &lt;code&gt;이 정도 시간까지 걸릴 수 있다&lt;/code&gt; 를 고려해야한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;최선의-경우를-고려했을시&#34;&gt;최선의 경우를 고려했을시&lt;/h3&gt;
+&lt;p&gt;예를 들어 최선의 경우는 1초, 평균적으로 1분 , 최악일 경우 1시간이 걸리는 알고리즘을 구현했고, 최선의 경우를 생각해 알고리즘을 100번 실행했다면 100초가 걸려야 정상인데, 1시간이 걸린다면 어디에서 문제가 발생했는지 로직의 많은 부분을 파악해야하므로 문제를 해결하는데 많은 시간이 소요된다.&lt;/p&gt;
+&lt;h3 id=&#34;평균의-경우를-고려했을시&#34;&gt;평균의 경우를 고려했을시&lt;/h3&gt;
+&lt;p&gt;평균의 경우는 1분이 걸리는 알고리즘이므로 100번 실행했을시 100분의 시간이 소요될거라 생각했는데,
+최악의 경우가 발생하여 더 오래걸린다면 최선의 경우와 같은 고민을 하고 문제 해결에 시간이 소요된다.&lt;/p&gt;
+&lt;h3 id=&#34;최악의-경우를-고려했을시&#34;&gt;최악의 경우를 고려했을시&lt;/h3&gt;
+&lt;p&gt;위의 &lt;code&gt;최선&lt;/code&gt; 과 &lt;code&gt;평균&lt;/code&gt; 의 예시를 보다시피 &lt;code&gt;최악&lt;/code&gt; 의 경우가 발생하지 않기를 바라면서 코딩을 하는것보다
+&lt;strong&gt;최악의 경우를 대비&lt;/strong&gt; 하며 코딩하는것이 맞다고 생각한다.
+쉽게 말해 Big-O 는 &lt;strong&gt;최악의 경우에도 이 정도의 퍼포먼스는 보장&lt;/strong&gt;한다라는 것이다.&lt;/p&gt;
+&lt;h2 id=&#34;big-o-표기법-종류&#34;&gt;Big-O 표기법 종류&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;O(1)&lt;/li&gt;
+&lt;li&gt;O(log n)&lt;/li&gt;
+&lt;li&gt;O(n)&lt;/li&gt;
+&lt;li&gt;O(n2)&lt;/li&gt;
+&lt;li&gt;O(2n)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167562741-8cce73c6-78e8-4872-ab9f-9a4aed581f0a.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;빅오표기법&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;o1&#34;&gt;O(1)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167563841-a90782fb-c76b-41f6-9a74-7ddc19daf249.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;O(1)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O(1) 은 입력 값이 증가하더라도 시간이 늘어나지 않는다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ex)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;결과&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;6&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;입력 n이 어떻든 간에 반복문이 없기때문에 시간복잡도는 &lt;code&gt;1&lt;/code&gt; 이다.&lt;/p&gt;
+&lt;p&gt;빅오 표기법으로는 O(1) 입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;olog-n&#34;&gt;O(log n)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167571650-f4e9c109-6f3b-433d-ad6c-706b4ed691dc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;O(log n)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Big-O표기법중 O(1) 다음으로 빠른 시간 복잡도를 가집니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;n 개의 크기 순으로 정렬된 배열에서 특정 값을 찾기 위해 이진 탐색&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이해하기 쉬운 게임으로 비유해 보자면 업다운을 예로 들 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;1~100 중 하나의 숫자를 플레이어1이 고른다 (30을 골랐다고 가정)&lt;/li&gt;
+&lt;li&gt;50(가운데) 숫자를 제시하면 50보다 작으므로 down을 외친다&lt;/li&gt;
+&lt;li&gt;1~50중의 하나의 숫자이므로 또다시 경우의 수를 절반으로 줄이기 위해 25를 제시한다&lt;/li&gt;
+&lt;li&gt;25보다 크므로 up을 외친다&lt;/li&gt;
+&lt;li&gt;경우의 수를 계속 절반으로 줄여나가며 정답을 찾는다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;on&#34;&gt;O(n)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167566439-60c0d8ba-0d95-4936-b8bf-32cf7d2d942b.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;O(n)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O(n) 은 입력 값이 증가함에 따라 시간도 같이 증가하는 것을 의미합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;total&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;total&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;total&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;결과&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;6&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;입력 n 에 따라 n 번을 반복문을 사용해 더해야합니다.&lt;/p&gt;
+&lt;p&gt;따라서, 시간복잡도는 &lt;code&gt;1&lt;/code&gt; 빅오 표기법은 O(n) 입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;on2&#34;&gt;O(n2)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167600859-19c920de-78ab-473d-bdff-d23264e89275.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;O(n2)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;입력 값이 증가함에 따라 시간이 n의 제곱수의 비율로 증가하는 것을 의미합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;반복문이 두 번 있으면 O(n2)&lt;/p&gt;
+&lt;p&gt;반복문이 세 번 있으면 O(n3)&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;반복문 백 번 있으면 O(n100) 이지만, n 이 커질수록 지수가 주는 영향력이 없어지기 때문에,&lt;/p&gt;
+&lt;p&gt;그냥 n2 라고 표기합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;o2n&#34;&gt;O(2n)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167605731-f6d50fc3-4dc9-47ac-a829-4d1d57fba8b1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;O(2n)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Big-O 표기법 중 가장 느린 시간 복잡도를 가지고있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fib&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fib&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;재귀 함수를 통해 구현한 피보나치 수열은 O(2n) 의 시간 복잡도를 가지고있습니다.&lt;/p&gt;
+&lt;p&gt;위의 사진을 보면 차트가 가파르게 올라가는데 n 의 값이 커지면 시간 복잡도도 같이 증가하기 때문입니다.&lt;/p&gt;
+&lt;p&gt;간단한 예시를 들면, 종이를 42번 접으면 두께가 지구에서 달까지 갈 만큼 커진다는 이야기가 있는데 그만한 두께를 가질 수 있는 이유는 매번 접을 때마다 2배로 늘어나기 때문입니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Reference&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://psychoria.tistory.com/770&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://psychoria.tistory.com/770&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.chulgil.me/algorithm/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.chulgil.me/algorithm/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://data-marketing-bk.tistory.com/27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://data-marketing-bk.tistory.com/27&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

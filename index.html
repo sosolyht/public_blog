@@ -1,5 +1,944 @@
-<!doctype html><html lang=ko dir=auto><head><meta name=generator content="Hugo 0.101.0"><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>희택의 노력</title><meta name=keywords content="백엔드,django,기술블로그"><meta name=description content="기술 정보를 찾고 공부하여 공유합니다."><meta name=author content="최희택"><link rel=canonical href=https://heetaek.com/><link crossorigin=anonymous href=/assets/css/stylesheet.min.css rel="preload stylesheet" as=style><link rel=icon href=https://heetaek.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://heetaek.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://heetaek.com/favicon-32x32.png><link rel=apple-touch-icon href=https://heetaek.com/apple-touch-icon.png><link rel=mask-icon href=https://heetaek.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://heetaek.com/index.xml><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QPR5XGZ8DK",{anonymize_ip:!1})}</script><meta property="og:title" content="희택의 노력"><meta property="og:description" content="기술 정보를 찾고 공부하여 공유합니다."><meta property="og:type" content="website"><meta property="og:url" content="https://heetaek.com/"><meta property="og:image" content="https://heetaek.com/profile.png"><meta property="og:site_name" content="희택의 노력"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://heetaek.com/profile.png"><meta name=twitter:title content="희택의 노력"><meta name=twitter:description content="기술 정보를 찾고 공부하여 공유합니다."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"희택의 노력","url":"https://heetaek.com","description":"기술 정보를 찾고 공부하여 공유합니다.","thumbnailUrl":"https://heetaek.com/favicon.ico","sameAs":["https://github.com/sosolyht"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo><a href=https://heetaek.com accesskey=h title="heetaek.com (Alt + H)">heetaek.com</a>
-<span class=logo-switches></span></div><ul id=menu><li><a href=https://heetaek.com/categories/ title=카테고리><span>카테고리</span></a></li></ul></nav></header><main class=main><article class="first-entry home-info"><header class=entry-header><h1>안녕하세요 👋</h1></header><section class=entry-content><p>기술 정보를 찾아 공부하고 공유하는 백엔드 개발자 최희택입니다.</p></section><footer class=entry-footer><div class=social-icons><a href=https://github.com/sosolyht target=_blank rel="noopener noreferrer me" title=Github><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></footer></article><article class=post-entry><header class=entry-header><h2>[잡담] 위코드 취업 후기</h2></header><section class=entry-content><p>위코드 취업 후기 나는 고등학교때부터 개발을 정말 좋아했다. 2012년도부터 2014년도까지 안드로이드 오픈소스 프로젝트에 참여했었다. 그러다 군대를 가게...</p></section><footer class=entry-footer><span title='2022-07-21 00:00:00 +0000 UTC'>2022-07-21</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [잡담] 위코드 취업 후기" href=https://heetaek.com/post/%EC%9C%84%EC%BD%94%EB%93%9C_%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/></a></article><article class=post-entry><header class=entry-header><h2>[데이터베이스] N + 1 문제</h2></header><section class=entry-content><p>N + 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하...</p></section><footer class=entry-footer><span title='2022-06-26 00:00:00 +0000 UTC'>2022-06-26</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [데이터베이스] N + 1 문제" href=https://heetaek.com/post/dbn+1/></a></article><article class=post-entry><header class=entry-header><h2>[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</h2></header><section class=entry-content><p>격리 수준(Isolation Level) 격리 수준이란 트랜잭션들끼리 일관된 데이터들을 얼마나 허용할것인지를 정하는 수준이다. 쉽게 말해 동시에 데이터베이스에 접근...</p></section><footer class=entry-footer><span title='2022-06-26 00:00:00 +0000 UTC'>2022-06-26</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)" href=https://heetaek.com/post/dbisolation/></a></article><article class=post-entry><header class=entry-header><h2>[데이터베이스] 트랜잭션(Transaction) 이란?</h2></header><section class=entry-content><p>트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를...</p></section><footer class=entry-footer><span title='2022-06-25 00:00:00 +0000 UTC'>2022-06-25</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [데이터베이스] 트랜잭션(Transaction) 이란?" href=https://heetaek.com/post/dbtransaction/></a></article><article class=post-entry><header class=entry-header><h2>[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</h2></header><section class=entry-content><p>동시성(Concurrency) 동시성은 동시에 실행되는 것처럼 보이는 것이다. ‘동시’ 라고 이야기 하지만 컴퓨터(코어)는 한...</p></section><footer class=entry-footer><span title='2022-06-25 00:00:00 +0000 UTC'>2022-06-25</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이" href=https://heetaek.com/post/os%EB%8F%99%EC%8B%9C%EC%84%B1_%EB%B3%91%EB%A0%AC%EC%84%B1/></a></article><article class=post-entry><header class=entry-header><h2>[운영체제] 프로세스(Process)와 스레드(Thread)</h2></header><section class=entry-content><p>프로세스(Process) 우리 컴퓨터에서 실행 할 수 있는것을 프로그램 이라 한다. 그리고 프로그램 이 실행이 되어 돌아가고 있는 상태를 프로세스 라 한다. 글을 쓰...</p></section><footer class=entry-footer><span title='2022-06-24 00:00:00 +0000 UTC'>2022-06-24</span>&nbsp;·&nbsp;2 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [운영체제] 프로세스(Process)와 스레드(Thread)" href=https://heetaek.com/post/osprocess_thread/></a></article><article class=post-entry><header class=entry-header><h2>[네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</h2></header><section class=entry-content><p>프로토콜이란? 일상생활에서 지켜야 하는 규칙이 있듯이, 네트워크에서도 문제없이 통신하려면 규칙을 지켜야한다. 예를 들어 프랑스어를 못하는 한국인과 한국어를...</p></section><footer class=entry-footer><span title='2022-06-20 00:00:00 +0000 UTC'>2022-06-20</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)" href=https://heetaek.com/post/networknetwork_rules/></a></article><article class=post-entry><header class=entry-header><h2>[자료구조] 스택(Stack) 과 큐(Queue)</h2></header><section class=entry-content><p>스택 (Stack) 스택(Stack)은 ‘쌓다’ 라는 의미로, 데이터를 쌓아 올린 형태의 자료구조이다. 접근 방법은 LIFO(Last In First Out) 라고 부르며, 마지...</p></section><footer class=entry-footer><span title='2022-05-13 00:00:00 +0000 UTC'>2022-05-13</span>&nbsp;·&nbsp;1 분&nbsp;·&nbsp;최희택</footer><a class=entry-link aria-label="post link to [자료구조] 스택(Stack) 과 큐(Queue)" href=https://heetaek.com/post/stack-queue/></a></article><footer class=page-footer><nav class=pagination><a class=next href=https://heetaek.com/page/2/>다음 페이지 »</a></nav></footer></main><footer class=footer><span>&copy; 2022 <a href=https://heetaek.com>heetaek.com</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script></body></html>
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head>
+	<meta name="generator" content="Hugo 0.101.0" /><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='기술 정보를 찾고 공부하여 공유합니다.'><title>희택의 노력</title>
+
+<link rel='canonical' href='https://heetaek.com/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='희택의 노력'>
+<meta property='og:description' content='기술 정보를 찾고 공부하여 공유합니다.'>
+<meta property='og:url' content='https://heetaek.com/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2022-07-21T00:00:00&#43;00:00 '/>
+<meta name="twitter:title" content="희택의 노력">
+<meta name="twitter:description" content="기술 정보를 찾고 공부하여 공유합니다."><link rel="alternate" type="application/rss&#43;xml" href="https://heetaek.com/index.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    
+    
+    
+    
+
+    <section class="article-list">
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749883-a147fa4f-63c0-4900-adea-5003c97e6a7c.png" loading="lazy" alt="Featured image of post [잡담] 위코드 취업 후기" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/etc/" >
+                Etc
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/">[잡담] 위코드 취업 후기</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-21</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png" loading="lazy" alt="Featured image of post [데이터베이스] N &#43; 1 문제" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/">[데이터베이스] N &#43; 1 문제</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-26</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80transaction-isolation-level/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" alt="Featured image of post [데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80transaction-isolation-level/">[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-26</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" alt="Featured image of post [데이터베이스] 트랜잭션(Transaction) 이란?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/">[데이터베이스] 트랜잭션(Transaction) 이란?</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png" loading="lazy" alt="Featured image of post [운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/os/" >
+                OS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/">[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png" loading="lazy" alt="Featured image of post [운영체제] 프로세스(Process)와 스레드(Thread)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/os/" >
+                OS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/">[운영체제] 프로세스(Process)와 스레드(Thread)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-24</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B7%9C%EC%B9%99-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-osi-%EB%AA%A8%EB%8D%B8%EA%B3%BC-tcp/ip-%EB%AA%A8%EB%8D%B8/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749554-a06e6898-7f00-4daa-be9e-f84323b307d0.png" loading="lazy" alt="Featured image of post [네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/network/" >
+                Network
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B7%9C%EC%B9%99-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-osi-%EB%AA%A8%EB%8D%B8%EA%B3%BC-tcp/ip-%EB%AA%A8%EB%8D%B8/">[네트워크] 네트워크의 기본 규칙 (프로토콜, OSI 모델과 TCP/IP 모델)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/stack-queue/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" loading="lazy" alt="Featured image of post [자료구조] 스택(Stack) 과 큐(Queue)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/" >
+                컴퓨터 공학
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/stack-queue/">[자료구조] 스택(Stack) 과 큐(Queue)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-13</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+</article>
+        
+    </section>
+    <nav class='pagination'>
+        
+        
+
+        
+            
+                <span class='page-link current'>1</span>
+                
+            
+            
+                    <a class='page-link' href='/page/2/'>2</a>
+                
+            
+            
+                    
+                        
+                        <span class='page-link dots'>&hellip;</span>
+                    
+                
+            
+            
+                    
+                
+            
+            
+                    <a class='page-link' href='/page/5/'>5</a>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                <form action="/search/" class="search-form widget" >
+        <p>
+            <label>검색</label>
+            <input name="keyword" required placeholder="검색어를 입력하세요..." />
+        
+            <button title="검색">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">카테고리</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/categories/python/" class="font_size_8">
+                Python
+            </a>
+        
+            <a href="/categories/django/" class="font_size_6">
+                Django
+            </a>
+        
+            <a href="/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/" class="font_size_5">
+                컴퓨터 공학
+            </a>
+        
+            <a href="/categories/database/" class="font_size_3">
+                Database
+            </a>
+        
+            <a href="/categories/network/" class="font_size_2">
+                Network
+            </a>
+        
+            <a href="/categories/os/" class="font_size_2">
+                OS
+            </a>
+        
+            <a href="/categories/agile/" class="font_size_1">
+                Agile
+            </a>
+        
+            <a href="/categories/algorithm/" class="font_size_1">
+                Algorithm
+            </a>
+        
+            <a href="/categories/css/" class="font_size_1">
+                CSS
+            </a>
+        
+            <a href="/categories/etc/" class="font_size_1">
+                Etc
+            </a>
+        
+    </div>
+</section>
+
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">태그</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/django/" class="font_size_7">
+                Django
+            </a>
+        
+            <a href="/tags/python/" class="font_size_7">
+                Python
+            </a>
+        
+            <a href="/tags/orm/" class="font_size_4">
+                ORM
+            </a>
+        
+            <a href="/tags/computer-science/" class="font_size_3">
+                Computer Science
+            </a>
+        
+            <a href="/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/" class="font_size_3">
+                자료구조
+            </a>
+        
+            <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/" class="font_size_3">
+                컴퓨터 사이언스
+            </a>
+        
+            <a href="/tags/transaction/" class="font_size_2">
+                transaction
+            </a>
+        
+            <a href="/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/" class="font_size_2">
+                스레드
+            </a>
+        
+            <a href="/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" class="font_size_2">
+                운영체제
+            </a>
+        
+            <a href="/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="font_size_2">
+                트랜잭션
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

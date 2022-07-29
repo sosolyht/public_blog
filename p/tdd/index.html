@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='테스트가 개발을 주도한다'><title>TDD 는 왜 필요한가?</title>
+
+<link rel='canonical' href='https://heetaek.com/p/tdd/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='TDD 는 왜 필요한가?'>
+<meta property='og:description' content='테스트가 개발을 주도한다'>
+<meta property='og:url' content='https://heetaek.com/p/tdd/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='TDD' /><meta property='article:tag' content='Unit Test' /><meta property='article:published_time' content='2022-05-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181748994-a7779896-1bc3-496b-aba2-b25d196e7e53.png' />
+<meta name="twitter:title" content="TDD 는 왜 필요한가?">
+<meta name="twitter:description" content="테스트가 개발을 주도한다"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181748994-a7779896-1bc3-496b-aba2-b25d196e7e53.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/tdd/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181748994-a7779896-1bc3-496b-aba2-b25d196e7e53.png" loading="lazy" alt="Featured image of post TDD 는 왜 필요한가?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/agile/" >
+                Agile
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/tdd/">TDD 는 왜 필요한가?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            테스트가 개발을 주도한다
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-10</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="tddtest-driven-development-란">TDD(Test Driven Development) 란?</h1>
+<p>실패하는 테스트를 만들고, 그 테스트가 통과하는 제품을 만들면 결국은 원하는 기능이 동작하게 된다는 개발방법론이다.</p>
+<p>보통은 개발을 끝내고 난 후 테스트를 한다.</p>
+<p>이것의 순서를 바꾸는 것이 TDD 를 적용하는 것이다.</p>
+<p>특히, Python 같은 동적타입언어는 TDD 가 필수다.</p>
+<h2 id="tdd-개발-주기">TDD 개발 주기</h2>
+<p><img src="https://user-images.githubusercontent.com/2377807/167654057-23204e61-5876-43c7-9dd0-411de11caab1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="tdd"
+	
+	
+></p>
+<p><!-- raw HTML omitted -->Red<!-- raw HTML omitted --> : 단계에서는 실패하는 테스트 코드를 먼저 작성한다.</p>
+<p><!-- raw HTML omitted -->Green<!-- raw HTML omitted --> : 단계에서는 테스트 코드를 성공시키기 위한 실제 코드를 작성한다.</p>
+<p><!-- raw HTML omitted -->Blue<!-- raw HTML omitted --> : 단계에서는 중복 코드 제거, 일반화 등의 리팩토링을 수행한다</p>
+<p>중요한 것은 실패하는 테스트 코드를 작성할 때까지 실제 코드를 작성하지 않는 것과, 실패하는 테스트를 통과할 정도의 최소 실제 코드를 작성해야하는 것이다.</p>
+<p>이를 통해 실제 코드에 대해 기대되는 바를 보다 명확하게 정의 함으로써 불필요한 설계를 피할 수 있고, 정확한 요구 사항에 집중할 수 있다.</p>
+<h1 id="일반-개발-방식과-tdd-개발-방식의-비교">일반 개발 방식과 TDD 개발 방식의 비교</h1>
+<h2 id="일반-개발-방식">일반 개발 방식</h2>
+<p>보통 개발 방식은 ‘요구사항 분석 → 설계 → 개발 → 테스트 → 배포’의 형태의 개발 주기를 갖는다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/167656932-f3a39a73-0a9a-4ca2-985e-c91255d5e642.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>이러한 방식은 소프트웨어 개발을 느리게 하는 잠재적 위험이 존재한다.</p>
+<p>그 이유는 아래와 같다.</p>
+<ol>
+<li>소비자의 요구사항이 처음부터 명확하지 않을 수 있다.</li>
+<li>따라서 처음부터 완벽한 설계는 어렵다.</li>
+<li>자체 버그 검출 능력 저하 또는 소스코드의 품질이 저하될 수 있다.</li>
+<li>자체 테스트 비용이 증가할 수 있다.</li>
+</ol>
+<p>이러한 문제점이 발생되는 이유는 어느 프로젝트든 초기 설계가 완벽하다고 말할 수 없기 때문이다.</p>
+<p>고객의 요구사항 또는 디자인의 오류 등 많은 외부 또는 내부 조건에 의해 재설계하여 점진적으로 완벽한 설계로 나아간다.</p>
+<p>재설계로 인해 개발자는 코드를 삽입, 수정, 삭제하는 과정에서 불필요한 코드가 남거나 중복처 될 가능성이 크다.</p>
+<p>결론적으로 이러한 코드들은 재사용이 어렵고 관리가 어려워서 유지보수를 어렵게 만든다.</p>
+<h2 id="tdd-개발-방식">TDD 개발 방식</h2>
+<p><img src="https://user-images.githubusercontent.com/2377807/167657312-05c2a4e9-46ae-4009-8091-0d343484cc16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>TDD와 일반적인 개발 방식의 가장 큰 차이점은 테스트 코드를 작성한 뒤에 실제 코드를 작성한다는 것이다.</p>
+<p>디자인(설계) 단계에서 프로그래밍 목적을 반드시 미리 정의해야만 하고, 무엇보다 테스트해야 할지 미리 정의(테스트 케이스 작성)해야만 한다.</p>
+<p>테스트 코드를 작성하는 도중 발생하는 예외 사항(버그 및 수정사항)은 테스트 케이스에 추가하고 설계를 개선한다.</p>
+<p>이후 테스트가 통과된 코드만을 코드 개발 단계에서 실제 코드로 작성한다.</p>
+<p>이러한 반복적인 단계가 진행되면서 자연스럽게 코드의 버그가 줄어들고 소스코드는 간결해진다.</p>
+<p>또한 테스트 케이스 작성으로 인해 자연스럽게 설계가 개선됨으로 재설계 시간이 절감된다.</p>
+<h1 id="tdd-개발방법론에-대한-결론">TDD 개발방법론에 대한 결론</h1>
+<h3 id="장점">장점</h3>
+<ul>
+<li>개발시간이 줄어든다. 보통 처음부터 2개의 코드를 짜야한다 생각하지만 테스트 코드를 거치지 않을시 대략 10 ~ 30% 의 개발시간이 늘어난다.</li>
+<li>결함이 줄어든다. 예상치 못했던 상황들에서 벗어날수있다.</li>
+<li>유지보수 비용이 낮아진다.</li>
+</ul>
+<p>위 세가지만봐도 실무에서는 꼭 필요하다는 생각이 든다.</p>
+<h3 id="단점">단점</h3>
+<ul>
+<li>자신이 개발하던 방식을 많이 바꿔야한다.</li>
+</ul>
+<p>하지만 개발에 대해 아직은 적응?을 하는 단계라 적용을 빨리하고 습득할 수 있을 것 같다.</p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://iwannafullstack.tistory.com/entry/TDD-%EB%9E%80"  target="_blank" rel="noopener"
+    >https://iwannafullstack.tistory.com/entry/TDD-%EB%9E%80</a></li>
+<li><a class="link" href="https://gmlwjd9405.github.io/2018/06/03/agile-tdd.html"  target="_blank" rel="noopener"
+    >https://gmlwjd9405.github.io/2018/06/03/agile-tdd.html</a></li>
+<li><a class="link" href="https://inpa.tistory.com/entry/QA-%F0%9F%93%9A-TDD-%EB%B0%A9%EB%B2%95%EB%A1%A0-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C"  target="_blank" rel="noopener"
+    >https://inpa.tistory.com/entry/QA-%F0%9F%93%9A-TDD-%EB%B0%A9%EB%B2%95%EB%A1%A0-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/tdd/">TDD</a>
+        
+            <a href="/tags/unit-test/">Unit Test</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#tdd-개발-주기">TDD 개발 주기</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#일반-개발-방식">일반 개발 방식</a></li>
+    <li><a href="#tdd-개발-방식">TDD 개발 방식</a></li>
+  </ol>
+
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#장점">장점</a></li>
+        <li><a href="#단점">단점</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,419 +1,371 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Tags on 희택의 노력</title>
-    <link>https://heetaek.com/tags/</link>
-    <description>Recent content in Tags on 희택의 노력</description>
-    <image>
-      <url>https://heetaek.com/profile.png</url>
-      <link>https://heetaek.com/profile.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>위코드</title>
-      <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>위코드 취업후기</title>
-      <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>isolation level</title>
-      <link>https://heetaek.com/tags/isolation-level/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/isolation-level/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>N&#43;1 Problem</title>
-      <link>https://heetaek.com/tags/n&#43;1-problem/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/n&#43;1-problem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ORM</title>
-      <link>https://heetaek.com/tags/orm/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/orm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>transaction</title>
-      <link>https://heetaek.com/tags/transaction/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/transaction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>격리수준</title>
-      <link>https://heetaek.com/tags/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>트랜잭션</title>
-      <link>https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</link>
-      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ACID</title>
-      <link>https://heetaek.com/tags/acid/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/acid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>동시성</title>
-      <link>https://heetaek.com/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>병렬성</title>
-      <link>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>스레드</title>
-      <link>https://heetaek.com/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>운영체제</title>
-      <link>https://heetaek.com/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>프로세스</title>
-      <link>https://heetaek.com/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Network</title>
-      <link>https://heetaek.com/tags/network/</link>
-      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OSI7</title>
-      <link>https://heetaek.com/tags/osi7/</link>
-      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/osi7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Queue</title>
-      <link>https://heetaek.com/tags/queue/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/queue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Stack</title>
-      <link>https://heetaek.com/tags/stack/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/stack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>자료구조</title>
-      <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Array</title>
-      <link>https://heetaek.com/tags/array/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/array/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>List</title>
-      <link>https://heetaek.com/tags/list/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/list/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TDD</title>
-      <link>https://heetaek.com/tags/tdd/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/tdd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unit Test</title>
-      <link>https://heetaek.com/tags/unit-test/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/unit-test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Big O</title>
-      <link>https://heetaek.com/tags/big-o/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/big-o/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Computer Science</title>
-      <link>https://heetaek.com/tags/computer-science/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/computer-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Time Complexity</title>
-      <link>https://heetaek.com/tags/time-complexity/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/time-complexity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>빅오표기법</title>
-      <link>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>시간복잡도</title>
-      <link>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>컴퓨터 사이언스</title>
-      <link>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://heetaek.com/tags/python/</link>
-      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>파이썬</title>
-      <link>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</link>
-      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Django</title>
-      <link>https://heetaek.com/tags/django/</link>
-      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/django/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>배민문방구</title>
-      <link>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</link>
-      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JsonResponse</title>
-      <link>https://heetaek.com/tags/jsonresponse/</link>
-      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/jsonresponse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>REST</title>
-      <link>https://heetaek.com/tags/rest/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>REST API</title>
-      <link>https://heetaek.com/tags/rest-api/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/rest-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RESTful API</title>
-      <link>https://heetaek.com/tags/restful-api/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/restful-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://heetaek.com/tags/git/</link>
-      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CSS</title>
-      <link>https://heetaek.com/tags/css/</link>
-      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTML</title>
-      <link>https://heetaek.com/tags/html/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithm</title>
-      <link>https://heetaek.com/tags/algorithm/</link>
-      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://heetaek.com/tags/javascript/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node.js</title>
-      <link>https://heetaek.com/tags/node.js/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>index</title>
-      <link>https://heetaek.com/tags/index/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/index/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TCP/IP</title>
-      <link>https://heetaek.com/tags/tcp/ip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://heetaek.com/tags/tcp/ip/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on 희택의 노력</title>
+        <link>https://heetaek.com/tags/</link>
+        <description>Recent content in Tags on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>위코드</title>
+        <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</link>
+        <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>위코드 취업후기</title>
+        <link>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</link>
+        <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>isolation level</title>
+        <link>https://heetaek.com/tags/isolation-level/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/isolation-level/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>N&#43;1 Problem</title>
+        <link>https://heetaek.com/tags/n&#43;1-problem/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/n&#43;1-problem/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ORM</title>
+        <link>https://heetaek.com/tags/orm/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/orm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>transaction</title>
+        <link>https://heetaek.com/tags/transaction/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/transaction/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>격리수준</title>
+        <link>https://heetaek.com/tags/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>트랜잭션</title>
+        <link>https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</link>
+        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ACID</title>
+        <link>https://heetaek.com/tags/acid/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/acid/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>동시성</title>
+        <link>https://heetaek.com/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EB%8F%99%EC%8B%9C%EC%84%B1/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>병렬성</title>
+        <link>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EB%B3%91%EB%A0%AC%EC%84%B1/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>스레드</title>
+        <link>https://heetaek.com/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>운영체제</title>
+        <link>https://heetaek.com/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>프로세스</title>
+        <link>https://heetaek.com/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
+        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Network</title>
+        <link>https://heetaek.com/tags/network/</link>
+        <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/network/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>OSI7</title>
+        <link>https://heetaek.com/tags/osi7/</link>
+        <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/osi7/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Queue</title>
+        <link>https://heetaek.com/tags/queue/</link>
+        <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/queue/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Stack</title>
+        <link>https://heetaek.com/tags/stack/</link>
+        <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/stack/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>자료구조</title>
+        <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
+        <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Array</title>
+        <link>https://heetaek.com/tags/array/</link>
+        <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/array/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>List</title>
+        <link>https://heetaek.com/tags/list/</link>
+        <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/list/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TDD</title>
+        <link>https://heetaek.com/tags/tdd/</link>
+        <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/tdd/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Unit Test</title>
+        <link>https://heetaek.com/tags/unit-test/</link>
+        <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/unit-test/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Big O</title>
+        <link>https://heetaek.com/tags/big-o/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/big-o/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Computer Science</title>
+        <link>https://heetaek.com/tags/computer-science/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/computer-science/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Time Complexity</title>
+        <link>https://heetaek.com/tags/time-complexity/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/time-complexity/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>빅오표기법</title>
+        <link>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>시간복잡도</title>
+        <link>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>컴퓨터 사이언스</title>
+        <link>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</link>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Python</title>
+        <link>https://heetaek.com/tags/python/</link>
+        <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/python/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>파이썬</title>
+        <link>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</link>
+        <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Django</title>
+        <link>https://heetaek.com/tags/django/</link>
+        <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/django/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>배민문방구</title>
+        <link>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</link>
+        <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>JsonResponse</title>
+        <link>https://heetaek.com/tags/jsonresponse/</link>
+        <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/jsonresponse/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>REST</title>
+        <link>https://heetaek.com/tags/rest/</link>
+        <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/rest/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>REST API</title>
+        <link>https://heetaek.com/tags/rest-api/</link>
+        <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/rest-api/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>RESTful API</title>
+        <link>https://heetaek.com/tags/restful-api/</link>
+        <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/restful-api/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Git</title>
+        <link>https://heetaek.com/tags/git/</link>
+        <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/git/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CSS</title>
+        <link>https://heetaek.com/tags/css/</link>
+        <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/css/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HTML</title>
+        <link>https://heetaek.com/tags/html/</link>
+        <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/html/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Algorithm</title>
+        <link>https://heetaek.com/tags/algorithm/</link>
+        <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/algorithm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>JavaScript</title>
+        <link>https://heetaek.com/tags/javascript/</link>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/javascript/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Node.js</title>
+        <link>https://heetaek.com/tags/node.js/</link>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/node.js/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>index</title>
+        <link>https://heetaek.com/tags/index/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/index/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TCP/IP</title>
+        <link>https://heetaek.com/tags/tcp/ip/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/tcp/ip/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
 </rss>

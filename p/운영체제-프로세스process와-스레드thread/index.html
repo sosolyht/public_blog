@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='프로세스(Process) 우리 컴퓨터에서 실행 할 수 있는것을 프로그램 이라 한다. 그리고 프로그램 이 실행이 되어 돌아가고 있는 상태를 프로세스 라 한다. 글을 쓰'><title>[운영체제] 프로세스(Process)와 스레드(Thread)</title>
+
+<link rel='canonical' href='https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[운영체제] 프로세스(Process)와 스레드(Thread)'>
+<meta property='og:description' content='프로세스(Process) 우리 컴퓨터에서 실행 할 수 있는것을 프로그램 이라 한다. 그리고 프로그램 이 실행이 되어 돌아가고 있는 상태를 프로세스 라 한다. 글을 쓰'>
+<meta property='og:url' content='https://heetaek.com/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='운영체제' /><meta property='article:tag' content='프로세스' /><meta property='article:tag' content='스레드' /><meta property='article:published_time' content='2022-06-24T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-24T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png' />
+<meta name="twitter:title" content="[운영체제] 프로세스(Process)와 스레드(Thread)">
+<meta name="twitter:description" content="프로세스(Process) 우리 컴퓨터에서 실행 할 수 있는것을 프로그램 이라 한다. 그리고 프로그램 이 실행이 되어 돌아가고 있는 상태를 프로세스 라 한다. 글을 쓰"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749139-eea7573e-57c9-41c4-aadb-c0624df0e139.png" loading="lazy" alt="Featured image of post [운영체제] 프로세스(Process)와 스레드(Thread)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/os/" >
+                OS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4process%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9Cthread/">[운영체제] 프로세스(Process)와 스레드(Thread)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-24</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="프로세스process">프로세스(Process)</h1>
+<p>우리 컴퓨터에서 실행 할 수 있는것을 <code>프로그램</code> 이라 한다.</p>
+<p>그리고 <code>프로그램</code> 이 실행이 되어 돌아가고 있는 상태를 <code>프로세스</code> 라 한다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/175501497-a87b5841-8c84-46fa-84c7-5f0093f240a1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="process"
+	
+	
+></p>
+<p>글을 쓰고 있는 상태에서도 내 PC에서는 <code>프로세스</code> 가 저렇게 많이 켜져있다.</p>
+<p>위의 사진 처럼 여러 프로세스들이 함께 돌아갈 수 있는 이유는 나중에 더 깊게 다룰 것이지만,</p>
+<p>동시적, 병렬적 이 둘의 혼합으로 이루어진다.</p>
+<p>간단히 설명하자면,</p>
+<p>동시성(Concurrency)은 <code>프로세서(CPU)</code> 하나가 진행 중인 작업을 계속 바꿔준다.</p>
+<p>바꿔주는 작업을 <code>Context Switching</code> 이라 한다.</p>
+<p>이 과정이 사람이 눈치 챌 수 없을만큼 빠르게 진행되다보니 동시에 진행되는것처럼 느끼는것이다.</p>
+<p>병렬성(Parallelism)은 <code>프로세서(CPU)</code> 하나에 코어가 여러개 달려있어, 각각 동시에 작업들을 수행하는 것을 뜻한다.</p>
+<p>듀얼코어, 쿼드코어, 옥타코어 등 멀티코어 프로세서에서 할 수 있는 방식이다.</p>
+<h1 id="스레드thread">스레드(Thread)</h1>
+<p>지금까지 PC는 여러개의 프로세스를 어떻게 함께 돌리는지 방법을 알아보았다.</p>
+<p>그러면 프로그램에서의 예시를 들어보자면 크롬 브라우저도 하나의 프로세스이다.</p>
+<p>넷플릭스로 영화를 보면서 이메일도 확인해야하고 게임도 다운로드 받아야한다.</p>
+<p>이렇게 한 프로세스에서도 여러 작업이 동시에 진행되어야하는데, 그 여러 작업을 <code>스레드</code> 라 부른다.</p>
+<h1 id="멀티프로세스-멀티스레드">멀티프로세스? 멀티스레드?</h1>
+<p>먼저 멀티프로세스와 멀티스레드의 용어의 정의를 살펴보자</p>
+<ul>
+<li>
+<p>멀티 프로세스 : 하나의 응용 프로그램을 여러 개의 프로세스로 구성하여 각 프로세스가 하나의 작업을 처리하도록 하는 것.</p>
+</li>
+<li>
+<p>멀티 스레드 : 하나의 응용 프로그램을 여러 개의 스레드로 구성하고 각 스레드로 하여금 하나의 작업을 처리하도록 하는 것.</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>종류</th>
+<th>장점</th>
+<th>단점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>멀티프로세스</td>
+<td>하나의 프로세스가 죽어도 다른 프로세스에게는 영향을 끼치지 않는다.</td>
+<td>각각 독립된 메모리 영역을 갖고 있어 작업량이 많은 수록 오버헤드가 발생하고 Context Switching으로 인한 성능 저하를 유발한다.</td>
+</tr>
+<tr>
+<td>멀티스레드</td>
+<td>프로세스의 응답시간이 단축되고 시스템의 처리율이 향상된다. 또한 코드 영역을 공유하기 때문에 자원 소모가 적다.</td>
+<td>프로그램 디버깅이 어렵고 하나의 스레드에 문제가 생기면 전체적인 프로세스에 영향을 끼치게 된다.</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://www.youtube.com/watch?v=LLiV5Yz1AWg"  target="_blank" rel="noopener"
+    >https://www.youtube.com/watch?v=LLiV5Yz1AWg</a></li>
+<li><a class="link" href="https://www.youtube.com/watch?v=RrfASw-jfZ4&amp;ab_channel=AIHolic"  target="_blank" rel="noopener"
+    >https://www.youtube.com/watch?v=RrfASw-jfZ4&ab_channel=AIHolic</a></li>
+<li><a class="link" href="https://blog.naver.com/sjc02183/221844611260"  target="_blank" rel="noopener"
+    >https://blog.naver.com/sjc02183/221844611260</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">운영체제</a>
+        
+            <a href="/tags/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/">프로세스</a>
+        
+            <a href="/tags/%EC%8A%A4%EB%A0%88%EB%93%9C/">스레드</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%8F%99%EC%8B%9C%EC%84%B1concurrency-%EA%B3%BC-%EB%B3%91%EB%A0%AC%EC%84%B1parallelism-%EC%9D%98-%EC%B0%A8%EC%9D%B4/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749273-405db335-e97d-4252-9fd4-1e875d355edf.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[운영체제] 동시성(Concurrency) 과 병렬성(Parallelism) 의 차이</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='N &#43; 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하'><title>[데이터베이스] N &#43; 1 문제</title>
+
+<link rel='canonical' href='https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[데이터베이스] N &#43; 1 문제'>
+<meta property='og:description' content='N &#43; 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하'>
+<meta property='og:url' content='https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='N&#43;1 Problem' /><meta property='article:tag' content='ORM' /><meta property='article:published_time' content='2022-06-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-26T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png' />
+<meta name="twitter:title" content="[데이터베이스] N &#43; 1 문제">
+<meta name="twitter:description" content="N &#43; 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다. User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png" loading="lazy" alt="Featured image of post [데이터베이스] N &#43; 1 문제" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/">[데이터베이스] N &#43; 1 문제</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-26</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="n--1-문제란">N + 1 문제란?</h1>
+<p>ORM 의 연관 관계에서 발생하는 문제다.
+예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다.</p>
+<p>User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하고</p>
+<p>특정 유저를 조회했을때 SELECT 문은 1번 실행되고, 해당 유저와 관련된 상품을 N 번 더 조회하게 된다.</p>
+<p>N + 1 문제를 해결하기 전에 관련된 중요한 개념인 <code>Eager Loading</code> 과 <code>Lazy Loading</code> 에 대해 알아야한다.</p>
+<h2 id="eager-loading-이란">Eager Loading 이란?</h2>
+<p><code>Eager Loading</code> 이란 즉시 로딩으로 로딩 시 참조해야 할 데이터들을 미리 전부 가져옵니다.</p>
+<p>연관되어있는 데이터들을 한 번에 가져올 수 있다는 장점이 있지만, 초기 로딩 시 속도가 느려질 수 있다는 특징이 있다.</p>
+<h2 id="lazy-loading-이란">Lazy Loading 이란?</h2>
+<p><code>Lazy Loading</code> 이란 말 그대로 지연 로딩이라 한다.</p>
+<p><code>Eager Loading</code> 과 반대로 필요한 순간에만 데이터를 가져온다.</p>
+<hr>
+<p><code>Eager Loading</code> 과 <code>Lazy Loading</code> 에 대해 알아보았으니</p>
+<p>더 쉽게 예시를 들어보면서 자세히 알아보자.</p>
+<p>다른 ORM 은 어떤 방식으로 동작하는지 모르겠지만, 검색을 해보면 대부분 Spring 의 JPA 예제뿐이다.</p>
+<h2 id="django-n1-예제">Django N+1 예제</h2>
+<p>Place모델과 Restaurant모델</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Place</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">severs_pizza</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Place모델과 Restaurant모델은 일대일 관계
+각각 6개만 레코드를 생성합니다. 아래는 이미 생성한 결과 화면입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">place</span> <span class="ow">in</span> <span class="n">Place</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">place</span><span class="o">.</span><span class="n">restaurant</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant1</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant2</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant3</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant4</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant5</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant6</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 때 생성되는 쿼리들은 아래와 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">connection</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">connection</span><span class="o">.</span><span class="n">queries</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT @@SQL_AUTO_IS_NULL&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_place`.`id`, `photo_place`.`name`, `photo_place`.`address` FROM `photo_place`&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 1 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 2 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 3 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 4 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 5 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.001&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 6 LIMIT 21&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">}]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>쿼리셋에 담겨있는 내용을 호출하면</p>
+<p>담겨있는 N번 만큼의 수량이 호출이 되는 것을 볼 수 있다.</p>
+<p>만약 10만개의 데이터를 호출하면 SELECT 문도 똑같이 10만번 호출되는 문제다.</p>
+<p>이 때 <code>prefetch_related</code> 를 사용하여 <code>Eager Loading</code> 을 하게되면</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">place</span> <span class="ow">in</span> <span class="n">Place</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">place</span><span class="o">.</span><span class="n">restaurant</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant1</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant2</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant3</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant4</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant5</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestRestaruant6</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT @@SQL_AUTO_IS_NULL&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_place`.`id`, `photo_place`.`name`, `photo_place`.`address` FROM `photo_place`&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s1">&#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` IN (1, 2, 3, 4, 5, 6)&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;0.000&#39;</span><span class="p">}]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>확실히 쿼리가 줄은것을 볼 수 있다.</p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C"  target="_blank" rel="noopener"
+    >https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C</a></li>
+<li><a class="link" href="https://daeguowl.tistory.com/171"  target="_blank" rel="noopener"
+    >https://daeguowl.tistory.com/171</a></li>
+<li><a class="link" href="https://velog.io/@kim6515516/npuls"  target="_blank" rel="noopener"
+    >https://velog.io/@kim6515516/npuls</a></li>
+<li><a class="link" href="https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping"  target="_blank" rel="noopener"
+    >https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping</a></li>
+<li><a class="link" href="https://choidr.tistory.com/entry/TypeORM-N-1-%EB%AC%B8%EC%A0%9C"  target="_blank" rel="noopener"
+    >https://choidr.tistory.com/entry/TypeORM-N-1-%EB%AC%B8%EC%A0%9C</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/n&#43;1-problem/">N&#43;1 Problem</a>
+        
+            <a href="/tags/orm/">ORM</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80transaction-isolation-level/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[데이터베이스] 트랜잭션(Transaction) 이란?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#eager-loading-이란">Eager Loading 이란?</a></li>
+    <li><a href="#lazy-loading-이란">Lazy Loading 이란?</a></li>
+    <li><a href="#django-n1-예제">Django N+1 예제</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

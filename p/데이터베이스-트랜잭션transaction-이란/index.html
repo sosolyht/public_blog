@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를'><title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
+
+<link rel='canonical' href='https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[데이터베이스] 트랜잭션(Transaction) 이란?'>
+<meta property='og:description' content='트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를'>
+<meta property='og:url' content='https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='트랜잭션' /><meta property='article:tag' content='transaction' /><meta property='article:tag' content='ACID' /><meta property='article:published_time' content='2022-06-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png' />
+<meta name="twitter:title" content="[데이터베이스] 트랜잭션(Transaction) 이란?">
+<meta name="twitter:description" content="트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며, 데이터베이스의 상태를"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" alt="Featured image of post [데이터베이스] 트랜잭션(Transaction) 이란?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/">[데이터베이스] 트랜잭션(Transaction) 이란?</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-25</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="트랜잭션transaction">트랜잭션(Transaction)</h1>
+<p>트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 <code>무결성</code>을 유지하며,</p>
+<p>데이터베이스의 상태를 변화시키는 기능을 수행한다.</p>
+<p>데이터베이스의 상태를 변경시킨다는 것은 <code>SELECT</code>,<code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code> 와 같은 행동을 뜻한다.</p>
+<p>트랜잭션은 하나 이상의 query 를 포함해야하고 ACID 라 칭해지는 원자성, 일관성, 고립성, 지속성의 4가지 규칙을 만족해야한다.</p>
+<h3 id="왜-필요한가">왜 필요한가?</h3>
+<p>데이터베이스에서 트랜잭션이 필요한 이유는 데이터를 다룰 때 장애가 일어나는 경우</p>
+<p>트랜잭션은 장애 발생 시 데이터를 복구하는 작업의 단위가 되기 때문이다.</p>
+<p>또한 데이터베이스에서 여러 작업이 동시에 같은 데이터를 다룰 때 트랜잭션을 통해 작업을 분리하고, 이를 통해 오류가 발생하지 않게 한다.</p>
+<p>은행 어플에서 A가 B에게 100만원을 입금하는 상황으로 예시를 들어보면</p>
+<blockquote>
+<p>A 의 계좌에서 100만원을 B의 계좌로 입금을 하려했는데 <!-- raw HTML omitted -->
+전산오류가 생겨 B의 계좌에는 100만원이 입금 되지 않았다</p>
+</blockquote>
+<p>정상적으로 처리가 됐다면 아래의 SQL 문처럼 실행되어야한다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">계좌에서</span><span class="w"> </span><span class="err">잔액</span><span class="w"> </span><span class="err">가져옴</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="err">계좌에서</span><span class="w"> </span><span class="err">잔액</span><span class="w"> </span><span class="err">가져옴</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">출금</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="err">입금</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">계좌</span><span class="w"> </span><span class="err">잔액</span><span class="w"> </span><span class="err">저장</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">900</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="err">계좌</span><span class="w"> </span><span class="err">잔액</span><span class="w"> </span><span class="err">저장</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">COMMIT</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>이렇게 예상치 못한 오류가 발생하여 데이터의 부정합이 발생하는 경우 다시 원상복구를 해야한다.</p>
+<p>따라서, 모든 입출금은 하나의 묶음 형태로 작동해야한다.</p>
+<p>입금과 출금은 분리될 수 없는 하나의 거래로 처리되어야하는 <code>단일 업무</code> 다.</p>
+<p>이러한 업무 처리의 최소단위를 데이터베이스에서 트랜잭션이라한다.</p>
+<h2 id="트랜잭션의-특징acid">트랜잭션의 특징(ACID)</h2>
+<p><img src="https://user-images.githubusercontent.com/2377807/175536829-07dde6aa-fd37-4440-bcab-ea56000ce103.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="ACID"
+	
+	
+></p>
+<p>트랜잭션은 데이터베이스의 무결성을 유지하기 위해 원자성, 일관성, 고립성, 지속성 총 4가지의 특징을 가지고있다.</p>
+<ul>
+<li>
+<p>원자성(Atomicity) : 트랜잭션에 포함된 작업은 전부 수행되거나 아니면 전부 수행되지 말아야 한다 (all or nothing)</p>
+</li>
+<li>
+<p>일관성(Consistency) : 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. ex) 송금 전 후 모두 잔액의 데이터 타입은 int 여야한다는 것이 일관성의 한 예시가 될 수 있다.</p>
+</li>
+<li>
+<p>고립성(Isolation) : 여러 트랜잭션은 동시에 수행한다. 따라서 동시에 수행되는 트랜잭션이 동일한 데이터를 가지고 충돌하지 않도록 제어해줘야한다.</p>
+</li>
+<li>
+<p>지속성(Durability) : 성공적으로 수행된 트랜잭션은 데이터베이스에 영원히 반영되어야 한다. 트랜잭션이 완료되어 저장이 된 데이터베이스는 저장 후에 생기는 정전, 장애, 오류 등에 영향을 받지 않아야 한다.
+보통 commit 이 된다면 지속성은 만족 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="트랜잭션의-commit-과-rollback">트랜잭션의 Commit 과 Rollback</h2>
+<h4 id="commit">Commit</h4>
+<p>하나의 트랜잭션이 성공적으로 끝나서 데이터베이스가 일관성있는 상태에 있음을 의미한다.</p>
+<h4 id="rollback">Rollback</h4>
+<p>트랜잭션의 원자성이 깨질 때, 즉 하나의 트랜잭션 처리가 비정상적으로 종료 되었을 때의 상태를 뜻한다.</p>
+<p>Rollback 이 이뤄진다면 트랜잭션을 다시 실행하거나 부분적으로 변경된 결과를 취소할 수 있다.</p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://devjem.tistory.com/27"  target="_blank" rel="noopener"
+    >https://devjem.tistory.com/27</a></li>
+<li><a class="link" href="https://wonit.tistory.com/462#google_vignette"  target="_blank" rel="noopener"
+    >https://wonit.tistory.com/462#google_vignette</a></li>
+<li><a class="link" href="https://www.javatpoint.com/mysql-transaction"  target="_blank" rel="noopener"
+    >https://www.javatpoint.com/mysql-transaction</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a>
+        
+            <a href="/tags/transaction/">transaction</a>
+        
+            <a href="/tags/acid/">ACID</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80transaction-isolation-level/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[데이터베이스] 트랜잭션 격리 수준(Transaction isolation Level)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[데이터베이스] N &#43; 1 문제</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#왜-필요한가">왜 필요한가?</a></li>
+      </ol>
+    </li>
+    <li><a href="#트랜잭션의-특징acid">트랜잭션의 특징(ACID)</a></li>
+    <li><a href="#트랜잭션의-commit-과-rollback">트랜잭션의 Commit 과 Rollback</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#commit">Commit</a></li>
+            <li><a href="#rollback">Rollback</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

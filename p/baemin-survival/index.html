@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='배민문방구 클론 프로젝트 회고록'><title>[배민서바이벌] 프로젝트 완성 및 회고</title>
+
+<link rel='canonical' href='https://heetaek.com/p/baemin-survival/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[배민서바이벌] 프로젝트 완성 및 회고'>
+<meta property='og:description' content='배민문방구 클론 프로젝트 회고록'>
+<meta property='og:url' content='https://heetaek.com/p/baemin-survival/'>
+<meta property='og:site_name' content='희택의 노력'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Django' /><meta property='article:tag' content='배민문방구' /><meta property='article:published_time' content='2022-02-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-02-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/181749668-f22414d5-b252-49d0-b9b3-c24b256f57bc.png' />
+<meta name="twitter:title" content="[배민서바이벌] 프로젝트 완성 및 회고">
+<meta name="twitter:description" content="배민문방구 클론 프로젝트 회고록"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/181749668-f22414d5-b252-49d0-b9b3-c24b256f57bc.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPR5XGZ8DK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPR5XGZ8DK', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택의 노력</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/baemin-survival/">
+                
+                    <img src="https://user-images.githubusercontent.com/2377807/181749668-f22414d5-b252-49d0-b9b3-c24b256f57bc.png" loading="lazy" alt="Featured image of post [배민서바이벌] 프로젝트 완성 및 회고" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/baemin-survival/">[배민서바이벌] 프로젝트 완성 및 회고</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            배민문방구 클론 프로젝트 회고록
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-02-17</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="1-프로젝트">1. 프로젝트</h1>
+<h2 id="1-1-프로젝트-설명">1-1. 프로젝트 설명</h2>
+<p>부트캠프를 시작하고 백엔드에 대한 전반적인 flow 가 다 그려지기도 전에 프로젝트를 시작하게 되었다.
+프로젝트명은 &lsquo;배민서바이벌&rsquo; 이다. 기존 <a class="link" href="store.baemin.com" >배민문방구</a>의 사이트를 클론하며 컨셉을 바꿔서 진행하게 되었다.</p>
+<h2 id="1-2-팀원-설명">1-2. 팀원 설명</h2>
+<h3 id="프론트엔드">프론트엔드</h3>
+<ul>
+<li>
+<p>한신웅 : 네비바 , 장바구니</p>
+</li>
+<li>
+<p>주지홍 : 메인페이지, 상품상세페이지</p>
+</li>
+<li>
+<p>임채현 : 로그인/회원가입, 마이페이지</p>
+</li>
+</ul>
+<h3 id="백엔드">백엔드</h3>
+<ul>
+<li>최희택 : 로그인 / 회원가입 , 상품관련, 장바구니</li>
+</ul>
+<h2 id="1-3-사용기술">1-3. 사용기술</h2>
+<h3 id="프론트엔드-1">프론트엔드</h3>
+<ul>
+<li>HTML/CSS</li>
+<li>JavaScript</li>
+<li>React</li>
+</ul>
+<h3 id="백엔드-1">백엔드</h3>
+<ul>
+<li>Django</li>
+<li>bcrypt</li>
+<li>JWT</li>
+<li>MySQL</li>
+<li>AWS EC2</li>
+<li>AWS RDS</li>
+</ul>
+<h3 id="협업툴">협업툴</h3>
+<ul>
+<li>Github</li>
+<li>Trello</li>
+<li>Slack</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/2377807/154804265-c84b61cd-c29f-4ba4-81a7-090623262df6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Trello"
+	
+	
+></p>
+<p>프론트개발자에게 API 정의서를 전달하기 위해 Postman 이나 Gitbook 이 있는지 모르고, 구글스프레드 시트로 정리해서 전달했다. 정말 아쉬운 부분이다.
+API 기능 정의가 제대로 전달 안되어 소통에 어려움이 있어 정말 아쉬운 부분이다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/154804380-4316f08a-410f-432b-ab88-e78c3e8bc811.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="구글스프레드시트"
+	
+	
+></p>
+<h1 id="2-완성물">2. 완성물</h1>
+<h2 id="2-1-nav">2-1. Nav</h2>
+<ul>
+<li>로그인 완료 후 유저 닉네임, 포인트, 장바구니 수량 상단에 적용</li>
+<li>스크롤 이벤트</li>
+<li>선택 된 카테고리 CSS 적용</li>
+</ul>
+<p><img src="https://i.ibb.co/0Z6xQZM/ezgif-com-gif-maker-1.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="네비바"
+	
+	
+></p>
+<h3 id="2-2-회원가입로그인페이지">2-2. 회원가입/로그인페이지</h3>
+<ul>
+<li>회원가입시 다양한 유효성 검사 (양식검사, 중복검사, 비밀번호 불일치 검사)</li>
+<li>검사를 통과하지 못할 경우 입력칸 아래에 경고 문구 출력</li>
+<li>양식검사, 중복검사를 모두 통과할 경우 사용가능</li>
+<li>출력 경고 문구가 남아있을 시 회원가입 불가</li>
+<li>출력 경고 문구가 사라졌을시 회원가입 가능</li>
+</ul>
+<p><img src="https://i.ibb.co/KhVx7K8/Hnet-image.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/XxNtX9b/Hnet-image-1.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/SymVwr9/Hnet-image-2.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/FgSTNWN/ezgif-com-gif-maker-4.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="2-3-메인페이지">2-3. 메인페이지</h3>
+<ul>
+<li>메인페이지 상단 이미지슬라이드 구현</li>
+<li>분류 기준 (최신순 / 높은가격순 / 낮은가격순 )에 따른 제품 리스트 렌더링</li>
+<li>쿼리스트링을 활용하여 카테고리 페이지 구현 및 페이지네이션 기능 구현</li>
+</ul>
+<p><img src="https://i.ibb.co/Q82y4vy/image.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/KNRcfwm/ezgif-com-gif-maker-7.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="2-4-상세페이지">2-4. 상세페이지</h3>
+<ul>
+<li>인풋창 조건에 따른 수량입력</li>
+<li>로그인 상태일 때 장바구니로 구매버튼을 눌렀을때 장바구니로 넘어가도록 구현</li>
+<li>비 로그인 상태일 때 장바구니로 구매버튼을 눌렀을때 장바구니로 넘어가도록 구현</li>
+<li>제품 상태에 따른 상세페이지 렌더링 화면 변경</li>
+</ul>
+<p><img src="https://i.ibb.co/yhBQNfq/image.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/6WFfM16/ezgif-com-gif-maker.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/tDCbcjt/image.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://i.ibb.co/6WFfM16/ezgif-com-gif-maker.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="2-5-장바구니">2-5. 장바구니</h3>
+<ul>
+<li>상세페이지에서 유저가 옵션과 수량을 결정한 아이템을 장바구니에 렌더링</li>
+<li>‘옵션 / 수량 변경’ 버튼 클릭시 모달 창이 뜨고 원하는 조건 변경 가능</li>
+<li>리스트에서 체크를 통해 아이템 선택 삭제 및 구매 가능</li>
+<li>구매 후 구매 완료 페이지로 이동</li>
+</ul>
+<p><img src="https://i.ibb.co/DpGsGqr/ezgif-com-gif-maker-8.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="2-6-프로젝트-발표">2-6. 프로젝트 발표</h3>
+<p><img src="https://user-images.githubusercontent.com/2377807/154804656-3b1b0781-ba6a-437d-b305-72a1640af04e.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="발표1"
+	
+	
+>
+<img src="https://user-images.githubusercontent.com/2377807/154804666-5288a44e-e1ac-4cbd-b552-b772068489e3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="발표2"
+	
+	
+></p>
+<p>프로젝트 기간동안 정말 즐거웠지만, 마지막 발표날에는 정말 폐인이 된 모습이다.</p>
+<h1 id="3-회고">3. 회고</h1>
+<p>백엔드 개발자인 나는 나만 잘하면돼~ 라는 생각을 솔직히 어느정도는 갖고있었다.
+막상 프로젝트를 시작하고나니, 나만 잘하면되는게 절대아니였다.<br>
+소통, 협업 등 모든게 합이 잘 맞아야하는게 개발이다.<br>
+내가 이 길이 맞나? 라는 생각이 수백번들었고, 그 순간마다 &lsquo;나는 아직 20살이야 더 잘 할 수있어&rsquo; 긍정적인 생각만하며, 부족한 부분을 공부하며 적용시키고 희열을 느끼고 &lsquo;내가 정말 이 길이 맞구나&rsquo; 라는 생각이 들게끔하였다.
+그 결과는 &lsquo;나는 개발자구나&rsquo; 이다.<br>
+이 결과가 나오게끔 도와준건 팀원덕도있다.
+백엔드가 혼자였기에 API 를 개발하기에 정말 턱없이 부족한 시간이였지만, 항상 응원해준 우리 프론트 팀원들 덕에 더욱더 긍정적일 수 있었다.<br>
+항구에 정박한 배는 안전하다. 그러나 배는 묶어두려고 만든게 아니다.
+아무것도 안하면 실패는 없지만, 개발자는 도전하고 개척하는 존재라 생각한다.<br>
+그런 백엔드 개발자가 되려한다.</p>
+<p><img src="https://user-images.githubusercontent.com/2377807/154804747-515323df-21be-495e-b0cc-929f63fd5260.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="고마운팀원"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/django/">Django</a>
+        
+            <a href="/tags/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC/">배민문방구</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택의 노력
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-1-프로젝트-설명">1-1. 프로젝트 설명</a></li>
+    <li><a href="#1-2-팀원-설명">1-2. 팀원 설명</a>
+      <ol>
+        <li><a href="#프론트엔드">프론트엔드</a></li>
+        <li><a href="#백엔드">백엔드</a></li>
+      </ol>
+    </li>
+    <li><a href="#1-3-사용기술">1-3. 사용기술</a>
+      <ol>
+        <li><a href="#프론트엔드-1">프론트엔드</a></li>
+        <li><a href="#백엔드-1">백엔드</a></li>
+        <li><a href="#협업툴">협업툴</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#2-1-nav">2-1. Nav</a>
+      <ol>
+        <li><a href="#2-2-회원가입로그인페이지">2-2. 회원가입/로그인페이지</a></li>
+        <li><a href="#2-3-메인페이지">2-3. 메인페이지</a></li>
+        <li><a href="#2-4-상세페이지">2-4. 상세페이지</a></li>
+        <li><a href="#2-5-장바구니">2-5. 장바구니</a></li>
+        <li><a href="#2-6-프로젝트-발표">2-6. 프로젝트 발표</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

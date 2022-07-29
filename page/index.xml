@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on 희택의 노력</title>
+        <link>https://heetaek.com/page/</link>
+        <description>Recent content in Pages on 희택의 노력</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>About me</title>
+        <link>https://heetaek.com/about/</link>
+        <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/about/</guid>
+        <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;개발은-다양한-상황의-과제들을-해결해-나가는-즐거움이-있으며&#34;&gt;개발은 다양한 상황의 과제들을 해결해 나가는 즐거움이 있으며&lt;/h4&gt;
+&lt;h4 id=&#34;협업으로-서로의-장단점을-보완하면서-하나의-완성된-작품을-만드는-과정에-언제나-보람을-느낍니다&#34;&gt;협업으로 서로의 장단점을 보완하면서 하나의 완성된 작품을 만드는 과정에 언제나 보람을 느낍니다.&lt;/h4&gt;
+&lt;h4 id=&#34;항구에-묶여있는-안전한-배이기보다는-거친-파도가-있더라도-항해하는-배이길-원합니다&#34;&gt;항구에 묶여있는 안전한 배이기보다는 거친 파도가 있더라도 항해하는 배이길 원합니다.&lt;/h4&gt;
+&lt;h4 id=&#34;안전하고-루틴-한-일보다는-새로운-길을-찾아가는-개발자의-일이야말로-가장-멋진-일이라-생각합니다&#34;&gt;안전하고 루틴 한 일보다는 새로운 길을 찾아가는 개발자의 일이야말로 가장 멋진 일이라 생각합니다.&lt;/h4&gt;
+&lt;h4 id=&#34;백엔드-개발자로서-어떻게-하면-더-좋은-퍼포먼스를-낼-수-있을지-고민합니다&#34;&gt;백엔드 개발자로서 어떻게 하면 더 좋은 퍼포먼스를 낼 수 있을지 고민합니다.&lt;/h4&gt;
+&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;📧   &lt;a class=&#34;link&#34; href=&#34;mailto:sosolyht@gmail.com&#34; &gt;sosolyht@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;🔗   &lt;a class=&#34;link&#34; href=&#34;https://heetaek.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Blog&lt;/a&gt; | &lt;a class=&#34;link&#34; href=&#34;https://github.com/sosolyht&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;internship&#34;&gt;Internship&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;에프엔에프&#34;&gt;에프엔에프&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;2022.02.28 - 2022.03.24&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;회사소개&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MLB, Discovery 와 같은 의류 브랜드 소유 회사&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;인턴쉽에 관련된 전반적인 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;프론트엔드 2명 | 백엔드 2명으로 진행&lt;/li&gt;
+&lt;li&gt;사내 인스타그램 인플루언서 마케팅 퍼포먼스 관리 대시보드 기획 및 구현&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;내가 맡은 업무&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Back-end Engineer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;인턴쉽 기간동안 무엇을 했는지&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Figma를 활용하여  리스트페이지 및 인플루언서 페이지 화면설계&lt;/li&gt;
+&lt;li&gt;FastAPI 와 Django 를 이용해 API 구현&lt;/li&gt;
+&lt;li&gt;Pandas 라이브러리를 이용해 차트 데이터 API 구현&lt;/li&gt;
+&lt;li&gt;PostgreSQL 를 이용해 데이터베이스 관리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;관련 링크&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;백엔드 Github&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/presentation/d/1EKNwJCxe6ao_PmqtAB-W4gKIjonnSd_2iaLcMH8cZPo/edit#slide=id.p&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;프로젝트 스토리보드&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;project&#34;&gt;Project&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;동서남북&#34;&gt;동서남북&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2022.02.15 - 2022.02.26&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;프로젝트 소개&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;웹툰, 웹소설, 전자책 플랫폼 &lt;a class=&#34;link&#34; href=&#34;https://ridibooks.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;리디북스&lt;/strong&gt;&lt;/a&gt;를 모티브로 한 프로젝트&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;프로젝트에 관한 전반적인 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;프론트엔드 4명 | 백엔드 2명으로 진행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;담당 기능&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;카카오 로그인 API 를 이용한 소셜로그인 구현&lt;/li&gt;
+&lt;li&gt;검색 API 구현&lt;/li&gt;
+&lt;li&gt;내 서재 현재 페이지 저장 API 구현&lt;/li&gt;
+&lt;li&gt;가상 mock-data 제작 및 관리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;관련 링크&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/sosolyht/project-dsnb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;백엔드 Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/BkurAJWYQio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;시연영상&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;배민-서바이벌&#34;&gt;배민 서바이벌&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;2022.01.24 - 2022.02.11&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;프로젝트 소개&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://brandstore.baemin.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;배민 문방구&lt;/strong&gt;&lt;/a&gt;를 모티브로 한 프로젝트&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;프로젝트에 관한 전반적인 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;프론트엔드 3명 | 백엔드 1명으로 진행&lt;/li&gt;
+&lt;li&gt;일상속 제품을 사회에서 생존이라는 컨셉과 연계하여 다양한
+제품판매&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;담당 기능&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메인페이지 상품 API&lt;/li&gt;
+&lt;li&gt;상품상세페이지 API 구현&lt;/li&gt;
+&lt;li&gt;장바구니 API 구현&lt;/li&gt;
+&lt;li&gt;Pagination 구현&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;관련 링크&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/sosolyht/bamin-survival&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;백엔드 Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://heetaek.com/post/baemin-survival/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;회고&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;tech-stack&#34;&gt;Tech Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Django&lt;/li&gt;
+&lt;li&gt;MySQL&lt;/li&gt;
+&lt;li&gt;HTML / CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;버전관리--협업-툴&#34;&gt;버전관리 &amp;amp; 협업 툴&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;Trello&lt;/li&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;li&gt;Notion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;past-experiences&#34;&gt;Past Experiences&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;wecode-29기--2022-12---2022-02&#34;&gt;WECODE 29기 | 2022. 12 - 2022. 02&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;백엔드 개발자 양성 교육 과정&lt;/li&gt;
+&lt;li&gt;HTML, CSS, Python, Django, SQL, MySQL, CS 관련내용 이수&lt;/li&gt;
+&lt;li&gt;프론트엔드 개발자와 팀을이뤄 2주간격으로 특정 사이트를 모티브로 일부 플로우 기획부터 배포까지
+2번의 프로젝트 경험&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;안드로이드-커스텀-os-프로젝트--20127--20143&#34;&gt;안드로이드 커스텀 OS 프로젝트 | 2012.7 ~ 2014.3&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ThinkingBridge 라는 팀 구성&lt;/li&gt;
+&lt;li&gt;안드로이드 GingerBread(2.3) ~ Kitkat(4.4) 버전까지 약 2년간 배포 및 관리&lt;/li&gt;
+&lt;li&gt;카멜레온 엔진 (실시간으로 앱 색상에 따라 변하는 status bar) 개발&lt;/li&gt;
+&lt;li&gt;TB 런처 (안드로이드 ICS 버전 런처에서 실시간으로 시계 초침이 변하는 런처) 개발&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.m-economynews.com/mobile/article.html?no=5575&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MBC이코노미 인터뷰&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/orgs/ThinkingBridge&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ThinkingBridge Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCmLj1AdUIGC6tNZRmxkb8Ng&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ThinkingBridge Youtube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>아카이브</title>
+        <link>https://heetaek.com/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>검색</title>
+        <link>https://heetaek.com/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
