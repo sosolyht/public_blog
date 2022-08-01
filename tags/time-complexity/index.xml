@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Time Complexity on 희택의 노력</title>
+        <title>Time Complexity on 희택 Playground</title>
         <link>https://heetaek.com/tags/time-complexity/</link>
-        <description>Recent content in Time Complexity on 희택의 노력</description>
+        <description>Recent content in Time Complexity on 희택 Playground</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
         <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/time-complexity/index.xml" rel="self" type="application/rss+xml" /><item>
