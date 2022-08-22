@@ -6,7 +6,31 @@
         <description>Recent content in Tags on 희택 Playground</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>golam</title>
+        <link>https://heetaek.com/tags/golam/</link>
+        <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/golam/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pubsub</title>
+        <link>https://heetaek.com/tags/pubsub/</link>
+        <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/pubsub/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>redis</title>
+        <link>https://heetaek.com/tags/redis/</link>
+        <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://heetaek.com/tags/redis/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>isolation level</title>
         <link>https://heetaek.com/tags/isolation-level/</link>
         <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
