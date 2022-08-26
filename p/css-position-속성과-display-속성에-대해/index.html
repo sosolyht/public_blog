@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[CSS] position 속성과 display 속성에 대해'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[CSS] position 속성과 display 속성에 대해'>
 <meta property='og:description' content='알아두면 좋은 기본적인 css 속성들'>
 <meta property='og:url' content='https://heetaek.com/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181749810-2ae81f03-b6f1-4c2f-b393-98079352d76d.png" loading="lazy" alt="Featured image of post [CSS] position 속성과 display 속성에 대해" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,20 +252,6 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
@@ -238,118 +259,89 @@ if (!doNotTrack) {
 </div>
 </header>
 
+
     <section class="article-content">
     
     
     <h2 id="css-position-요약">CSS position 요약</h2>
 <blockquote>
 <p><code>position</code> 속성을 통해 문서 상에 요소를 배치하는 방법
-<!-- raw HTML omitted -->
-<code>top</code>,<code>right</code>,<code>bottom</code>,<code>left</code> 속성을 통해 요소의 최종 위치를 결정<!-- raw HTML omitted -->* top : 요소의 position 기준에 맞는 위쪽에서의 거리(위치)를 설정<!-- raw HTML omitted -->* bottom : 요소의 position 기준에 맞는 아래쪽에서의 거리(위치)를 설정<!-- raw HTML omitted -->* left : 요소의 position 기준에 맞는 왼쪽에서의 거리(위치)를 설정<!-- raw HTML omitted -->* right : 요소의 position 기준에 맞는 오른쪽에서의 거리(위치)를 설정</p>
+</br>
+<code>top</code>,<code>right</code>,<code>bottom</code>,<code>left</code> 속성을 통해 요소의 최종 위치를 결정</br>* top : 요소의 position 기준에 맞는 위쪽에서의 거리(위치)를 설정</br>* bottom : 요소의 position 기준에 맞는 아래쪽에서의 거리(위치)를 설정</br>* left : 요소의 position 기준에 맞는 왼쪽에서의 거리(위치)를 설정</br>* right : 요소의 position 기준에 맞는 오른쪽에서의 거리(위치)를 설정</p>
 </blockquote>
 <h2 id="position-속성">position 속성</h2>
 <h3 id="position-relative">position: relative</h3>
 <p><code>position</code> 속성을 <code>relative</code> 로 설정하게 되면, 요소를 원래 위치에서 벗어나게 배치할 수 있습니다.
 위치 지정은 <code>top</code>,<code>bottom</code>,<code>left</code>,<code>right</code> 를 이용해 정할 수 있습니다.</p>
 <p>아래의 예시를 보시면 <code>position</code>은 <code>relative</code> 위치는 <code>top: 28px;</code> , <code>left: 48px</code> 로 이동하여 겹쳐있는것을 볼 수 있습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">#</span><span class="nn">relative</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mi">28</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">left</span><span class="p">:</span> <span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> </p>
-<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#relative {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">28</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">48</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p> </p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvrywgj" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/sosolyht/pen/wvrywgj">
+  Untitled</a> by Bridge (<a href="https://codepen.io/sosolyht">@sosolyht</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+&nbsp;
+&nbsp;
 <h3 id="position-absolute">position: absolute</h3>
 <p>position은 어렵게 생각할것없이
 원래의 위치와 상관없이 위치를 지정할 수 있습니다.
 absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오해하시는 경우가 있습니다. 하지만 absolute 는 부모 요소의 기준으로 위치가 결정 됩니다.</p>
 <p>아래의 예제를 보시면 <code>top: 80px;</code> , <code>right: 16px;</code> 의 값을 주게 되면 <code>relative</code> 기준으로 떨어져있는 것을 보실 수 있습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">sample</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">absloute</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">right</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> </p>
-<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sample</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#absloute {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p> </p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="yLzvyvK" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/sosolyht/pen/yLzvyvK">
+  absloute</a> by Bridge (<a href="https://codepen.io/sosolyht">@sosolyht</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+&nbsp;
+참고로 `absolute` 의 요소는 HTML 문서상에서 독립되어 앞뒤에 나온 요소와 상호작용을 하지않습니다
+&nbsp;
+&nbsp;
 <h3 id="position-fixed">position: fixed</h3>
 <p><code>fixed</code> 는 화면을 위아래로 스크롤하더라도 브라우저 화면의 특정 부분이 고정되어 움직이지 않습니다.
 쉽게 예를들어 웹사이트들어가면 귀찮게 따라다니는 사이드 광고를 생각하시면 될것 같습니다.</p>
 <p>아래의 예시를 참고하시면 될것같습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">#</span><span class="nn">fixed</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">bottom</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">right</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#fixed {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bottom</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="yLzvyjj" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/sosolyht/pen/yLzvyjj">
+  fixed</a> by Bridge (<a href="https://codepen.io/sosolyht">@sosolyht</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 <p> 
  </p>
 <h2 id="display-속성">display 속성</h2>
 <h3 id="inline">inline</h3>
 <p><code>inline</code> 특징으로는 <code>&lt;span&gt;</code>,<code>&lt;a&gt;</code>,<code>&lt;em&gt;</code> 태그를 예로 들 수 있습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">a</span><span class="p">&gt;</span>A<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>SPAN<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>EM<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>을 작성해보시면
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span>&gt;A&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span>&gt;SPAN&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">em</span>&gt;EM&lt;<span style="color:#f92672">em</span>&gt;
+</span></span></code></pre></div><p>을 작성해보시면
 띄어쓰기가 되지않고 한 줄로 보이게됩니다.
 그리고 <code>width</code> 와 <code>height</code> 속성을 지정해도 무시되는걸 참고하시길 바랍니다.
  </p>
@@ -363,19 +355,10 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
 </ul>
 <h3 id="block">block</h3>
 <p><code>block</code> 특징으로는 <code>&lt;div&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;h1&gt;</code> 태그를 예로 들 수 있습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>DIV<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>P<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>H1<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>을 작성해보시면 태그마다 줄바꿈되어 보여지실겁니다.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;DIV&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;P&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span>&gt;H1&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span></code></pre></div><p>을 작성해보시면 태그마다 줄바꿈되어 보여지실겁니다.
 <code>block</code> 은 <code>inline</code> 과는 달리 <code>width</code>,<code>height</code> 등 속성이 모두 반영이 됩니다.</p>
 
 </section>
@@ -390,18 +373,6 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -469,7 +440,7 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

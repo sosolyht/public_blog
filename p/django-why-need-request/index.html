@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/django-why-need-request/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Django] JsonResponse를 쓰는데 왜 request 가 필요할까'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Django] JsonResponse를 쓰는데 왜 request 가 필요할까'>
 <meta property='og:description' content='HttpRequest 의 하위클래스에있는 JsonResponse'>
 <meta property='og:url' content='https://heetaek.com/p/django-why-need-request/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-why-need-request/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" alt="Featured image of post [Django] JsonResponse를 쓰는데 왜 request 가 필요할까" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -273,97 +295,49 @@ JsonResponse 객체를 끌어다와서 쓰기도합니다.</p>
 <ul>
 <li>Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">View</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    Intentionally simple parent class for all views. Only implements
-</span></span></span><span class="line"><span class="cl"><span class="s2">    dispatch-by-method and simple sanity checking.
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">http_method_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;trace&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">        Constructor. Called in the URLconf; can contain helpful extra
-</span></span></span><span class="line"><span class="cl"><span class="s2">        keyword arguments, and other things.
-</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Go through keyword arguments, and either save their values to our</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># instance, or raise an error.</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@classonlymethod</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">as_view</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">initkwargs</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">initkwargs</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">http_method_names</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;The method name </span><span class="si">%s</span><span class="s1"> is not accepted as a keyword argument &#39;</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;to </span><span class="si">%s</span><span class="s1">().&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">() received an invalid keyword </span><span class="si">%r</span><span class="s2">. as_view &#34;</span>
-</span></span><span class="line"><span class="cl">                                <span class="s2">&#34;only accepts arguments that are already &#34;</span>
-</span></span><span class="line"><span class="cl">                                <span class="s2">&#34;attributes of the class.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># defer to the error handler. Also defer to the error handler if the</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># request method isn&#39;t on the approved list.</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_names</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">handler</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_not_allowed</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_method_not_allowed</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">View</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Intentionally simple parent class for all views. Only implements
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    dispatch-by-method and simple sanity checking.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    http_method_names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;get&#39;</span>, <span style="color:#e6db74">&#39;post&#39;</span>, <span style="color:#e6db74">&#39;put&#39;</span>, <span style="color:#e6db74">&#39;patch&#39;</span>, <span style="color:#e6db74">&#39;delete&#39;</span>, <span style="color:#e6db74">&#39;head&#39;</span>, <span style="color:#e6db74">&#39;options&#39;</span>, <span style="color:#e6db74">&#39;trace&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Constructor. Called in the URLconf; can contain helpful extra
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        keyword arguments, and other things.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Go through keyword arguments, and either save their values to our</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># instance, or raise an error.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> kwargs<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>            setattr(self, key, value)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classonlymethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">as_view</span>(cls, <span style="color:#f92672">**</span>initkwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> initkwargs:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> cls<span style="color:#f92672">.</span>http_method_names:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;The method name </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is not accepted as a keyword argument &#39;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;to </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">().&#39;</span> <span style="color:#f92672">%</span> (key, cls<span style="color:#f92672">.</span>__name__)
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> hasattr(cls, key):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">() received an invalid keyword </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">. as_view &#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;only accepts arguments that are already &#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;attributes of the class.&#34;</span> <span style="color:#f92672">%</span> (cls<span style="color:#f92672">.</span>__name__, key))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dispatch</span>(self, request, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># defer to the error handler. Also defer to the error handler if the</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># request method isn&#39;t on the approved list.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>method<span style="color:#f92672">.</span>lower() <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>http_method_names:
+</span></span><span style="display:flex;"><span>            handler <span style="color:#f92672">=</span> getattr(self, request<span style="color:#f92672">.</span>method<span style="color:#f92672">.</span>lower(), self<span style="color:#f92672">.</span>http_method_not_allowed)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            handler <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>http_method_not_allowed
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> handler(request, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span></code></pre></div><blockquote>
 <p><code>as_view</code> 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.</p>
 </blockquote>
 <blockquote>
@@ -389,18 +363,6 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -419,13 +381,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
                 
 <article class="has-image">
     <a href="/p/django-query-string/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" data-key="django-query-string" data-hash="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -438,13 +394,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
                 
 <article class="has-image">
     <a href="/p/django-queryset-filter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" data-key="django-queryset-filter" data-hash="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -457,13 +407,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
                 
 <article class="has-image">
     <a href="/p/django-raise/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png" loading="lazy" data-key="django-raise" data-hash="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -476,13 +420,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
                 
 <article class="has-image">
     <a href="/p/django-related-name/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png" loading="lazy" data-key="django-related-name" data-hash="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -495,13 +433,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
                 
 <article class="has-image">
     <a href="/p/django-orm-get-filter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" data-key="django-orm-get-filter" data-hash="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -572,7 +504,7 @@ request 메소드가 정의된 http_method_names 에 해당되면 request 에서
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

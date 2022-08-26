@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko-kr" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 1 2 3 4 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output'><title></title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output format [None]: json 기'><title></title>
 
 <link rel='canonical' href='https://heetaek.com/p/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content=''>
-<meta property='og:description' content='사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 1 2 3 4 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content=''>
+<meta property='og:description' content='사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output format [None]: json 기'>
 <meta property='og:url' content='https://heetaek.com/p/'>
 <meta property='og:site_name' content='희택 Playground'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 1 2 3 4 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output">
+<meta name="twitter:description" content="사전 셋팅 Python 3.8.10 설치 https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg Node.js 설치 brew install node AWS 설정 IAM 계정의 Access Key 와 Secret Key 를 가지고 설정합니다. 지역은 사용하시는 리전 AWS Access Key ID [None]: AKI******** AWS Secret Access Key [None]: lSrC************* Default region name [None]: ap-northeast-2 Default output format [None]: json 기">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGP0XNM9N5"></script>
 <script>
 var doNotTrack = false;
@@ -35,7 +35,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -112,6 +114,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -154,6 +177,26 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
@@ -173,30 +216,11 @@ if (!doNotTrack) {
     </div>
 
     
-    <footer class="article-time">
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    1 분 정도
-                </time>
-            </div>
-        
-    </footer>
-    
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -208,18 +232,6 @@ if (!doNotTrack) {
     <footer class="article-footer">
     
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -287,7 +299,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

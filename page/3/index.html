@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://heetaek.com/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='희택 Playground'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='희택 Playground'>
 <meta property='og:description' content='기술 정보를 찾고 공부하여 공유합니다.'>
 <meta property='og:url' content='https://heetaek.com/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -34,7 +34,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -111,6 +113,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -153,6 +176,26 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
@@ -167,14 +210,6 @@ if (!doNotTrack) {
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-why-need-request/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" alt="Featured image of post [Django] JsonResponse를 쓰는데 왜 request 가 필요할까" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,39 +252,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/python-list-comprehension/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 리스트 컴프리헨션(List Comprehension)" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -292,39 +306,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-queryset-filter/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" alt="Featured image of post [Django] QuerySet filter 제대로 알아보자" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -367,39 +360,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-raise/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png" loading="lazy" alt="Featured image of post [Django] raise error 메시지를 json데이터로 출력하는 방법" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -442,39 +414,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    1 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/rest-api/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964947-48b18c99-efb0-44fc-b442-ada8801e7a96.png" loading="lazy" alt="Featured image of post [Network] REST API란?" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -517,39 +468,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-related-name/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png" loading="lazy" alt="Featured image of post [Django] 참조(Foreign Key) 역참조(related_name)" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -592,39 +522,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-orm-get-filter/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" alt="Featured image of post [Django] ORM get(), filter() 비교" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -667,39 +576,18 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    1 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
             
 <article class="has-image">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/python-decorator/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 데코레이터(Decorator)와 클로저(Clousure) 활용" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -742,26 +630,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 </article>
         
     </section>
@@ -802,7 +677,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

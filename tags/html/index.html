@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/tags/html/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='Tag: HTML - 희택 Playground'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='Tag: HTML - 희택 Playground'>
 <meta property='og:description' content='기술 정보를 찾고 공부하여 공유합니다.'>
 <meta property='og:url' content='https://heetaek.com/tags/html/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -33,7 +33,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -110,6 +112,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -152,6 +175,26 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
@@ -182,14 +225,11 @@ if (!doNotTrack) {
                 <time datetime='2021-12-27T00:00:00Z'>2021-12-27</time>
             </footer>
         </div>
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151965048-eba453c3-ecf3-43b5-a8e6-1a260ce5ba61.png" loading="lazy" alt="Featured image of post [HTML] Semantic Web, Semantic Tag 이 뭔가요?" />
-                
-            </div>
+
         
     </a>
 </article>
+
         
     </section>
 <footer class="site-footer">
@@ -202,7 +242,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/django-related-name/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Django] 참조(Foreign Key) 역참조(related_name)'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Django] 참조(Foreign Key) 역참조(related_name)'>
 <meta property='og:description' content='장고 모델작성시 참조 역참조에 대해'>
 <meta property='og:url' content='https://heetaek.com/p/django-related-name/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/django-related-name/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/150625177-c20926d0-c57a-4ebd-81ef-ae67694fc94b.png" loading="lazy" alt="Featured image of post [Django] 참조(Foreign Key) 역참조(related_name)" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -254,147 +276,66 @@ if (!doNotTrack) {
 	
 ></p>
 <p>위와 같은 모델이 있다고 가정할때</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Actor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화배우</span>
-</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>영화(Movie) 라는 모델에서 영화배우(Actor)를 불러들이는 것을 &lsquo;참조&rsquo; 라 합니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">Movie</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;이정재&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>반대로 Actor 객체는 Movie 를 역참조 하고 있으므로 바로 접근이 불가능합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Movie</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화</span>
+</span></span><span style="display:flex;"><span>    actor [<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE)
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Actor</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화배우</span>
+</span></span><span style="display:flex;"><span>    name [<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>    age <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>영화(Movie) 라는 모델에서 영화배우(Actor)를 불러들이는 것을 &lsquo;참조&rsquo; 라 합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> Movie<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>get(id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>) [<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>] [<span style="color:#ae81ff">2</span>]  [<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>a<span style="color:#f92672">.</span>actor<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;이정재&#39;</span>
+</span></span></code></pre></div><p>반대로 Actor 객체는 Movie 를 역참조 하고 있으므로 바로 접근이 불가능합니다.</p>
 <p>역참조 관계에 있을때는 아래의 역참조 세션에서 확인해봅시다.</p>
 <h1 id="역참조-related_name">역참조 (related_name)</h1>
 <blockquote>
 <p>정참조하고있는 클래스에서 어떤 명칭으로 거꾸로 호출당할지를 정해주는 이름입니다,</p>
 </blockquote>
 <p>정참조했을때와 같은 모델인데 Movie 클래스의 actor 에 <code>related_name = 'my_related'</code> 가 생겼습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;my_related&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Actor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화배우</span>
-</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Actor 객체의 인스턴스와 연결되어있는 Movie 객체를 불러올때 <code>my_related</code> 라는 이름을 부르기 위해서입니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">.</span><span class="n">my_related</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="o">&lt;</span><span class="n">QuerySet</span><span class="p">[</span><span class="o">&lt;</span><span class="n">Object</span> <span class="n">Movie</span> <span class="n">Object</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Object</span> <span class="n">Movie</span> <span class="n">Object</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>이런식으로 진행됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Movie</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화</span>
+</span></span><span style="display:flex;"><span>    actor <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE, related_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;my_related&#39;</span>)
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Actor</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화배우</span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>    age <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>Actor 객체의 인스턴스와 연결되어있는 Movie 객체를 불러올때 <code>my_related</code> 라는 이름을 부르기 위해서입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>b <span style="color:#f92672">=</span> Actor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>get(id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>b<span style="color:#f92672">.</span>my_related<span style="color:#f92672">.</span>all()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">&lt;</span>QuerySet[<span style="color:#f92672">&lt;</span>Object Movie Object(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>Object Movie Object(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">&gt;</span>]<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>이런식으로 진행됩니다.</p>
 <h2 id="역참조가-꼭-필요할때">역참조가 꼭 필요할때</h2>
 <p>눈치채셨을분들도 계시겠지만</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor</span>  <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor2</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>한 클래스에서 서로 다른 두 컬럼이 같은 테이블을 참조하는 경우</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Movie</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화</span>
+</span></span><span style="display:flex;"><span>    actor  <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE)
+</span></span><span style="display:flex;"><span>    actor2 <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>한 클래스에서 서로 다른 두 컬럼이 같은 테이블을 참조하는 경우</p>
 <p><code>related_name</code> 으로 구분해서 호출할 수 있게끔 작성해줍니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Movie</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 영화</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor</span>  <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;my_related&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">actor2</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Actor&#39;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span> <span class="o">=</span> <span class="s1">&#39;your_related&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span><span class="line"><span class="cl">  <span class="o">.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>머리가 나빠서 이해하는데 꽤 오래걸렸습니다 .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Movie</span>(models<span style="color:#f92672">.</span>Model): <span style="color:#75715e"># 영화</span>
+</span></span><span style="display:flex;"><span>    actor  <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE, related_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;my_related&#39;</span>)
+</span></span><span style="display:flex;"><span>    actor2 <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#39;Actor&#39;</span>, on_delete <span style="color:#f92672">=</span> CASCADE, related_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;your_related&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>머리가 나빠서 이해하는데 꽤 오래걸렸습니다 .</p>
 
 </section>
 
@@ -410,18 +351,6 @@ if (!doNotTrack) {
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -440,13 +369,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/django-queryset-filter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" data-key="django-queryset-filter" data-hash="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -459,13 +382,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/django-orm-get-filter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png" loading="lazy" data-key="django-orm-get-filter" data-hash="https://user-images.githubusercontent.com/2377807/151730971-5125d3b2-552d-4673-9d52-839d685f2593.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -478,13 +395,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/django-query-string/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" data-key="django-query-string" data-hash="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -497,13 +408,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/django-why-need-request/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" loading="lazy" data-key="django-why-need-request" data-hash="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -516,13 +421,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/django-raise/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png" loading="lazy" data-key="django-raise" data-hash="https://user-images.githubusercontent.com/2377807/151670116-ea498b04-6e79-4bd1-aaae-ad54eeb7eb5b.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -593,7 +492,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/rest-api/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Network] REST API란?'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Network] REST API란?'>
 <meta property='og:description' content='REST 와 RESTful API 의 의미와 설계 가이드'>
 <meta property='og:url' content='https://heetaek.com/p/rest-api/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/rest-api/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964947-48b18c99-efb0-44fc-b442-ada8801e7a96.png" loading="lazy" alt="Featured image of post [Network] REST API란?" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -262,7 +284,7 @@ REST 란 웹에 존재하는 자원에 대해 고유한 URI 부여하는 방법�
 <blockquote>
 <ul>
 <li>장점 : RESTful API는 그 자체만으로도 API의 목적이 쉽게 이해가 됩니다.
-<!-- raw HTML omitted --></li>
+</br></li>
 <li>단점 : 위의 구글 예시와같이 표준규약이 없어서 안티패턴으로 작성되는 경우가 흔합니다.</li>
 </ul>
 </blockquote>
@@ -312,65 +334,25 @@ REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합
 <ol>
 <li>URI는 동사보다는 명사를, 대문자보다는 소문자를 사용하여야 합니다.</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Bad Example : https://heetaek.com/Learning
-</span></span><span class="line"><span class="cl">Good Example : https://heetaek.com/learn
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> 
+<pre tabindex="0"><code>Bad Example : https://heetaek.com/Learning
+Good Example : https://heetaek.com/learn
+</code></pre><p> 
 2. 마지막에 슬래시 ( / )를 포함하지 않습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Bad Example : https://heetaek.com/post/
-</span></span><span class="line"><span class="cl">Good Example : https://heetaek.com/post
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> 
+<pre tabindex="0"><code>Bad Example : https://heetaek.com/post/
+Good Example : https://heetaek.com/post
+</code></pre><p> 
 3. 언더바( _ ) 대신 하이폰( - )을 사용합니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Bad Example : https://heetaek.com/handsome_heetaek
-</span></span><span class="line"><span class="cl">Good Example : https://heetaek.com/handsome-heetaek
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> 
+<pre tabindex="0"><code>Bad Example : https://heetaek.com/handsome_heetaek
+Good Example : https://heetaek.com/handsome-heetaek
+</code></pre><p> 
 4. 파일확장자는 URI에 포함하지 않습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Bad Example : https://heetaek.com/heetaek.png
-</span></span><span class="line"><span class="cl">Good Example : https://cidk.xyz/photo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> 
+<pre tabindex="0"><code>Bad Example : https://heetaek.com/heetaek.png
+Good Example : https://cidk.xyz/photo
+</code></pre><p> 
 5. 행위를 포함하지 않습니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Bad Example : https://heetaek.com/delete-post/3
-</span></span><span class="line"><span class="cl">Good Example : https://heetaek.com/post/3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> </p>
+<pre tabindex="0"><code>Bad Example : https://heetaek.com/delete-post/3
+Good Example : https://heetaek.com/post/3
+</code></pre><p> </p>
 <blockquote>
 <p>Reference: <a class="link" href="https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html"  target="_blank" rel="noopener"
     >https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html</a></p>
@@ -392,18 +374,6 @@ REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -422,13 +392,7 @@ REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합
                 
 <article class="has-image">
     <a href="/p/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B7%9C%EC%B9%99-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-osi-%EB%AA%A8%EB%8D%B8%EA%B3%BC-tcp/ip-%EB%AA%A8%EB%8D%B8/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181749554-a06e6898-7f00-4daa-be9e-f84323b307d0.png" loading="lazy" data-key="" data-hash="https://user-images.githubusercontent.com/2377807/181749554-a06e6898-7f00-4daa-be9e-f84323b307d0.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -499,7 +463,7 @@ REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

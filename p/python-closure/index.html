@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/python-closure/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Python] 클로저(Closure)'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Python] 클로저(Closure)'>
 <meta property='og:description' content='처음에는 어려운 파이썬 클로저'>
 <meta property='og:url' content='https://heetaek.com/p/python-closure/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/python-closure/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 클로저(Closure)" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    1 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -246,84 +268,39 @@ if (!doNotTrack) {
 <li>함수와 해당 함수가 가지고있는 데이터를 복사, 저장해서 별도 함수로 사용</li>
 <li>처음에 보면 이해하기가 어려움</li>
 </ul>
-<!-- raw HTML omitted -->
-<p>제곱(power)로 예시<!-- raw HTML omitted -->
+<!-- more -->
+<p>제곱(power)로 예시</br>
 중간에 있는 <code>closure_power1</code> , <code>closure_power2</code> , <code>closure_power3</code> 가 closure 입니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calc_power</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">power</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">closure_power1</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">closure_power2</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">closure_power3</span> <span class="o">=</span> <span class="n">calc_power</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">closure_power1</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">closure_power2</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">closure_power3</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>결과</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="mi">9</span>
-</span></span><span class="line"><span class="cl"><span class="mi">64</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">outer_func</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">inner_func</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">inner_func</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">closure_func</span> <span class="o">=</span> <span class="n">outer_func</span><span class="p">(</span><span class="mi">58</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">closure_func</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>결과는? <code>58</code> 입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_power</span>(x):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(y):
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x <span style="color:#f92672">**</span> y
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> power
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>closure_power1 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>closure_power2 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>closure_power3 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(closure_power1(<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>print(closure_power2(<span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>print(closure_power3(<span style="color:#ae81ff">3</span>))
+</span></span></code></pre></div><p>결과</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">64</span>
+</span></span></code></pre></div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer_func</span>(num):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner_func</span>():
+</span></span><span style="display:flex;"><span>		print(num)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> inner_func
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>closure_func <span style="color:#f92672">=</span> outer_func(<span style="color:#ae81ff">58</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>closure_func()
+</span></span></code></pre></div><p>결과는? <code>58</code> 입니다.</p>
 <ul>
 <li>closure_func = outer_func(58) 에서 outer_func 함수는 호출 종료</li>
 <li>closure_func() 은 결국 inner_func 함수를 호출</li>
@@ -347,18 +324,6 @@ if (!doNotTrack) {
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -377,13 +342,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-is/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-is" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -396,13 +355,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-list-comprehension/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-comprehension" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -415,13 +368,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-decorator/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-decorator" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -434,13 +381,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-list-set-dict/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-set-dict" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -453,13 +394,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-function-parameter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-function-parameter" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -530,7 +465,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

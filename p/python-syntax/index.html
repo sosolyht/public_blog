@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/python-syntax/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Python] 기초 문법'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Python] 기초 문법'>
 <meta property='og:description' content='파이썬 기초 문법에 대해 배워보아요.'>
 <meta property='og:url' content='https://heetaek.com/p/python-syntax/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/python-syntax/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 기초 문법" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -245,39 +267,22 @@ if (!doNotTrack) {
 <h2 id="print">print</h2>
 <p><code>print</code> 는 무언가를 출력할때 사용됩니다.
 예를 들어,</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;코알못 블로그&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>라고 쓰면 <code>코알못 블로그</code> 라고 출력이 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;코알못 블로그&#34;</span>)
+</span></span></code></pre></div><p>라고 쓰면 <code>코알못 블로그</code> 라고 출력이 됩니다.</p>
 <p>이와 같이 뭔가를 출력할때 사용되고, 결과값을 확인하기 위한 용도로도 사용됩니다.
  
  </p>
 <h2 id="변수-variable">변수 (variable)</h2>
 <p>변수(variable)란 데이터를 저장하기 위해 할당받은 하나의 공간이라 생각하시면됩니다.</p>
 <p>변수는 자신이 원하는 역할을 부여할수있습니다</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;앙모띠&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;32&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">my_car</span> <span class="o">=</span> <span class="s2">&#34;Tico&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">live</span> <span class="o">=</span> <span class="s2">&#34;Seoul&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>name</code> 은 이름인 &lsquo;앙모띠&rsquo;, <code>age</code>는 나이인 &lsquo;32&rsquo;, <code>my_car</code> 는 자동차인 &lsquo;Tico&rsquo;, <code>live</code>는 사는 곳인 &lsquo;Seoul&rsquo; <!-- raw HTML omitted --> 이런식으로 원하는 변수명으로 지정할수있습니다.</p>
-<p>다만, 변수명을 지정할때는 조심하셔야할게있습니다.<!-- raw HTML omitted -->
-올바른 변수 이름 : <code>name</code>, <code>_name</code>, <code>my_name</code>, <code>myName</code><!-- raw HTML omitted -->
-잘못된 변수 이름: <code>7name</code>, <code>my name</code><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;앙모띠&#34;</span>
+</span></span><span style="display:flex;"><span>age <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;32&#34;</span>
+</span></span><span style="display:flex;"><span>my_car <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tico&#34;</span>
+</span></span><span style="display:flex;"><span>live <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Seoul&#34;</span>
+</span></span></code></pre></div><p><code>name</code> 은 이름인 &lsquo;앙모띠&rsquo;, <code>age</code>는 나이인 &lsquo;32&rsquo;, <code>my_car</code> 는 자동차인 &lsquo;Tico&rsquo;, <code>live</code>는 사는 곳인 &lsquo;Seoul&rsquo; </br> 이런식으로 원하는 변수명으로 지정할수있습니다.</p>
+<p>다만, 변수명을 지정할때는 조심하셔야할게있습니다.</br>
+올바른 변수 이름 : <code>name</code>, <code>_name</code>, <code>my_name</code>, <code>myName</code></br>
+잘못된 변수 이름: <code>7name</code>, <code>my name</code></br>
 참고하시면 됩니다.
  
  </p>
@@ -287,72 +292,30 @@ if (!doNotTrack) {
 예) &ldquo;안녕하세요&rdquo; , &ldquo;1995&rdquo; , &lsquo;반갑습니다&rsquo; , &lsquo;1128&rsquo;</p>
 <h3 id="integer-정수">integer (정수)</h3>
 <p>정수형(Integer)이란 말 그대로 정수를 뜻하는 자료형을 말합니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="float-실수">float (실수)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h3 id="float-실수">float (실수)</h3>
 <p>실수형(Floating-point)은 소수점이 포함된 숫자를 말합니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.56</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="boolean">boolean</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">3.56</span>
+</span></span></code></pre></div><h3 id="boolean">boolean</h3>
 <p>boolean은 참(True)과 거짓(False)을 나타내는 자료형입니다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p> </p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="kc">True</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="kc">False</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="kc">True</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="kc">False</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>위의 예시와 같이 참(True)과 거짓(False) 를 판별합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>위의 예시와 같이 참(True)과 거짓(False) 를 판별합니다.</p>
 
 </section>
 
@@ -366,18 +329,6 @@ if (!doNotTrack) {
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -396,13 +347,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-is/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-is" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -415,13 +360,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-list-comprehension/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-comprehension" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -434,13 +373,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-decorator/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-decorator" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -453,13 +386,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-list-set-dict/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-set-dict" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -472,13 +399,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-closure/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-closure" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -549,7 +470,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

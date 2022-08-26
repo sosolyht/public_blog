@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/python-list-set-dict/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이'>
 <meta property='og:description' content='기본적인 파이썬 세트, 딕셔너리, 리스트, 튜플의 차이점입니다.'>
 <meta property='og:url' content='https://heetaek.com/p/python-list-set-dict/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -42,7 +42,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -119,6 +121,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -161,20 +184,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/python-list-set-dict/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" alt="Featured image of post [Python] 세트(Set) 와 딕셔너리(Dictonary) 차이, 리스트(List) 와 튜플(Tuple) 의 차이" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -217,26 +252,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    1 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -248,19 +270,19 @@ if (!doNotTrack) {
 <blockquote>
 <ol>
 <li>제일 큰 차이는 dict 는 <code>{&quot;key&quot; : &quot;value&quot; , &quot;이름&quot; : &quot;최희택&quot;, &quot;나이&quot; : 28}</code> 이런식으로 key 와 value 값을 가질수있고, set 는 key 와 value 가 없이 <code>{&quot;최희택&quot;,&quot;바보&quot;,28,23}</code> 이렇게 값만 가질수있습니다.
-<!-- raw HTML omitted --></li>
+</br></li>
 </ol>
 </blockquote>
 <ol start="2">
 <li>dict 는 key 값은 변경할수없고, value값만 변경이 가능합니다.
-<!-- raw HTML omitted --></li>
+</br></li>
 <li>set는 변경이 가능한 리스트형입니다.</li>
 </ol>
 <h2 id="리스트list-와-튜플tuple의-차이">리스트(List) 와 튜플(Tuple)의 차이</h2>
 <blockquote>
 <ol>
 <li>list 는 대괄호 <code>[]</code> tuple 은 소괄호를 사용 <code>()</code>
-<!-- raw HTML omitted --></li>
+</br></li>
 </ol>
 </blockquote>
 <ol start="2">
@@ -279,18 +301,6 @@ if (!doNotTrack) {
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -309,13 +319,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-is/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-is" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -328,13 +332,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-list-comprehension/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-list-comprehension" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -347,13 +345,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-decorator/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-decorator" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -366,13 +358,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-closure/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-closure" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -385,13 +371,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/python-function-parameter/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png" loading="lazy" data-key="python-function-parameter" data-hash="https://user-images.githubusercontent.com/2377807/151964846-19a947e0-45be-421d-9515-84a921077aeb.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -462,7 +442,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

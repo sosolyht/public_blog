@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/algorithm-complexity/'>
 
-<link rel="stylesheet" href="/scss/style.min.3b8c9a7ea8dd7fcf2c097fa12a2d047b36de4a3775ce650c3abd4d151113acae.css"><meta property='og:title' content='[알고리즘] 시간 복잡도'>
+<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[알고리즘] 시간 복잡도'>
 <meta property='og:description' content='알고리즘 복잡도 알고리즘 복잡도에는 시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다. 이 중에서 가장 중요한'>
 <meta property='og:url' content='https://heetaek.com/p/algorithm-complexity/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -40,7 +40,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "light");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -117,6 +119,27 @@ if (!doNotTrack) {
         
 
         <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
             <a href='/archives/' >
                 
                 
@@ -159,20 +182,32 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
 <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/algorithm-complexity/">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" loading="lazy" alt="Featured image of post [알고리즘] 시간 복잡도" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -211,26 +246,13 @@ if (!doNotTrack) {
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    4 분 정도
-                </time>
-            </div>
-        
     </footer>
     
 
     
 </div>
 </header>
+
 
     <section class="article-content">
     
@@ -331,21 +353,11 @@ if (!doNotTrack) {
 <p>O(1) 은 입력 값이 증가하더라도 시간이 늘어나지 않는다.</p>
 </blockquote>
 <p>ex)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>결과</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> int(n <span style="color:#f92672">*</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test(<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>결과</p>
 <p><code>6</code></p>
 <p>입력 n이 어떻든 간에 반복문이 없기때문에 시간복잡도는 <code>1</code> 이다.</p>
 <p>빅오 표기법으로는 O(1) 입니다.</p>
@@ -390,27 +402,14 @@ if (!doNotTrack) {
 <blockquote>
 <p>O(n) 은 입력 값이 증가함에 따라 시간도 같이 증가하는 것을 의미합니다.</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>결과</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(n):
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        total <span style="color:#f92672">+=</span> num
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> total
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test(<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>결과</p>
 <p><code>6</code></p>
 <p>입력 n 에 따라 n 번을 반복문을 사용해 더해야합니다.</p>
 <p>따라서, 시간복잡도는 <code>1</code> 빅오 표기법은 O(n) 입니다.</p>
@@ -429,21 +428,11 @@ if (!doNotTrack) {
 <blockquote>
 <p>입력 값이 증가함에 따라 시간이 n의 제곱수의 비율로 증가하는 것을 의미합니다.</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>반복문이 두 번 있으면 O(n2)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(li):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> li:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> li:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> n,m
+</span></span></code></pre></div><p>반복문이 두 번 있으면 O(n2)</p>
 <p>반복문이 세 번 있으면 O(n3)</p>
 <p>&hellip;</p>
 <p>반복문 백 번 있으면 O(n100) 이지만, n 이 커질수록 지수가 주는 영향력이 없어지기 때문에,</p>
@@ -463,27 +452,14 @@ if (!doNotTrack) {
 <blockquote>
 <p>Big-O 표기법 중 가장 느린 시간 복잡도를 가지고있습니다.</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>재귀 함수를 통해 구현한 피보나치 수열은 O(2n) 의 시간 복잡도를 가지고있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">or</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> fib(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> fib(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><p>재귀 함수를 통해 구현한 피보나치 수열은 O(2n) 의 시간 복잡도를 가지고있습니다.</p>
 <p>위의 사진을 보면 차트가 가파르게 올라가는데 n 의 값이 커지면 시간 복잡도도 같이 증가하기 때문입니다.</p>
 <p>간단한 예시를 들면, 종이를 42번 접으면 두께가 지구에서 달까지 갈 만큼 커진다는 이야기가 있는데 그만한 두께를 가질 수 있는 이유는 매번 접을 때마다 2배로 늘어나기 때문입니다.</p>
 <blockquote>
@@ -520,18 +496,6 @@ if (!doNotTrack) {
     </section>
 
 
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
     </footer>
 
 
@@ -573,13 +537,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/data-structure-algoithm/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" loading="lazy" data-key="data-structure-algoithm" data-hash="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -592,13 +550,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/cs50-computational-thinking/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181749747-9f7c5bbb-4690-44ac-8e96-15e052779094.png" loading="lazy" data-key="cs50-computational-thinking" data-hash="https://user-images.githubusercontent.com/2377807/181749747-9f7c5bbb-4690-44ac-8e96-15e052779094.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -611,13 +563,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/stack-queue/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" loading="lazy" data-key="stack-queue" data-hash="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -630,13 +576,7 @@ if (!doNotTrack) {
                 
 <article class="has-image">
     <a href="/p/array-list/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" loading="lazy" data-key="array-list" data-hash="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png"/>
-                
-            </div>
+
         
 
         <div class="article-details">
@@ -707,7 +647,7 @@ if (!doNotTrack) {
     </section>
 
     <section class="powerby">
-        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
         
     </section>
 </footer>

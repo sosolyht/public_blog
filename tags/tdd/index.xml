@@ -28,9 +28,9 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Red&lt;!-- raw HTML omitted --&gt; : 단계에서는 실패하는 테스트 코드를 먼저 작성한다.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Green&lt;!-- raw HTML omitted --&gt; : 단계에서는 테스트 코드를 성공시키기 위한 실제 코드를 작성한다.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Blue&lt;!-- raw HTML omitted --&gt; : 단계에서는 중복 코드 제거, 일반화 등의 리팩토링을 수행한다&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color: red&#34;&gt;Red&lt;/span&gt; : 단계에서는 실패하는 테스트 코드를 먼저 작성한다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color: green&#34;&gt;Green&lt;/span&gt; : 단계에서는 테스트 코드를 성공시키기 위한 실제 코드를 작성한다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color: blue&#34;&gt;Blue&lt;/span&gt; : 단계에서는 중복 코드 제거, 일반화 등의 리팩토링을 수행한다&lt;/p&gt;
 &lt;p&gt;중요한 것은 실패하는 테스트 코드를 작성할 때까지 실제 코드를 작성하지 않는 것과, 실패하는 테스트를 통과할 정도의 최소 실제 코드를 작성해야하는 것이다.&lt;/p&gt;
 &lt;p&gt;이를 통해 실제 코드에 대해 기대되는 바를 보다 명확하게 정의 함으로써 불필요한 설계를 피할 수 있고, 정확한 요구 사항에 집중할 수 있다.&lt;/p&gt;
 &lt;h1 id=&#34;일반-개발-방식과-tdd-개발-방식의-비교&#34;&gt;일반 개발 방식과 TDD 개발 방식의 비교&lt;/h1&gt;
