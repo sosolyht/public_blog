@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/django-why-need-request/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Django] JsonResponse를 쓰는데 왜 request 가 필요할까'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[Django] JsonResponse를 쓰는데 왜 request 가 필요할까'>
 <meta property='og:description' content='HttpRequest 의 하위클래스에있는 JsonResponse'>
 <meta property='og:url' content='https://heetaek.com/p/django-why-need-request/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -295,48 +295,48 @@ JsonResponse 객체를 끌어다와서 쓰기도합니다.</p>
 <ul>
 <li>Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">View</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Intentionally simple parent class for all views. Only implements
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    dispatch-by-method and simple sanity checking.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">View</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Intentionally simple parent class for all views. Only implements
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    dispatch-by-method and simple sanity checking.
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    http_method_names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;get&#39;</span>, <span style="color:#e6db74">&#39;post&#39;</span>, <span style="color:#e6db74">&#39;put&#39;</span>, <span style="color:#e6db74">&#39;patch&#39;</span>, <span style="color:#e6db74">&#39;delete&#39;</span>, <span style="color:#e6db74">&#39;head&#39;</span>, <span style="color:#e6db74">&#39;options&#39;</span>, <span style="color:#e6db74">&#39;trace&#39;</span>]
+</span></span><span style="display:flex;"><span>    http_method_names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;get&#39;</span>, <span style="color:#f1fa8c">&#39;post&#39;</span>, <span style="color:#f1fa8c">&#39;put&#39;</span>, <span style="color:#f1fa8c">&#39;patch&#39;</span>, <span style="color:#f1fa8c">&#39;delete&#39;</span>, <span style="color:#f1fa8c">&#39;head&#39;</span>, <span style="color:#f1fa8c">&#39;options&#39;</span>, <span style="color:#f1fa8c">&#39;trace&#39;</span>]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Constructor. Called in the URLconf; can contain helpful extra
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        keyword arguments, and other things.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Go through keyword arguments, and either save their values to our</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># instance, or raise an error.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> kwargs<span style="color:#f92672">.</span>items():
-</span></span><span style="display:flex;"><span>            setattr(self, key, value)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, <span style="color:#ff79c6">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        Constructor. Called in the URLconf; can contain helpful extra
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        keyword arguments, and other things.
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Go through keyword arguments, and either save their values to our</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># instance, or raise an error.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> kwargs<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">setattr</span>(self, key, value)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classonlymethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">as_view</span>(cls, <span style="color:#f92672">**</span>initkwargs):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> initkwargs:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> cls<span style="color:#f92672">.</span>http_method_names:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;The method name </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is not accepted as a keyword argument &#39;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;to </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">().&#39;</span> <span style="color:#f92672">%</span> (key, cls<span style="color:#f92672">.</span>__name__)
+</span></span><span style="display:flex;"><span>    @classonlymethod
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">as_view</span>(cls, <span style="color:#ff79c6">**</span>initkwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;&#34;&#34;Main entry point for a request-response process.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> key <span style="color:#ff79c6">in</span> initkwargs:
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> key <span style="color:#ff79c6">in</span> cls<span style="color:#ff79c6">.</span>http_method_names:
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">raise</span> TypeError(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#39;The method name </span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c"> is not accepted as a keyword argument &#39;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#39;to </span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c">().&#39;</span> <span style="color:#ff79c6">%</span> (key, cls<span style="color:#ff79c6">.</span>__name__)
 </span></span><span style="display:flex;"><span>                )
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> hasattr(cls, key):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">() received an invalid keyword </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">. as_view &#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;only accepts arguments that are already &#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;attributes of the class.&#34;</span> <span style="color:#f92672">%</span> (cls<span style="color:#f92672">.</span>__name__, key))
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">not</span> <span style="color:#8be9fd;font-style:italic">hasattr</span>(cls, key):
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">raise</span> TypeError(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c">() received an invalid keyword </span><span style="color:#f1fa8c">%r</span><span style="color:#f1fa8c">. as_view &#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#f1fa8c">&#34;only accepts arguments that are already &#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#f1fa8c">&#34;attributes of the class.&#34;</span> <span style="color:#ff79c6">%</span> (cls<span style="color:#ff79c6">.</span>__name__, key))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dispatch</span>(self, request, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># defer to the error handler. Also defer to the error handler if the</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># request method isn&#39;t on the approved list.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>method<span style="color:#f92672">.</span>lower() <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>http_method_names:
-</span></span><span style="display:flex;"><span>            handler <span style="color:#f92672">=</span> getattr(self, request<span style="color:#f92672">.</span>method<span style="color:#f92672">.</span>lower(), self<span style="color:#f92672">.</span>http_method_not_allowed)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            handler <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>http_method_not_allowed
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> handler(request, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">dispatch</span>(self, request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Try to dispatch to the right method; if a method doesn&#39;t exist,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># defer to the error handler. Also defer to the error handler if the</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># request method isn&#39;t on the approved list.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> request<span style="color:#ff79c6">.</span>method<span style="color:#ff79c6">.</span>lower() <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>http_method_names:
+</span></span><span style="display:flex;"><span>            handler <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">getattr</span>(self, request<span style="color:#ff79c6">.</span>method<span style="color:#ff79c6">.</span>lower(), self<span style="color:#ff79c6">.</span>http_method_not_allowed)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            handler <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>http_method_not_allowed
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> handler(request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs)
 </span></span></code></pre></div><blockquote>
 <p><code>as_view</code> 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.</p>
 </blockquote>

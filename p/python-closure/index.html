@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/python-closure/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Python] 클로저(Closure)'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[Python] 클로저(Closure)'>
 <meta property='og:description' content='처음에는 어려운 파이썬 클로저'>
 <meta property='og:url' content='https://heetaek.com/p/python-closure/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -271,33 +271,33 @@ if (!doNotTrack) {
 <!-- more -->
 <p>제곱(power)로 예시</br>
 중간에 있는 <code>closure_power1</code> , <code>closure_power2</code> , <code>closure_power3</code> 가 closure 입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_power</span>(x):
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(y):
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x <span style="color:#f92672">**</span> y
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> power
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calc_power</span>(x):
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">power</span>(y):
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> x <span style="color:#ff79c6">**</span> y
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> power
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>closure_power1 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">2</span>)
-</span></span><span style="display:flex;"><span>closure_power2 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">3</span>)
-</span></span><span style="display:flex;"><span>closure_power3 <span style="color:#f92672">=</span> calc_power(<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>closure_power1 <span style="color:#ff79c6">=</span> calc_power(<span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>closure_power2 <span style="color:#ff79c6">=</span> calc_power(<span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>closure_power3 <span style="color:#ff79c6">=</span> calc_power(<span style="color:#bd93f9">4</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(closure_power1(<span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>print(closure_power2(<span style="color:#ae81ff">2</span>))
-</span></span><span style="display:flex;"><span>print(closure_power3(<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(closure_power1(<span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(closure_power2(<span style="color:#bd93f9">2</span>))
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(closure_power3(<span style="color:#bd93f9">3</span>))
 </span></span></code></pre></div><p>결과</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">64</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">64</span>
 </span></span></code></pre></div><p>사실 봐도 이해가 안되니 다른 쉬운 예시로 이해해봅시다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer_func</span>(num):
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner_func</span>():
-</span></span><span style="display:flex;"><span>		print(num)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">outer_func</span>(num):
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">inner_func</span>():
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd;font-style:italic">print</span>(num)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> inner_func
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> inner_func
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>closure_func <span style="color:#f92672">=</span> outer_func(<span style="color:#ae81ff">58</span>)
+</span></span><span style="display:flex;"><span>closure_func <span style="color:#ff79c6">=</span> outer_func(<span style="color:#bd93f9">58</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>closure_func()
 </span></span></code></pre></div><p>결과는? <code>58</code> 입니다.</p>

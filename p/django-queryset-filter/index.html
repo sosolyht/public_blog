@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/django-queryset-filter/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Django] QuerySet filter 제대로 알아보자'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[Django] QuerySet filter 제대로 알아보자'>
 <meta property='og:description' content='혼란스러운 queryset filter'>
 <meta property='og:url' content='https://heetaek.com/p/django-queryset-filter/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -280,26 +280,26 @@ if (!doNotTrack) {
 <p>계속 filter 에 대해 쓰는 이유는 중요하기도 하고 저도 배워야하기 때문에..</p>
 <h2 id="exact">exact</h2>
 <p><code>exact</code> 는 정확히 일치하는 데이터를 찾습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Product<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>get(id__exact <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Product<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>get(id__exact <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">14</span>)
 </span></span></code></pre></div><p>Product 라는 객체에 id 가 14번인 친구를 찾으라는 거겠죠?</p>
 <h3 id="iexact">iexact</h3>
 <p><code>iexact</code> 는 대소문자를 구분하지않고 정확히 일치하는 데이터를 찾습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Product<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>get(name__iexact <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;k9 tank&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Product<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>get(name__iexact <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;k9 tank&#39;</span>)
 </span></span></code></pre></div><p>마찬가지로 Product 라는 객체에 name 이 <code>k9 tank</code> 라는 친구를 찾아오라는 겁니다.</p>
 <h2 id="contains">contains</h2>
 <p><code>contains</code> 는 포함하고있는 문자열을 찾습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(name__contains <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;희택&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(name__contains <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;희택&#39;</span>)
 </span></span></code></pre></div><p>위의 코드는 <code>희택</code> 이라는 친구를 가져오라는 겁니다.</p>
 <h3 id="icontains">icontains</h3>
 <p><code>icontains</code> 는 대소문자를 구분하지않고 포함하고있는 문자열을 찾습니다.
 사실 왠만하면 저는 <code>icontains</code> 를 쓸텐데..나중에 써보고 어떤게 더 좋은지 블로그에 또 써보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>User<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(job__icontains <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bus Driver&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>User<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(job__icontains <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;bus Driver&#39;</span>)
 </span></span></code></pre></div><p>이렇게 하면 버스 기사님의 정보를 다 가져올수있겠죠.</p>
 <h2 id="in">in</h2>
 <p><code>in</code> 은 여러 조건을 포함할 경우 사용합니다.
 list , tuple 등 iterable 한 객체를 가져올수있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(id__in<span style="color:#f92672">=</span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>])
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(name__in<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;최희택&#39;</span>,<span style="color:#e6db74">&#39;이정재&#39;</span>,<span style="color:#e6db74">&#39;공유&#39;</span>])
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(id__in<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>])
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(name__in<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;최희택&#39;</span>,<span style="color:#f1fa8c">&#39;이정재&#39;</span>,<span style="color:#f1fa8c">&#39;공유&#39;</span>])
 </span></span></code></pre></div><h2 id="gt--lt--gte--lte">gt , lt , gte , lte</h2>
 <ul>
 <li>gt : &gt;</li>
@@ -308,25 +308,25 @@ list , tuple 등 iterable 한 객체를 가져올수있습니다.</p>
 <li>lte : &lt;=</li>
 </ul>
 <p>부등호를 사용할수있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(id__gt<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Users<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(id__gt<span style="color:#ff79c6">=</span><span style="color:#bd93f9">4</span>)
 </span></span></code></pre></div><h2 id="startswith--istartswith">startswith , istartswith</h2>
 <ul>
 <li>startswith : 조건으로 시작하는 문자열 검색</li>
 <li>istartswith: startswith 을 대소문자 구분없이 검색</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Products<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(name__startswith<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gun&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Products<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(name__startswith<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gun&#34;</span>)
 </span></span></code></pre></div><h2 id="endswith--iendswith">endswith , iendswith</h2>
 <ul>
 <li>endswith : 조건으로 끝나는 문자열 검색</li>
 <li>iendswith : endswith 를 대소문자 구분없이 검색</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Products<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(name__startswith<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tank&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Products<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(name__startswith<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tank&#34;</span>)
 </span></span></code></pre></div><h2 id="range">range</h2>
 <p><code>range</code> 는 범위에 해당하는 object를 찾습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
-</span></span><span style="display:flex;"><span>start_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>date(<span style="color:#ae81ff">2022</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>end_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>date(<span style="color:#ae81ff">2022</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">31</span>)
-</span></span><span style="display:flex;"><span>Products<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(created_date__range<span style="color:#f92672">=</span>(start_date, end_date))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> datetime
+</span></span><span style="display:flex;"><span>start_date <span style="color:#ff79c6">=</span> datetime<span style="color:#ff79c6">.</span>date(<span style="color:#bd93f9">2022</span>, <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>end_date <span style="color:#ff79c6">=</span> datetime<span style="color:#ff79c6">.</span>date(<span style="color:#bd93f9">2022</span>, <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">31</span>)
+</span></span><span style="display:flex;"><span>Products<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>filter(created_date__range<span style="color:#ff79c6">=</span>(start_date, end_date))
 </span></span></code></pre></div>
 </section>
 

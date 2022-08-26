@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[CSS] position 속성과 display 속성에 대해'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[CSS] position 속성과 display 속성에 대해'>
 <meta property='og:description' content='알아두면 좋은 기본적인 css 속성들'>
 <meta property='og:url' content='https://heetaek.com/p/css-position-%EC%86%8D%EC%84%B1%EA%B3%BC-display-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -274,10 +274,10 @@ if (!doNotTrack) {
 <p><code>position</code> 속성을 <code>relative</code> 로 설정하게 되면, 요소를 원래 위치에서 벗어나게 배치할 수 있습니다.
 위치 지정은 <code>top</code>,<code>bottom</code>,<code>left</code>,<code>right</code> 를 이용해 정할 수 있습니다.</p>
 <p>아래의 예시를 보시면 <code>position</code>은 <code>relative</code> 위치는 <code>top: 28px;</code> , <code>left: 48px</code> 로 이동하여 겹쳐있는것을 볼 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#relative {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">28</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">48</span><span style="color:#66d9ef">px</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#relative {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">relative</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">top</span>: <span style="color:#bd93f9">28</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">left</span>: <span style="color:#bd93f9">48</span><span style="color:#8be9fd">px</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p> </p>
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvrywgj" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -293,19 +293,19 @@ if (!doNotTrack) {
 원래의 위치와 상관없이 위치를 지정할 수 있습니다.
 absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오해하시는 경우가 있습니다. 하지만 absolute 는 부모 요소의 기준으로 위치가 결정 됩니다.</p>
 <p>아래의 예제를 보시면 <code>top: 80px;</code> , <code>right: 16px;</code> 의 값을 주게 되면 <code>relative</code> 기준으로 떨어져있는 것을 보실 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">body</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#ff79c6">body</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">relative</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sample</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>.<span style="color:#50fa7b">sample</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">200</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">px</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>#absloute {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">absolute</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">top</span>: <span style="color:#bd93f9">80</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">right</span>: <span style="color:#bd93f9">16</span><span style="color:#8be9fd">px</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p> </p>
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="yLzvyvK" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -322,10 +322,10 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
 <p><code>fixed</code> 는 화면을 위아래로 스크롤하더라도 브라우저 화면의 특정 부분이 고정되어 움직이지 않습니다.
 쉽게 예를들어 웹사이트들어가면 귀찮게 따라다니는 사이드 광고를 생각하시면 될것 같습니다.</p>
 <p>아래의 예시를 참고하시면 될것같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#fixed {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bottom</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#fixed {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">fixed</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">bottom</span>: <span style="color:#bd93f9">8</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">right</span>: <span style="color:#bd93f9">16</span><span style="color:#8be9fd">px</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="yLzvyjj" data-user="sosolyht" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/sosolyht/pen/yLzvyjj">
@@ -338,9 +338,9 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
 <h2 id="display-속성">display 속성</h2>
 <h3 id="inline">inline</h3>
 <p><code>inline</code> 특징으로는 <code>&lt;span&gt;</code>,<code>&lt;a&gt;</code>,<code>&lt;em&gt;</code> 태그를 예로 들 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span>&gt;A&lt;/<span style="color:#f92672">a</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span>&gt;SPAN&lt;/<span style="color:#f92672">span</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">em</span>&gt;EM&lt;<span style="color:#f92672">em</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">a</span>&gt;A&lt;/<span style="color:#ff79c6">a</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">span</span>&gt;SPAN&lt;/<span style="color:#ff79c6">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">em</span>&gt;EM&lt;<span style="color:#ff79c6">em</span>&gt;
 </span></span></code></pre></div><p>을 작성해보시면
 띄어쓰기가 되지않고 한 줄로 보이게됩니다.
 그리고 <code>width</code> 와 <code>height</code> 속성을 지정해도 무시되는걸 참고하시길 바랍니다.
@@ -355,9 +355,9 @@ absolute 는 절대적이다라는 뜻때문에 마음껏 바꿀수있다고 오
 </ul>
 <h3 id="block">block</h3>
 <p><code>block</code> 특징으로는 <code>&lt;div&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;h1&gt;</code> 태그를 예로 들 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;DIV&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;P&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span>&gt;H1&lt;/<span style="color:#f92672">h1</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">div</span>&gt;DIV&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">p</span>&gt;P&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">h1</span>&gt;H1&lt;/<span style="color:#ff79c6">h1</span>&gt;
 </span></span></code></pre></div><p>을 작성해보시면 태그마다 줄바꿈되어 보여지실겁니다.
 <code>block</code> 은 <code>inline</code> 과는 달리 <code>width</code>,<code>height</code> 등 속성이 모두 반영이 됩니다.</p>
 

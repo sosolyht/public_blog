@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/go-go%EC%96%B8%EC%96%B4%EB%A1%9C-redis-pub-sub-%EA%B5%AC%ED%98%84/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Go] Go언어로 redis pub sub 구현'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[Go] Go언어로 redis pub sub 구현'>
 <meta property='og:description' content='Go 언어로 Redis pubsub 구현 필수 패키지 Mac 기준입니다. brew install redis brew 로 redis 설치하게 되면 Redis7 로 설치됩니다. 저희가 사용할 go-redis 는 현재 Redis6 가 stable 버전임을 참고바랍니다. go get github.com/go-redis/redis/v8 v8 = Redis6'>
 <meta property='og:url' content='https://heetaek.com/p/go-go%EC%96%B8%EC%96%B4%EB%A1%9C-redis-pub-sub-%EA%B5%AC%ED%98%84/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -260,17 +260,17 @@ if (!doNotTrack) {
     <h1 id="go-언어로-redis-pubsub-구현">Go 언어로 Redis pubsub 구현</h1>
 <h2 id="필수-패키지">필수 패키지</h2>
 <p>Mac 기준입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install redis
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install redis
 </span></span></code></pre></div><p>brew 로 redis 설치하게 되면 Redis7 로 설치됩니다.</p>
 <p>저희가 사용할 go-redis 는 현재 Redis6 가 stable 버전임을 참고바랍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#66d9ef">go</span><span style="color:#f92672">-</span><span style="color:#a6e22e">redis</span><span style="color:#f92672">/</span><span style="color:#a6e22e">redis</span><span style="color:#f92672">/</span><span style="color:#a6e22e">v8</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">go</span> get github.com<span style="color:#ff79c6">/</span><span style="color:#ff79c6">go</span><span style="color:#ff79c6">-</span>redis<span style="color:#ff79c6">/</span>redis<span style="color:#ff79c6">/</span>v8
 </span></span></code></pre></div><p>v8 = Redis6 (stable)</p>
 <p>v9 = Redis7 (beta)</p>
 <p>하지만 테스트 해본결과 큰 문제가 없습니다.</p>
 <p>라우터의 경우 뭘 사용해도 상관없습니다. (다만 body 바인딩 부분에서 조금의 차이가 있을 수 있습니다.)</p>
 <p>저는 AWS API Gateway 와 AWS Lambda 도 같이 사용할수있는</p>
 <p>http 라우터 golam 을 사용하였습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">unsafe</span><span style="color:#f92672">-</span><span style="color:#a6e22e">risk</span><span style="color:#f92672">/</span><span style="color:#a6e22e">golam</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">go</span> get github.com<span style="color:#ff79c6">/</span>unsafe<span style="color:#ff79c6">-</span>risk<span style="color:#ff79c6">/</span>golam
 </span></span></code></pre></div><h2 id="pubsub-구현">PubSub 구현</h2>
 <p>먼저 redis 의 pubsub 아키텍처가 무엇인지 확인해보자.</p>
 <p>참고링크 : <a class="link" href="https://medium.com/frientrip/pub-sub-%EC%9E%98-%EC%95%8C%EA%B3%A0-%EC%93%B0%EC%9E%90-de9dc1b9f739"  target="_blank" rel="noopener"
@@ -288,7 +288,7 @@ if (!doNotTrack) {
 	
 ></p>
 <center>Redis 의 PubSub 아키텍처</center>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── go.mod
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── go.mod
 </span></span><span style="display:flex;"><span>├── go.sum
 </span></span><span style="display:flex;"><span>├── redis
 </span></span><span style="display:flex;"><span>│   ├── dump.rdb
@@ -298,48 +298,48 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>│       └── main.go
 </span></span></code></pre></div><p><strong>publisher</strong> 의 경우 golam 으로 라우팅하여 <code>POST</code> 메소드로 메시지를 채널로 전송하였습니다.</p>
 <p><strong>subscriber</strong> 는 redis 채널로 메시지를 전송받게끔 구현하였습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">pub</span><span style="color:#f92672">/</span><span style="color:#a6e22e">main</span>.<span style="color:#66d9ef">go</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>pub<span style="color:#ff79c6">/</span>main.<span style="color:#ff79c6">go</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redisClient</span> = <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Addr</span>: <span style="color:#e6db74">&#34;localhost:6379&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> redisClient = redis.<span style="color:#50fa7b">NewClient</span>(<span style="color:#ff79c6">&amp;</span>redis.Options{
+</span></span><span style="display:flex;"><span>	Addr: <span style="color:#f1fa8c">&#34;localhost:6379&#34;</span>,
 </span></span><span style="display:flex;"><span>})
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ctx</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> ctx = context.<span style="color:#50fa7b">Background</span>()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Email</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;email&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> User <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>	Name  <span style="color:#8be9fd">string</span> <span style="color:#f1fa8c">`json:&#34;name&#34;`</span>
+</span></span><span style="display:flex;"><span>	Email <span style="color:#8be9fd">string</span> <span style="color:#f1fa8c">`json:&#34;email&#34;`</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">g</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">golam</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">PostString</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#e6db74">&#34;Start server&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">StartWithLocalAddr</span>(<span style="color:#e6db74">&#34;:3000&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	g <span style="color:#ff79c6">:=</span> golam.<span style="color:#50fa7b">New</span>()
+</span></span><span style="display:flex;"><span>	g.<span style="color:#50fa7b">POST</span>(<span style="color:#f1fa8c">&#34;/&#34;</span>, PostString)
+</span></span><span style="display:flex;"><span>	log.<span style="color:#50fa7b">Print</span>(<span style="color:#f1fa8c">&#34;Start server&#34;</span>)
+</span></span><span style="display:flex;"><span>	err <span style="color:#ff79c6">:=</span> g.<span style="color:#50fa7b">StartWithLocalAddr</span>(<span style="color:#f1fa8c">&#34;:3000&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#50fa7b">Print</span>(err)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">PostString</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">golam</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">User</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">body</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Request</span>().<span style="color:#a6e22e">Body</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#a6e22e">body</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">data</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">payload</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">PostString</span>(c golam.Context) <span style="color:#8be9fd">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> user User
+</span></span><span style="display:flex;"><span>	body <span style="color:#ff79c6">:=</span> c.<span style="color:#50fa7b">Request</span>().Body
+</span></span><span style="display:flex;"><span>	data <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">byte</span>(body)
+</span></span><span style="display:flex;"><span>	json.<span style="color:#50fa7b">Unmarshal</span>(data, <span style="color:#ff79c6">&amp;</span>user)
+</span></span><span style="display:flex;"><span>	payload, err <span style="color:#ff79c6">:=</span> json.<span style="color:#50fa7b">Marshal</span>(user)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd;font-style:italic">panic</span>(err)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Publish</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;채널명&#34;</span>, <span style="color:#a6e22e">payload</span>).<span style="color:#a6e22e">Err</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> redisClient.<span style="color:#50fa7b">Publish</span>(ctx, <span style="color:#f1fa8c">&#34;채널명&#34;</span>, payload).<span style="color:#50fa7b">Err</span>(); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#50fa7b">Print</span>(err)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#e6db74">&#34;good&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> c.<span style="color:#50fa7b">String</span>(http.StatusOK, <span style="color:#f1fa8c">&#34;good&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>redis 의 기본 포트인 <code>6379</code> 로 새로운 클라이언트 시작</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redisClient</span> = <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Addr</span>: <span style="color:#e6db74">&#34;localhost:6379&#34;</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> redisClient = redis.<span style="color:#50fa7b">NewClient</span>(<span style="color:#ff79c6">&amp;</span>redis.Options{
+</span></span><span style="display:flex;"><span>	Addr: <span style="color:#f1fa8c">&#34;localhost:6379&#34;</span>,
 </span></span><span style="display:flex;"><span>})
 </span></span></code></pre></div><p>Publish 메소드를 보면 채널에 메시지를 작성한다네요</p>
 <p>필요한 인자는 채널명과 메시지네요.</p>
@@ -356,68 +356,68 @@ if (!doNotTrack) {
 	
 ></p>
 <p>이렇게 하면 publisher 는 완성이 되었습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Publish</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;채널명&#34;</span>, <span style="color:#a6e22e">payload</span>).<span style="color:#a6e22e">Err</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">err</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> redisClient.<span style="color:#50fa7b">Publish</span>(ctx, <span style="color:#f1fa8c">&#34;채널명&#34;</span>, payload).<span style="color:#50fa7b">Err</span>(); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>  log.<span style="color:#50fa7b">Print</span>(err)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>subscriber 를 마무리 해봅시다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">sub</span><span style="color:#f92672">/</span><span style="color:#a6e22e">main</span>.<span style="color:#66d9ef">go</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>sub<span style="color:#ff79c6">/</span>main.<span style="color:#ff79c6">go</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ctx</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> ctx = context.<span style="color:#50fa7b">Background</span>()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redisClient</span> = <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Addr</span>: <span style="color:#e6db74">&#34;localhost:6379&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> redisClient = redis.<span style="color:#50fa7b">NewClient</span>(<span style="color:#ff79c6">&amp;</span>redis.Options{
+</span></span><span style="display:flex;"><span>	Addr: <span style="color:#f1fa8c">&#34;localhost:6379&#34;</span>,
 </span></span><span style="display:flex;"><span>})
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Email</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;email&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> User <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>	Name  <span style="color:#8be9fd">string</span> <span style="color:#f1fa8c">`json:&#34;name&#34;`</span>
+</span></span><span style="display:flex;"><span>	Email <span style="color:#8be9fd">string</span> <span style="color:#f1fa8c">`json:&#34;email&#34;`</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Subscribe</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;채널명&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	subscriber <span style="color:#ff79c6">:=</span> redisClient.<span style="color:#50fa7b">Subscribe</span>(ctx, <span style="color:#f1fa8c">&#34;채널명&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
+</span></span><span style="display:flex;"><span>	user <span style="color:#ff79c6">:=</span> User{}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">ReceiveMessage</span>(<span style="color:#a6e22e">ctx</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> {
+</span></span><span style="display:flex;"><span>		msg, err <span style="color:#ff79c6">:=</span> subscriber.<span style="color:#50fa7b">ReceiveMessage</span>(ctx)
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#8be9fd;font-style:italic">panic</span>(err)
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>([]byte(<span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Payload</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> json.<span style="color:#50fa7b">Unmarshal</span>([]<span style="color:#8be9fd;font-style:italic">byte</span>(msg.Payload), <span style="color:#ff79c6">&amp;</span>user); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#8be9fd;font-style:italic">panic</span>(err)
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;메시지가&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Channel</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; 채널에서 왔습니다.\n\n&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n\n&#34;</span>, <span style="color:#a6e22e">user</span>)
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;메시지가&#34;</span> <span style="color:#ff79c6">+</span> msg.Channel <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; 채널에서 왔습니다.\n\n&#34;</span>)
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;%+v\n\n&#34;</span>, user)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>subscriber 는 메시지를 받는 입장이니 publisher 채널을 구독해주어야겠죠.</p>
 <p>publisher 에서 생성했던 채널을 구독해줍시다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Subscribe</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;채널명&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>subscriber <span style="color:#ff79c6">:=</span> redisClient.<span style="color:#50fa7b">Subscribe</span>(ctx, <span style="color:#f1fa8c">&#34;채널명&#34;</span>)
 </span></span></code></pre></div><p>그리고 반복문을 돌며 메시지를 수신해주도록 하면됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">ReceiveMessage</span>(<span style="color:#a6e22e">ctx</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">for</span> {
+</span></span><span style="display:flex;"><span>    msg, err <span style="color:#ff79c6">:=</span> subscriber.<span style="color:#50fa7b">ReceiveMessage</span>(ctx)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">panic</span>(err)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>([]byte(<span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Payload</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> json.<span style="color:#50fa7b">Unmarshal</span>([]<span style="color:#8be9fd;font-style:italic">byte</span>(msg.Payload), <span style="color:#ff79c6">&amp;</span>user); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">panic</span>(err)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;메시지가&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Channel</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; 채널에서 왔습니다.\n\n&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n\n&#34;</span>, <span style="color:#a6e22e">user</span>)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;메시지가&#34;</span> <span style="color:#ff79c6">+</span> msg.Channel <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; 채널에서 왔습니다.\n\n&#34;</span>)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;%+v\n\n&#34;</span>, user)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="실행">실행</h2>
 <p>터미널 두개로 pub 과 sub 두개를 동시에 실행하였습니다.</p>
 <p>publisher 실행</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd pub
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> pub
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go
 </span></span></code></pre></div><p>subscriber 실행</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd sub
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> sub
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go
 </span></span></code></pre></div><p><img src="/pubsub.gif"
 	
 	

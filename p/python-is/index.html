@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://heetaek.com/p/python-is/'>
 
-<link rel="stylesheet" href="/scss/style.min.28663e8bf6231cd85fe81518df183937eca928c7a3dab1189d91c7aa81b1bc75.css"><meta property='og:title' content='[Python] &#39;is&#39; 와 &#39;==&#39; 의 차이점'>
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[Python] &#39;is&#39; 와 &#39;==&#39; 의 차이점'>
 <meta property='og:description' content='헷갈릴수있는 비교연산자'>
 <meta property='og:url' content='https://heetaek.com/p/python-is/'>
 <meta property='og:site_name' content='희택 Playground'>
@@ -268,24 +268,24 @@ if (!doNotTrack) {
 <p>먼저 결론은,</p>
 <p><code>is</code> 는 객체를 확인</p>
 <p><code>==</code> 는 값을 확인</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">is</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">is</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">True</span>
 </span></span></code></pre></div><p>위의 결과는 당연하다 <code>1</code> 은 boolean 값으로 <code>True</code> 이다.</p>
 <p>반면,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1995</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">is</span> <span style="color:#ae81ff">1995</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">==</span> <span style="color:#ae81ff">1995</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1995</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">is</span> <span style="color:#bd93f9">1995</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> a <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1995</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">True</span>
 </span></span></code></pre></div><p><code>a</code> 라는 변수에 <code>1995</code> 를 넣었을떄는 <code>False</code> 를 반환한다.</p>
 <p><code>is</code> 는 객체를 비교하고 <code>==</code> 는 값을 비교하기 때문이다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> id(a)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">140307053806736</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> id(<span style="color:#ae81ff">257</span>)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">140307053806576</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">id</span>(a)
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">140307053806736</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">id</span>(<span style="color:#bd93f9">257</span>)
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">140307053806576</span>
 </span></span></code></pre></div><p>위와 같이 서로의 메모리 주소도 다른것을 볼 수 있다.</p>
 <p>기본중에 기본인것을 모르고 지금까지 하고있었다.
 이와같이 <code>is</code> 와 <code>==</code> 을 헷갈리지말자.</p>
