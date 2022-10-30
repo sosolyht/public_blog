@@ -225,7 +225,37 @@ if (!doNotTrack) {
     <section class="article-content">
     
     
-    
+    <h2 id="사전-셋팅">사전 셋팅</h2>
+<h3 id="python-3810-설치">Python 3.8.10 설치</h3>
+<p><a class="link" href="https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg"  target="_blank" rel="noopener"
+    >https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg</a></p>
+<h3 id="nodejs-설치">Node.js 설치</h3>
+<p><code>brew install node</code></p>
+<h3 id="aws-설정">AWS 설정</h3>
+<p>IAM 계정의 <code>Access Key</code> 와 <code>Secret Key</code> 를 가지고 설정합니다.</p>
+<p>지역은 사용하시는 리전</p>
+<pre tabindex="0"><code>AWS Access Key ID [None]: AKI********
+AWS Secret Access Key [None]: lSrC*************
+Default region name [None]: ap-northeast-2
+Default output format [None]: json
+</code></pre><h3 id="기타-설정">기타 설정</h3>
+<p>ConsoleMe 의 Makefile 에는 pip 명령어만 인식하기때문에,</p>
+<p>맥에서 기본으로 지정되는 pip3 -&gt; pip 로 변경해야됩니다.</p>
+<p><code>vim ~/.bashrc</code></p>
+<p>alias pip=&ldquo;pip3&rdquo;</p>
+<p>입력하고</p>
+<p>저장 후 종료</p>
+<p><code>source ~/.bashrc</code> 로 초기화</p>
+<p><code>python -m pip install --upgrade pip</code></p>
+<p>로 pip 업그레이드</p>
+<h2 id="파이썬-가상환경-설정">파이썬 가상환경 설정</h2>
+<p>venv 라는 가상화 패키지로 env 라는 이름의 가상환경 설정</p>
+<p><code>python -m venv env</code></p>
+<p>가상환경 활성화
+<code>. env/bin/activate</code></p>
+<h2 id="consoleme-설치">ConsoleMe 설치</h2>
+<p><code>make install</code></p>
+
 </section>
 
 
@@ -384,7 +414,47 @@ if (!doNotTrack) {
             >
 
             </main>
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#사전-셋팅">사전 셋팅</a>
+      <ol>
+        <li><a href="#python-3810-설치">Python 3.8.10 설치</a></li>
+        <li><a href="#nodejs-설치">Node.js 설치</a></li>
+        <li><a href="#aws-설정">AWS 설정</a></li>
+        <li><a href="#기타-설정">기타 설정</a></li>
+      </ol>
+    </li>
+    <li><a href="#파이썬-가상환경-설정">파이썬 가상환경 설정</a></li>
+    <li><a href="#consoleme-설치">ConsoleMe 설치</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
         </div>
         <script 

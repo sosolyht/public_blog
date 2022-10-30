@@ -511,10 +511,6 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://heetaek.com/p/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://heetaek.com/tags/index/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
