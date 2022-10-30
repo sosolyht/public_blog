@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='여기에 쓰이는 글은 지극히 개인적인 생각입니다. 내가 생각하는 개발자란? 개발자는 컴퓨터와 교감은 필수적이라 생각한다. 그리고 짧은 경험이라 하더라도 뭐든 관심'><title>[잡담] 위코드 후기, 로마는 하루아침에 이루어지지 않았다</title>
+
+<link rel='canonical' href='https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%ED%9B%84%EA%B8%B0-%EB%A1%9C%EB%A7%88%EB%8A%94-%ED%95%98%EB%A3%A8%EC%95%84%EC%B9%A8%EC%97%90-%EC%9D%B4%EB%A3%A8%EC%96%B4%EC%A7%80%EC%A7%80-%EC%95%8A%EC%95%98%EB%8B%A4/'>
+
+<link rel="stylesheet" href="/scss/style.min.0f36e33d45531caa85447049913a834d6c61b517c19b599a72b468c4ea25eab9.css"><meta property='og:title' content='[잡담] 위코드 후기, 로마는 하루아침에 이루어지지 않았다'>
+<meta property='og:description' content='여기에 쓰이는 글은 지극히 개인적인 생각입니다. 내가 생각하는 개발자란? 개발자는 컴퓨터와 교감은 필수적이라 생각한다. 그리고 짧은 경험이라 하더라도 뭐든 관심'>
+<meta property='og:url' content='https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%ED%9B%84%EA%B8%B0-%EB%A1%9C%EB%A7%88%EB%8A%94-%ED%95%98%EB%A3%A8%EC%95%84%EC%B9%A8%EC%97%90-%EC%9D%B4%EB%A3%A8%EC%96%B4%EC%A7%80%EC%A7%80-%EC%95%8A%EC%95%98%EB%8B%A4/'>
+<meta property='og:site_name' content='희택 Playground'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='부트캠프' /><meta property='article:tag' content='위코드' /><meta property='article:published_time' content='2022-09-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-09-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://user-images.githubusercontent.com/2377807/188311938-60d9948c-a334-45e5-9852-04d2ff5b2b5b.png' />
+<meta name="twitter:title" content="[잡담] 위코드 후기, 로마는 하루아침에 이루어지지 않았다">
+<meta name="twitter:description" content="여기에 쓰이는 글은 지극히 개인적인 생각입니다. 내가 생각하는 개발자란? 개발자는 컴퓨터와 교감은 필수적이라 생각한다. 그리고 짧은 경험이라 하더라도 뭐든 관심"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://user-images.githubusercontent.com/2377807/188311938-60d9948c-a334-45e5-9852-04d2ff5b2b5b.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KGP0XNM9N5"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KGP0XNM9N5', { 'anonymize_ip': false });
+}
+</script>
+
+
+<meta name="keywords" content="개발자란, 부트캠프">
+
+
+
+
+<meta property="og:keywords" content="개발자란, 부트캠프">
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/profile_hu8e0b3d0bec7a4bf13673b67c24c1f4b8_1191462_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">희택 Playground</a></h1>
+            <h2 class="site-description">기술 정보를 찾고 공부하여 공유합니다.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sosolyht'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>아카이브</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>검색</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%EC%9E%A1%EB%8B%B4/" >
+                잡담
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%ED%9B%84%EA%B8%B0-%EB%A1%9C%EB%A7%88%EB%8A%94-%ED%95%98%EB%A3%A8%EC%95%84%EC%B9%A8%EC%97%90-%EC%9D%B4%EB%A3%A8%EC%96%B4%EC%A7%80%EC%A7%80-%EC%95%8A%EC%95%98%EB%8B%A4/">[잡담] 위코드 후기, 로마는 하루아침에 이루어지지 않았다</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-09-04</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+
+    <section class="article-content">
+    
+    
+    <p><img src="https://user-images.githubusercontent.com/2377807/198863068-84de595d-de88-40b2-ab1f-b070ad9d87f5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>여기에 쓰이는 글은 지극히 개인적인 생각입니다.</p>
+<h1 id="내가-생각하는-개발자란">내가 생각하는 개발자란?</h1>
+<p>개발자는 컴퓨터와 교감은 필수적이라 생각한다.</p>
+<p>그리고 짧은 경험이라 하더라도 뭐든 관심 있게 보는 것도 중요하다.</p>
+<p>그 교감과 경험으로 얻어진 노하우와 스킬로 <code>개발</code>을 하는것이</p>
+<p>개발자라 본다.</p>
+<p>물론, 나는 그 개발자가 되기 위해 노력하지만, 이런저런 핑계로 작동만 되게끔만 하는 코더에 불과하다 생각한다.</p>
+<p>어려움이 닥칠수록 기본에 집중하다 보면 어느순간 문제를 조금씩 해결해 나갈 수 있다고 생각한다.</p>
+<h2 id="부트캠프">부트캠프</h2>
+<p>위에서 말한 코더는 취업하기 쉽지 않다 생각한다.</p>
+<p>왜냐하면 부트캠프에서 알려준 대로, 그리고 이미 많은 전 기수들의 면접 기록을 구글에 찾아보면</p>
+<p>정말 많은 글들이 나오고, 이미 업계에서는 이러한 사실을 알고 있는듯했다.</p>
+<p>이러한 경험을 어떻게 알고있냐면..나도 위코드 부트캠프에서 배웠기때문이다.</p>
+<h3 id="문제점">문제점</h3>
+<p>멘토진들은 모두 2개월 같이 위코드에서 배운 동기들이거나 혹은 선배 기수들이다.</p>
+<p>나중에 안 사실이지만 정말 그랬다.</p>
+<p>수강료 800만원의 가치가 훅 떨어지는 순간이다.</p>
+<p>물론 위코드만의 방식이였겠지만 3개월 동안 같은 내용의 커리큘럼을 받은 사람에게 같은 내용을 전수받고있었다니</p>
+<p>정말 기분이 나빴다.</p>
+<p>어떠한 멘토는 &lsquo;이커머스 회사에 다니다 왔는데 실무는 정말 힘들다&rsquo; 라고 말했지만</p>
+<p>기록들을 찾아보니 이커머스는 커녕 그냥 몇 기수 전에 수료한 수료생이었다.</p>
+<p>그러면서 꺼드럭거리는 모습을 생각해보니 기가 찬다.</p>
+<p>이러한 말도 안 되는 커리큘럼을 진행하면서 3개월 만에 취업을 할 수있다?</p>
+<p>처음에는 나도 혹해서 진행을 한거였지만, 수료 후 + 3개월만에 취업을 하고</p>
+<p>현재 실무를 하며 느낀 점은 <code>로마는 하루아침에 이루어지지 않았다</code> 를 뼈저리게 느낀다.</p>
+<p>얼마 전 나온 뉴스를 보면 <a class="link" href="https://www.joongang.co.kr/article/25098667"  target="_blank" rel="noopener"
+    >https://www.joongang.co.kr/article/25098667</a></p>
+<p>정말 공감이 된다.</p>
+<hr>
+<p>추가적으로 이 글을 보시는 부트캠프 지망생분들은, 돈으로 의지를 사지마시고</p>
+<p>4년동안 열심히 전공하고 일하시는분들을 생각하며</p>
+<p>국비지원등을 통하여 준비하는걸 추천드립니다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84/">부트캠프</a>
+        
+            <a href="/tags/%EC%9C%84%EC%BD%94%EB%93%9C/">위코드</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="sosolyht/utterances"
+        issue-term="pathname"
+        
+        label="anonymous"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2021 -
+        
+        2022 희택 Playground
+    </section>
+
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Powerd by Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#부트캠프">부트캠프</a>
+      <ol>
+        <li><a href="#문제점">문제점</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
