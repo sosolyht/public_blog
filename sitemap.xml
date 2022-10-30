@@ -2,47 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%ED%9B%84%EA%B8%B0-%EB%A1%9C%EB%A7%88%EB%8A%94-%ED%95%98%EB%A3%A8%EC%95%84%EC%B9%A8%EC%97%90-%EC%9D%B4%EB%A3%A8%EC%96%B4%EC%A7%80%EC%A7%80-%EC%95%8A%EC%95%98%EB%8B%A4/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <loc>https://heetaek.com/p/go-go%EC%96%B8%EC%96%B4%EB%A1%9C-redis-pub-sub-%EA%B5%AC%ED%98%84/</loc>
+    <lastmod>2022-08-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://heetaek.com/categories/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/post/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/tags/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/tags/%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/categories/%EC%9E%A1%EB%8B%B4/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://heetaek.com/p/go-go%EC%96%B8%EC%96%B4%EB%A1%9C-redis-pub-sub-%EA%B5%AC%ED%98%84/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -57,6 +22,11 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://heetaek.com/post/</loc>
+    <lastmod>2022-08-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://heetaek.com/tags/pubsub/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -64,6 +34,36 @@
   </url><url>
     <loc>https://heetaek.com/tags/redis/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/tags/</loc>
+    <lastmod>2022-08-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/</loc>
+    <lastmod>2022-08-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/p/%EC%9E%A1%EB%8B%B4-%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85-%ED%9B%84%EA%B8%B0/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/categories/etc/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://heetaek.com/tags/%EC%9C%84%EC%BD%94%EB%93%9C-%EC%B7%A8%EC%97%85%ED%9B%84%EA%B8%B0/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
