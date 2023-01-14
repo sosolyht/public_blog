@@ -1,106 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Agile on 희택 Playground</title>
-        <link>https://heetaek.com/categories/agile/</link>
-        <description>Recent content in Agile on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/agile/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>TDD 는 왜 필요한가?</title>
-        <link>https://heetaek.com/p/tdd/</link>
-        <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/tdd/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748994-a7779896-1bc3-496b-aba2-b25d196e7e53.png" alt="Featured image of post TDD 는 왜 필요한가?" /&gt;&lt;h1 id=&#34;tddtest-driven-development-란&#34;&gt;TDD(Test Driven Development) 란?&lt;/h1&gt;
-&lt;p&gt;실패하는 테스트를 만들고, 그 테스트가 통과하는 제품을 만들면 결국은 원하는 기능이 동작하게 된다는 개발방법론이다.&lt;/p&gt;
-&lt;p&gt;보통은 개발을 끝내고 난 후 테스트를 한다.&lt;/p&gt;
-&lt;p&gt;이것의 순서를 바꾸는 것이 TDD 를 적용하는 것이다.&lt;/p&gt;
-&lt;p&gt;특히, Python 같은 동적타입언어는 TDD 가 필수다.&lt;/p&gt;
-&lt;h2 id=&#34;tdd-개발-주기&#34;&gt;TDD 개발 주기&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167654057-23204e61-5876-43c7-9dd0-411de11caab1.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;tdd&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style=&#34;color: red&#34;&gt;Red&lt;/span&gt; : 단계에서는 실패하는 테스트 코드를 먼저 작성한다.&lt;/p&gt;
-&lt;p&gt;&lt;span style=&#34;color: green&#34;&gt;Green&lt;/span&gt; : 단계에서는 테스트 코드를 성공시키기 위한 실제 코드를 작성한다.&lt;/p&gt;
-&lt;p&gt;&lt;span style=&#34;color: blue&#34;&gt;Blue&lt;/span&gt; : 단계에서는 중복 코드 제거, 일반화 등의 리팩토링을 수행한다&lt;/p&gt;
-&lt;p&gt;중요한 것은 실패하는 테스트 코드를 작성할 때까지 실제 코드를 작성하지 않는 것과, 실패하는 테스트를 통과할 정도의 최소 실제 코드를 작성해야하는 것이다.&lt;/p&gt;
-&lt;p&gt;이를 통해 실제 코드에 대해 기대되는 바를 보다 명확하게 정의 함으로써 불필요한 설계를 피할 수 있고, 정확한 요구 사항에 집중할 수 있다.&lt;/p&gt;
-&lt;h1 id=&#34;일반-개발-방식과-tdd-개발-방식의-비교&#34;&gt;일반 개발 방식과 TDD 개발 방식의 비교&lt;/h1&gt;
-&lt;h2 id=&#34;일반-개발-방식&#34;&gt;일반 개발 방식&lt;/h2&gt;
-&lt;p&gt;보통 개발 방식은 ‘요구사항 분석 → 설계 → 개발 → 테스트 → 배포’의 형태의 개발 주기를 갖는다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167656932-f3a39a73-0a9a-4ca2-985e-c91255d5e642.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;이러한 방식은 소프트웨어 개발을 느리게 하는 잠재적 위험이 존재한다.&lt;/p&gt;
-&lt;p&gt;그 이유는 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;소비자의 요구사항이 처음부터 명확하지 않을 수 있다.&lt;/li&gt;
-&lt;li&gt;따라서 처음부터 완벽한 설계는 어렵다.&lt;/li&gt;
-&lt;li&gt;자체 버그 검출 능력 저하 또는 소스코드의 품질이 저하될 수 있다.&lt;/li&gt;
-&lt;li&gt;자체 테스트 비용이 증가할 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;이러한 문제점이 발생되는 이유는 어느 프로젝트든 초기 설계가 완벽하다고 말할 수 없기 때문이다.&lt;/p&gt;
-&lt;p&gt;고객의 요구사항 또는 디자인의 오류 등 많은 외부 또는 내부 조건에 의해 재설계하여 점진적으로 완벽한 설계로 나아간다.&lt;/p&gt;
-&lt;p&gt;재설계로 인해 개발자는 코드를 삽입, 수정, 삭제하는 과정에서 불필요한 코드가 남거나 중복처 될 가능성이 크다.&lt;/p&gt;
-&lt;p&gt;결론적으로 이러한 코드들은 재사용이 어렵고 관리가 어려워서 유지보수를 어렵게 만든다.&lt;/p&gt;
-&lt;h2 id=&#34;tdd-개발-방식&#34;&gt;TDD 개발 방식&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167657312-05c2a4e9-46ae-4009-8091-0d343484cc16.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;TDD와 일반적인 개발 방식의 가장 큰 차이점은 테스트 코드를 작성한 뒤에 실제 코드를 작성한다는 것이다.&lt;/p&gt;
-&lt;p&gt;디자인(설계) 단계에서 프로그래밍 목적을 반드시 미리 정의해야만 하고, 무엇보다 테스트해야 할지 미리 정의(테스트 케이스 작성)해야만 한다.&lt;/p&gt;
-&lt;p&gt;테스트 코드를 작성하는 도중 발생하는 예외 사항(버그 및 수정사항)은 테스트 케이스에 추가하고 설계를 개선한다.&lt;/p&gt;
-&lt;p&gt;이후 테스트가 통과된 코드만을 코드 개발 단계에서 실제 코드로 작성한다.&lt;/p&gt;
-&lt;p&gt;이러한 반복적인 단계가 진행되면서 자연스럽게 코드의 버그가 줄어들고 소스코드는 간결해진다.&lt;/p&gt;
-&lt;p&gt;또한 테스트 케이스 작성으로 인해 자연스럽게 설계가 개선됨으로 재설계 시간이 절감된다.&lt;/p&gt;
-&lt;h1 id=&#34;tdd-개발방법론에-대한-결론&#34;&gt;TDD 개발방법론에 대한 결론&lt;/h1&gt;
-&lt;h3 id=&#34;장점&#34;&gt;장점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;개발시간이 줄어든다. 보통 처음부터 2개의 코드를 짜야한다 생각하지만 테스트 코드를 거치지 않을시 대략 10 ~ 30% 의 개발시간이 늘어난다.&lt;/li&gt;
-&lt;li&gt;결함이 줄어든다. 예상치 못했던 상황들에서 벗어날수있다.&lt;/li&gt;
-&lt;li&gt;유지보수 비용이 낮아진다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;위 세가지만봐도 실무에서는 꼭 필요하다는 생각이 든다.&lt;/p&gt;
-&lt;h3 id=&#34;단점&#34;&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;자신이 개발하던 방식을 많이 바꿔야한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;하지만 개발에 대해 아직은 적응?을 하는 단계라 적용을 빨리하고 습득할 수 있을 것 같다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://iwannafullstack.tistory.com/entry/TDD-%EB%9E%80&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://iwannafullstack.tistory.com/entry/TDD-%EB%9E%80&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gmlwjd9405.github.io/2018/06/03/agile-tdd.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://gmlwjd9405.github.io/2018/06/03/agile-tdd.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://inpa.tistory.com/entry/QA-%F0%9F%93%9A-TDD-%EB%B0%A9%EB%B2%95%EB%A1%A0-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://inpa.tistory.com/entry/QA-%F0%9F%93%9A-TDD-%EB%B0%A9%EB%B2%95%EB%A1%A0-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Agile on V8 Network</title>
+    <link>https://v8.network/categories/agile/</link>
+    <description>Recent content in Agile on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/categories/agile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TDD 는 왜 필요한가?</title>
+      <link>https://v8.network/post/tdd/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/tdd/</guid>
+      <description>테스트가 개발을 주도한다</description>
+    </item>
+    
+  </channel>
 </rss>

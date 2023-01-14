@@ -1,109 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>N&#43;1 Problem on 희택 Playground</title>
-        <link>https://heetaek.com/tags/n&#43;1-problem/</link>
-        <description>Recent content in N&#43;1 Problem on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/n+1-problem/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[데이터베이스] N &#43; 1 문제</title>
-        <link>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/</link>
-        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-n--1-%EB%AC%B8%EC%A0%9C/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181750002-1bb8b82d-2288-4f1b-9c96-455e85db9bdf.png" alt="Featured image of post [데이터베이스] N &#43; 1 문제" /&gt;&lt;h1 id=&#34;n--1-문제란&#34;&gt;N + 1 문제란?&lt;/h1&gt;
-&lt;p&gt;ORM 의 연관 관계에서 발생하는 문제다.
-예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다.&lt;/p&gt;
-&lt;p&gt;User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하고&lt;/p&gt;
-&lt;p&gt;특정 유저를 조회했을때 SELECT 문은 1번 실행되고, 해당 유저와 관련된 상품을 N 번 더 조회하게 된다.&lt;/p&gt;
-&lt;p&gt;N + 1 문제를 해결하기 전에 관련된 중요한 개념인 &lt;code&gt;Eager Loading&lt;/code&gt; 과 &lt;code&gt;Lazy Loading&lt;/code&gt; 에 대해 알아야한다.&lt;/p&gt;
-&lt;h2 id=&#34;eager-loading-이란&#34;&gt;Eager Loading 이란?&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Eager Loading&lt;/code&gt; 이란 즉시 로딩으로 로딩 시 참조해야 할 데이터들을 미리 전부 가져옵니다.&lt;/p&gt;
-&lt;p&gt;연관되어있는 데이터들을 한 번에 가져올 수 있다는 장점이 있지만, 초기 로딩 시 속도가 느려질 수 있다는 특징이 있다.&lt;/p&gt;
-&lt;h2 id=&#34;lazy-loading-이란&#34;&gt;Lazy Loading 이란?&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Lazy Loading&lt;/code&gt; 이란 말 그대로 지연 로딩이라 한다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Eager Loading&lt;/code&gt; 과 반대로 필요한 순간에만 데이터를 가져온다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;code&gt;Eager Loading&lt;/code&gt; 과 &lt;code&gt;Lazy Loading&lt;/code&gt; 에 대해 알아보았으니&lt;/p&gt;
-&lt;p&gt;더 쉽게 예시를 들어보면서 자세히 알아보자.&lt;/p&gt;
-&lt;p&gt;다른 ORM 은 어떤 방식으로 동작하는지 모르겠지만, 검색을 해보면 대부분 Spring 의 JPA 예제뿐이다.&lt;/p&gt;
-&lt;h2 id=&#34;django-n1-예제&#34;&gt;Django N+1 예제&lt;/h2&gt;
-&lt;p&gt;Place모델과 Restaurant모델&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Place&lt;/span&gt;(models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;Model):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    name &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;CharField(max_length&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;50&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    address &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;CharField(max_length&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;80&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; __str__(self):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;name
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Restaurant&lt;/span&gt;(models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;Model):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    place &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;OneToOneField(Place, on_delete&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;CASCADE, related_name&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;restaurant&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    name &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;CharField(max_length&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;50&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    severs_pizza &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;BooleanField(default&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;False&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; __str__(self):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;name
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Place모델과 Restaurant모델은 일대일 관계
-각각 6개만 레코드를 생성합니다. 아래는 이미 생성한 결과 화면입니다.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; place &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; Place&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;all():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;     &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(place&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;restaurant&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;name)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant1
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant2
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant3
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant4
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant5
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant6
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이 때 생성되는 쿼리들은 아래와 같습니다.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;from&lt;/span&gt; django.db &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; connection
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(connection&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;queries)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT @@SQL_AUTO_IS_NULL&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_place`.`id`, `photo_place`.`name`, `photo_place`.`address` FROM `photo_place`&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 1 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 2 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 3 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 4 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 5 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.001&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` = 6 LIMIT 21&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;}]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;쿼리셋에 담겨있는 내용을 호출하면&lt;/p&gt;
-&lt;p&gt;담겨있는 N번 만큼의 수량이 호출이 되는 것을 볼 수 있다.&lt;/p&gt;
-&lt;p&gt;만약 10만개의 데이터를 호출하면 SELECT 문도 똑같이 10만번 호출되는 문제다.&lt;/p&gt;
-&lt;p&gt;이 때 &lt;code&gt;prefetch_related&lt;/code&gt; 를 사용하여 &lt;code&gt;Eager Loading&lt;/code&gt; 을 하게되면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; place &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; Place&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;prefetch_related(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;restaurant&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;all():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;     &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(place&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;restaurant&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;name)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant1
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant2
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant3
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant4
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant5
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TestRestaruant6
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT @@SQL_AUTO_IS_NULL&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_place`.`id`, `photo_place`.`name`, `photo_place`.`address` FROM `photo_place`&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;sql&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;SELECT `photo_restaurant`.`id`, `photo_restaurant`.`place_id`, `photo_restaurant`.`name`, `photo_restaurant`.`severs_pizza` FROM `photo_restaurant` WHERE `photo_restaurant`.`place_id` IN (1, 2, 3, 4, 5, 6)&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;time&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.000&amp;#39;&lt;/span&gt;}]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;확실히 쿼리가 줄은것을 볼 수 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://daeguowl.tistory.com/171&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://daeguowl.tistory.com/171&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://velog.io/@kim6515516/npuls&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://velog.io/@kim6515516/npuls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://choidr.tistory.com/entry/TypeORM-N-1-%EB%AC%B8%EC%A0%9C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://choidr.tistory.com/entry/TypeORM-N-1-%EB%AC%B8%EC%A0%9C&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>N&#43;1 Problem on V8 Network</title>
+    <link>https://v8.network/tags/n&#43;1-problem/</link>
+    <description>Recent content in N&#43;1 Problem on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/n+1-problem/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[데이터베이스] N &#43; 1 문제</title>
+      <link>https://v8.network/post/dbn&#43;1/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/dbn&#43;1/</guid>
+      <description>N + 1 문제란? ORM 의 연관 관계에서 발생하는 문제다. 예를 들어 여러 개의 상품 구매 목록을 가지고 있는 쇼핑몰 유저다.
+User 와 Order 테이블이 1:N 관계로 설정되어있다 가정하고
+특정 유저를 조회했을때 SELECT 문은 1번 실행되고, 해당 유저와 관련된 상품을 N 번 더 조회하게 된다.
+N + 1 문제를 해결하기 전에 관련된 중요한 개념인 Eager Loading 과 Lazy Loading 에 대해 알아야한다.
+Eager Loading 이란? Eager Loading 이란 즉시 로딩으로 로딩 시 참조해야 할 데이터들을 미리 전부 가져옵니다.</description>
+    </item>
+    
+  </channel>
 </rss>

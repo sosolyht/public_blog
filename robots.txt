@@ -1,1 +1,3 @@
 User-agent: *
+Disallow:
+Sitemap: https://v8.network/sitemap.xml

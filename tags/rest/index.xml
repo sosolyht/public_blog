@@ -1,113 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>REST on 희택 Playground</title>
-        <link>https://heetaek.com/tags/rest/</link>
-        <description>Recent content in REST on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/rest/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Network] REST API란?</title>
-        <link>https://heetaek.com/p/rest-api/</link>
-        <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/rest-api/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/151964947-48b18c99-efb0-44fc-b442-ada8801e7a96.png" alt="Featured image of post [Network] REST API란?" /&gt;&lt;h1 id=&#34;rest&#34;&gt;REST?&lt;/h1&gt;
-&lt;p&gt;우선 REST 에 대해서 알아야 합니다.
-REST 란 웹에 존재하는 자원에 대해 고유한 URI 부여하는 방법입니다.
-현재 가장 널리 알려져 사용되고있는 기술이기도 합니다.&lt;/p&gt;
-&lt;p&gt;RESTfulAPI 는 앞서말한 REST의 규칙을 지키며 API 를 개발하는걸 뜻합니다.&lt;/p&gt;
-&lt;p&gt;간단한 예시를 들어드리자면,&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/151666397-8a8421b6-3542-4109-b299-2b259d53b898.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;구글이나 네이버를 잠깐 검색해봐도 주소창에는 뭔가의 규칙에 의해 나와있습니다.
-규칙성은 없지만 구글검색엔진의 백엔드 API 네이밍 룰을 따르겠죠?&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;장점 : RESTful API는 그 자체만으로도 API의 목적이 쉽게 이해가 됩니다.
-&lt;/br&gt;&lt;/li&gt;
-&lt;li&gt;단점 : 위의 구글 예시와같이 표준규약이 없어서 안티패턴으로 작성되는 경우가 흔합니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; 
- &lt;/p&gt;
-&lt;h1 id=&#34;restfulapi&#34;&gt;RESTfulAPI&lt;/h1&gt;
-&lt;p&gt;위에서 REST 에 대해 배워보았으니 RESTfulAPI 가 뭔지 알아야겠죠
-REST 라는 원리를 이용하여 API 를 제작하는것을 RESTfulAPI 라 합니다.
-모든 CRUD 기능을 POST로 처리 하는 API 혹은 URI 규칙을 올바르게 지키지 않은 API는 REST API를 사용하였지만 RESTful 하지 못한 시스템이라고 할 수 있습니다.&lt;/p&gt;
-&lt;h1 id=&#34;rest-api-설계-가이드&#34;&gt;REST API 설계 가이드&lt;/h1&gt;
-&lt;p&gt;이제 REST 와 RESTfulAPI 가 뭔지 알았으니, REST API 작성 규칙을 알아보고 RESTful 한 API 설계 방법을 알아봅시다.&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;h2 id=&#34;rest-api-설계-가이드---1&#34;&gt;REST API 설계 가이드 - 1&lt;/h2&gt;
-&lt;p&gt;REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;URI는 정보의 자원을 표현해야 한다.&lt;/li&gt;
-&lt;li&gt;자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;HTTP Method&lt;/th&gt;
-&lt;th&gt;역할&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;GET&lt;/td&gt;
-&lt;td&gt;GET를 통해 해당 리소스를 조회합니다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;POST&lt;/td&gt;
-&lt;td&gt;POST를 통해 해당 URI를 요청하면 리소스를 생성합니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PUT&lt;/td&gt;
-&lt;td&gt;PUT를 통해 해당 리소스를 수정합니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DELETE&lt;/td&gt;
-&lt;td&gt;DELETE를 통해 리소스를 삭제합니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;h2 id=&#34;rest-api-설계-가이드---2&#34;&gt;REST API 설계 가이드 - 2&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;URI는 동사보다는 명사를, 대문자보다는 소문자를 사용하여야 합니다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bad Example : https://heetaek.com/Learning
-Good Example : https://heetaek.com/learn
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 
-2. 마지막에 슬래시 ( / )를 포함하지 않습니다.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bad Example : https://heetaek.com/post/
-Good Example : https://heetaek.com/post
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 
-3. 언더바( _ ) 대신 하이폰( - )을 사용합니다.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bad Example : https://heetaek.com/handsome_heetaek
-Good Example : https://heetaek.com/handsome-heetaek
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 
-4. 파일확장자는 URI에 포함하지 않습니다.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bad Example : https://heetaek.com/heetaek.png
-Good Example : https://cidk.xyz/photo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 
-5. 행위를 포함하지 않습니다.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bad Example : https://heetaek.com/delete-post/3
-Good Example : https://heetaek.com/post/3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference: &lt;a class=&#34;link&#34; href=&#34;https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>REST on V8 Network</title>
+    <link>https://v8.network/tags/rest/</link>
+    <description>Recent content in REST on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Network] REST API란?</title>
+      <link>https://v8.network/post/rest-api/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/rest-api/</guid>
+      <description>REST 와 RESTful API 의 의미와 설계 가이드</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,104 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>JsonResponse on 희택 Playground</title>
-        <link>https://heetaek.com/tags/jsonresponse/</link>
-        <description>Recent content in JsonResponse on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/jsonresponse/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</title>
-        <link>https://heetaek.com/p/django-why-need-request/</link>
-        <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/django-why-need-request/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/152298321-8698e3ad-b0d5-4ebb-b892-b8969f517540.png" alt="Featured image of post [Django] JsonResponse를 쓰는데 왜 request 가 필요할까" /&gt;&lt;p&gt;view 를 작성하다 클라이언트에 json 데이터를 반환을 해주다보니
-&lt;code&gt;from django.http  import JsonResponse&lt;/code&gt;
-JsonResponse 객체를 끌어다와서 쓰기도합니다.&lt;/p&gt;
-&lt;p&gt;근데 반환을 해주는 함수의 인자에는 필요하지도 않은 &lt;code&gt;request&lt;/code&gt; 인자를 다들 포함시키길래 저도 지금껏 계속 쓰긴했습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/152293479-1ce8b1d6-7b37-4ce4-a225-d2c3ac1ca417.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;request 인자&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;그래서 지우고 테스트해보니&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/152294244-64f1378d-5cc6-47e2-a119-9561edd57728.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;TypeError : get() takes 1 positional argument but 2 were given&lt;/code&gt;
-과 함께 500 에러를 주네요.&lt;/p&gt;
-&lt;p&gt;그럼 &lt;code&gt;request&lt;/code&gt; 가 필요하다는거겠죠.&lt;/p&gt;
-&lt;p&gt;알아보기위해 django 최상위 제네릭 뷰 클래스에서 알아보겠습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Generic View 란 반복적으로 사용되는 공통 부분을 패턴화해서 쉽게 추상화 해둔 것입니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;View&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;    Intentionally simple parent class for all views. Only implements
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;    dispatch-by-method and simple sanity checking.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    http_method_names &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;get&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;post&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;put&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;patch&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;head&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;options&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;trace&amp;#39;&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; __init__(self, &lt;span style=&#34;color:#ff79c6&#34;&gt;**&lt;/span&gt;kwargs):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;        Constructor. Called in the URLconf; can contain helpful extra
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;        keyword arguments, and other things.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;        &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;# Go through keyword arguments, and either save their values to our&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;# instance, or raise an error.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; key, value &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; kwargs&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;items():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;setattr&lt;/span&gt;(self, key, value)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    @classonlymethod
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;as_view&lt;/span&gt;(cls, &lt;span style=&#34;color:#ff79c6&#34;&gt;**&lt;/span&gt;initkwargs):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Main entry point for a request-response process.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; key &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; initkwargs:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; key &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; cls&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;http_method_names:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;raise&lt;/span&gt; TypeError(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;The method name &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; is not accepted as a keyword argument &amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;to &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;().&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; (key, cls&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;__name__)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;hasattr&lt;/span&gt;(cls, key):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;raise&lt;/span&gt; TypeError(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;() received an invalid keyword &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%r&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;. as_view &amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;only accepts arguments that are already &amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;attributes of the class.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; (cls&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;__name__, key))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;dispatch&lt;/span&gt;(self, request, &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#ff79c6&#34;&gt;**&lt;/span&gt;kwargs):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;# Try to dispatch to the right method; if a method doesn&amp;#39;t exist,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;# defer to the error handler. Also defer to the error handler if the&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;# request method isn&amp;#39;t on the approved list.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; request&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;method&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;lower() &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;http_method_names:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handler &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;getattr&lt;/span&gt;(self, request&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;method&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;lower(), self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;http_method_not_allowed)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handler &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;http_method_not_allowed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; handler(request, &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#ff79c6&#34;&gt;**&lt;/span&gt;kwargs)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;as_view&lt;/code&gt; 는 뷰를 하나 만들어서 이것을 return 해주는 역할입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;문제의 &lt;code&gt;dispatch&lt;/code&gt; 는 &lt;code&gt;as_view&lt;/code&gt; 메소드 내부에서 호출됩니다.
-request 메소드가 정의된 http_method_names 에 해당되면 request 에서 가져오게됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;%28https://docs.djangoproject.com/en/4.0/ref/request-response/%29&#34; &gt;공식문서&lt;/a&gt; 를 참고해봐도 JsonResponse 는 HttpRequest 의 하위 클래스네요&lt;/p&gt;
-&lt;p&gt;이래서 인자에 &lt;code&gt;request&lt;/code&gt; 가 포함되어있나봅니다.&lt;/p&gt;
-&lt;p&gt;Generic View 를 보다보니 공부가 많이되네요.&lt;/p&gt;
-&lt;p&gt;앞으로 Generic View 에 대해 더 깊이 다뤄보고 블로그 글 작성하겠습니다.&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JsonResponse on V8 Network</title>
+    <link>https://v8.network/tags/jsonresponse/</link>
+    <description>Recent content in JsonResponse on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/jsonresponse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Django] JsonResponse를 쓰는데 왜 request 가 필요할까</title>
+      <link>https://v8.network/post/django-why-need-request/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/django-why-need-request/</guid>
+      <description>HttpRequest 의 하위클래스에있는 JsonResponse</description>
+    </item>
+    
+  </channel>
 </rss>

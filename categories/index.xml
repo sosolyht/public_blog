@@ -1,115 +1,113 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Categories on 희택 Playground</title>
-        <link>https://heetaek.com/categories/</link>
-        <description>Recent content in Categories on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Go</title>
-        <link>https://heetaek.com/categories/go/</link>
-        <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/go/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Database</title>
-        <link>https://heetaek.com/categories/database/</link>
-        <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/database/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>OS</title>
-        <link>https://heetaek.com/categories/os/</link>
-        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/os/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Network</title>
-        <link>https://heetaek.com/categories/network/</link>
-        <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/network/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>컴퓨터 공학</title>
-        <link>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</link>
-        <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Agile</title>
-        <link>https://heetaek.com/categories/agile/</link>
-        <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/agile/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Python</title>
-        <link>https://heetaek.com/categories/python/</link>
-        <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/python/</guid>
-        <description>&lt;img src="https://heetaek.com/categories/python/python.png" alt="Featured image of post Python" /&gt;</description>
-        </item>
-        <item>
-        <title>Django</title>
-        <link>https://heetaek.com/categories/django/</link>
-        <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/django/</guid>
-        <description>&lt;img src="https://heetaek.com/categories/django/django.png" alt="Featured image of post Django" /&gt;</description>
-        </item>
-        <item>
-        <title>Git</title>
-        <link>https://heetaek.com/categories/git/</link>
-        <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/git/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CSS</title>
-        <link>https://heetaek.com/categories/css/</link>
-        <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/css/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>HTML</title>
-        <link>https://heetaek.com/categories/html/</link>
-        <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/html/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Algorithm</title>
-        <link>https://heetaek.com/categories/algorithm/</link>
-        <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/algorithm/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Node.js</title>
-        <link>https://heetaek.com/categories/node.js/</link>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/categories/node.js/</guid>
-        <description></description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on V8 Network</title>
+    <link>https://v8.network/categories/</link>
+    <description>Recent content in Categories on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 11 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database</title>
+      <link>https://v8.network/categories/database/</link>
+      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://v8.network/categories/go/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OS</title>
+      <link>https://v8.network/categories/os/</link>
+      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://v8.network/categories/network/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>컴퓨터 공학</title>
+      <link>https://v8.network/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agile</title>
+      <link>https://v8.network/categories/agile/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://v8.network/categories/django/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://v8.network/categories/python/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://v8.network/categories/git/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>https://v8.network/categories/css/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://v8.network/categories/html/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/categories/html/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,55 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>HTML on 희택 Playground</title>
-        <link>https://heetaek.com/tags/html/</link>
-        <description>Recent content in HTML on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/html/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[HTML] Semantic Web, Semantic Tag 이 뭔가요?</title>
-        <link>https://heetaek.com/p/semantic-web/</link>
-        <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/semantic-web/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/151965048-eba453c3-ecf3-43b5-a8e6-1a260ce5ba61.png" alt="Featured image of post [HTML] Semantic Web, Semantic Tag 이 뭔가요?" /&gt;&lt;h2 id=&#34;semantic-web-이란&#34;&gt;Semantic Web 이란?&lt;/h2&gt;
-&lt;p&gt;Semantic Web은 HTML4 에서 HTML5 올라가면서
-생기게 되었습니다.&lt;/p&gt;
-&lt;p&gt;의미를 정확히 부여하는 기술입니다.&lt;/p&gt;
-&lt;p&gt;기존에는 컴퓨터가 메타데이터를 해석하기만 했다면&lt;/p&gt;
-&lt;p&gt;Semantic Web은 사람의 눈으로 보기에 용이한 메타데이터와 자연어로 구성되어있습니다.&lt;/p&gt;
-&lt;p&gt;예를 들면,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;header&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이렇게 이 &lt;code&gt;div&lt;/code&gt; 는 &lt;code&gt;header&lt;/code&gt; 라고 나타내었던것을&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;header&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;header&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;태그에 &lt;code&gt;header&lt;/code&gt; 라고 의미를 부여해 더 효율적으로 작성할수있습니다.&lt;/p&gt;
-&lt;p&gt; 
- 
- &lt;/p&gt;
-&lt;h2 id=&#34;semantic-tag-란&#34;&gt;Semantic Tag 란?&lt;/h2&gt;
-&lt;p&gt;Semantic Tag 도 Semantic Web 과 마찬가지로 &amp;lsquo;의미가 있는&amp;rsquo; 태그를 뜻합니다.&lt;/p&gt;
-&lt;p&gt;이걸 언제써야하는지는&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;img&lt;/code&gt; 태그와 css의 &lt;code&gt;background-image&lt;/code&gt; 를 예시로 들면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;my-img&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;alt&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;내 얼굴&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/img/profile.png&amp;#34;&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;만약 /img/profile.png 의 사진의 경로가 잘못되어 브라우저가 불러오지 못하는 상황이 있을때 &lt;code&gt;alt&lt;/code&gt; 태그로 이 사진은 얼굴 사진이라는것을 알 수 있습니다.&lt;/p&gt;
-&lt;p&gt;허나 css 에 &lt;code&gt;background-image&lt;/code&gt; 를 사용하게되면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;my-img&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#my-img {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;background-image&lt;/span&gt;: &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt;img&lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt;profile&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;png
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;단지 &lt;code&gt;div&lt;/code&gt; 에 이미지를 추가 한 것일뿐 어떠한 정보나 메타데이터가 없습니다.&lt;/p&gt;
-&lt;p&gt;웹의 SEO 측면에서 봤을때도 메타데이터가 없는 후자의 CSS 방식은 불리할수밖에없습니다.&lt;/p&gt;
-&lt;p&gt;참고로 &lt;code&gt;img&lt;/code&gt; 와 같은 Semantic Tag를 조금 소개해드리자면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;header&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;nav&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;footer&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;section&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;article&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;등이 있습니다.&lt;/p&gt;
-&lt;p&gt;더 많은 정보는 &lt;a class=&#34;link&#34; href=&#34;https://www.w3schools.com/html/html5_semantic_elements.asp&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;W3C&lt;/a&gt; 를 참고 바랍니다.&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HTML on V8 Network</title>
+    <link>https://v8.network/tags/html/</link>
+    <description>Recent content in HTML on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[HTML] Semantic Web, Semantic Tag 이 뭔가요?</title>
+      <link>https://v8.network/post/semantic-web/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/semantic-web/</guid>
+      <description>Semantic Web은 의미를 정확히 부여하는 기술입니다.</description>
+    </item>
+    
+  </channel>
 </rss>

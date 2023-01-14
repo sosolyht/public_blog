@@ -1,140 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Git on 희택 Playground</title>
-        <link>https://heetaek.com/categories/git/</link>
-        <description>Recent content in Git on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Git] 기초적인 사용방법</title>
-        <link>https://heetaek.com/p/git-basic/</link>
-        <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/git-basic/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/151965003-3811163e-5f5d-4f16-a634-e617c786e345.png" alt="Featured image of post [Git] 기초적인 사용방법" /&gt;&lt;h1 id=&#34;git-이-왜-필요한가요&#34;&gt;Git 이 왜 필요한가요?&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;예를 들어 자동차를 만든다할때 &amp;lsquo;바퀴&amp;rsquo;, &amp;lsquo;엔진&amp;rsquo; , &amp;lsquo;문짝&amp;rsquo; , &amp;lsquo;시트&amp;rsquo; 등등 세분화하여 어떻게 제작이 되었는지 세세하게 기록을 할 수 있는 프로그램입니다. 치명적인 실수를 했을시에 과거로 되돌아가서 수정을 할 수도 있습니다.
- &lt;/li&gt;
-&lt;li&gt;VCS(Version Control System) 버전 관리 시스템으로 역할을 나눠 협업을 할 수 있습니다.
- &lt;/li&gt;
-&lt;li&gt;처음에는 난해하지만 이해하려하지말고 개인 레파지토리를 생성후 아무 파일이나 올려보시면서 연습하시는걸 추천드립니다.
- &lt;/li&gt;
-&lt;li&gt;특히나 개발자에게는 필수인 git 입니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;git-시작하기&#34;&gt;Git 시작하기&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;git init&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;작업중인 폴더에 &lt;code&gt;git init&lt;/code&gt; 명령어를 입력하면 &lt;code&gt;.git&lt;/code&gt; 이라는 숨겨진폴더가 생성되고, CCTV 가 하나 설치되서 그 폴더에서 무엇을 하는지 지켜본다고 보시면 편하다다.&lt;/p&gt;
-&lt;h2 id=&#34;git-branch-생성&#34;&gt;Git branch 생성&lt;/h2&gt;
-&lt;p&gt;branch는 나뭇가지입니다.
-그럼 기둥은 뭔가요?
-처음 생성될때 &lt;code&gt;master&lt;/code&gt; 브랜치가 기둥이라 생각하시면됩니다.
-요즘은 &lt;code&gt;master&lt;/code&gt; 대신 &lt;code&gt;main&lt;/code&gt; 이라고 많이 생성합니다.
-그 이유는 &lt;code&gt;master&lt;/code&gt; 가 노예제도의 주인님을 연상케 한다해서 &lt;code&gt;main&lt;/code&gt; 을 사용한다하니
-그렇게 사용해주도록 합시다.
-&lt;img src=&#34;https://wac-cdn.atlassian.com/dam/jcr:389059a7-214c-46a3-bc52-7781b4730301/hero.svg?cdnVersion=167&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;git branch&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h4 id=&#34;git-branch-생성방법&#34;&gt;Git branch 생성방법&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;git branch -M main&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-M&lt;/code&gt; 옵션은 브랜치를 rename 하는 옵션입니다.
-위에도 설명드렸다시피 &lt;code&gt;master&lt;/code&gt; 를 안쓴다했으니 저희는 &lt;code&gt;main&lt;/code&gt; 으로 변경하겠습니다.&lt;/p&gt;
-&lt;p&gt;생성이 완료되면 &lt;code&gt;git branch&lt;/code&gt; 라는 명령어로 확인할수있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;master&lt;/code&gt; 에서 &lt;code&gt;main&lt;/code&gt; 으로 변경된걸 확인할수있습니다.&lt;/p&gt;
-&lt;h4 id=&#34;feature-branch-생성방법&#34;&gt;Feature branch 생성방법&lt;/h4&gt;
-&lt;p&gt;Feature branch 란 게임에서 많이 보셨을것같은데
-베타 , 얼리액세스 , ver1 , ver2 등등의 네이밍으로 버전을 관리합니다.
-&lt;code&gt;main&lt;/code&gt; branch는 실제 서비스 되고있는 branch 이고 지금 만들 feature branch 는 기능을 업데이트하는
-버전관리 branch 라 생각하시면 편합니다.
-방금 저희는 &lt;code&gt;main&lt;/code&gt; 이란 기둥을 만들었습니다.
-feature branch 만드는법도 간단합니다.&lt;/p&gt;
-&lt;p&gt;예를들어 로그인 기능을 개발하고싶으면
-&lt;code&gt;git branch feature/login&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;회원가입 기능을 개발하고싶으면
-&lt;code&gt;git branch feature/signup&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;이런식으로 branch 를 생성하시면 됩니다.&lt;/p&gt;
-&lt;h3 id=&#34;branch-이동-및-삭제&#34;&gt;branch 이동 및 삭제&lt;/h3&gt;
-&lt;p&gt;branch 를 이동하고싶을땐
-&lt;code&gt;git checkout {이동하고싶은 branch 명}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;ex) &lt;code&gt;main&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;feature/login&lt;/code&gt;
-&lt;code&gt;git check feature/login&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;branch 를 삭제하고싶을땐&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git branch -d {삭제하고싶은 branch 명}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;ex) login branch 를 삭제하고싶을때&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git branch -d feature/login&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;삭제가 잘되었는지 확인&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;git-commit&#34;&gt;Git commit&lt;/h2&gt;
-&lt;p&gt;commit 이란?
-자신이 한 작업의 기록을 남기고 그 기록물에 메시지를 남기는 작업입니다.
-다만 주의하실점은 commit 메시지를 작성할때는 일관성있게 작성해야합니다.&lt;/p&gt;
-&lt;h4 id=&#34;1-commit-type&#34;&gt;1. Commit Type&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;feat : 새로운 기능 추가&lt;/li&gt;
-&lt;li&gt;fix : 버그 수정, 기능 수정&lt;/li&gt;
-&lt;li&gt;docs : 문서 수정&lt;/li&gt;
-&lt;li&gt;refactor : 코드 리팩토링 (변수명 수정 등)&lt;/li&gt;
-&lt;li&gt;test : 테스트 코드, 리팩토링 테스트 코드 추가&lt;/li&gt;
-&lt;li&gt;style : 코드 스타일 변경, 코드 자체 변경이 없는 경우&lt;/li&gt;
-&lt;li&gt;remove : 파일 또는 코드, 리소스 제거&lt;/li&gt;
-&lt;li&gt;resource : 이미지 리소스, prefab 등의 코드와 상관없는 리소스 추가&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;2commit-주제&#34;&gt;2.Commit 주제&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;제목은 50자를 넘기지 않고, 대문자로 작성하고 마침표를 붙이지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ex) 이런식으로 커밋 메시지를 작성하시면됩니다.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-git&#34; data-lang=&#34;git&#34;&gt;feat : Add bcrypt feature
-feat : Add user models
-fix : Fix type in models
-remove : Remove white space
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;나쁜 예시&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-git&#34; data-lang=&#34;git&#34;&gt;test
-수정1
-수정2
-fix error
-다시
-다시 push
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;메시지를 보고 무엇을 했는지 알 수 없게 메시지를 작성하면 적절하지않습니다.&lt;/p&gt;
-&lt;h4 id=&#34;3-commit-내용변경&#34;&gt;3. Commit 내용변경&lt;/h4&gt;
-&lt;p&gt;예를들어 commit 을 했는데
-&lt;code&gt;feat : Add my featuressss&lt;/code&gt;
-오타가 나있다면? 당황스럽겠죠&lt;/p&gt;
-&lt;p&gt;그럴때 commit 내용을 수정할수있는 명령어인
-&lt;code&gt;git commit --amend&lt;/code&gt; 를 입력하면 수정할수있습니다.
-참고로 터미널로 git 을 사용하신다면 vim 에디터로 수정해야합니다. (제 맥북은 그렇게 합니다.)&lt;/p&gt;
-&lt;h2 id=&#34;github원격저장소-에-push&#34;&gt;Github(원격저장소) 에 push&lt;/h2&gt;
-&lt;p&gt;로컬(Local) 에서 작업을 끝내셨으면 원격(Remote) 저장소에 올려야겠죠
-&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/149868998-cbab5f7a-0749-46de-863b-795587fdf17a.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;github repository&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;github 에 접속하셔서 레파지토리를 생성하시면 위의 이미지처럼 나옵니다.
-하나하나 따라하셔도 상관없지만
-저희는 README.md 파일만 추가하는게 아니라
-작업한 모든 파일을 추가할거기에
-&lt;code&gt;git add -A&lt;/code&gt; 나 &lt;code&gt;git add .&lt;/code&gt; 명령어로 프로젝트 폴더에 수정한 파일이나 추가한 파일들을 추가해줍니다.&lt;/p&gt;
-&lt;p&gt;이후 , 배웠던 commit 메시지를 남겨주시고&lt;/p&gt;
-&lt;p&gt;브랜치를 생성해줍니다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git remote add origin https://github.com/sosolyht/test.git&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;origin 은 origin 이라는 이름으로 원격저장소가 등록되었다는 의미입니다.&lt;/p&gt;
-&lt;p&gt;이후 &lt;code&gt;git push -u origin main&lt;/code&gt; 명령어를 입력하시면&lt;/p&gt;
-&lt;p&gt;github 에 push 가 된걸 확인하실수있습니다.&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on V8 Network</title>
+    <link>https://v8.network/categories/git/</link>
+    <description>Recent content in Git on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Git] 기초적인 사용방법</title>
+      <link>https://v8.network/post/git-basic/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/git-basic/</guid>
+      <description>무조건 알아야하는 git &amp;amp; github</description>
+    </item>
+    
+  </channel>
 </rss>

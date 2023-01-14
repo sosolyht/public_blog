@@ -1,209 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>자료구조 on 희택 Playground</title>
-        <link>https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
-        <description>Recent content in 자료구조 on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[자료구조] 스택(Stack) 과 큐(Queue)</title>
-        <link>https://heetaek.com/p/stack-queue/</link>
-        <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/stack-queue/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [자료구조] 스택(Stack) 과 큐(Queue)" /&gt;&lt;h1 id=&#34;스택-stack&#34;&gt;스택 (Stack)&lt;/h1&gt;
-&lt;p&gt;스택(Stack)은 &amp;lsquo;쌓다&amp;rsquo; 라는 의미로, 데이터를 쌓아 올린 형태의 자료구조이다.&lt;/p&gt;
-&lt;p&gt;접근 방법은 LIFO(Last In First Out) 라고 부르며, 마지막에 넣은 요소가 먼저 나온다는 의미다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/168406214-2bc7bf49-33b0-41fe-b294-7671812fac71.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;아래가 막혀있고 위가 뚫린 형태로 차곡차곡 쌓인다.&lt;/p&gt;
-&lt;p&gt;이러한 구조이기때문에 마지막에 삽입한 요소는 처음으로 삭제할 수 있다.&lt;/p&gt;
-&lt;p&gt;스택에서 삽입은 &lt;code&gt;PUSH&lt;/code&gt;, 삭제는 &lt;code&gt;POP&lt;/code&gt; 이라는 용어로 사용하고 있다.&lt;/p&gt;
-&lt;h3 id=&#34;실사용-예제&#34;&gt;실사용 예제&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;브라우저에서 뒤로 가기&lt;/li&gt;
-&lt;li&gt;문서작업에서 Ctrl + Z&lt;/li&gt;
-&lt;li&gt;실행취소 (undo)&lt;/li&gt;
-&lt;li&gt;후위 표기법 (컴퓨터가 어떤식으로 사칙 연산을 하는지 이해하는 용도)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;큐queue&#34;&gt;큐(Queue)&lt;/h1&gt;
-&lt;p&gt;큐는 단순히 스택의 반대 개념이다.&lt;/p&gt;
-&lt;p&gt;접근 방법은 FIFO (First In First Out)라고 부르며, 먼저 들어간 데이터가 먼저 나오는 구조다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/168406982-c526f22d-e271-4e42-a5e2-1df59e1a27b6.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;은행업무를 보기 위해 줄을 선 모습을 상상해 볼 수 있다.&lt;/p&gt;
-&lt;p&gt;번호표를 먼저 뽑은 사람이 먼저 업무를 처리하고 나가고, 말 그대로 &amp;lsquo;FIFO&amp;rsquo; 다.&lt;/p&gt;
-&lt;p&gt;또 다른 예시로 CPU 는 하나의 task 가 처리가 완료되어야 다음 task 로 넘어가 처리하는것처럼 실행 순서대로 처리한다.&lt;/p&gt;
-&lt;h3 id=&#34;실사용-예제-1&#34;&gt;실사용 예제&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;은행 업무&lt;/li&gt;
-&lt;li&gt;프린터에서 여러 문서를 순서대로 인쇄&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.fun-coding.org/Chapter06-stack-live.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.fun-coding.org/Chapter06-stack-live.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.fun-coding.org/Chapter05-queue-live.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.fun-coding.org/Chapter05-queue-live.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hanamon.kr/%ec%9e%90%eb%a3%8c%ea%b5%ac%ec%a1%b0-queue-%ed%81%90-feat-buffering/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://hanamon.kr/%ec%9e%90%eb%a3%8c%ea%b5%ac%ec%a1%b0-queue-%ed%81%90-feat-buffering/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>[자료구조] 배열(Array) 과 리스트(List)</title>
-        <link>https://heetaek.com/p/array-list/</link>
-        <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/array-list/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [자료구조] 배열(Array) 과 리스트(List)" /&gt;&lt;h1 id=&#34;array-배열&#34;&gt;Array (배열)&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;데이터가 많아지면 그룹 관리의 필요성이 생긴다. 이럴 때 사용하는 것이 배열이다.&lt;/li&gt;
-&lt;li&gt;하나의 변수에 여러 데이터를 담을 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;파이썬에서는 배열이라는게 없고 리스트가 배열 기능을 제공한다.&lt;/p&gt;
-&lt;p&gt;그래서 C로 예시를 들어보자면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Array[&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#bd93f9&#34;&gt;13&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;33&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;95&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;11&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;28&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Index&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Element&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;13&lt;/td&gt;
-&lt;td&gt;42&lt;/td&gt;
-&lt;td&gt;33&lt;/td&gt;
-&lt;td&gt;95&lt;/td&gt;
-&lt;td&gt;11&lt;/td&gt;
-&lt;td&gt;28&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;위의 표와 같이 Index 는 0 부터 시작하고 배열의 사이즈에 맞게 들어가는것을 볼 수 있다.&lt;/p&gt;
-&lt;h2 id=&#34;배열의-특징&#34;&gt;배열의 특징&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;미리 최대 크기를 지정해야 한다.&lt;/li&gt;
-&lt;li&gt;엘리먼트의 인덱스는 변하지 않는다. (예를들면 주민번호)&lt;/li&gt;
-&lt;li&gt;인덱스를 활용하여 빠르게 조회가 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;list-리스트&#34;&gt;List (리스트)&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;리스트와 배열은 같은 다중 자료형이지만 다른 속성을 가지고있다.&lt;/li&gt;
-&lt;li&gt;리스트는 배열이 가지고있는 인덱스라는 장점을 버리고 &lt;strong&gt;빈틈없는 데이터의 적재&lt;/strong&gt; 라는 장점을 가진 자료구조이다.&lt;/li&gt;
-&lt;li&gt;데이터 갯수가 확실하게 정해져 있고, 자주 사용된다면 배열이 더 효율적이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;파이썬 리스트 예시&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;array &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;13&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;33&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;95&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;11&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;28&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; li &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; array:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(li) &lt;span style=&#34;color:#6272a4&#34;&gt;# 13, 42, 33, 95, 11, 28&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;평소에 사용하던 리스트가 파이썬에서는 배열이다.
-파이썬의 리스트는 크기가 가변적이고 어떤 타입이던지 저장할 수 있는 장점을 가지고있다.&lt;/p&gt;
-&lt;p&gt;배열 연산자를 통해 일반적인 연산이나 추가 삭제 등이 가능하다.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;b &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;6&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; b) &lt;span style=&#34;color:#6272a4&#34;&gt;# [1, 2, 3, 4, 5, 6]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;pop(&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;)) &lt;span style=&#34;color:#6272a4&#34;&gt;# 1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;append(&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;)) &lt;span style=&#34;color:#6272a4&#34;&gt;# [1, 2, 3, 4]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;다만  C의 array 보다는 메모리를 더 많이 필요로 한다는 단점이 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://opentutorials.org/module/1335/8677&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://opentutorials.org/module/1335/8677&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://opentutorials.org/module/1335/8636&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://opentutorials.org/module/1335/8636&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://studyingych.tistory.com/35&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://studyingych.tistory.com/35&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>[자료구조] 자료구조(Data Structure)란?</title>
-        <link>https://heetaek.com/p/data-structure-algoithm/</link>
-        <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/data-structure-algoithm/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [자료구조] 자료구조(Data Structure)란?" /&gt;&lt;h1 id=&#34;자료구조-data-structure&#34;&gt;자료구조 (Data Structure)&lt;/h1&gt;
-&lt;h2 id=&#34;자료구조란&#34;&gt;자료구조란?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조&lt;/li&gt;
-&lt;li&gt;특정한 상황에 놓인 문제를 해결하는 데에 특화되어있다.&lt;/li&gt;
-&lt;li&gt;많은 자료구조를 알아두면, 특정 문제를 해결하는 데에 상황에 가장 적합한 자료구조를 빠르게 찾아 데이터를 정리하고 활용하여 해결할 수 있다.&lt;/li&gt;
-&lt;li&gt;문제해결에 필요한 알고리즘과 밀접한 연관이 있다.&lt;/li&gt;
-&lt;li&gt;결국은 개발자가 문제해결을 하기 위해 배우는 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;쉽게 말해,&lt;/p&gt;
-&lt;p&gt;자료는 도서관의 책들&lt;/p&gt;
-&lt;p&gt;구조는 도서관의 책들을 규칙에 따라 정리한 것.&lt;/p&gt;
-&lt;p&gt;이러면 조금 이해가 쉬울것같다.&lt;/p&gt;
-&lt;h2 id=&#34;왜-자료구조를-배워야할까&#34;&gt;왜 자료구조를 배워야할까?&lt;/h2&gt;
-&lt;p&gt;데이터는 문자, 숫자, 사진, 소리 등 실생활을 구성하고 있는 모든 값이다.
-이 데이터을 이용해 컴퓨터 메모리를 어떻게 효율적으로 사용하며, 실행속도를 빠르고 정확하게 처리를 할 수 있을까에 대해 궁극적인 목표를 두고있다.&lt;/p&gt;
-&lt;h2 id=&#34;데이터-관리-예시&#34;&gt;데이터 관리 예시&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;우편번호 예시&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;우편번호의 5자리중 앞 3자리는 시,군, 자치구를 표기, 뒤 2자리는 일련번호로 구성&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;군대에서의 예시&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;군대에서의 XX사단, XX연대, XX연대, XX대대 ~ X소대 XXX 병사&lt;/li&gt;
-&lt;li&gt;만약 위 처럼 관리가 되지않는다면 군대에있는 모든 병사를 훑어야 할 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;자료구조-분류&#34;&gt;자료구조 분류&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167242332-27fb3394-51d7-41d5-a2a5-ebadfdf7f2fa.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;자료구조&#34;
-	
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>자료구조 on V8 Network</title>
+    <link>https://v8.network/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
+    <description>Recent content in 자료구조 on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[자료구조] 스택(Stack) 과 큐(Queue)</title>
+      <link>https://v8.network/post/stack-queue/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/stack-queue/</guid>
+      <description>스택 (Stack) 스택(Stack)은 &amp;lsquo;쌓다&amp;rsquo; 라는 의미로, 데이터를 쌓아 올린 형태의 자료구조이다.
+접근 방법은 LIFO(Last In First Out) 라고 부르며, 마지막에 넣은 요소가 먼저 나온다는 의미다.
+아래가 막혀있고 위가 뚫린 형태로 차곡차곡 쌓인다.
+이러한 구조이기때문에 마지막에 삽입한 요소는 처음으로 삭제할 수 있다.
+스택에서 삽입은 PUSH, 삭제는 POP 이라는 용어로 사용하고 있다.
+실사용 예제 브라우저에서 뒤로 가기 문서작업에서 Ctrl + Z 실행취소 (undo) 후위 표기법 (컴퓨터가 어떤식으로 사칙 연산을 하는지 이해하는 용도) 큐(Queue) 큐는 단순히 스택의 반대 개념이다.</description>
+    </item>
+    
+    <item>
+      <title>[자료구조] 배열(Array) 과 리스트(List)</title>
+      <link>https://v8.network/post/array-list/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/array-list/</guid>
+      <description>Array (배열) 데이터가 많아지면 그룹 관리의 필요성이 생긴다. 이럴 때 사용하는 것이 배열이다. 하나의 변수에 여러 데이터를 담을 수 있다. 파이썬에서는 배열이라는게 없고 리스트가 배열 기능을 제공한다.
+그래서 C로 예시를 들어보자면
+int Array[5] = {13, 42, 33, 95, 11, 28} Index 0 1 2 3 4 5 Element 13 42 33 95 11 28 위의 표와 같이 Index 는 0 부터 시작하고 배열의 사이즈에 맞게 들어가는것을 볼 수 있다.
+배열의 특징 미리 최대 크기를 지정해야 한다.</description>
+    </item>
+    
+    <item>
+      <title>[자료구조] 자료구조(Data Structure)란?</title>
+      <link>https://v8.network/post/data-structure-algoithm/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/data-structure-algoithm/</guid>
+      <description>자료구조 (Data Structure) 자료구조란? 대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조 특정한 상황에 놓인 문제를 해결하는 데에 특화되어있다. 많은 자료구조를 알아두면, 특정 문제를 해결하는 데에 상황에 가장 적합한 자료구조를 빠르게 찾아 데이터를 정리하고 활용하여 해결할 수 있다. 문제해결에 필요한 알고리즘과 밀접한 연관이 있다. 결국은 개발자가 문제해결을 하기 위해 배우는 것이다. 쉽게 말해,
+자료는 도서관의 책들
+구조는 도서관의 책들을 규칙에 따라 정리한 것.
+이러면 조금 이해가 쉬울것같다.
+왜 자료구조를 배워야할까? 데이터는 문자, 숫자, 사진, 소리 등 실생활을 구성하고 있는 모든 값이다.</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,101 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>List on 희택 Playground</title>
-        <link>https://heetaek.com/tags/list/</link>
-        <description>Recent content in List on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/list/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[자료구조] 배열(Array) 과 리스트(List)</title>
-        <link>https://heetaek.com/p/array-list/</link>
-        <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/array-list/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [자료구조] 배열(Array) 과 리스트(List)" /&gt;&lt;h1 id=&#34;array-배열&#34;&gt;Array (배열)&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;데이터가 많아지면 그룹 관리의 필요성이 생긴다. 이럴 때 사용하는 것이 배열이다.&lt;/li&gt;
-&lt;li&gt;하나의 변수에 여러 데이터를 담을 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;파이썬에서는 배열이라는게 없고 리스트가 배열 기능을 제공한다.&lt;/p&gt;
-&lt;p&gt;그래서 C로 예시를 들어보자면&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Array[&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#bd93f9&#34;&gt;13&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;33&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;95&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;11&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;28&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Index&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Element&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;13&lt;/td&gt;
-&lt;td&gt;42&lt;/td&gt;
-&lt;td&gt;33&lt;/td&gt;
-&lt;td&gt;95&lt;/td&gt;
-&lt;td&gt;11&lt;/td&gt;
-&lt;td&gt;28&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;위의 표와 같이 Index 는 0 부터 시작하고 배열의 사이즈에 맞게 들어가는것을 볼 수 있다.&lt;/p&gt;
-&lt;h2 id=&#34;배열의-특징&#34;&gt;배열의 특징&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;미리 최대 크기를 지정해야 한다.&lt;/li&gt;
-&lt;li&gt;엘리먼트의 인덱스는 변하지 않는다. (예를들면 주민번호)&lt;/li&gt;
-&lt;li&gt;인덱스를 활용하여 빠르게 조회가 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;list-리스트&#34;&gt;List (리스트)&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;리스트와 배열은 같은 다중 자료형이지만 다른 속성을 가지고있다.&lt;/li&gt;
-&lt;li&gt;리스트는 배열이 가지고있는 인덱스라는 장점을 버리고 &lt;strong&gt;빈틈없는 데이터의 적재&lt;/strong&gt; 라는 장점을 가진 자료구조이다.&lt;/li&gt;
-&lt;li&gt;데이터 갯수가 확실하게 정해져 있고, 자주 사용된다면 배열이 더 효율적이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;파이썬 리스트 예시&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;array &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;13&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;33&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;95&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;11&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;28&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; li &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; array:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(li) &lt;span style=&#34;color:#6272a4&#34;&gt;# 13, 42, 33, 95, 11, 28&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;평소에 사용하던 리스트가 파이썬에서는 배열이다.
-파이썬의 리스트는 크기가 가변적이고 어떤 타입이던지 저장할 수 있는 장점을 가지고있다.&lt;/p&gt;
-&lt;p&gt;배열 연산자를 통해 일반적인 연산이나 추가 삭제 등이 가능하다.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;b &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;6&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; b) &lt;span style=&#34;color:#6272a4&#34;&gt;# [1, 2, 3, 4, 5, 6]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;pop(&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;)) &lt;span style=&#34;color:#6272a4&#34;&gt;# 1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;append(&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;)) &lt;span style=&#34;color:#6272a4&#34;&gt;# [1, 2, 3, 4]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;다만  C의 array 보다는 메모리를 더 많이 필요로 한다는 단점이 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://opentutorials.org/module/1335/8677&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://opentutorials.org/module/1335/8677&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://opentutorials.org/module/1335/8636&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://opentutorials.org/module/1335/8636&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://studyingych.tistory.com/35&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://studyingych.tistory.com/35&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>List on V8 Network</title>
+    <link>https://v8.network/tags/list/</link>
+    <description>Recent content in List on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/list/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[자료구조] 배열(Array) 과 리스트(List)</title>
+      <link>https://v8.network/post/array-list/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/array-list/</guid>
+      <description>Array (배열) 데이터가 많아지면 그룹 관리의 필요성이 생긴다. 이럴 때 사용하는 것이 배열이다. 하나의 변수에 여러 데이터를 담을 수 있다. 파이썬에서는 배열이라는게 없고 리스트가 배열 기능을 제공한다.
+그래서 C로 예시를 들어보자면
+int Array[5] = {13, 42, 33, 95, 11, 28} Index 0 1 2 3 4 5 Element 13 42 33 95 11 28 위의 표와 같이 Index 는 0 부터 시작하고 배열의 사이즈에 맞게 들어가는것을 볼 수 있다.
+배열의 특징 미리 최대 크기를 지정해야 한다.</description>
+    </item>
+    
+  </channel>
 </rss>

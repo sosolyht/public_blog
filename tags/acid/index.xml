@@ -1,95 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>ACID on 희택 Playground</title>
-        <link>https://heetaek.com/tags/acid/</link>
-        <description>Recent content in ACID on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/acid/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
-        <link>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/</link>
-        <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction-%EC%9D%B4%EB%9E%80/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181749234-419a017c-7eef-4373-ab51-c3464c6e490a.png" alt="Featured image of post [데이터베이스] 트랜잭션(Transaction) 이란?" /&gt;&lt;h1 id=&#34;트랜잭션transaction&#34;&gt;트랜잭션(Transaction)&lt;/h1&gt;
-&lt;p&gt;트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 &lt;code&gt;무결성&lt;/code&gt;을 유지하며,&lt;/p&gt;
-&lt;p&gt;데이터베이스의 상태를 변화시키는 기능을 수행한다.&lt;/p&gt;
-&lt;p&gt;데이터베이스의 상태를 변경시킨다는 것은 &lt;code&gt;SELECT&lt;/code&gt;,&lt;code&gt;UPDATE&lt;/code&gt;, &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt; 와 같은 행동을 뜻한다.&lt;/p&gt;
-&lt;p&gt;트랜잭션은 하나 이상의 query 를 포함해야하고 ACID 라 칭해지는 원자성, 일관성, 고립성, 지속성의 4가지 규칙을 만족해야한다.&lt;/p&gt;
-&lt;h3 id=&#34;왜-필요한가&#34;&gt;왜 필요한가?&lt;/h3&gt;
-&lt;p&gt;데이터베이스에서 트랜잭션이 필요한 이유는 데이터를 다룰 때 장애가 일어나는 경우&lt;/p&gt;
-&lt;p&gt;트랜잭션은 장애 발생 시 데이터를 복구하는 작업의 단위가 되기 때문이다.&lt;/p&gt;
-&lt;p&gt;또한 데이터베이스에서 여러 작업이 동시에 같은 데이터를 다룰 때 트랜잭션을 통해 작업을 분리하고, 이를 통해 오류가 발생하지 않게 한다.&lt;/p&gt;
-&lt;p&gt;은행 어플에서 A가 B에게 100만원을 입금하는 상황으로 예시를 들어보면&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A 의 계좌에서 100만원을 B의 계좌로 입금을 하려했는데 &lt;/br&gt;
-전산오류가 생겨 B의 계좌에는 100만원이 입금 되지 않았다&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;정상적으로 처리가 됐다면 아래의 SQL 문처럼 실행되어야한다.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;START&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;TRANSACTION&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; A 계좌에서 잔액 가져옴 A &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; B 계좌에서 잔액 가져옴 B &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; A 출금 A &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; A &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; B 입금 B &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; B &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;UPDATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;SET&lt;/span&gt; balance &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; balance &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; name&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;UPDATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;SET&lt;/span&gt; balance &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; balance &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; name&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;B&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; A 계좌 잔액 저장 A &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;900&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; B 계좌 잔액 저장 B &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1100&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;COMMIT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이렇게 예상치 못한 오류가 발생하여 데이터의 부정합이 발생하는 경우 다시 원상복구를 해야한다.&lt;/p&gt;
-&lt;p&gt;따라서, 모든 입출금은 하나의 묶음 형태로 작동해야한다.&lt;/p&gt;
-&lt;p&gt;입금과 출금은 분리될 수 없는 하나의 거래로 처리되어야하는 &lt;code&gt;단일 업무&lt;/code&gt; 다.&lt;/p&gt;
-&lt;p&gt;이러한 업무 처리의 최소단위를 데이터베이스에서 트랜잭션이라한다.&lt;/p&gt;
-&lt;h2 id=&#34;트랜잭션의-특징acid&#34;&gt;트랜잭션의 특징(ACID)&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/175536829-07dde6aa-fd37-4440-bcab-ea56000ce103.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;ACID&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;트랜잭션은 데이터베이스의 무결성을 유지하기 위해 원자성, 일관성, 고립성, 지속성 총 4가지의 특징을 가지고있다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;원자성(Atomicity) : 트랜잭션에 포함된 작업은 전부 수행되거나 아니면 전부 수행되지 말아야 한다 (all or nothing)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;일관성(Consistency) : 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. ex) 송금 전 후 모두 잔액의 데이터 타입은 int 여야한다는 것이 일관성의 한 예시가 될 수 있다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;고립성(Isolation) : 여러 트랜잭션은 동시에 수행한다. 따라서 동시에 수행되는 트랜잭션이 동일한 데이터를 가지고 충돌하지 않도록 제어해줘야한다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;지속성(Durability) : 성공적으로 수행된 트랜잭션은 데이터베이스에 영원히 반영되어야 한다. 트랜잭션이 완료되어 저장이 된 데이터베이스는 저장 후에 생기는 정전, 장애, 오류 등에 영향을 받지 않아야 한다.
-보통 commit 이 된다면 지속성은 만족 할 수 있다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;트랜잭션의-commit-과-rollback&#34;&gt;트랜잭션의 Commit 과 Rollback&lt;/h2&gt;
-&lt;h4 id=&#34;commit&#34;&gt;Commit&lt;/h4&gt;
-&lt;p&gt;하나의 트랜잭션이 성공적으로 끝나서 데이터베이스가 일관성있는 상태에 있음을 의미한다.&lt;/p&gt;
-&lt;h4 id=&#34;rollback&#34;&gt;Rollback&lt;/h4&gt;
-&lt;p&gt;트랜잭션의 원자성이 깨질 때, 즉 하나의 트랜잭션 처리가 비정상적으로 종료 되었을 때의 상태를 뜻한다.&lt;/p&gt;
-&lt;p&gt;Rollback 이 이뤄진다면 트랜잭션을 다시 실행하거나 부분적으로 변경된 결과를 취소할 수 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://devjem.tistory.com/27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://devjem.tistory.com/27&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://wonit.tistory.com/462#google_vignette&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://wonit.tistory.com/462#google_vignette&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.javatpoint.com/mysql-transaction&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.javatpoint.com/mysql-transaction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ACID on V8 Network</title>
+    <link>https://v8.network/tags/acid/</link>
+    <description>Recent content in ACID on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/acid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[데이터베이스] 트랜잭션(Transaction) 이란?</title>
+      <link>https://v8.network/post/dbtransaction/</link>
+      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/dbtransaction/</guid>
+      <description>트랜잭션(Transaction) 트랜잭션은 데이터베이스 내에서 수행되는 작업의 최소 단위로, 데이터베이스의 무결성을 유지하며,
+데이터베이스의 상태를 변화시키는 기능을 수행한다.
+데이터베이스의 상태를 변경시킨다는 것은 SELECT,UPDATE, INSERT, DELETE 와 같은 행동을 뜻한다.
+트랜잭션은 하나 이상의 query 를 포함해야하고 ACID 라 칭해지는 원자성, 일관성, 고립성, 지속성의 4가지 규칙을 만족해야한다.
+왜 필요한가? 데이터베이스에서 트랜잭션이 필요한 이유는 데이터를 다룰 때 장애가 일어나는 경우
+트랜잭션은 장애 발생 시 데이터를 복구하는 작업의 단위가 되기 때문이다.
+또한 데이터베이스에서 여러 작업이 동시에 같은 데이터를 다룰 때 트랜잭션을 통해 작업을 분리하고, 이를 통해 오류가 발생하지 않게 한다.</description>
+    </item>
+    
+  </channel>
 </rss>

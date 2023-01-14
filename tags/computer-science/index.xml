@@ -1,360 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Computer Science on 희택 Playground</title>
-        <link>https://heetaek.com/tags/computer-science/</link>
-        <description>Recent content in Computer Science on 희택 Playground</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ko-kr</language>
-        <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://heetaek.com/tags/computer-science/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[알고리즘] 시간 복잡도</title>
-        <link>https://heetaek.com/p/algorithm-complexity/</link>
-        <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/algorithm-complexity/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [알고리즘] 시간 복잡도" /&gt;&lt;h1 id=&#34;알고리즘-복잡도&#34;&gt;알고리즘 복잡도&lt;/h1&gt;
-&lt;p&gt;알고리즘 복잡도에는&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;시간 복잡도 (알고리즘 실행 속도)&lt;/li&gt;
-&lt;li&gt;공간 복잡도 (알고리즘이 사용하는 메모리 사이즈)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이 두 가지가 있다.&lt;/p&gt;
-&lt;p&gt;이 중에서 가장 중요한 시간 복잡도를 꼭 이해해야한다.&lt;/p&gt;
-&lt;h2 id=&#34;시간복잡도&#34;&gt;시간복잡도&lt;/h2&gt;
-&lt;p&gt;코딩을 하다보면 &amp;lsquo;이것보다 더 좋은방법은 없을까?&amp;rsquo; 아니면 &amp;lsquo;이게 최선인가?&amp;rsquo; 라고 고민을 많이 하게된다.&lt;/p&gt;
-&lt;p&gt;이러한 고민을 하는게 &lt;strong&gt;시간복잡도&lt;/strong&gt;를 고민한다는 것과 같은 말인것같다.&lt;/p&gt;
-&lt;p&gt;시간복잡도에서 가장 영향을 많이 미치는건 반복문이다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;자동차로 출근하기까지의 과정을 예시로 들어보면&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;자동차 문 열기&lt;/li&gt;
-&lt;li&gt;시동걸기&lt;/li&gt;
-&lt;li&gt;회사까지 이동&lt;/li&gt;
-&lt;li&gt;주차&lt;/li&gt;
-&lt;li&gt;시동끄기&lt;/li&gt;
-&lt;li&gt;자동차 문 잠그기&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;가장 많은 시간을 소요하는건 사람마다 다르겠지만 보통 &lt;code&gt;3. 회사까지 이동&lt;/code&gt; 일것이다.&lt;/p&gt;
-&lt;p&gt;3번과 같이 input 이 커지면 반복문이 알고리즘 수행 시간을 지배하게된다.&lt;/p&gt;
-&lt;p&gt;저런 알고리즘을 프로그램화시켜서 만들게 된다면 하드웨어나 운영체제의 영향을 받아 어떤 사람은 결과가 빠르게 나올것이고 어떤 사람은 느리게 나오는 결과가 나온다.&lt;/p&gt;
-&lt;p&gt;그래서 알고리즘의 실행 시간을 알 수 있는방법이&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;빅오(Big-O)&lt;/strong&gt; 표기법이다.&lt;/p&gt;
-&lt;h2 id=&#34;big-o-표기법&#34;&gt;Big-O 표기법&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Big-O(빅-오) ⇒ 점근적 상한&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;알고리즘 최악의 실행시간을 표시&lt;/li&gt;
-&lt;li&gt;가장 많이, 일반적으로 사용함&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Big-Ω(빅-오메가) ⇒ 점근적 하한&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Big-θ(빅-세타) ⇒ 그 둘의 평균&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;시간복잡도는 반복문이 핵심이므로 계산 표기 중 &lt;code&gt;최상&lt;/code&gt;, &lt;code&gt;평균&lt;/code&gt;, &lt;code&gt;최악&lt;/code&gt; 중
-최악의 시간인 Big-O 를 중점적으로 생각하면 될 것같다.&lt;/li&gt;
-&lt;li&gt;Big-O 는 &lt;code&gt;이 정도의 시간이 걸린다&lt;/code&gt; 보단 &lt;code&gt;이 정도 시간까지 걸릴 수 있다&lt;/code&gt; 를 고려해야한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;최선의-경우를-고려했을시&#34;&gt;최선의 경우를 고려했을시&lt;/h3&gt;
-&lt;p&gt;예를 들어 최선의 경우는 1초, 평균적으로 1분 , 최악일 경우 1시간이 걸리는 알고리즘을 구현했고, 최선의 경우를 생각해 알고리즘을 100번 실행했다면 100초가 걸려야 정상인데, 1시간이 걸린다면 어디에서 문제가 발생했는지 로직의 많은 부분을 파악해야하므로 문제를 해결하는데 많은 시간이 소요된다.&lt;/p&gt;
-&lt;h3 id=&#34;평균의-경우를-고려했을시&#34;&gt;평균의 경우를 고려했을시&lt;/h3&gt;
-&lt;p&gt;평균의 경우는 1분이 걸리는 알고리즘이므로 100번 실행했을시 100분의 시간이 소요될거라 생각했는데,
-최악의 경우가 발생하여 더 오래걸린다면 최선의 경우와 같은 고민을 하고 문제 해결에 시간이 소요된다.&lt;/p&gt;
-&lt;h3 id=&#34;최악의-경우를-고려했을시&#34;&gt;최악의 경우를 고려했을시&lt;/h3&gt;
-&lt;p&gt;위의 &lt;code&gt;최선&lt;/code&gt; 과 &lt;code&gt;평균&lt;/code&gt; 의 예시를 보다시피 &lt;code&gt;최악&lt;/code&gt; 의 경우가 발생하지 않기를 바라면서 코딩을 하는것보다
-&lt;strong&gt;최악의 경우를 대비&lt;/strong&gt; 하며 코딩하는것이 맞다고 생각한다.
-쉽게 말해 Big-O 는 &lt;strong&gt;최악의 경우에도 이 정도의 퍼포먼스는 보장&lt;/strong&gt;한다라는 것이다.&lt;/p&gt;
-&lt;h2 id=&#34;big-o-표기법-종류&#34;&gt;Big-O 표기법 종류&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;O(1)&lt;/li&gt;
-&lt;li&gt;O(log n)&lt;/li&gt;
-&lt;li&gt;O(n)&lt;/li&gt;
-&lt;li&gt;O(n2)&lt;/li&gt;
-&lt;li&gt;O(2n)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167562741-8cce73c6-78e8-4872-ab9f-9a4aed581f0a.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;빅오표기법&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;o1&#34;&gt;O(1)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167563841-a90782fb-c76b-41f6-9a74-7ddc19daf249.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;O(1)&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;O(1) 은 입력 값이 증가하더라도 시간이 늘어나지 않는다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ex)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test&lt;/span&gt;(n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;int&lt;/span&gt;(n &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; (n &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;test(&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;결과&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;6&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;입력 n이 어떻든 간에 반복문이 없기때문에 시간복잡도는 &lt;code&gt;1&lt;/code&gt; 이다.&lt;/p&gt;
-&lt;p&gt;빅오 표기법으로는 O(1) 입니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;olog-n&#34;&gt;O(log n)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167571650-f4e9c109-6f3b-433d-ad6c-706b4ed691dc.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;O(log n)&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Big-O표기법중 O(1) 다음으로 빠른 시간 복잡도를 가집니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;n 개의 크기 순으로 정렬된 배열에서 특정 값을 찾기 위해 이진 탐색&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;이해하기 쉬운 게임으로 비유해 보자면 업다운을 예로 들 수 있습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;1~100 중 하나의 숫자를 플레이어1이 고른다 (30을 골랐다고 가정)&lt;/li&gt;
-&lt;li&gt;50(가운데) 숫자를 제시하면 50보다 작으므로 down을 외친다&lt;/li&gt;
-&lt;li&gt;1~50중의 하나의 숫자이므로 또다시 경우의 수를 절반으로 줄이기 위해 25를 제시한다&lt;/li&gt;
-&lt;li&gt;25보다 크므로 up을 외친다&lt;/li&gt;
-&lt;li&gt;경우의 수를 계속 절반으로 줄여나가며 정답을 찾는다&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;on&#34;&gt;O(n)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167566439-60c0d8ba-0d95-4936-b8bf-32cf7d2d942b.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;O(n)&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;O(n) 은 입력 값이 증가함에 따라 시간도 같이 증가하는 것을 의미합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test&lt;/span&gt;(n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    total &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; num &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;, n &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        total &lt;span style=&#34;color:#ff79c6&#34;&gt;+=&lt;/span&gt; num
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; total
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;test(&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;결과&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;6&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;입력 n 에 따라 n 번을 반복문을 사용해 더해야합니다.&lt;/p&gt;
-&lt;p&gt;따라서, 시간복잡도는 &lt;code&gt;1&lt;/code&gt; 빅오 표기법은 O(n) 입니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;on2&#34;&gt;O(n2)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167600859-19c920de-78ab-473d-bdff-d23264e89275.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;O(n2)&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;입력 값이 증가함에 따라 시간이 n의 제곱수의 비율로 증가하는 것을 의미합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test&lt;/span&gt;(li):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; li:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; m &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; li:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; n,m
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;반복문이 두 번 있으면 O(n2)&lt;/p&gt;
-&lt;p&gt;반복문이 세 번 있으면 O(n3)&lt;/p&gt;
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-&lt;p&gt;반복문 백 번 있으면 O(n100) 이지만, n 이 커질수록 지수가 주는 영향력이 없어지기 때문에,&lt;/p&gt;
-&lt;p&gt;그냥 n2 라고 표기합니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;o2n&#34;&gt;O(2n)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167605731-f6d50fc3-4dc9-47ac-a829-4d1d57fba8b1.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;O(2n)&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Big-O 표기법 중 가장 느린 시간 복잡도를 가지고있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test&lt;/span&gt;(n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;elif&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; fib(n &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; fib(n &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;재귀 함수를 통해 구현한 피보나치 수열은 O(2n) 의 시간 복잡도를 가지고있습니다.&lt;/p&gt;
-&lt;p&gt;위의 사진을 보면 차트가 가파르게 올라가는데 n 의 값이 커지면 시간 복잡도도 같이 증가하기 때문입니다.&lt;/p&gt;
-&lt;p&gt;간단한 예시를 들면, 종이를 42번 접으면 두께가 지구에서 달까지 갈 만큼 커진다는 이야기가 있는데 그만한 두께를 가질 수 있는 이유는 매번 접을 때마다 2배로 늘어나기 때문입니다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reference&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://psychoria.tistory.com/770&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://psychoria.tistory.com/770&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.chulgil.me/algorithm/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://blog.chulgil.me/algorithm/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://data-marketing-bk.tistory.com/27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://data-marketing-bk.tistory.com/27&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>[자료구조] 자료구조(Data Structure)란?</title>
-        <link>https://heetaek.com/p/data-structure-algoithm/</link>
-        <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/data-structure-algoithm/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181748733-7a45d5ed-1ed3-454f-808f-19f470c19353.png" alt="Featured image of post [자료구조] 자료구조(Data Structure)란?" /&gt;&lt;h1 id=&#34;자료구조-data-structure&#34;&gt;자료구조 (Data Structure)&lt;/h1&gt;
-&lt;h2 id=&#34;자료구조란&#34;&gt;자료구조란?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조&lt;/li&gt;
-&lt;li&gt;특정한 상황에 놓인 문제를 해결하는 데에 특화되어있다.&lt;/li&gt;
-&lt;li&gt;많은 자료구조를 알아두면, 특정 문제를 해결하는 데에 상황에 가장 적합한 자료구조를 빠르게 찾아 데이터를 정리하고 활용하여 해결할 수 있다.&lt;/li&gt;
-&lt;li&gt;문제해결에 필요한 알고리즘과 밀접한 연관이 있다.&lt;/li&gt;
-&lt;li&gt;결국은 개발자가 문제해결을 하기 위해 배우는 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;쉽게 말해,&lt;/p&gt;
-&lt;p&gt;자료는 도서관의 책들&lt;/p&gt;
-&lt;p&gt;구조는 도서관의 책들을 규칙에 따라 정리한 것.&lt;/p&gt;
-&lt;p&gt;이러면 조금 이해가 쉬울것같다.&lt;/p&gt;
-&lt;h2 id=&#34;왜-자료구조를-배워야할까&#34;&gt;왜 자료구조를 배워야할까?&lt;/h2&gt;
-&lt;p&gt;데이터는 문자, 숫자, 사진, 소리 등 실생활을 구성하고 있는 모든 값이다.
-이 데이터을 이용해 컴퓨터 메모리를 어떻게 효율적으로 사용하며, 실행속도를 빠르고 정확하게 처리를 할 수 있을까에 대해 궁극적인 목표를 두고있다.&lt;/p&gt;
-&lt;h2 id=&#34;데이터-관리-예시&#34;&gt;데이터 관리 예시&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;우편번호 예시&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;우편번호의 5자리중 앞 3자리는 시,군, 자치구를 표기, 뒤 2자리는 일련번호로 구성&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;군대에서의 예시&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;군대에서의 XX사단, XX연대, XX연대, XX대대 ~ X소대 XXX 병사&lt;/li&gt;
-&lt;li&gt;만약 위 처럼 관리가 되지않는다면 군대에있는 모든 병사를 훑어야 할 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;자료구조-분류&#34;&gt;자료구조 분류&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/167242332-27fb3394-51d7-41d5-a2a5-ebadfdf7f2fa.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;자료구조&#34;
-	
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>[CS] 컴퓨팅 사고</title>
-        <link>https://heetaek.com/p/cs50-computational-thinking/</link>
-        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://heetaek.com/p/cs50-computational-thinking/</guid>
-        <description>&lt;img src="https://user-images.githubusercontent.com/2377807/181749747-9f7c5bbb-4690-44ac-8e96-15e052779094.png" alt="Featured image of post [CS] 컴퓨팅 사고" /&gt;&lt;h2 id=&#34;컴퓨터-사이언스가-왜-필요했는지&#34;&gt;컴퓨터 사이언스가 왜 필요했는지?&lt;/h2&gt;
-&lt;p&gt;네이버 부스트코스에서 진행하는 &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://www.boostcourse.org/cs112/joinLectures/41307&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;CS50&lt;/a&gt;&amp;rsquo; 이라는 강의를 수강했다.&lt;/p&gt;
-&lt;p&gt;비전공자인 나에게는 컴퓨터 사이언스에 관한 지식이 필요했다.&lt;/p&gt;
-&lt;h2 id=&#34;2진법-binary&#34;&gt;2진법 (binary)&lt;/h2&gt;
-&lt;p&gt;우리가 일상에서 0,1,2,3,4,5,6,7,8,9 라고 표현하는것을 10진법&lt;/p&gt;
-&lt;p&gt;컴퓨터는 오직 0, 1 단 두개만을 사용해 데이터를 표현을 한다.
-이것을 우리는 2진법이라 부른다.&lt;/p&gt;
-&lt;p&gt;예들들어, 우리가 알고있는 10진법의 숫자 &lt;code&gt;13&lt;/code&gt; 을 2진법으로 바꾸게된다면&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/162679377-9e44e9e0-d274-4e71-8b79-1d7f29214826.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;2진법&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;결과는 &lt;code&gt;1101&lt;/code&gt; 이다.&lt;/p&gt;
-&lt;p&gt;(\(2^3=8\)) = 1&lt;/p&gt;
-&lt;p&gt;(\(2^2=4\)) = 1&lt;/p&gt;
-&lt;p&gt;(\(2^1=2\)) = 0&lt;/p&gt;
-&lt;p&gt;(\(2^0=1\)) = 1&lt;/p&gt;
-&lt;p&gt;1 이라고 표시한건 &lt;code&gt;True&lt;/code&gt; 라고 생각하면된다.&lt;/p&gt;
-&lt;p&gt;고로 \(8 + 4 + 1 = 13\) 이 된다.&lt;/p&gt;
-&lt;p&gt;여기서 궁금점이 컴퓨터는 엄청난 발전을 이뤄왔는데 지금까지도 2진법을 이용할까?&lt;/p&gt;
-&lt;p&gt;2진수를 이용한 컴퓨터가 정확성이 높고, 효율적이기 때문이다.&lt;/p&gt;
-&lt;p&gt;3이상의 n 진수를 사용할 경우 전기적 신호는 n가지의 경우로 구분 된다.&lt;/p&gt;
-&lt;p&gt;그렇게 되면, 오류 발생량과 소요 시간 및 비용은 증가하게된다.&lt;/p&gt;
-&lt;p&gt;따라서, 2진수를 기반으로 컴퓨터를 운영할때 오류를 최소화하고 효율적인 시스템 구축이 가능하다.&lt;/p&gt;
-&lt;h2 id=&#34;트랜지스터&#34;&gt;트랜지스터&lt;/h2&gt;
-&lt;p&gt;우리가 현재 쓰고있는 컴퓨터의 CPU 는 트랜지스터로 이루어진 반도체로 만들어졌다.
-&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/162677909-0e184a2a-60f2-4298-abd1-f7623cf5a072.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;트랜지스터&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;이 트랜지스터는 0과 1이라는 전기신호로 작동을 한다.&lt;/p&gt;
-&lt;p&gt;전압이 높으면 &lt;code&gt;1&lt;/code&gt;, 전압이 낮으면 &lt;code&gt;0&lt;/code&gt; 이런식으로 열고 닫히고
-우리가 흔히아는 &lt;code&gt;Yes&lt;/code&gt; or &lt;code&gt;No&lt;/code&gt; 혹은 &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt; 이다.&lt;/p&gt;
-&lt;p&gt;물론 &lt;code&gt;AND&lt;/code&gt; 나 &lt;code&gt;OR&lt;/code&gt; 같은 논리는 CPU 에 &lt;code&gt;ALU&lt;/code&gt; 라는 산술논리장치가 있기에 가능하다.&lt;/p&gt;
-&lt;h2 id=&#34;아스키코드-ascii&#34;&gt;아스키코드 (ASCII)&lt;/h2&gt;
-&lt;p&gt;트랜지스터가 on/off 되면서 숫자를 표현했는데,&lt;/p&gt;
-&lt;p&gt;그 숫자를 이용해 아스키코드를 통해 문자도 표현이 가능합니다.&lt;/p&gt;
-&lt;p&gt;10진수를 통해 표현이 되는데
-예시로 A는 &lt;code&gt;65&lt;/code&gt; , B는 &lt;code&gt;66&lt;/code&gt; 로 되어있습니다.&lt;/p&gt;
-&lt;p&gt;&amp;lt;참고&amp;gt;
-&lt;img src=&#34;https://user-images.githubusercontent.com/2377807/162682569-20b36776-0ddd-4a29-b34e-43c77af4f253.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;ascii&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;이 ASCII 코드로 내 이름인 &lt;code&gt;HEETAEK&lt;/code&gt;을 표현해보자면&lt;/p&gt;
-&lt;p&gt;\(H = 72 = 1001000\)&lt;/p&gt;
-&lt;p&gt;\(E = 69 = 1000101\)&lt;/p&gt;
-&lt;p&gt;\(E = 69 = 1000101\)&lt;/p&gt;
-&lt;p&gt;\(T = 84 = 1010100\)&lt;/p&gt;
-&lt;p&gt;\(A = 65 = 1000001\)&lt;/p&gt;
-&lt;p&gt;\(E = 69 = 1000101\)&lt;/p&gt;
-&lt;p&gt;\(K = 75 = 1001011\)&lt;/p&gt;
-&lt;p&gt;위와 같이 표현된다.&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Computer Science on V8 Network</title>
+    <link>https://v8.network/tags/computer-science/</link>
+    <description>Recent content in Computer Science on V8 Network</description>
+    <image>
+      <url>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://v8.network/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://v8.network/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[알고리즘] 시간 복잡도</title>
+      <link>https://v8.network/post/algorithm-complexity/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/algorithm-complexity/</guid>
+      <description>알고리즘 복잡도 알고리즘 복잡도에는
+시간 복잡도 (알고리즘 실행 속도) 공간 복잡도 (알고리즘이 사용하는 메모리 사이즈) 이 두 가지가 있다.
+이 중에서 가장 중요한 시간 복잡도를 꼭 이해해야한다.
+시간복잡도 코딩을 하다보면 &amp;lsquo;이것보다 더 좋은방법은 없을까?&amp;rsquo; 아니면 &amp;lsquo;이게 최선인가?&amp;rsquo; 라고 고민을 많이 하게된다.
+이러한 고민을 하는게 시간복잡도를 고민한다는 것과 같은 말인것같다.
+시간복잡도에서 가장 영향을 많이 미치는건 반복문이다.
+자동차로 출근하기까지의 과정을 예시로 들어보면
+자동차 문 열기 시동걸기 회사까지 이동 주차 시동끄기 자동차 문 잠그기 가장 많은 시간을 소요하는건 사람마다 다르겠지만 보통 3.</description>
+    </item>
+    
+    <item>
+      <title>[자료구조] 자료구조(Data Structure)란?</title>
+      <link>https://v8.network/post/data-structure-algoithm/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/data-structure-algoithm/</guid>
+      <description>자료구조 (Data Structure) 자료구조란? 대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조 특정한 상황에 놓인 문제를 해결하는 데에 특화되어있다. 많은 자료구조를 알아두면, 특정 문제를 해결하는 데에 상황에 가장 적합한 자료구조를 빠르게 찾아 데이터를 정리하고 활용하여 해결할 수 있다. 문제해결에 필요한 알고리즘과 밀접한 연관이 있다. 결국은 개발자가 문제해결을 하기 위해 배우는 것이다. 쉽게 말해,
+자료는 도서관의 책들
+구조는 도서관의 책들을 규칙에 따라 정리한 것.
+이러면 조금 이해가 쉬울것같다.
+왜 자료구조를 배워야할까? 데이터는 문자, 숫자, 사진, 소리 등 실생활을 구성하고 있는 모든 값이다.</description>
+    </item>
+    
+    <item>
+      <title>[CS] 컴퓨팅 사고</title>
+      <link>https://v8.network/post/cs50-computational-thinking/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://v8.network/post/cs50-computational-thinking/</guid>
+      <description>컴퓨터 사이언스가 왜 필요했는지? 네이버 부스트코스에서 진행하는 &amp;lsquo;CS50&amp;rsquo; 이라는 강의를 수강했다.
+비전공자인 나에게는 컴퓨터 사이언스에 관한 지식이 필요했다.
+2진법 (binary) 우리가 일상에서 0,1,2,3,4,5,6,7,8,9 라고 표현하는것을 10진법
+컴퓨터는 오직 0, 1 단 두개만을 사용해 데이터를 표현을 한다. 이것을 우리는 2진법이라 부른다.
+예들들어, 우리가 알고있는 10진법의 숫자 13 을 2진법으로 바꾸게된다면
+결과는 1101 이다.
+(\(2^3=8\)) = 1
+(\(2^2=4\)) = 1
+(\(2^1=2\)) = 0
+(\(2^0=1\)) = 1
+1 이라고 표시한건 True 라고 생각하면된다.</description>
+    </item>
+    
+  </channel>
 </rss>
